@@ -66,3 +66,11 @@ ul {
 .card {
     border-bottom: 4px solid #00695c !important
 }
+
+.btn-size {
+    width: 200px
+}
+
+.signup {
+    width: 500px
+}
