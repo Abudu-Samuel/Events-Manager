@@ -119,3 +119,17 @@ ul {
 .try {
     margin: 0 auto
 }
+
+.adm {
+    background-color: #00695c;
+    width: 100%
+}
+
+.spaces {
+    margin-top: 60px
+}
+
+.btn-sizes {
+    width: 200px;
+    margin-right: 120px
+}
