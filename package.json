@@ -1,29 +1,31 @@
 {
-  "name": "events-manager",
-  "version": "1.0.0",
-  "description": "Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center.",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Abudu-Samuel/Events-Manager.git"
-  },
-  "author": "Samuel Abudu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Abudu-Samuel/Events-Manager/issues"
-  },
-  "homepage": "https://github.com/Abudu-Samuel/Events-Manager#readme",
-  "devDependencies": {
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "morgan": "^1.9.0"
-  }
+    "name": "events-manager",
+    "version": "1.0.0",
+    "description": "Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center.",
+    "main": "app.js",
+    "scripts": {
+        "start:dev": "nodemon ./bin/www",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Abudu-Samuel/Events-Manager.git"
+    },
+    "author": "Samuel Abudu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Abudu-Samuel/Events-Manager/issues"
+    },
+    "homepage": "https://github.com/Abudu-Samuel/Events-Manager#readme",
+    "devDependencies": {
+        "eslint": "^4.11.0",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.8.0",
+        "nodemon": "^1.12.1"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.2",
+        "morgan": "^1.9.0"
+    }
 }
