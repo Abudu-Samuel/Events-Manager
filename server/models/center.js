@@ -20,6 +20,16 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: 'Capacity field required'
+        }
+      }
+    },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,

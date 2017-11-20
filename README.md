@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Abudu-Samuel/Events-Manager.svg?branch=develop)](https://travis-ci.org/Abudu-Samuel/Events-Manager)
+
 [![Coverage Status](https://coveralls.io/repos/github/Abudu-Samuel/Events-Manager/badge.svg)](https://coveralls.io/github/Abudu-Samuel/Events-Manager)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b3764dff0e8fc2e3fcfd/maintainability)](https://codeclimate.com/github/Abudu-Samuel/Events-Manager/maintainability)
