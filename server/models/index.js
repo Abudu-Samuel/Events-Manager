@@ -36,15 +36,4 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-// // Models/tables
-// db.user = require('./user')(sequelize, Sequelize);
-// db.event = require('./event')(sequelize, Sequelize);
-// db.center = require('./center')(sequelize, Sequelize);
-
-// // Associations
-// db.user.hasMany(db.Event, { foreignKey: 'userId' });
-// db.event.belongsTo(db.User, { foreignKey: 'userId' });
-// db.event.belongsTo(db.Center, { foreignKey: 'centerId' });
-// db.center.hasMany(db.Event, { foreignKey: 'centerId' });
-
 module.exports = db;
