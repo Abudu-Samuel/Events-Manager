@@ -58,12 +58,6 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: {
-          args: [3, 20],
-          msg: 'Password should contain 6 to 20 characters'
-        }
-      }
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
