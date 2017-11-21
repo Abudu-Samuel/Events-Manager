@@ -63,6 +63,52 @@ const validation = {
       });
     }
     next();
+  },
+
+  /**
+   * @returns {object} addEvent
+   * @param {object} req
+   * @param {object} res
+   * @param {object} next
+   */
+  addEvent(req, res, next) {
+    const {
+      title, date, time, type, image, description, userId
+    } = req.body;
+    if (!title && !date && !time && !type && !image && !description) {
+      return res.status(400).json({
+        message: 'All Fields are required'
+      });
+    } else if (!title) {
+      return res.status(400).json({
+        message: 'Title Field required'
+      });
+    } else if (!date) {
+      return res.status(400).json({
+        message: 'Date Field required'
+      });
+    } else if (!time) {
+      return res.status(400).json({
+        message: 'Time Field required'
+      });
+    } else if (!type) {
+      return res.status(400).json({
+        message: 'Type Field required'
+      });
+    } else if (!image) {
+      return res.status(400).json({
+        message: 'Image Field required'
+      });
+    } else if (!description) {
+      return res.status(400).json({
+        message: 'Description Field required'
+      });
+    } else if (!userId) {
+      return res.status(400).json({
+        message: 'UserId Field required'
+      });
+    }
+    next();
   }
 };
 

@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import user from './routes/user';
+import event from './routes/event';
 
 // Set up express app
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/v1/users', user);
+app.use('/api/v1/events', event);
 
 app.get('/', (req, res) => res.status(200).json({
   message: 'Welcome to Events Manager API'
