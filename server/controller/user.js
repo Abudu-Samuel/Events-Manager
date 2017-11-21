@@ -10,9 +10,9 @@ const users = db.user;
 class User {
   /**
    * @static
-   * @param {*} req
-   * @param {*} res
-   * @returns {*} signup
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} signup
    * @memberOf User
    */
   static signup(req, res) {
@@ -67,6 +67,42 @@ class User {
       }))
       .catch(error => res.status(400).json({
         message: error.errors[0].message
+      }));
+  }
+
+  /**
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns{object} signin
+   * @memberOf User
+   */
+  static signin(req, res) {
+    const { username, password } = req.body;
+    return users
+      .findOne({
+        where: {
+          username
+        }
+      })
+      .then((found) => {
+        if (!found) {
+          return res.status(400).json({
+            message: 'Incorrect signin credentials'
+          });
+        }
+        const hashedPassword = bcrypt.compareSync(password, found.password);
+        if (hashedPassword) {
+          return res.status(200).json({
+            message: 'Sign in Successful!'
+          });
+        }
+        return res.status(400).json({
+          message: 'invalid username or password'
+        });
+      })
+      .catch(() => res.status(500).json({
+        message: 'Sorry, some error occured!'
       }));
   }
 }

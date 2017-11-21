@@ -33,6 +33,34 @@ const validation = {
       return res.status(400).json({
         message: 'Please Enter Username'
       });
+    } else if (password.length < 6) {
+      return res.status(400).json({
+        message: 'Password should be 6 characters long'
+      });
+    }
+    next();
+  },
+
+  /**
+   * @returns {object} usersignin
+   * @param {object} req
+   * @param {object} res
+   * @param {object} next
+   */
+  userSignin(req, res, next) {
+    const { username, password } = req.body;
+    if (!username && !password) {
+      return res.status(400).json({
+        message: 'All fields are required'
+      });
+    } else if (!username) {
+      return res.status(400).json({
+        message: 'Enter Username'
+      });
+    } else if (!password) {
+      return res.status(400).json({
+        message: 'Enter password'
+      });
     }
     next();
   }
