@@ -9,65 +9,33 @@ module.exports = {
     name: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Name field required'
-        }
-      }
+    },
+    location: {
+      type: Sequelize.STRING,
+      allowNull: false,
     },
     capacity: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Capacity field required'
-        }
-      }
     },
     price: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Price field required'
-        }
-      }
     },
     state: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'State field required'
-        }
-      }
-    },
-    address: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Address field required'
-        }
-      }
     },
     description: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Description field required'
-        }
-      }
     },
     image: {
       type: Sequelize.STRING,
+      allowNull: false
+    },
+    isAvailable: {
+      type: Sequelize.BOOLEAN,
       allowNull: false
     },
     createdAt: {

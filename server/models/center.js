@@ -6,7 +6,15 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Name field required'
+          msg: 'Name Field Required!'
+        },
+        is: {
+          args: /^[a-zA-Z0-9-,]+(\s{0,1}[a-zA-Z0-9-, ])*$/,
+          msg: 'Name can contain only alphabets'
+        },
+        len: {
+          args: [3, 40],
+          msg: 'Name should be longer than 3 words and less than 40 words'
         }
       }
     },
@@ -16,7 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Capacity field required'
+          msg: 'Capacity Field Required!'
+        },
+        isInt: {
+          args: true,
+          msg: 'Capacity Should contain only Numbers'
         }
       }
     },
@@ -26,7 +38,15 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Capacity field required'
+          msg: 'Location Field Required!'
+        },
+        is: {
+          args: /^[a-zA-Z0-9-,]+(\s{0,1}[a-zA-Z0-9-, ])*$/,
+          msg: 'Location can contain only alphabets'
+        },
+        len: {
+          args: [3, 40],
+          msg: 'Location should be longer than 3 words and less than 40 words'
         }
       }
     },
@@ -36,7 +56,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Price field required'
+          msg: 'Price Field Required!'
+        },
+        isInt: {
+          args: true,
+          msg: 'Price Should contain only Numbers'
         }
       }
     },
@@ -46,17 +70,15 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'State field required'
-        }
-      }
-    },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Address field required'
+          msg: 'State Field Required!'
+        },
+        is: {
+          args: /^[a-zA-Z0-9-,]+(\s{0,1}[a-zA-Z0-9-, ])*$/,
+          msg: 'State can contain only alphabets'
+        },
+        len: {
+          args: [3, 40],
+          msg: 'State should be longer than 3 words and less than 40 words'
         }
       }
     },
@@ -66,20 +88,44 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Description field required'
+          msg: 'Description Field Required!'
+        },
+        is: {
+          args: /^[a-zA-Z0-9-,]+(\s{0,1}[a-zA-Z0-9-, ])*$/,
+          msg: 'Description can contain only alphabets'
+        },
+        len: {
+          args: [3, 40],
+          msg: 'Description should be longer than 3 words and less than 40 words'
         }
       }
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: 'Image Field Required!'
+        }
+      }
+    },
+    isAvailable: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: 'Availability Field Required!'
+        }
+      }
     }
   });
-  center.associate = (models) => {
-    center.hasMany(models.event, {
-      foreignKey: 'centerId',
-      as: 'events'
-    });
-  };
+  // center.associate = (models) => {
+  //   center.hasMany(models.event, {
+  //     foreignKey: 'centerId',
+  //     as: 'events'
+  //   });
+  // };
   return center;
 };

@@ -1,4 +1,6 @@
 const validation = {
+
+
   /**
    * @param {object} req
    * @param {object} res
@@ -71,43 +73,106 @@ const validation = {
    * @param {object} res
    * @param {object} next
    */
-  addEvent(req, res, next) {
+  // addEvent(req, res, next) {
+  //   const {
+  //     title, date, time, type, image, description, userId
+  //   } = req.body;
+  //   if (!title && !date && !time && !type && !image && !description) {
+  //     return res.status(400).json({
+  //       message: 'All Fields are required'
+  //     });
+  //   } else if (!title) {
+  //     return res.status(400).json({
+  //       message: 'Title Field required'
+  //     });
+  //   } else if (!date) {
+  //     return res.status(400).json({
+  //       message: 'Date Field required'
+  //     });
+  //   } else if (!time) {
+  //     return res.status(400).json({
+  //       message: 'Time Field required'
+  //     });
+  //   } else if (!type) {
+  //     return res.status(400).json({
+  //       message: 'Type Field required'
+  //     });
+  //   } else if (!image) {
+  //     return res.status(400).json({
+  //       message: 'Image Field required'
+  //     });
+  //   } else if (!description) {
+  //     return res.status(400).json({
+  //       message: 'Description Field required'
+  //     });
+  //   } else if (!userId) {
+  //     return res.status(400).json({
+  //       message: 'UserId Field required'
+  //     });
+  //   }
+  //   next();
+  // },
+
+  /**
+   * @param {object} req
+   * @param {object} res
+   * @param {object} next
+   * @returns {object} addCenter
+   */
+  addCenter(req, res, next) {
     const {
-      title, date, time, type, image, description, userId
+      name, capacity, location, price, state, description, image, isAvailable
     } = req.body;
-    if (!title && !date && !time && !type && !image && !description) {
+    if (!name && !capacity && !location && !price && !state && !description && !image && !isAvailable) {
       return res.status(400).json({
         message: 'All Fields are required'
       });
-    } else if (!title) {
+    } else if (!name) {
       return res.status(400).json({
-        message: 'Title Field required'
+        message: 'Name Field required'
       });
-    } else if (!date) {
+    } else if (!capacity) {
       return res.status(400).json({
-        message: 'Date Field required'
+        message: 'Capacity Field required'
       });
-    } else if (!time) {
+    } else if (!location) {
       return res.status(400).json({
-        message: 'Time Field required'
+        message: 'Location Field required'
       });
-    } else if (!type) {
+    } else if (!price) {
       return res.status(400).json({
-        message: 'Type Field required'
+        message: 'Price Field required'
       });
-    } else if (!image) {
+    } else if (!state) {
       return res.status(400).json({
-        message: 'Image Field required'
+        message: 'State Field required'
       });
     } else if (!description) {
       return res.status(400).json({
         message: 'Description Field required'
       });
-    } else if (!userId) {
+    } else if (!image) {
       return res.status(400).json({
-        message: 'UserId Field required'
+        message: 'Image Field required'
       });
     }
+    try {
+      if (typeof JSON.parse(isAvailable) !== 'boolean') {
+        return res.status(400).json({
+          message: 'Is Available must be a boolean'
+        });
+      }
+    } catch (error) {
+      return res.status(400).json({
+        message: 'Is Available must be a boolean'
+      });
+    }
+
+    // } else if (typeof (isBool.checkBool(isAvailable) !== typeof (true))) {
+    //   return res.status(400).json({
+    //     message: 'Is Available must be a boolean'
+    //   });
+    // }
     next();
   }
 };
