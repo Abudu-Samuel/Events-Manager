@@ -64,11 +64,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     }
   });
-  user.associate = (models) => {
-    user.hasMany(models.event, {
-      foreignKey: 'userId',
-      as: 'events'
-    });
-  };
+  // user.associate = (models) => {
+  //   user.hasMany(models.event, {
+  //     foreignKey: 'userId',
+  //     as: 'events'
+  //   });
+  // };
   return user;
 };

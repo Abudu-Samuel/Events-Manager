@@ -1,21 +1,21 @@
 module.exports = (sequelize, DataTypes) => {
   const event = sequelize.define('event', {
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'UserId Field Required!'
-        }
-      },
-      onDelete: 'CASCADE',
-      references: {
-        model: 'users',
-        key: 'id',
-        as: 'userId'
-      }
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     notEmpty: {
+    //       args: true,
+    //       msg: 'UserId Field Required!'
+    //     }
+    //   },
+    //   onDelete: 'CASCADE',
+    //   references: {
+    //     model: 'users',
+    //     key: 'id',
+    //     as: 'userId'
+    //   }
+    // },
     // centerId: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
@@ -127,15 +127,15 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  event.associate = (models) => {
-    event.belongsTo(models.center, {
-      foreignKey: 'centerId',
-      onDelete: 'CASCADE'
-    });
-    event.belongsTo(models.user, {
-      foreignKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-  };
+  // event.associate = (models) => {
+  //   event.belongsTo(models.center, {
+  //     foreignKey: 'centerId',
+  //     onDelete: 'CASCADE'
+  //   });
+  //   event.belongsTo(models.user, {
+  //     foreignKey: 'userId',
+  //     onDelete: 'CASCADE'
+  //   });
+  // };
   return event;
 };
