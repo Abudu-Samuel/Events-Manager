@@ -67,6 +67,9 @@ class User {
       }))
       .catch(error => res.status(400).json({
         message: error.errors[0].message
+      }))
+      .catch(() => res.status(500).json({
+        message: 'Some error occured!'
       }));
   }
 

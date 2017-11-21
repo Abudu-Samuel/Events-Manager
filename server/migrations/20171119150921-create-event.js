@@ -16,45 +16,31 @@ module.exports = {
         as: 'userId'
       }
     },
-    centerId: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'centers',
-        key: 'id',
-        as: 'centerId'
-      }
-    },
-    event_title: {
+    // centerId: {
+    //   type: Sequelize.INTEGER,
+    //   allowNull: false,
+    //   onDelete: 'CASCADE',
+    //   references: {
+    //     model: 'centers',
+    //     key: 'id',
+    //     as: 'centerId'
+    //   }
+    // },
+    title: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Event title field required'
-        }
-      }
     },
-    starts: {
-      type: Sequelize.DATE,
+    date: {
+      type: Sequelize.DATEONLY,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Starts field required'
-        }
-      }
     },
-    ends: {
-      type: Sequelize.DATE,
+    time: {
+      type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Ends field required'
-        }
-      }
+    },
+    type: {
+      type: Sequelize.STRING,
+      allowNull: false,
     },
     image: {
       type: Sequelize.STRING,
@@ -63,12 +49,6 @@ module.exports = {
     description: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Description field required'
-        }
-      }
     },
     createdAt: {
       allowNull: false,
