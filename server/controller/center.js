@@ -55,6 +55,32 @@ class Center {
       }))
       .catch(error => res.status(500).json(error));
   }
+
+  /**
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} retrieve
+   * @memberOf Center
+   */
+  static retrieve(req, res) {
+    return centers
+      .findById(req.params.centerId)
+      .then((center) => {
+        if (!center) {
+          return res.status(404).json({
+            message: 'Center Not Found'
+          });
+        }
+        return res.status(200).json({
+          message: 'Center Found',
+          center
+        });
+      })
+      .catch(() => res.status(500).json({
+        message: 'Some error occured'
+      }));
+  }
 }
 
 export default Center;
