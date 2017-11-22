@@ -105,7 +105,7 @@ const validation = {
       return res.status(400).json({
         message: 'Description Field required'
       });
-    // } 
+    // }
     }
     next();
   },
@@ -164,12 +164,24 @@ const validation = {
         message: 'Is Available must be a boolean'
       });
     }
+    next();
+  },
 
-    // } else if (typeof (isBool.checkBool(isAvailable) !== typeof (true))) {
-    //   return res.status(400).json({
-    //     message: 'Is Available must be a boolean'
-    //   });
-    // }
+  /**
+   * @param {object} req
+   * @param {object} res
+   * @param {object} next
+   * @returns {object} eventId
+   */
+  eventId(req, res, next) {
+    console.log(req.params.eventId);
+    const { eventId } = req.params;
+    console.log(typeof eventId);
+    if  (isNaN(eventId)) {
+      return res.status(400).json({
+        message: 'Parameter must be a number!'
+      });
+    }
     next();
   }
 };

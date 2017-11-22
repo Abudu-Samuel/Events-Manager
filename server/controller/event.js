@@ -84,6 +84,32 @@ class Event {
         message: 'some error occured'
       }));
   }
+
+  /**
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} get
+   * @memberOf Event
+   */
+  static get(req, res) {
+    return events
+      .findById(req.params.eventId)
+      .then((event) => {
+        if (!event) {
+          return res.status(404).json({
+            message: 'Event Not Found'
+          });
+        }
+        return res.status(200).json({
+          message: 'Event Found',
+          event
+        });
+      })
+      .catch(() => res.status(500).json({
+        message: 'Some error occured'
+      }));
+  }
 }
 
 export default Event;
