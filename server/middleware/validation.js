@@ -175,13 +175,29 @@ const validation = {
    */
   eventId(req, res, next) {
     const { eventId } = req.params;
-    if  (isNaN(eventId)) {
+    if (isNaN(eventId)) {
       return res.status(400).json({
         message: 'Parameter must be a number!'
       });
     }
     next();
-  }
+  },
+
+  /**
+   * @param {object} req
+   * @param {object} res
+   * @param {object} next
+   * @returns {object} eventId
+   */
+  centerId(req, res, next) {
+    const { centerId } = req.params;
+    if (isNaN(centerId)) {
+      return res.status(400).json({
+        message: 'Parameter must be a number!'
+      });
+    }
+    next();
+  },
 };
 
 export default validation;
