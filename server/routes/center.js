@@ -5,5 +5,6 @@ import validate from '../middleware/validation';
 const router = express.Router();
 
 router.post('/', validate.addCenter, centerController.add);
+router.get('/', centerController.getAll);
 
 export default router;
