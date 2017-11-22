@@ -81,6 +81,49 @@ class Center {
         message: 'Some error occured'
       }));
   }
+
+  /**
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} retrieve
+   * @memberOf Center
+   */
+  static modify(req, res) {
+    const {
+      name, capacity, location, price, state, description, image, isAvailable
+    } = req.body;
+    return centers
+      .findById(req.params.centerId)
+      .then((centerFound) => {
+        if (!centerFound) {
+          return res.status(400).json({
+            message: 'Center Not Found!'
+          });
+        }
+        return centerFound
+          .update({
+            name,
+            capacity,
+            location,
+            price,
+            state,
+            description,
+            image,
+            isAvailable
+          })
+          .then(updatedCenter => res.status(200).json({
+            message: 'Center modification is successful',
+            updatedCenter
+          }))
+          .catch(error => res.status(400).json({
+            message: error.errors[0].message
+          }));
+      })
+      .catch(() => res.status(500).json({
+        message: 'some error occured'
+      }));
+  }
 }
 
 export default Center;
