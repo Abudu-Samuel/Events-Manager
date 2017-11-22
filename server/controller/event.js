@@ -110,6 +110,36 @@ class Event {
         message: 'Some error occured'
       }));
   }
+
+  /**
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} get
+   * @memberOf Event
+   */
+  static delete(req, res) {
+    return events
+      .findById(req.params.eventId)
+      .then((eventFound) => {
+        if (!eventFound) {
+          return res.status(404).json({
+            message: 'Event Not Found'
+          });
+        }
+        return eventFound
+          .destroy()
+          .then(() => res.status(200).json({
+            message: 'Event Deleted!'
+          }))
+          .catch(error => res.status(400).json({
+            message: error.errors[0].message
+          }));
+      })
+      .catch(() => res.status(500).json({
+        message: 'Some error occured'
+      }));
+  }
 }
 
 export default Event;

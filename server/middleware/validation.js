@@ -174,9 +174,7 @@ const validation = {
    * @returns {object} eventId
    */
   eventId(req, res, next) {
-    console.log(req.params.eventId);
     const { eventId } = req.params;
-    console.log(typeof eventId);
     if  (isNaN(eventId)) {
       return res.status(400).json({
         message: 'Parameter must be a number!'
