@@ -5,6 +5,6 @@ import validate from '../middleware/validation';
 const router = express.Router();
 
 router.post('/', validate.addEvent, eventController.add);
-// router.put('/:eventId', eventController.modify);
+router.put('/:eventId', validate.addEvent, eventController.modify);
 
 export default router;
