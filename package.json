@@ -6,6 +6,9 @@
     "scripts": {
         "start:dev": "nodemon --exec babel-node -- ./server/bin/www.js",
         "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
+        "build": "babel server -d server/dist",
+        "start": "node server/dist/app.js",
+        "heroku-postbuild": "npm run build",
         "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
         "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
         "migrate": "./node_modules/.bin/sequelize db:migrate",
