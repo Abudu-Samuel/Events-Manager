@@ -1,9 +1,12 @@
 import express from 'express';
+import configEnv from 'dotenv';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import user from './routes/user';
 import event from './routes/event';
 import center from './routes/center';
+
+configEnv.config();
 
 // Set up express app
 const app = express();
