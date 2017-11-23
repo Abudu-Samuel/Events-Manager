@@ -3,12 +3,16 @@
     "version": "1.0.0",
     "description": "Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center.",
     "main": "app.js",
+    "engines": {
+        "node": "8.8.1",
+        "npm": "5.4.2"
+    },
     "scripts": {
         "start:dev": "nodemon --exec babel-node -- ./server/bin/www.js",
         "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
         "build": "babel server -d server/dist",
         "start": "node server/dist/app.js",
-        "heroku-postbuild": "npm run build",
+        "heroku-postbuild": "npm install&& npm run build",
         "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
         "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
         "migrate": "./node_modules/.bin/sequelize db:migrate",
@@ -26,11 +30,6 @@
     },
     "homepage": "https://github.com/Abudu-Samuel/Events-Manager#readme",
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-register": "^6.26.0",
         "cross-env": "^5.1.1",
         "eslint": "^4.11.0",
         "eslint-config-airbnb-base": "^12.1.0",
@@ -51,6 +50,11 @@
         "pg-hstore": "^2.3.2",
         "sequelize": "^4.22.8",
         "sequelize-cli": "^3.1.0",
-        "supertest": "^3.0.0"
+        "supertest": "^3.0.0",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.26.0"
     }
 }
