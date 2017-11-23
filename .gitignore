@@ -2,3 +2,4 @@ node_modules/
 .vscode/
 .editorconfig
 .nyc_output
+coverage/

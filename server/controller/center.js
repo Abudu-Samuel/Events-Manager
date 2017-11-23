@@ -1,7 +1,7 @@
 import db from '../models';
 
 const centers = db.center;
-
+const events = db.event;
 /**
  * @class Center
  */
@@ -17,26 +17,31 @@ class Center {
     const {
       name, capacity, location, price, state, description, image, isAvailable
     } = req.body;
-    return centers
-      .create({
-        name,
-        capacity,
-        location,
-        price,
-        state,
-        description,
-        image,
-        isAvailable
-      })
-      .then(created => res.status(201).json({
-        message: 'Center created Successfully',
-        createdCenter: {
-          created
-        }
-      }))
-      .catch(error => res.status(400).json({
-        message: error.errors[0].message
-      }));
+    if (req.decoded.isAdminKey) {
+      return centers
+        .create({
+          name,
+          capacity,
+          location,
+          price,
+          state,
+          description,
+          image,
+          isAvailable
+        })
+        .then(created => res.status(201).json({
+          message: 'Center created Successfully',
+          createdCenter: {
+            created
+          }
+        }))
+        .catch(error => res.status(400).json({
+          message: error.errors[0].message
+        }));
+    }
+    return res.status(401).json({
+      message: 'You are not authorized to add a center'
+    });
   }
 
   /**
@@ -65,7 +70,12 @@ class Center {
    */
   static retrieve(req, res) {
     return centers
-      .findById(req.params.centerId)
+      .findById(req.params.centerId, {
+        include: [{
+          model: events,
+          as: 'events'
+        }]
+      })
       .then((center) => {
         if (!center) {
           return res.status(404).json({
@@ -101,24 +111,29 @@ class Center {
             message: 'Center Not Found!'
           });
         }
-        return centerFound
-          .update({
-            name,
-            capacity,
-            location,
-            price,
-            state,
-            description,
-            image,
-            isAvailable
-          })
-          .then(updatedCenter => res.status(200).json({
-            message: 'Center modification is successful',
-            updatedCenter
-          }))
-          .catch(error => res.status(400).json({
-            message: error.errors[0].message
-          }));
+        if (req.decoded.isAdminKey) {
+          return centerFound
+            .update({
+              name,
+              capacity,
+              location,
+              price,
+              state,
+              description,
+              image,
+              isAvailable
+            })
+            .then(updatedCenter => res.status(200).json({
+              message: 'Center modification is successful',
+              updatedCenter
+            }))
+            .catch(error => res.status(400).json({
+              message: error.errors[0].message
+            }));
+        }
+        return res.status(401).json({
+          message: 'You are not Authorized to edit this center!'
+        });
       })
       .catch(() => res.status(500).json({
         message: 'some error occured'

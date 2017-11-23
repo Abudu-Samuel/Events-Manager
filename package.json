@@ -4,13 +4,13 @@
     "description": "Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center.",
     "main": "app.js",
     "scripts": {
-    "start:dev": "nodemon --exec babel-node -- ./server/bin/www.js",
-    "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
-    "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
-    "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
-    "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "migrate:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
-    "reset:db": "./node_modules/.bin/cross-env NODE_ENV=test node ./server/test/resetHelper.js"
+        "start:dev": "nodemon --exec babel-node -- ./server/bin/www.js",
+        "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
+        "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
+        "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
+        "migrate": "./node_modules/.bin/sequelize db:migrate",
+        "migrate:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
+        "reset:db": "./node_modules/.bin/cross-env NODE_ENV=test node ./server/test/resetHelper.js"
     },
     "repository": {
         "type": "git",

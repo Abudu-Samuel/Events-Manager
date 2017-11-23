@@ -61,14 +61,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: false
     }
   });
-  // user.associate = (models) => {
-  //   user.hasMany(models.event, {
-  //     foreignKey: 'userId',
-  //     as: 'events'
-  //   });
-  // };
+  user.associate = (models) => {
+    user.hasMany(models.event, {
+      foreignKey: 'userId',
+      as: 'events'
+    });
+  };
   return user;
 };
