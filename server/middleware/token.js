@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
-import code from '../../code';
+
+const dotEnv = require('dotenv');
+dotEnv.config();
 
 /**
  * @class Token
@@ -12,7 +14,7 @@ class Token {
    * @memberOf Token
    */
   static generateToken(payLoad) {
-    const token = jwt.sign(payLoad, code.secret);
+    const token = jwt.sign(payLoad, process.env.secret);
     return token;
   }
 
@@ -25,7 +27,7 @@ class Token {
   static decodeToken(tokenObject) {
     let decodedToken;
     if (tokenObject) {
-      decodedToken = jwt.verify(tokenObject, code.secret);
+      decodedToken = jwt.verify(tokenObject, process.env.secret);
     } else {
       decodedToken = 'no token';
     }
