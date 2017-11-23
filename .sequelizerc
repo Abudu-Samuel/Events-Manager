@@ -1,20 +1,8 @@
 const path = require('path');
 
-
-
 module.exports = {
-  "config": path.resolve('./server/config', 'config.json'),
+  "config": path.resolve('./server/config', 'config.js'),
   "models-path": path.resolve('./server/models'),
   "seeders-path": path.resolve('./server/seeders'),
   "migrations-path": path.resolve('./server/migrations')
 };
-
-if (process.env === 'production'){
-  module.exports = {
-  "config": path.resolve('./dist/config', 'config.json'),
-  "models-path": path.resolve('./dist/models'),
-  "seeders-path": path.resolve('./dist/seeders'),
-  "migrations-path": path.resolve('./dist/migrations')
-};
-}
-
