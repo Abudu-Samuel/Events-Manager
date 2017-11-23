@@ -9,11 +9,15 @@ const validation = {
    */
   userSignup(req, res, next) {
     const {
-      username, email, password, firstname, lastname, isAdmin
+      username, email, password, firstname, lastname,
     } = req.body;
-    if (!username && !email && !password && !firstname && !lastname && !isAdmin) {
+    if (!username && !email && !password && !firstname && !lastname) {
       return res.status(400).json({
         message: 'All Fields Required'
+      });
+    } else if (!username) {
+      return res.status(400).json({
+        message: 'Username Field Required'
       });
     } else if (!password || typeof password !== 'string') {
       return res.status(400).json({
@@ -26,14 +30,6 @@ const validation = {
     } else if (!lastname || typeof lastname !== 'string') {
       return res.status(400).json({
         message: 'Please Enter Last Name'
-      });
-    } else if (!isAdmin || typeof isAdmin !== 'string') {
-      return res.status(400).json({
-        message: 'Admin field required'
-      });
-    } else if (!username || typeof username !== 'string') {
-      return res.status(400).json({
-        message: 'Please Enter Username'
       });
     } else if (password.length < 6) {
       return res.status(400).json({
@@ -75,9 +71,9 @@ const validation = {
    */
   addEvent(req, res, next) {
     const {
-      title, date, time, type, image, description, userId
+      title, date, time, type, image, description, userId, centerId
     } = req.body;
-    if (!title && !date && !time && !type && !image && !description) {
+    if (!title && !date && !time && !type && !image && !description && !userId && !centerId) {
       return res.status(400).json({
         message: 'All Fields are required'
       });
@@ -106,6 +102,14 @@ const validation = {
         message: 'Description Field required'
       });
     // }
+    } else if (!userId) {
+      return res.status(400).json({
+        message: 'UserId Field required'
+      });
+    } else if (!centerId) {
+      return res.status(400).json({
+        message: 'centerId Field required'
+      });
     }
     next();
   },

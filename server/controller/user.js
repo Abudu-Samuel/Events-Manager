@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import db from '../models';
+import Token from '../middleware/token';
 
 
 const users = db.user;
@@ -17,7 +18,7 @@ class User {
    */
   static signup(req, res) {
     const {
-      username, email, password, firstname, lastname, isAdmin
+      username, email, password, firstname, lastname,
     } = req.body;
     users.find({
       where: {
@@ -53,7 +54,6 @@ class User {
         email,
         firstname,
         lastname,
-        isAdmin,
         password: bcrypt.hashSync(password, 10),
       })
       .then(register => res.status(201).json({
@@ -96,8 +96,13 @@ class User {
         }
         const hashedPassword = bcrypt.compareSync(password, found.password);
         if (hashedPassword) {
+          const payLoad = {
+            userIdkey: found.id, emailKey: found.email, firstnameKey: found.firstname, lastnameKey: found.lastname, usernameKey: found.username, isAdminKey: found.isAdmin
+          };
+          const token = Token.generateToken(payLoad);
           return res.status(200).json({
-            message: 'Sign in Successful!'
+            message: 'Sign in Successful!',
+            token
           });
         }
         return res.status(400).json({

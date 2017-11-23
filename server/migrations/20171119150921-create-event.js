@@ -6,26 +6,26 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    // userId: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false,
-    //   onDelete: 'CASCADE',
-    //   references: {
-    //     model: 'users',
-    //     key: 'id',
-    //     as: 'userId'
-    //   }
-    // },
-    // centerId: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false,
-    //   onDelete: 'CASCADE',
-    //   references: {
-    //     model: 'centers',
-    //     key: 'id',
-    //     as: 'centerId'
-    //   }
-    // },
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'users',
+        key: 'id',
+        as: 'userId'
+      }
+    },
+    centerId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'centers',
+        key: 'id',
+        as: 'centerId'
+      }
+    },
     title: {
       type: Sequelize.STRING,
       allowNull: false,

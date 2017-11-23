@@ -121,11 +121,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  // center.associate = (models) => {
-  //   center.hasMany(models.event, {
-  //     foreignKey: 'centerId',
-  //     as: 'events'
-  //   });
-  // };
+  center.associate = (models) => {
+    center.hasMany(models.event, {
+      foreignKey: 'centerId',
+      as: 'events'
+    });
+  };
   return center;
 };

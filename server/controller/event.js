@@ -1,6 +1,7 @@
 import db from '../models';
 
 const events = db.event;
+const centers = db.center;
 
 /**
  * @class Event
@@ -17,30 +18,60 @@ class Event {
       {
         title, date, time, type, image, description
       } = req.body;
-    return events
-      .create({
-        // userId: req.body.userId,
-        title,
-        date,
-        time,
-        type,
-        image,
-        description
-      })
-      .then(created => res.status(201).json({
-        message: 'Event Created!',
-        createdEvent: {
-          title: created.title,
-          date: created.date,
-          time: created.time,
-          type: created.type,
-          image: created.image,
-          description: created.description
+    return centers
+      .findOne({
+        where: {
+          id: req.body.centerId,
+          isAvailable: true
         }
-      }))
-      .catch(error => res.status(400).json({
-        message: error.errors[0].message
-      }));
+      })
+      .then((found) => {
+        if (!found) {
+          return res.status(404).json({
+            message: 'Sorry, center is currently not available'
+          });
+        }
+        return events
+          .findOne({
+            where: {
+              centerId: req.body.centerId,
+              time,
+              date
+            }
+          })
+          .then((eventFound) => {
+            if (eventFound) {
+              return res.status(400).json({
+                message: 'Center has been booked'
+              });
+            }
+            return events
+              .create({
+                userId: req.body.userId,
+                centerId: req.body.centerId,
+                title,
+                date,
+                time,
+                type,
+                image,
+                description
+              })
+              .then(created => res.status(201).json({
+                message: 'Event Created!',
+                createdEvent: {
+                  title: created.title,
+                  date: created.date,
+                  time: created.time,
+                  type: created.type,
+                  image: created.image,
+                  description: created.description
+                }
+              }))
+              .catch(error => res.status(400).json({
+                message: error.errors[0].message
+              }));
+          });
+      });
   }
 
   /**
@@ -63,22 +94,44 @@ class Event {
             message: 'Event Not Found!'
           });
         }
-        return eventFound
-          .update({
-            title,
-            date,
-            time,
-            type,
-            image,
-            description
-          })
-          .then(updatedEvent => res.status(200).json({
-            message: 'Event modification is successful',
-            updatedEvent
-          }))
-          .catch(error => res.status(400).json({
-            message: error.errors[0].message
-          }));
+        if (req.decoded.userIdkey === req.eventFound.userId) {
+          return events
+            .findOne({
+              where: {
+                centerId: req.body.centerId,
+                time,
+                date
+              }
+            })
+            .then((FoundEvent) => {
+              if (FoundEvent) {
+                return res.status(400).json({
+                  message: 'Center has been booked'
+                });
+              }
+              return eventFound
+                .update({
+                  userId: req.body.userId,
+                  centerId: req.body.centerId,
+                  title: title || eventFound.title,
+                  date: date || eventFound.date,
+                  time: time || eventFound.time,
+                  type: type || eventFound.type,
+                  image: image || eventFound.image,
+                  description: description || eventFound.description
+                })
+                .then(updatedEvent => res.status(200).json({
+                  message: 'Event modification is successful',
+                  updatedEvent
+                }))
+                .catch(error => res.status(400).json({
+                  message: error.errors[0].message
+                }));
+            });
+        }
+        return res.status(401).json({
+          message: 'You are not Authorized to edit this event!'
+        });
       })
       .catch(() => res.status(500).json({
         message: 'some error occured'
@@ -127,14 +180,19 @@ class Event {
             message: 'Event Not Found'
           });
         }
-        return eventFound
-          .destroy()
-          .then(() => res.status(200).json({
-            message: 'Event Deleted!'
-          }))
-          .catch(error => res.status(400).json({
-            message: error.errors[0].message
-          }));
+        if (req.decoded.userIdkey === req.eventFound.userId) {
+          return eventFound
+            .destroy()
+            .then(() => res.status(200).json({
+              message: 'Event Deleted!'
+            }))
+            .catch(error => res.status(400).json({
+              message: error.errors[0].message
+            }));
+        }
+        return res.status(401).json({
+          message: 'You are not Authorized to delete this event!'
+        });
       })
       .catch(() => res.status(500).json({
         message: 'Some error occured'

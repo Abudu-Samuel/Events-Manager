@@ -36,7 +36,8 @@ module.exports = {
     },
     isAdmin: {
       type: Sequelize.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: false
     },
     createdAt: {
       allowNull: false,
