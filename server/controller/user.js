@@ -29,48 +29,32 @@ class User {
       }
     })
       .then((found) => {
-        let emailError;
-        let usernameError;
         if (found) {
-          if (found.email === email && found.username === username) {
-            emailError = 'Email already in use';
-            usernameError = 'Username already taken';
-          } else if (found.email === email) {
-            emailError = 'Email already in use';
-          } else if (found.username === username) {
-            usernameError = 'Username already taken';
-          }
-          return res.status(400).json({
-            message: {
-              emailError,
-              usernameError
-            }
+          return res.status(403).send({
+            message: 'user already exist'
           });
         }
+        return users
+          .create({
+            username,
+            email,
+            firstname,
+            lastname,
+            password: bcrypt.hashSync(password, 10),
+          })
+          .then(register => res.status(201).send({
+            responseData: {
+              newUser: 'Account Created',
+              username: register.username,
+              email: register.email,
+              firstname: register.firstname,
+              lastname: register.lastname,
+            }
+          }))
+          .catch(error => res.status(500).send({
+            message: error.errors[0].message
+          }));
       });
-    return users
-      .create({
-        username,
-        email,
-        firstname,
-        lastname,
-        password: bcrypt.hashSync(password, 10),
-      })
-      .then(register => res.status(201).json({
-        responseData: {
-          newUser: 'Account Created',
-          username: register.username,
-          email: register.email,
-          firstname: register.firstname,
-          lastname: register.lastname,
-        }
-      }))
-      .catch(error => res.status(400).json({
-        message: error.errors[0].message
-      }))
-      .catch(() => res.status(500).json({
-        message: 'Some error occured!'
-      }));
   }
 
   /**
@@ -90,7 +74,7 @@ class User {
       })
       .then((found) => {
         if (!found) {
-          return res.status(400).json({
+          return res.status(400).send({
             message: 'Incorrect signin credentials'
           });
         }
@@ -100,16 +84,16 @@ class User {
             userIdkey: found.id, emailKey: found.email, firstnameKey: found.firstname, lastnameKey: found.lastname, usernameKey: found.username, isAdminKey: found.isAdmin
           };
           const token = Token.generateToken(payLoad);
-          return res.status(200).json({
+          return res.status(200).send({
             message: 'Sign in Successful!',
             token
           });
         }
-        return res.status(400).json({
+        return res.status(400).send({
           message: 'invalid username or password'
         });
       })
-      .catch(() => res.status(500).json({
+      .catch(() => res.status(500).send({
         message: 'Sorry, some error occured!'
       }));
   }
