@@ -27,7 +27,6 @@ Events Manager application leverages:
 - User Signup                - api/v1/users                      - Register a user
 - User Signin                - api/v1/users/login                - Logs a user
 - Get Event                  - api/v1/events                     - Allows a user to view all events
-- 
 
 ### Admin
 - User Signin               - api/v1/users                       - Logs an admin in

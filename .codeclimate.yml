@@ -19,3 +19,6 @@ exclude_paths:
   - "client/"
   - "server/test"
   - "dist/*"
+  - "server/models/event.js"
+  - "server/models/center.js"
+  - "server/models/user.js"
