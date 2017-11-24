@@ -1,18 +1,12 @@
 language: node_js
-
 node_js: 
   - "stable"
 script:
  -  npm run test:dev
- env:
-  global:
-   - CC_TEST_REPORTER_ID=a4ccd717a61fe9d50752204cd5c9f54420ca021c5b71a3521d5d98ba99dc4eed
 install:
 - npm install
 services:
 - postgresql
-# env:
-# - NODE_ENV=test
 before_script:
  - psql -c 'create database events_manager_test;' -U postgres
 after_success:
