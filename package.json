@@ -12,13 +12,17 @@
         "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
         "build": "babel server -d dist",
         "start": "babel-node -- ./server/bin/www.js",
-        "test:dev": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate:undo:all && ./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit",
+        "test:dev:t": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate:undo:all && ./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit",
         "heroku-postbuild": "npm run build",
-        "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
+        "coverage": "nyc report --reporter=text-lcov | coveralls",
         "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
         "migrate": "./node_modules/.bin/sequelize db:migrate",
         "migrate:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
-        "reset:db": "./node_modules/.bin/cross-env NODE_ENV=test node ./server/test/resetHelper.js"
+        "reset:db": "./node_modules/.bin/cross-env NODE_ENV=test node ./server/test/resetHelper.js",
+        "test:dev:ed": "npm run setup:db && npm run setup:db2 && npm run test:dev",
+        "setup:db": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate:undo:all",
+         "setup:db2":"./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
+        "test:dev": "./node_modules/.bin/cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit"
     },
     "repository": {
         "type": "git",
