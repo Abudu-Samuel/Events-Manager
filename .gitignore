@@ -3,3 +3,4 @@ node_modules/
 .editorconfig
 .nyc_output
 coverage/
+dist/

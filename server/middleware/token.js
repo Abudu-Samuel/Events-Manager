@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 const dotEnv = require('dotenv');
+
 dotEnv.config();
 
 /**

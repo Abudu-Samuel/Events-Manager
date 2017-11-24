@@ -16,7 +16,7 @@ class Authenticate {
    * @memberOf Authenticate
    */
   static authenticated(req, res, next) {
-    const token = req.headers['x-access-token'];
+    const token = req.headers['x-access-token'] || req.body.token;
     const decoded = Token.decodeToken(token);
 
     if (decoded === 'no token') {
