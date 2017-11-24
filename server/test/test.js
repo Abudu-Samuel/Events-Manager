@@ -236,6 +236,16 @@ describe('Events Manager', () => {
       });
   });
 
+  it('should return center not found', (done) => {
+    request(app)
+      .get('/api/v1/centers/13')
+      .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
+
   it('check if center is availale while creating an event', (done) => {
     const object = {
       centerId: 2,
