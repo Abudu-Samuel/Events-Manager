@@ -18,7 +18,7 @@ class User {
    */
   static signup(req, res) {
     const {
-      username, email, password, firstname, lastname,
+      username, email, password, firstname, lastname, isAdmin,
     } = req.body;
     users.find({
       where: {
@@ -40,6 +40,7 @@ class User {
             email,
             firstname,
             lastname,
+            isAdmin,
             password: bcrypt.hashSync(password, 10),
           })
           .then(register => res.status(201).send({
