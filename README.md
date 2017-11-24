@@ -15,4 +15,16 @@ Events Manager application leverages:
 
 ## Installation
 - Install  `node` and `postgres` 
-- Clone the repository: git clone 
+- Clone the repository: git clone https://github.com/Abudu-Samuel/Events-Manager
+- Install dependencies `npm install`
+- Test `npm test:dev:ed`
+- Start app `npm start:dev`
+- Test via postman
+
+## Endpoints
+
+### Users
+- User Signup           - api/v1/users            - Register a user
+- User Signin           - api/v1/users/login      - Logs a user
+- Get Event             - api/v1/events           - Allows a user to view all events
+- 

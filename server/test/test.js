@@ -236,6 +236,26 @@ describe('Events Manager', () => {
       });
   });
 
+  it('cant modify with empty name field', (done) => {
+    request(app)
+      .put('/api/v1/centers/1')
+      .set('x-access-token', 'jhhhsudhdhshd')
+      .send({
+        name: 'dadffa',
+        capacity: 1234,
+        location: 'ikeja',
+        price: 50000,
+        state: 'lagos',
+        description: 'Lorem ipsum',
+        image: 'lovely image',
+        isAvailable: true
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(500);
+        done();
+      });
+  });
+
   it('create an event center as an admin and set availability to be false', (done) => {
     request(app)
       .post('/api/v1/centers')
@@ -345,6 +365,29 @@ describe('Events Manager', () => {
       .end((err, res) => {
         console.log('==================================>', object);
         expect(res.status).to.equal(404);
+        done();
+      });
+  });
+
+  it('create event', (done) => {
+    const object = {
+      centerId: 1,
+      userId: 2,
+      title: 'wedding tour',
+      date: '12-12-13',
+      time: '12:32:11 pm',
+      type: 'church',
+      image: 'image.com',
+      description: 'lorem'
+    };
+
+    request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', userToken)
+      .send(object)
+      .end((err, res) => {
+        console.log('==================================>', object);
+        expect(res.status).to.equal(400);
         done();
       });
   });
