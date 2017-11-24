@@ -2,10 +2,7 @@ engines:
   csslint:
     enabled: false
   duplication:
-    enabled: false
-    checks: 
-      similar code:
-      enabled: false
+    enabled: true
     config:
       languages:
       - javascript
@@ -25,4 +22,4 @@ exclude_paths:
   - "server/models/event.js"
   - "server/models/center.js"
   - "server/models/user.js"
-    - "server/seeders"
+  
