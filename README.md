@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/Abudu-Samuel/Events-Manager.svg?branch=develop)](https://travis-ci.org/Abudu-Samuel/Events-Manager)
 [![Coverage Status](https://coveralls.io/repos/github/Abudu-Samuel/Events-Manager/badge.svg)](https://coveralls.io/github/Abudu-Samuel/Events-Manager)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b3764dff0e8fc2e3fcfd/maintainability)](https://codeclimate.com/github/Abudu-Samuel/Events-Manager/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b3764dff0e8fc2e3fcfd/test_coverage)](https://codeclimate.com/github/Abudu-Samuel/Events-Manager/test_coverage)
+<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/b3764dff0e8fc2e3fcfd/test_coverage)](https://codeclimate.com/github/Abudu-Samuel/Events-Manager/test_coverage) -->
 
 # EVENTS MANAGER 
 
@@ -24,7 +24,18 @@ Events Manager application leverages:
 ## Endpoints
 
 ### Users
-- User Signup           - api/v1/users            - Register a user
-- User Signin           - api/v1/users/login      - Logs a user
-- Get Event             - api/v1/events           - Allows a user to view all events
+- User Signup                - api/v1/users                      - Register a user
+- User Signin                - api/v1/users/login                - Logs a user
+- Get Event                  - api/v1/events                     - Allows a user to view all events
 - 
+
+### Admin
+- User Signin               - api/v1/users                       - Logs an admin in
+- Create Center             - api/v1/centers                     - Allows admin create center
+- Modify Center             - api/v1/centers/<:eventId>          - Allows admin modify center
+
+## Verbs
+- GET
+- PUT
+- DELETE
+- POST
