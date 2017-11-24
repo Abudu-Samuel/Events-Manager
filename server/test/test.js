@@ -156,6 +156,86 @@ describe('Events Manager', () => {
       });
   });
 
+  it('modify an event center as an admin and set availability to be true', (done) => {
+    request(app)
+      .put('/api/v1/centers/1')
+      .set('x-access-token', adminToken)
+      .send({
+        name: 'Halsl of Fame',
+        capacity: 1234,
+        location: 'ikeja',
+        price: 50000,
+        state: 'lagos',
+        description: 'Lorem ipsum',
+        image: 'lovely image',
+        isAvailable: true
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('can not modify an event center as a user', (done) => {
+    request(app)
+      .put('/api/v1/centers/1')
+      .set('x-access-token', userToken)
+      .send({
+        name: 'Halsl of Fame',
+        capacity: 1234,
+        location: 'ikeja',
+        price: 50000,
+        state: 'lagos',
+        description: 'Lorem ipsum',
+        image: 'lovely image',
+        isAvailable: true
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        done();
+      });
+  });
+
+  it('center not found', (done) => {
+    request(app)
+      .put('/api/v1/centers/111')
+      .set('x-access-token', adminToken)
+      .send({
+        name: 'Halsl of Fame',
+        capacity: 1234,
+        location: 'ikeja',
+        price: 50000,
+        state: 'lagos',
+        description: 'Lorem ipsum',
+        image: 'lovely image',
+        isAvailable: true
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        done();
+      });
+  });
+
+  it('cant modify with empty name field', (done) => {
+    request(app)
+      .put('/api/v1/centers/1')
+      .set('x-access-token', adminToken)
+      .send({
+        name: '',
+        capacity: 1234,
+        location: 'ikeja',
+        price: 50000,
+        state: 'lagos',
+        description: 'Lorem ipsum',
+        image: 'lovely image',
+        isAvailable: true
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        done();
+      });
+  });
+
   it('create an event center as an admin and set availability to be false', (done) => {
     request(app)
       .post('/api/v1/centers')
