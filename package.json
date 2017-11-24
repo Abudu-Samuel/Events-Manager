@@ -12,7 +12,7 @@
         "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
         "build": "babel server -d dist",
         "start": "babel-node -- ./server/bin/www.js",
-        "test:dev": "set NODE_ENV=test&&sequelize db:migrate:undo:all&&sequelize db:migrate && cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit",
+        "test:dev": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate:undo:all && ./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit",
         "heroku-postbuild": "npm run build",
         "coverage": "nyc --all npm test && nyc report --reporter=html --reporter=text-summary",
         "seed:test": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:seed:all",
