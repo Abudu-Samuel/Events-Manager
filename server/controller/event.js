@@ -94,7 +94,7 @@ class Event {
             message: 'Event Not Found!'
           });
         }
-        if (req.decoded.userIdkey === req.eventFound.userId) {
+        if (req.decoded.userId === req.eventFound.userId) {
           return events
             .findOne({
               where: {
@@ -180,7 +180,7 @@ class Event {
             message: 'Event Not Found'
           });
         }
-        if (req.decoded.userIdkey === req.eventFound.userId) {
+        if (req.decoded.userId === req.eventFound.userId) {
           return eventFound
             .destroy()
             .then(() => res.status(200).json({

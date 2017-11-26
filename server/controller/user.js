@@ -82,7 +82,7 @@ class User {
         const hashedPassword = bcrypt.compareSync(password, found.password);
         if (hashedPassword) {
           const payLoad = {
-            userIdkey: found.id, emailKey: found.email, firstnameKey: found.firstname, lastnameKey: found.lastname, usernameKey: found.username, isAdminKey: found.isAdmin
+            userId: found.id, email: found.email, firstname: found.firstname, lastname: found.lastname, username: found.username, isAdmin: found.isAdmin
           };
           const token = Token.generateToken(payLoad);
           return res.status(200).send({

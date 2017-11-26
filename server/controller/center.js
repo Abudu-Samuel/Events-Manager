@@ -17,7 +17,7 @@ class Center {
     const {
       name, capacity, location, price, state, description, image, isAvailable
     } = req.body;
-    if (req.decoded.isAdminKey) {
+    if (req.decoded.isAdmin) {
       return centers
         .create({
           name,
@@ -111,7 +111,7 @@ class Center {
             message: 'Center Not Found!'
           });
         }
-        if (req.decoded.isAdminKey) {
+        if (req.decoded.isAdmin) {
           return centerFound
             .update({
               name,

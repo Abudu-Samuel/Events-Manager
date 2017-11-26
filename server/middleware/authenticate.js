@@ -27,7 +27,7 @@ class Authenticate {
     return users
       .findOne({
         where: {
-          id: parseInt(decoded.userIdkey, 10)
+          id: parseInt(decoded.userId, 10)
         }
       })
       .then((found) => {
