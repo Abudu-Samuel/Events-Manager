@@ -8,6 +8,7 @@
         "npm": "5.4.2"
     },
     "scripts": {
+        "react": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
         "start:dev": "nodemon --exec babel-node -- ./server/bin/www.js",
         "test": "npm run reset:db && npm run migrate:test && npm run seed:test && nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js",
         "build": "babel server -d dist",
@@ -21,7 +22,7 @@
         "reset:db": "./node_modules/.bin/cross-env NODE_ENV=test node ./server/test/resetHelper.js",
         "test:dev:ed": "npm run setup:db && npm run setup:db2 && npm run test:dev",
         "setup:db": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate:undo:all",
-         "setup:db2":"./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
+        "setup:db2": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate",
         "test:dev": "./node_modules/.bin/cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit"
     },
     "repository": {
@@ -39,28 +40,43 @@
         "eslint": "^4.11.0",
         "eslint-config-airbnb-base": "^12.1.0",
         "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-react": "^7.5.1",
+        "html-webpack-plugin": "^2.30.1",
         "mocha": "^4.0.1",
         "nodemon": "^1.12.1",
-        "nyc": "^11.3.0"
+        "nyc": "^11.3.0",
+        "webpack": "^3.8.1",
+        "webpack-dev-server": "^2.9.4"
     },
     "dependencies": {
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
         "babel-register": "^6.26.0",
         "bcrypt": "^1.0.3",
         "body-parser": "^1.18.2",
         "chai": "^4.1.2",
         "coveralls": "^3.0.0",
+        "css-loader": "^0.28.7",
         "dotenv": "^4.0.0",
         "express": "^4.16.2",
+        "extract-text-webpack-plugin": "^3.0.2",
         "jsonwebtoken": "^8.1.0",
         "morgan": "^1.9.0",
+        "node-sass": "^4.7.2",
         "pg": "^7.4.0",
         "pg-hstore": "^2.3.2",
+        "react": "^16.1.1",
+        "react-dom": "^16.1.1",
+        "sass-loader": "^6.0.6",
         "sequelize": "^4.22.8",
         "sequelize-cli": "^3.1.0",
+        "style-loader": "^0.19.0",
         "supertest": "^3.0.0"
     }
 }
