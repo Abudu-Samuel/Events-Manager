@@ -6,6 +6,8 @@ import TrendingCenter from '../containers/TrendingCenters';
 import PopularCenter from '../containers/PopularCenter';
 import Gallery from '../containers/Gallery';
 import ContactUs from '../containers/ContactUs';
+import SignUp from '../containers/Signup';
+
 
 /**
  * Renders components to the page
@@ -14,12 +16,13 @@ import ContactUs from '../containers/ContactUs';
 const App = () => (
     <div>
         <Navbar />
-        <Body />
-        <TrendingCenter />
-        <PopularCenter />
-        <Gallery />
-        <ContactUs />
-        <Footer />
+        <SignUp />
+        {/* <Body /> */}
+        {/* <TrendingCenter /> */}
+        {/* <PopularCenter /> */}
+        {/* <Gallery /> */}
+        {/* <ContactUs /> */}
+        {/* <Footer /> */}
     </div>
 );
 
