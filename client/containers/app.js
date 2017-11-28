@@ -8,6 +8,7 @@ import Gallery from '../containers/Gallery';
 import ContactUs from '../containers/ContactUs';
 import SignUp from '../containers/Signup';
 import SignIn from '../containers/SignIn';
+import Allevents from '../containers/Allevents';
 
 
 /**
@@ -18,13 +19,14 @@ const App = () => (
     <div>
         <Navbar />
         {/* <SignUp /> */}
-        <SignIn />
+        {/* <SignIn /> */}
+        <Allevents />
         {/* <Body /> */}
         {/* <TrendingCenter /> */}
         {/* <PopularCenter /> */}
         {/* <Gallery /> */}
         {/* <ContactUs /> */}
-        {/* <Footer /> */}
+        <Footer />
     </div>
 );
 

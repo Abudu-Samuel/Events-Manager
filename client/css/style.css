@@ -100,7 +100,9 @@ ul {
 .btn-size {
     width: 200px
 }
-
+.navbar {
+    background: #00695c
+}
 .footer-color {
     background-color: #00695c;
 }
