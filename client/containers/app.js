@@ -13,6 +13,7 @@ import AddEvent from '../containers/AddEvent';
 import EditEvent from '../containers/EditEvent';
 import DeleteEvent from '../containers/DeleteEvent';
 import UserEvent from '../containers/UserEvent';
+import EventDetails from '../containers/EventDetails';
 
 
 /**
@@ -24,7 +25,8 @@ const App = () => (
         <Navbar />
         {/* <SignUp /> */}
         {/* <SignIn /> */}
-        <UserEvent />
+        {/* <UserEvent /> */}
+        <EventDetails />
         {/* <DeleteEvent /> */}
         {/* <EditEvent /> */}
         {/* <AddEvent /> */}
