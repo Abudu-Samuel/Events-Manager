@@ -1,6 +1,6 @@
 {
     "root": true,
-    "extends": "airbnb-base",
+    "extends": ["airbnb-base", "react"],
     "env": {
         "node": true,
         "es6": true,
@@ -9,6 +9,11 @@
     "plugins": [
         "react"
     ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "rules": {
         "one-var": 0,
         "one-var-declaration-per-line": 0,

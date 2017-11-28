@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 
-import App from './containers/app';
+import routes from '../client/routes';
 
-ReactDOM.render(<App />, document.getElementById('app'))
+render(<Router history={browserHistory} routes={routes}/>, document.getElementById('app'));
