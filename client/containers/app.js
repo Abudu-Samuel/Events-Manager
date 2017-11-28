@@ -12,6 +12,7 @@ import Allevents from '../containers/Allevents';
 import AddEvent from '../containers/AddEvent';
 import EditEvent from '../containers/EditEvent';
 import DeleteEvent from '../containers/DeleteEvent';
+import UserEvent from '../containers/UserEvent';
 
 
 /**
@@ -23,7 +24,8 @@ const App = () => (
         <Navbar />
         {/* <SignUp /> */}
         {/* <SignIn /> */}
-        <DeleteEvent />
+        <UserEvent />
+        {/* <DeleteEvent /> */}
         {/* <EditEvent /> */}
         {/* <AddEvent /> */}
         {/* <Allevents /> */}
