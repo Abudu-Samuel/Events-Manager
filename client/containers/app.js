@@ -14,6 +14,7 @@ import EditEvent from '../containers/EditEvent';
 import DeleteEvent from '../containers/DeleteEvent';
 import UserEvent from '../containers/UserEvent';
 import EventDetails from '../containers/EventDetails';
+import AddCenter from '../containers/AddCenter';
 
 
 /**
@@ -26,7 +27,8 @@ const App = () => (
         {/* <SignUp /> */}
         {/* <SignIn /> */}
         {/* <UserEvent /> */}
-        <EventDetails />
+        <AddCenter />
+        {/* <EventDetails /> */}
         {/* <DeleteEvent /> */}
         {/* <EditEvent /> */}
         {/* <AddEvent /> */}
