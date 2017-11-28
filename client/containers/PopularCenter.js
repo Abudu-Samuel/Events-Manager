@@ -7,7 +7,7 @@ import React from 'react';
 const PopularCenter = () => (
     <div className="container">
         <section id="events">
-            <h2 className="mb-5 font-weight-bold text-center">Polpular Events</h2>
+            <h2 className="mb-3 font-weight-bold grey-text">Polpular Events</h2>
             <div className="row mb-4">
                 <div className="col-md-4 mb-4">
                     <div className="card text-center">

@@ -7,7 +7,7 @@ import React from 'react';
 const TrendingCenter = () => (
     <div className="container">
         <section id="popular centers">
-            <h2 className="mb-5 font-weight-bold text-center">Trending Centers</h2>
+            <h2 className="mb-3 font-weight-bold grey-text">Trending Centers</h2>
             <div className="row mb-4">
                 <div className="col-md-4 mb-4">
                     <div className="card text-center">
