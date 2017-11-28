@@ -9,7 +9,7 @@ import ContactUs from '../containers/ContactUs';
 import SignUp from '../containers/Signup';
 import SignIn from '../containers/SignIn';
 import Allevents from '../containers/Allevents';
-
+import AddEvent from '../containers/AddEvent';
 
 /**
  * Renders components to the page
@@ -20,7 +20,8 @@ const App = () => (
         <Navbar />
         {/* <SignUp /> */}
         {/* <SignIn /> */}
-        <Allevents />
+        <AddEvent />
+        {/* <Allevents /> */}
         {/* <Body /> */}
         {/* <TrendingCenter /> */}
         {/* <PopularCenter /> */}
