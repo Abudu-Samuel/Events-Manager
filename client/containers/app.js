@@ -7,6 +7,7 @@ import PopularCenter from '../containers/PopularCenter';
 import Gallery from '../containers/Gallery';
 import ContactUs from '../containers/ContactUs';
 import SignUp from '../containers/Signup';
+import SignIn from '../containers/SignIn';
 
 
 /**
@@ -16,7 +17,8 @@ import SignUp from '../containers/Signup';
 const App = () => (
     <div>
         <Navbar />
-        <SignUp />
+        {/* <SignUp /> */}
+        <SignIn />
         {/* <Body /> */}
         {/* <TrendingCenter /> */}
         {/* <PopularCenter /> */}
