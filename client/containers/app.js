@@ -11,6 +11,8 @@ import SignIn from '../containers/SignIn';
 import Allevents from '../containers/Allevents';
 import AddEvent from '../containers/AddEvent';
 import EditEvent from '../containers/EditEvent';
+import DeleteEvent from '../containers/DeleteEvent';
+
 
 /**
  * Renders components to the page
@@ -21,7 +23,8 @@ const App = () => (
         <Navbar />
         {/* <SignUp /> */}
         {/* <SignIn /> */}
-        <EditEvent />
+        <DeleteEvent />
+        {/* <EditEvent /> */}
         {/* <AddEvent /> */}
         {/* <Allevents /> */}
         {/* <Body /> */}
