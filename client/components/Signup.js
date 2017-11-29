@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 /**
  * creates SignUp component
@@ -6,6 +7,7 @@ import React from 'react';
  */
 const SignUp = () => (
     <div>
+        <Navbar />>
         <div id="intro" className="view hm-black-strong">
             <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
                 <form className="signup">

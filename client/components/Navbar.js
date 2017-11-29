@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * creates Navbar component
@@ -9,14 +10,14 @@ const Navbar = () => (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
                 <div className="container">
-                    <a className="navbar-brand" href="#">Events Manager</a>
+                    <Link to="/" className="navbar-brand">Events Manager</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon" /></button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto smooth-scroll">
                             <li className="nav-item">
-                                <a className="nav-link" href="#intro">Home</a>
+                                <Link to="/" className="nav-link">Home</Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <a className="nav-link" href="#how it works">How it works</a>
                             </li>
                             <li className="nav-item">
@@ -30,7 +31,7 @@ const Navbar = () => (
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#contact">Contact</a>
-                            </li>
+                            </li> */}
                         </ul>
                         <ul className="navbar-nav ml-auto nav-flex-icons">
                             <li className="nav-item">
@@ -40,13 +41,13 @@ const Navbar = () => (
                                 <a className="nav-link waves-effect waves-light"><i className="fa fa-google-plus" /></a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link waves-effect waves-light" href="signup.html">Sign Up</a>
+                                <Link to="/signup" className="nav-link waves-effect waves-light">Sign Up</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link waves-effect waves-light" href="signin.html">Sign In</a>
+                                <Link to="/signin" className="nav-link waves-effect waves-light">Sign In</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link waves-effect waves-light" href="addcenter.html">Admin</a>
+                                <Link to="/addcenter" className="nav-link waves-effect waves-light">Admin</Link>
                             </li>
                         </ul>
                     </div>

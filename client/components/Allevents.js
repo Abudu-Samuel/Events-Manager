@@ -1,6 +1,8 @@
 import React from 'react';
-import PopularCenter from '../containers/PopularCenter';
-import TrendingCenters from '../containers/TrendingCenters';
+import PopularCenter from '../components/PopularCenter';
+import TrendingCenters from '../components/TrendingCenters';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 /**
  * creates Navbar component
@@ -8,6 +10,7 @@ import TrendingCenters from '../containers/TrendingCenters';
  */
 const Allevents = () => (
     <div className="space">
+        <Navbar />
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
@@ -17,6 +20,7 @@ const Allevents = () => (
             <PopularCenter />
             <TrendingCenters />
         </div>
+        <Footer />
     </div>
 );
 
