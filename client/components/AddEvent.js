@@ -1,4 +1,7 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
 
 /**
  * creates Navbar component
@@ -6,6 +9,7 @@ import React from 'react';
  */
 const AddEvent = () => (
     <div className="space">
+        <Navbar />
         <div className="container add">
             <section>
                 <h4 className="font-weight-bold text-center">Create An Event</h4>
@@ -73,6 +77,7 @@ const AddEvent = () => (
                 </div>
             </section>
         </div>
+        <Footer />
     </div>
 );
 
