@@ -6,6 +6,7 @@ const parentDir = path.join(__dirname, './client/');
 
 module.exports = {
     entry: [
+        'babel-polyfill',
         path.join(parentDir, 'index.js')
     ],
     module: {

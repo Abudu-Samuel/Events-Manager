@@ -7,6 +7,7 @@ import Allevents from './components/Allevents';
 import AddEvent from './components/AddEvent';
 import AddCenter from './components/AddCenter';
 import EventDetails from './components/EventDetails';
+import CenterDetails from './components/CenterDetails';
 
 export default () => (
     <BrowserRouter>
@@ -18,6 +19,7 @@ export default () => (
             <Route exact path="/addevent" component={AddEvent}/>
             <Route exact path="/addcenter" component={AddCenter}/>
             <Route exact path="/eventdetails" component={EventDetails}/>
+            <Route exact path="/centerdetails" component={CenterDetails}/>
         </Switch>
     </BrowserRouter>
 );
