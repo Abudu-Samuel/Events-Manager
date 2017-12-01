@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * creates Navbar component
@@ -15,7 +16,7 @@ const TrendingCenter = () => (
                         <div className="card-body">
                             <h4 className="card-title">Hall Of Fame</h4>
                             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="centerdetails.html" className="btn btn-mycolor btn-sm">info</a>
+                            <Link to="/centerdetails" className="btn btn-mycolor btn-sm">Details</Link>
                         </div>
                     </div>
                 </div>
@@ -25,7 +26,7 @@ const TrendingCenter = () => (
                         <div className="card-body">
                             <h4 className="card-title">Hall Of Fame</h4>
                             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="centerdetails.html" className="btn btn-mycolor btn-sm">info</a>
+                            <Link to="/centerdetails" className="btn btn-mycolor btn-sm">Details</Link>
                         </div>
                     </div>
                 </div>
@@ -35,7 +36,7 @@ const TrendingCenter = () => (
                         <div className="card-body">
                             <h4 className="card-title">Hall Of Fame</h4>
                             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="centerdetails.html" className="btn btn-mycolor btn-sm">info</a>
+                            <Link to="/centerdetails" className="btn btn-mycolor btn-sm">Details</Link>
                         </div>
                     </div>
                 </div>
