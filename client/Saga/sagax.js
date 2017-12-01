@@ -1,14 +1,21 @@
-// import { delay } from 'redux-saga';
-// import { put, takeEvery, call } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import { put, takeEvery, call } from 'redux-saga/effects';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import history from '../history';
 // Our worker Saga: will perform the async tasks
 
 const userUrl = 'http://localhost:8000/api/v1/users';
+const userUrl2 = 'http://localhost:8000/api/v1/users';
 
 // Sign up
 
+/**
+ * 
+ * 
+ * @export
+ * @param {any} action 
+ */
 export function* signUpAsync(action) {
     try {
         console.log('trying to connect...');
@@ -26,6 +33,11 @@ export function* signUpAsync(action) {
     }
 }
 
+/**
+ * 
+ * 
+ * @export
+ */
 export function* watchSignUpAsync() {
     console.log('running!');
     yield takeEvery('SIGN_UP', signUpAsync);
@@ -33,6 +45,12 @@ export function* watchSignUpAsync() {
 
 // Sign in
 
+/**
+ * 
+ * 
+ * @export
+ * @param {any} action 
+ */
 export function* signInAsync(action) {
     try {
         console.log('trying to connect to login...');
@@ -47,11 +65,21 @@ export function* signInAsync(action) {
     }
 }
 
+/**
+ * 
+ * 
+ * @export
+ */
 export function* watchSignInAsync() {
     console.log('running!');
     yield takeEvery('SIGN_IN', signInAsync);
 }
 
+/**
+ * 
+ * 
+ * @export
+ */
 export default function* rootSaga() {
     yield [
         watchSignUpAsync(),

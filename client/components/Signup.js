@@ -1,5 +1,5 @@
 import React from 'react';
-import validator from 'validator';
+// import validator from 'validator';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -56,28 +56,9 @@ class Signup extends React.Component {
    */
   handleSubmit(event) {
       event.preventDefault();
-    console.log(this.state);
-    this.props.signUp(this.state);
+      console.log(this.state);
+      this.props.signUp(this.state);
   }
-  /**
-   *
-   *
-   * @param {any} data
-   * @returns
-   *
-   * @memberOf Signup
-   */
-  // validate() {
-  //     const errors = {};
-  //     const { data } = this.state;
-  //     if (!validator.isEmail(data.email)) errors.email = "Invalid email";
-  //     if (validator.isEmpty(data.firstname)) errors.firstname = "first name cannot be blank";
-  //     if (!data.lastname) errors.lastname = "last name cannot be blank";
-  //     if (!data.password) errors.password = "Password cannot be blank";
-  //     if (!data.username) errors.username = "username cannot be blank";
-  //     return errors;
-  // }
-
     /**
  * @returns {object} data
  *
@@ -96,31 +77,31 @@ class Signup extends React.Component {
                               <i className="fa fa-user prefix teal-text" />
                               <input type="text" id="firstname" name="firstname" onChange={this.handleChange} className="form-control" />
                               <label htmlFor="orangeForm-name">First name</label>
-                            
+
                           </div>
                           <div className="md-form">
                               <i className="fa fa-user prefix teal-text" />
                               <input type="text" id="lastname" name="lastname" onChange={this.handleChange} className="form-control" />
                               <label htmlFor="orangeForm-name">Last name</label>
-                     
+
                           </div>
                           <div className="md-form">
                               <i className="fa fa-user prefix teal-text" />
                               <input type="text" id="username" name="username" onChange={this.handleChange} className="form-control" />
                               <label htmlFor="orangeForm-name">Username</label>
-                              
+
                           </div>
                           <div className="md-form">
                               <i className="fa fa-envelope prefix teal-text" />
                               <input type="email" id="email" name="email" onChange={this.handleChange} className="form-control" />
                               <label htmlFor="orangeForm-email">Email</label>
-                             
+
                           </div>
                           <div className="md-form">
                               <i className="fa fa-lock prefix teal-text" />
                               <input type="password" id="password" name="password" onChange={this.handleChange} className="form-control" />
                               <label htmlFor="orangeForm-pass">Password</label>
-                         
+
                           </div>
                           <div className="text-center mb-2">
                               <button type="submit" className="btn btn-mycolor">Sign Up</button>
@@ -139,15 +120,23 @@ class Signup extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-        signupReducer: state.signUp,
-    };
-}
+/**
+ *
+ *
+ * @param {any} state
+ * @returns
+ */
+const mapStateToProps = (state) => ({
+    signupReducer: state.signUp,
+});
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actionCreators, dispatch);
-}
+/**
+ *
+ *
+ * @param {any} dispatch
+ * @returns
+ */
+const mapDispatchToProps = (dispatch) => bindActionCreators(actionCreators, dispatch);
 
 const signReducer = connect(mapStateToProps, mapDispatchToProps)(Signup);
 
