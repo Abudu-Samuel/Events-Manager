@@ -17,21 +17,6 @@ const Navbar = () => (
                             <li className="nav-item">
                                 <Link to="/" className="nav-link">Home</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <a className="nav-link" href="#how it works">How it works</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#popular centers">Trending Centers</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#events">Popular Events</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#gallery">Gallery</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#contact">Contact</a>
-                            </li> */}
                         </ul>
                         <ul className="navbar-nav ml-auto nav-flex-icons">
                             <li className="nav-item">
