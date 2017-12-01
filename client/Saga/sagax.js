@@ -6,15 +6,15 @@ import history from '../history';
 // Our worker Saga: will perform the async tasks
 
 const userUrl = 'http://localhost:8000/api/v1/users';
-const userUrl2 = 'http://localhost:8000/api/v1/users';
+const userUrl2 = 'http://localhost:8000/api/v1/users/login';
 
 // Sign up
 
 /**
- * 
- * 
+ *
+ *
  * @export
- * @param {any} action 
+ * @param {any} action
  */
 export function* signUpAsync(action) {
     try {
@@ -26,7 +26,7 @@ export function* signUpAsync(action) {
             firstname: action.payload.firstname,
             lastname: action.payload.lastname
         });
-        console.log(`i am coming frm bacend${response.data}`);
+        console.log(`i am coming frm bacend${data.response}`);
         history.push('/allevents');
     } catch (e) {
         console.log(e.response);
@@ -34,8 +34,8 @@ export function* signUpAsync(action) {
 }
 
 /**
- * 
- * 
+ *
+ *
  * @export
  */
 export function* watchSignUpAsync() {
@@ -46,28 +46,28 @@ export function* watchSignUpAsync() {
 // Sign in
 
 /**
- * 
- * 
+ *
+ *
  * @export
- * @param {any} action 
+ * @param {any} action
  */
 export function* signInAsync(action) {
     try {
         console.log('trying to connect to login...');
-        const response = yield call(axios.post, '/api/v1/users/login', {
-            email: action.payload.email,
+        const response = yield call(axios.post, userUrl2, {
+            username: action.payload.username,
             password: action.payload.password
         });
-        console.log(response);
+        console.log(`login guy${response}`);
         history.push('/');
     } catch (e) {
-        console.log('ERROR!!!');
+        console.log(e.response);
     }
 }
 
 /**
- * 
- * 
+ *
+ *
  * @export
  */
 export function* watchSignInAsync() {
@@ -76,8 +76,8 @@ export function* watchSignInAsync() {
 }
 
 /**
- * 
- * 
+ *
+ *
  * @export
  */
 export default function* rootSaga() {

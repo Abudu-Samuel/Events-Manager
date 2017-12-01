@@ -105,7 +105,6 @@ class Signup extends React.Component {
                           </div>
                           <div className="text-center mb-2">
                               <button type="submit" className="btn btn-mycolor">Sign Up</button>
-                              {/* <a className="btn btn-mycolor">Sign Up<i className="fa fa-sign-in ml-1" /></a> */}
                           </div>
                           <div className="white-text text-center">
                               <h4>Already have an account ?
