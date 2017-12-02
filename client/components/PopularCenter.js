@@ -1,53 +1,74 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Navbar from './Navbar';
 
-/**
- * creates Navbar component
- * @returns {funct} Popular Center
- */
-const PopularCenter = () => (
-    <div className="container space">
-    <Navbar />
-        <section id="events">
-            <h2 className="mb-3 font-weight-bold grey-text">Polpular Events</h2>
-            <div className="row mb-4">
-                <div className="col-md-4 mb-4">
-                    <div className="card text-center">
-                        <img className="img-fluid hoverable" src="https://static.pexels.com/photos/169190/pexels-photo-169190.jpeg" alt="Card image cap" />
-                        <div className="card-body">
-                            <h4 className="card-title">Coming Of Kings</h4>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <Link to="/eventdetails" className="btn btn-mycolor btn-sm">Details</Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                    <div className="card text-center">
-                        <img className="img-fluid hoverable" src="https://static.pexels.com/photos/196652/pexels-photo-196652.jpeg" alt="Card image cap" />
-                        <div className="card-body">
-                            <h4 className="card-title">Coming Of Kings</h4>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <Link to="/eventdetails" className="btn btn-mycolor btn-sm">Details</Link>
-                        </div>
+import * as userActions from '../actions/actionCreator';
 
-                    </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                    <div className="card text-center">
-                        <img className="img-fluid hoverable" src="https://static.pexels.com/photos/301987/pexels-photo-301987.jpeg" alt="Card image cap" />
-                        <div className="card-body">
-                            <h4 className="card-title">Coming Of Kings</h4>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <Link to="/eventdetails" className="btn btn-mycolor btn-sm">Details</Link>
-                        </div>
+class PopularEvent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: null,
+            events: [],
+            fetchingEvents: false
+        };
+    }
 
+    componentWillMount() {
+        this.props.getAllEvents();
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.getEvents[0]) {
+            this.setState({ events: nextProps.getEvents, fetchingEvents: false });
+            console.log(nextProps)
+        } else {
+            this.setState({ fetchingEvents: true });
+        }
+        console.log(nextProps)
+    }
+    render() {
+        return (
+            <div className="container space">
+                <Navbar />
+                <section id="events">
+                    <h2 className="mb-3 font-weight-bold grey-text">Popular Events</h2>
+                    <div className="row mb-4">
+                        {
+                            this.state.events.map((event, key) => (
+                                <div className="col-md-4 mb-4" key={event.id}>
+                                    <div className="card text-center">
+                                        <img className="img-fluid hoverable" src={event.image} alt="Card image cap" />
+                                        <div className="card-body">
+                                            <h4 className="card-title">{event.title}</h4>
+                                            <p className="card-text">{event.description}</p>
+                                            <p className="card-text">Date: {event.date}</p>
+                                            <Link to="/eventdetails" className="btn btn-mycolor btn-sm">Details</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
-                </div>
+                </section>
+                <hr className="my-5" />
             </div>
-        </section>
-        <hr className="my-5" />
-    </div>
-);
+        );
+    }
+}
 
-export default PopularCenter;
+function mapStateToProps(state, ownProps) {
+    return {
+        getEvents: state.events.foundEvents
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        getAllEvents: (eventData) => dispatch(userActions.getAllEvents(eventData))
+    };
+}
+
+const PopularEvents = connect(mapStateToProps, mapDispatchToProps)(PopularEvent);
+
+export default PopularEvents;
