@@ -69,7 +69,7 @@ class Signin extends React.Component {
     render() {
         return (
             this.state.redirect ?
-            <Redirect to ="/allevents"/>
+            <Redirect to ="/dashboard"/>
             :
             <div>
                 <Navbar />
