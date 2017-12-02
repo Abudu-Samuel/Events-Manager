@@ -9,6 +9,7 @@ const router = express.Router();
 router.post('/', auth.authenticated, validate.addEvent, eventController.add);
 router.put('/:eventId', auth.authenticated, validate.eventId, getEvent.event, validate.addEvent, eventController.modify);
 router.get('/:eventId', auth.authenticated, validate.eventId, eventController.get);
+router.get('/', auth.authenticated, eventController.getAll);
 router.delete('/:eventId', auth.authenticated, validate.eventId, eventController.delete);
 
 export default router;
