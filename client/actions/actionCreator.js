@@ -36,6 +36,28 @@ export function signUp(userData) {
         });
 }
 
+export function addCenterAction(centerData) {
+    return {
+        type: types.ADD_CENTER,
+        centerData
+    };
+}
+
+export function addCenter(centerData) {
+    return (dispatch) => axios.post('http://localhost:8000/api/v1/centers/', centerData, {
+    headers: 
+    {
+        'x-access-token': localStorage.getItem('x-access-token')
+       }
+        })
+        .then((response) => {
+            dispatch(addCenterAction(response.data));
+        })
+        .catch((error) => {
+            throw (error);
+        });
+}
+
 export function getAllCentersAction(centerData) {
     return {
         type: types.GET_ALL_CENTERS,
@@ -45,8 +67,7 @@ export function getAllCentersAction(centerData) {
 }
 
 export function getAllCenters() {
-    return (dispatch) => {
-        return axios.get('http://localhost:8000/api/v1/centers/', {
+    return (dispatch) => axios.get('http://localhost:8000/api/v1/centers/', {
          headers: 
          {
              'x-access-token': localStorage.getItem('x-access-token')
@@ -58,5 +79,4 @@ export function getAllCenters() {
         .catch((error) => {
             throw (error);
         });
-    }
 }
