@@ -36,3 +36,27 @@ export function signUp(userData) {
         });
 }
 
+export function getAllCentersAction(centerData) {
+    return {
+        type: types.GET_ALL_CENTERS,
+        centerData
+
+    };
+}
+
+export function getAllCenters() {
+    return (dispatch) => {
+        return axios.get('http://localhost:8000/api/v1/centers/', {
+         headers: 
+         {
+             'x-access-token': localStorage.getItem('x-access-token')
+            }
+        })
+        .then((response) => {
+            dispatch(getAllCentersAction(response.data));
+        })
+        .catch((error) => {
+            throw (error);
+        });
+    }
+}

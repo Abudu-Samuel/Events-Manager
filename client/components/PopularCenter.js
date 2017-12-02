@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 /**
  * creates Navbar component
  * @returns {funct} Popular Center
  */
 const PopularCenter = () => (
-    <div className="container">
+    <div className="container space">
+    <Navbar />
         <section id="events">
             <h2 className="mb-3 font-weight-bold grey-text">Polpular Events</h2>
             <div className="row mb-4">
