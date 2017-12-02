@@ -1,7 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Navbar from '../components/Navbar';
-import { Redirect } from 'react-router-dom';
+
 
 import * as userActions from '../actions/actionCreator';
 
@@ -11,7 +12,7 @@ import * as userActions from '../actions/actionCreator';
  * @class Sigin
  * @extends {React.Component}
  */
-class Sigin extends React.Component {
+class Signin extends React.Component {
     constructor(props) {
         super(props);
 
@@ -66,7 +67,6 @@ class Sigin extends React.Component {
      * @memberOf Sigin
      */
     render() {
-        const { data } = this.state;
         return (
             this.state.redirect ?
             <Redirect to ="/allevents"/>
@@ -120,15 +120,6 @@ class Sigin extends React.Component {
 /**
  * 
  * 
- * @param {any} state 
- */
-const mapStateToProps = (state) => ({
-    signupReducer: state.signUp,
-});
-
-/**
- * 
- * 
  * @param {any} dispatch 
  */
 function mapDispatchToProps(dispatch) {
@@ -137,6 +128,6 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-const signReducer = connect(mapStateToProps, mapDispatchToProps)(Sigin);
+const signReducer = connect(null, mapDispatchToProps)(Signin);
 
 export default signReducer;
