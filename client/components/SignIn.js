@@ -1,9 +1,9 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Navbar from '../components/Navbar';
+import { Redirect } from 'react-router-dom';
 
-import * as actionCreators from '../actions/actionCreator';
+import * as userActions from '../actions/actionCreator';
 
 /**
  *
@@ -21,7 +21,12 @@ class Sigin extends React.Component {
         //setting the initial state of the component
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            errorMessage: '',
+            errorStatus: false,
+            redirect: false,
+            redirectMessage: '',
+            showRedirectMessage: false
         };
     }
     handleChange = event => {
@@ -29,8 +34,28 @@ class Sigin extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
-        this.props.signIn(this.state);
+        this.props.userSignIn(this.state)
+        .then(() => {
+            this.setState({
+                errorMessage: '',
+                errorStatus: false,
+                redirectMessage: 'Redirecting To Dashboard',
+                showRedirectMessage: true
+            });
+            setTimeout(() => {
+                this.setState({
+                    redirect: true
+                })
+            }, 2000)
+        })
+        .catch((error) => {
+            this.setState({
+                errorMessage: error.response.data.message,
+                errorStatus: true,
+                showRedirectMessage: false,
+                redirectMessage: ''
+            });
+        })
     }
 
     /**
@@ -43,6 +68,9 @@ class Sigin extends React.Component {
     render() {
         const { data } = this.state;
         return (
+            this.state.redirect ?
+            <Redirect to ="/allevents"/>
+            :
             <div>
                 <Navbar />
                 <div id="intro" className="view hm-black-strong">
@@ -59,6 +87,20 @@ class Sigin extends React.Component {
                                 <input type="password" id="password" name="password" onChange={this.handleChange} className="form-control" />
                                 <label className="white-text" htmlFor="orangeForm-pass">Password</label>
                             </div>
+                                {
+                                   this.state.errorStatus
+                                   ?
+                                   <h5 className="text-center font-weight-bold red-text">{this.state.errorMessage}</h5>
+                                   : 
+                                   null
+                                }
+                                {
+                                   this.state.showRedirectMessage
+                                   ?
+                                   <h5 className="text-center white-text">{this.state.redirectMessage}</h5>
+                                   : 
+                                   null
+                                }
                             <div className="text-center mb-2">
                                 <button type="submit" className="btn btn-mycolor">SignIn</button>
                             </div>
@@ -89,7 +131,11 @@ const mapStateToProps = (state) => ({
  * 
  * @param {any} dispatch 
  */
-const mapDispatchToProps = (dispatch) => bindActionCreators(actionCreators, dispatch);
+function mapDispatchToProps(dispatch) {
+    return {
+        userSignIn: (userData) => dispatch(userActions.signIn(userData))
+    };
+}
 
 const signReducer = connect(mapStateToProps, mapDispatchToProps)(Sigin);
 

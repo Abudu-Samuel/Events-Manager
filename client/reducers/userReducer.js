@@ -1,18 +1,14 @@
-/**
- * 
- * 
- * @param {any} [state=[]] 
- * @param {any} action 
- * @returns 
- */
-function SignIn(state = [], action) {
-    switch (action.type) {
-        case 'SIGN_IN':
-            console.log('signing in');
-            return state;
-        default:
-            return state;
-    }
+import * as types from '../actionTypes/index';
+
+const userAccess = (state = {}, action) => {
+  switch(action.type) {
+    case types.SIGN_IN:
+      return {
+        ...state, ...action.userData
+      }
+    default: 
+      return state;
+  }
 }
 
-export default SignIn;
+export default userAccess;

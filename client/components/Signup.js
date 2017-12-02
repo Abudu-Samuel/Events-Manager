@@ -125,9 +125,7 @@ class Signup extends React.Component {
  * @param {any} state
  * @returns
  */
-const mapStateToProps = (state) => ({
-    signupReducer: state.signUp,
-});
+
 
 /**
  *
@@ -137,6 +135,6 @@ const mapStateToProps = (state) => ({
  */
 const mapDispatchToProps = (dispatch) => bindActionCreators(actionCreators, dispatch);
 
-const signReducer = connect(mapStateToProps, mapDispatchToProps)(Signup);
+const signReducer = connect(null, mapDispatchToProps)(Signup);
 
 export default signReducer;
