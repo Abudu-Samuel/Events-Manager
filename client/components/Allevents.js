@@ -14,7 +14,7 @@ const Allevents = () => (
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                    <h2 className="mb-2 font-weight-bold grey-text text-center">Events For You !</h2>
+                    <h2 className="font-weight-bold grey-text text-center">Events For You !</h2>
                 </div>
             </div>
             <PopularCenter />

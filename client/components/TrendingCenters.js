@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Navbar from './Navbar';
 
 import * as actionCreators from '../actions/actionCreator';
 
@@ -31,7 +32,8 @@ class TrendingCenter extends React.Component {
      */
     render() {
         return (
-            <div className="container">
+            <div className="container space">
+                <Navbar />
                 <section id="popular centers">
                     <h2 className="mb-3 font-weight-bold grey-text">Trending Centers</h2>
                     <div className="row mb-4">
