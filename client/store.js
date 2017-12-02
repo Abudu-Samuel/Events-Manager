@@ -1,20 +1,21 @@
-import { createStore, applyMiddleware } from 'redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
-import { createBrowserHistory } from 'history';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 import rootReducer from './reducers/index';
-import rootSaga from './Saga/sagax';
 
+/**
+ * 
+ * 
+ * @param {any} initialState
+ * @returns { object } configured store
+ */
+function configStore(initialState) {
+  const combineEnhancers = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose; //eslint-disable-line
+    return createStore(
+        rootReducer,
+        initialState,
+        combineEnhancers(applyMiddleware(thunk))
+    );
+}
 
-const sagaMiddleware = createSagaMiddleware();
-
-// create the store
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
-
-export const history = syncHistoryWithStore(createBrowserHistory(), store);
-
-sagaMiddleware.run(rootSaga);
-
-console.log(store.getState());// get current state of the store
-
-export default store;
+export default configStore;

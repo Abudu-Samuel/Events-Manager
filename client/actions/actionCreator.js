@@ -1,23 +1,21 @@
-/**
- * formats the request from the user and returns it
- * @param {any} data from the user(username, password etc)
- * @returns {object} user
- */
-export function signUp(payload) {
-    return {
-        type: 'SIGN_UP',
-        payload
-    };
+import axios from 'axios';
+import * as types from '../actionTypes/index';
+
+export function signInAction(userData) {
+  return {
+    type: types.SIGN_IN,
+    userData
+  };
 }
 
-/**
-   * formats the request from the user and returns it
-   * @param {any} data from the user(username, password etc)
-   * @returns {object} user
-   */
-export function signIn(payload) {
-    return {
-        type: 'SIGN_IN',
-        payload
-    };
+export function signIn(userData) {
+  return (dispatch) => {
+    return axios.post('http://localhost:8000/api/v1/users/login', userData)
+    .then((response) => {
+     dispatch(signInAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    })
+  }
 }

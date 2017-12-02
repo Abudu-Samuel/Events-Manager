@@ -19,7 +19,7 @@ export default () => (
             <Route exact path="/addevent" component={AddEvent}/>
             <Route exact path="/addcenter" component={AddCenter}/>
             <Route exact path="/eventdetails" component={EventDetails}/>
-            <Route exact path="/centerdetails" component={CenterDetails}/>
+            <Route exact path="/centerdetails/:id" component={CenterDetails}/>
         </Switch>
     </BrowserRouter>
 );
