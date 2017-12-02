@@ -6,6 +6,10 @@ const centerAccess = (state = {}, action) => {
             return {
                 ...state, ...action.centerData
             };
+        case types.ADD_CENTER:
+            return {
+                ...state, ...action.centerData
+            };
         default:
             return state;
     }

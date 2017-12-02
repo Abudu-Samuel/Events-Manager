@@ -98,14 +98,6 @@ module.exports = (sequelize, DataTypes) => {
           args: true,
           msg: 'Image Field Required!'
         },
-        is: {
-          args: /^[a-zA-Z-.,]+(\s{0,1}[a-zA-Z-.,])*$/,
-          msg: 'Type of Event can contain only alphabets'
-        },
-        len: {
-          args: [10, 40],
-          msg: 'Image should be longer than 10 words and less than 40 words'
-        }
       }
     },
     description: {
