@@ -16,15 +16,15 @@ class TrendingCenter extends React.Component {
     }
 
     componentWillMount() {
-        this.props.getAllCenters()
+        this.props.getAllCenters();
     }
 
     componentWillReceiveProps(nextProps) {
-       if (nextProps.getCenters[0]) {
-           this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
-       } else {
-           this.setState({ fetchingCenters: true });
-       }
+        if (nextProps.getCenters[0]) {
+            this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
+        } else {
+            this.setState({ fetchingCenters: true });
+        }
     }
     /**
      *
@@ -41,8 +41,7 @@ class TrendingCenter extends React.Component {
                     <h2 className="mb-3 font-weight-bold grey-text">Trending Centers</h2>
                     <div className="row mb-4">
                         {
-                            this.state.centers.map((center, key) => {
-                                return (<div className="col-md-4 mb-4" key={center.id}>
+                            this.state.centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
                                     <div className="card text-center">
                                         <img className="img-fluid hoverable" src={center.image} alt="Card image cap" />
                                         <div className="card-body">
@@ -51,8 +50,7 @@ class TrendingCenter extends React.Component {
                                             <Link to="/centerdetails" className="btn btn-mycolor btn-sm">Details</Link>
                                         </div>
                                     </div>
-                                </div>);
-                            })
+                                </div>))
                         }
                     </div>
                 </section>
@@ -66,13 +64,13 @@ class TrendingCenter extends React.Component {
 function mapStateToProps(state, ownProps) {
     return {
         getCenters: state.centers.foundCenters
-    }
+    };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         getAllCenters: (centerData) => dispatch(userActions.getAllCenters(centerData))
-    }
+    };
 }
 
 const TrendingCenters = connect(mapStateToProps, mapDispatchToProps)(TrendingCenter);

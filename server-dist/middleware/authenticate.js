@@ -41,7 +41,7 @@ var Authenticate = function () {
      * @memberOf Authenticate
      */
     value: function authenticated(req, res, next) {
-      var token = req.headers['x-access-token'];
+      var token = req.headers['x-access-token'] || req.body.token;
       var decoded = _token2.default.decodeToken(token);
 
       if (decoded === 'no token') {
@@ -51,7 +51,7 @@ var Authenticate = function () {
       }
       return users.findOne({
         where: {
-          id: parseInt(decoded.userIdkey, 10)
+          id: parseInt(decoded.userId, 10)
         }
       }).then(function (found) {
         req.decoded = decoded;

@@ -9,7 +9,7 @@ export function signInAction(userData) {
 }
 
 export function signIn(userData) {
-    return (dispatch) => axios.post('http://localhost:8000/api/v1/users/login', userData)
+    return (dispatch) => axios.post('/api/v1/users/login', userData)
         .then((response) => {
             dispatch(signInAction(response.data));
             window.localStorage.setItem('x-access-token', response.data.token);
@@ -27,7 +27,7 @@ export function signUpAction(userData) {
 }
 
 export function signUp(userData) {
-    return (dispatch) => axios.post('http://localhost:8000/api/v1/users/', userData)
+    return (dispatch) => axios.post('/api/v1/users/', userData)
         .then((response) => {
             dispatch(signUpAction(response.data));
         })
@@ -44,7 +44,7 @@ export function addCenterAction(centerData) {
 }
 
 export function addCenter(centerData) {
-    return (dispatch) => axios.post('http://localhost:8000/api/v1/centers/', centerData, {
+    return (dispatch) => axios.post('/api/v1/centers/', centerData, {
         headers:
     {
         'x-access-token': localStorage.getItem('x-access-token')
@@ -66,11 +66,11 @@ export function getAllCentersAction(centerData) {
 }
 
 export function getAllCenters() {
-    return (dispatch) => axios.get('http://localhost:8000/api/v1/centers/', {
-        headers:
-         {
-             'x-access-token': localStorage.getItem('x-access-token')
-         }
+    return (dispatch) => axios.get('/api/v1/centers/', {
+        // headers:
+        //  {
+        //      'x-access-token': localStorage.getItem('x-access-token')
+        //  }
     })
         .then((response) => {
             dispatch(getAllCentersAction(response.data));
@@ -88,15 +88,14 @@ export function getAllEventsAction(eventData) {
 }
 
 export function getAllEvents() {
-    return (dispatch) => axios.get('http://localhost:8000/api/v1/events/', {
-        headers:
-        {
-            'x-access-token': localStorage.getItem('x-access-token')
-        }
+    return (dispatch) => axios.get('/api/v1/events/', {
+        // headers:
+        // {
+        //     'x-access-token': localStorage.getItem('x-access-token')
+        // }
     })
         .then((response) => {
             dispatch(getAllEventsAction(response.data));
-            console.log(response.data)
         })
         .catch((error) => {
             throw (error);

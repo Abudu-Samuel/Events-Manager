@@ -47,15 +47,15 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: {
           args: true,
           msg: 'Date Field Required!'
         },
-        isDate: {
-          args: true,
+        is: {
+          args: /(\d{2}(-\d{2}){2})/,
           msg: 'Fill in Date format, e.g yy-mm-dd'
         }
       }
@@ -99,14 +99,6 @@ module.exports = function (sequelize, DataTypes) {
         notEmpty: {
           args: true,
           msg: 'Image Field Required!'
-        },
-        is: {
-          args: /^[a-zA-Z-.,]+(\s{0,1}[a-zA-Z-.,])*$/,
-          msg: 'Type of Event can contain only alphabets'
-        },
-        len: {
-          args: [10, 40],
-          msg: 'Image should be longer than 10 words and less than 40 words'
         }
       }
     },
