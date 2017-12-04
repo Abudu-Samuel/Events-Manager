@@ -1,25 +1,18 @@
 module.exports = {
   up: (queryInterface) => {
-    queryInterface.bulkInsert('user', [{
+   return queryInterface.bulkInsert('user', [{
       id: 1,
       firstname: 'David',
       lastname: 'Blind',
-      username: 'Blinks',
+      username: 'admin',
       email: 'david@gmail.com',
       password: 'password',
       isAdmin: true
     }, {
-      id: 2,
-      firstname: 'Samuel',
-      lastname: 'Break',
-      username: 'Leumas',
-      email: 'samuel@gmail.com',
-      password: 'password',
-      isAdmin: false
     }], {});
   },
 
   down: (queryInterface) => {
-    queryInterface.bulkDelete('Person', null, {});
+    return queryInterface.bulkDelete('Person', null, {});
   }
 };
