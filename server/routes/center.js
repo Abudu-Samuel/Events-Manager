@@ -6,7 +6,7 @@ import auth from '../middleware/authenticate';
 const router = express.Router();
 
 router.post('/', auth.authenticated, validate.addCenter, centerController.add);
-router.get('/', auth.authenticated, centerController.getAll);
+router.get('/', centerController.getAll);
 router.get('/:centerId', auth.authenticated, validate.centerId, centerController.retrieve);
 router.put('/:centerId', auth.authenticated, validate.centerId, validate.addCenter, centerController.modify);
 

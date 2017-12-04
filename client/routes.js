@@ -15,8 +15,8 @@ export default () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={App}/>
-            <Route exact path="/signup" component={Signup}/>
-            <Route exact path="/signin" component={Signin}/>
+            <Route path="/signup" component={Signup}/>
+            <Route path="/signin" component={Signin}/>
             <Route exact path="/dashboard" component={Allevents}/>
             <Route exact path="/addevent" component={AddEvent}/>
             <Route exact path="/addcenter" component={AddCenter}/>

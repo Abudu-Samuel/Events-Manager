@@ -46,7 +46,7 @@ var Center = function () {
           image = _req$body.image,
           isAvailable = _req$body.isAvailable;
 
-      if (req.decoded.isAdminKey) {
+      if (req.decoded.isAdmin) {
         return centers.create({
           name: name,
           capacity: capacity,
@@ -155,7 +155,7 @@ var Center = function () {
             message: 'Center Not Found!'
           });
         }
-        if (req.decoded.isAdminKey) {
+        if (req.decoded.isAdmin) {
           return centerFound.update({
             name: name,
             capacity: capacity,

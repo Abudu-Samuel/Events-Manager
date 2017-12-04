@@ -21,11 +21,9 @@ class PopularEvent extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.getEvents[0]) {
             this.setState({ events: nextProps.getEvents, fetchingEvents: false });
-            console.log(nextProps)
         } else {
             this.setState({ fetchingEvents: true });
         }
-        console.log(nextProps)
     }
     render() {
         return (

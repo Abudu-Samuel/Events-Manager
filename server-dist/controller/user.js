@@ -49,55 +49,40 @@ var User = function () {
           email = _req$body.email,
           password = _req$body.password,
           firstname = _req$body.firstname,
-          lastname = _req$body.lastname;
+          lastname = _req$body.lastname,
+          isAdmin = _req$body.isAdmin;
 
       users.find({
         where: {
           $or: [{ email: email }, { username: username }]
         }
       }).then(function (found) {
-        var emailError = void 0;
-        var usernameError = void 0;
         if (found) {
-          if (found.email === email && found.username === username) {
-            emailError = 'Email already in use';
-            usernameError = 'Username already taken';
-          } else if (found.email === email) {
-            emailError = 'Email already in use';
-          } else if (found.username === username) {
-            usernameError = 'Username already taken';
-          }
-          return res.status(400).json({
-            message: {
-              emailError: emailError,
-              usernameError: usernameError
-            }
+          return res.status(403).send({
+            message: 'user already exist'
           });
         }
-      });
-      return users.create({
-        username: username,
-        email: email,
-        firstname: firstname,
-        lastname: lastname,
-        password: _bcrypt2.default.hashSync(password, 10)
-      }).then(function (register) {
-        return res.status(201).json({
-          responseData: {
-            newUser: 'Account Created',
-            username: register.username,
-            email: register.email,
-            firstname: register.firstname,
-            lastname: register.lastname
-          }
-        });
-      }).catch(function (error) {
-        return res.status(400).json({
-          message: error.errors[0].message
-        });
-      }).catch(function () {
-        return res.status(500).json({
-          message: 'Some error occured!'
+        return users.create({
+          username: username,
+          email: email,
+          firstname: firstname,
+          lastname: lastname,
+          isAdmin: isAdmin,
+          password: _bcrypt2.default.hashSync(password, 10)
+        }).then(function (register) {
+          return res.status(201).send({
+            responseData: {
+              newUser: 'Account Created',
+              username: register.username,
+              email: register.email,
+              firstname: register.firstname,
+              lastname: register.lastname
+            }
+          });
+        }).catch(function (error) {
+          return res.status(500).send({
+            message: error.errors[0].message
+          });
         });
       });
     }
@@ -123,26 +108,26 @@ var User = function () {
         }
       }).then(function (found) {
         if (!found) {
-          return res.status(400).json({
+          return res.status(400).send({
             message: 'Incorrect signin credentials'
           });
         }
         var hashedPassword = _bcrypt2.default.compareSync(password, found.password);
         if (hashedPassword) {
           var payLoad = {
-            userIdkey: found.id, emailKey: found.email, firstnameKey: found.firstname, lastnameKey: found.lastname, usernameKey: found.username, isAdminKey: found.isAdmin
+            userId: found.id, email: found.email, firstname: found.firstname, lastname: found.lastname, username: found.username, isAdmin: found.isAdmin
           };
           var token = _token2.default.generateToken(payLoad);
-          return res.status(200).json({
+          return res.status(200).send({
             message: 'Sign in Successful!',
             token: token
           });
         }
-        return res.status(400).json({
+        return res.status(400).send({
           message: 'invalid username or password'
         });
       }).catch(function () {
-        return res.status(500).json({
+        return res.status(500).send({
           message: 'Sorry, some error occured!'
         });
       });

@@ -2,15 +2,16 @@ import express from 'express';
 import configEnv from 'dotenv';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
+import Router from './routes/index';
 import user from './routes/user';
 import event from './routes/event';
 import center from './routes/center';
+
 
 configEnv.config();
 
 // Set up express app
 const app = express();
-
 // Log requests to the console
 app.use(logger('dev'));
 
@@ -19,13 +20,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
-app.use('/api/v1/users', user);
-app.use('/api/v1/events/', event);
-app.use('/api/v1/centers', center);
+Router(app);
+// app.use('/api/v1/users', user);
+// app.use('/api/v1/events/', event);
+// app.use('/api/v1/centers', center);
 
-app.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to Events Manager API'
-}));
+// app.get('/', (req, res) => res.status(200).send({
+//   message: 'Welcome to Events Manager API'
+// }));
+
 
 // Handle routes that doesn't match
 app.use((req, res, next) => {

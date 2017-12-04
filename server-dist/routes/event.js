@@ -31,6 +31,7 @@ var router = _express2.default.Router();
 router.post('/', _authenticate2.default.authenticated, _validation2.default.addEvent, _event2.default.add);
 router.put('/:eventId', _authenticate2.default.authenticated, _validation2.default.eventId, _getevent2.default.event, _validation2.default.addEvent, _event2.default.modify);
 router.get('/:eventId', _authenticate2.default.authenticated, _validation2.default.eventId, _event2.default.get);
+router.get('/', _event2.default.getAll);
 router.delete('/:eventId', _authenticate2.default.authenticated, _validation2.default.eventId, _event2.default.delete);
 
 exports.default = router;
