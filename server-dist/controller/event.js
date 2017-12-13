@@ -235,7 +235,7 @@ var Event = function () {
                         message: 'Event Not Found'
                     });
                 }
-                if (req.decoded.userId === req.eventFound.userId) {
+                if (req.decoded.userId === eventFound.userId) {
                     return eventFound.destroy().then(function () {
                         return res.status(200).json({
                             message: 'Event Deleted!'
