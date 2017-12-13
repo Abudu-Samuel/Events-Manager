@@ -61,11 +61,11 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 
 // Handle routes that doesn't match
-// app.use((req, res, next) => {
-//   const err = res.status(404).send({
-//     message: '404: Sorry Page Not Found!'
-//   });
-//   next(err);
-// });
+app.use(function (req, res, next) {
+  var err = res.status(404).send({
+    message: '404: Sorry Page Not Found!'
+  });
+  next(err);
+});
 
 exports.default = app;

@@ -200,7 +200,7 @@ class Event {
                         message: 'Event Not Found'
                     });
                 }
-                if (req.decoded.userId === req.eventFound.userId) {
+                if (req.decoded.userId === eventFound.userId) {
                     return eventFound
                         .destroy()
                         .then(() => res.status(200).json({
