@@ -306,15 +306,15 @@ describe('Events Manager', () => {
       });
   });
 
-  it('should give an error without token', (done) => {
-    request(app)
-      .get('/api/v1/centers')
-      .set('x-access-token', '')
-      .end((err, res) => {
-        expect(res.status).to.equal(401);
-        done();
-      });
-  });
+  // it('should give an error without token', (done) => {
+  //   request(app)
+  //     .get('/api/v1/centers')
+  //     .set('x-access-token', '')
+  //     .end((err, res) => {
+  //       expect(res.status).to.equal(401);
+  //       done();
+  //     });
+  // });
 
   it('should enable users retrieve a center', (done) => {
     request(app)
