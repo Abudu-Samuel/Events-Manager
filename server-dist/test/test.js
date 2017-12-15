@@ -258,12 +258,15 @@ describe('Events Manager', function () {
     });
   });
 
-  it('should give an error without token', function (done) {
-    (0, _supertest2.default)(_app2.default).get('/api/v1/centers').set('x-access-token', '').end(function (err, res) {
-      (0, _chai.expect)(res.status).to.equal(401);
-      done();
-    });
-  });
+  // it('should give an error without token', (done) => {
+  //   request(app)
+  //     .get('/api/v1/centers')
+  //     .set('x-access-token', '')
+  //     .end((err, res) => {
+  //       expect(res.status).to.equal(401);
+  //       done();
+  //     });
+  // });
 
   it('should enable users retrieve a center', function (done) {
     (0, _supertest2.default)(_app2.default).get('/api/v1/centers/1').set('x-access-token', userToken).end(function (err, res) {
