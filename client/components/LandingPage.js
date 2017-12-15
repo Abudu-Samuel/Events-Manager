@@ -6,6 +6,7 @@ import PopularCenter from './PopularCenter';
 import Gallery from './Gallery';
 import ContactUs from './ContactUs';
 import Footer from './Footer';
+import '../../public/css/style.scss';
 
 /**
  * creates Landing Page component
