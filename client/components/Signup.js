@@ -140,7 +140,7 @@ class SignUp extends React.Component {
                                   <button type="submit" className="btn btn-mycolor">Sign Up</button>
                               </div>
                               <div className="white-text text-center">
-                                  <h4 className="teal-text">Already have an account ?
+                                  <h4 className="teal-text font-weight-bold">Already have an account ?
                                       <a href="signin.html" className="btn btn-sm btn-mycolor">Sign In<i className="fa fa-sign-in ml-1" /></a>
                                   </h4>
                               </div>
