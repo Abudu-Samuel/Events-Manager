@@ -75,17 +75,17 @@ class Signin extends React.Component {
                 <Navbar />
                 <div id="intro" className="view hm-black-strong">
                     <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
-                        <form onSubmit={this.handleSubmit} className="signup">
-                            <h3 className="text-center mt-5 white-text font-weight-bold">Sign In</h3>
+                        <form onSubmit={this.handleSubmit} className="signup z-depth-1-half test mb-6">
+                            <h3 className="text-center mt-5 teal-text font-weight-bold">Sign In</h3>
                             <div className="md-form">
                                 <i className="fa fa-user prefix teal-text" />
                                 <input type="text" id="username" name="username" onChange={this.handleChange} className="form-control" />
-                                <label className="white-text" htmlFor="orangeForm-name">Username</label>
+                                <label className="teal-text" htmlFor="orangeForm-name">Username</label>
                             </div>
                             <div className="md-form">
                                 <i className="fa fa-lock prefix teal-text" />
                                 <input type="password" id="password" name="password" onChange={this.handleChange} className="form-control" />
-                                <label className="white-text" htmlFor="orangeForm-pass">Password</label>
+                                <label className="teal-text" htmlFor="orangeForm-pass">Password</label>
                             </div>
                                 {
                                    this.state.errorStatus
@@ -97,7 +97,7 @@ class Signin extends React.Component {
                                 {
                                    this.state.showRedirectMessage
                                    ?
-                                   <h5 className="text-center white-text">{this.state.redirectMessage}</h5>
+                                   <h5 className="text-center font-weight-bold green-text">{this.state.redirectMessage}</h5>
                                    : 
                                    null
                                 }
@@ -105,7 +105,7 @@ class Signin extends React.Component {
                                 <button type="submit" className="btn btn-mycolor">SignIn</button>
                             </div>
                             <div className="white-text text-center">
-                                <h4>Don't have an account ?
+                                <h4 className="teal-text font-weight-bold">Don't have an account ?
                                     <a href="signup.html" className="btn btn-sm btn-mycolor">Sign Up<i className="fa fa-sign-in ml-1" /></a>
                                 </h4>
                             </div>
