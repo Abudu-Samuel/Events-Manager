@@ -6,6 +6,10 @@ const eventAccess = (state = {}, action) => {
             return {
                 ...state, ...action.eventData
             };
+        case types.GET_SINGLE_EVENT:
+            return {
+                ...state, ...action.eventData
+            };
         default:
             return state;
     }

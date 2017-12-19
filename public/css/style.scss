@@ -5,7 +5,7 @@ body, */
 /* .header, */
 
 #intro {
-  height: 662px;
+  height: 800px;
   background: url("https://static.pexels.com/photos/382297/pexels-photo-382297.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -27,34 +27,38 @@ body, */
   }
 }
 
-#intro input {
-  &[type="text"]:focus:not([readonly]), &[type="password"]:focus:not([readonly]), &[type="email"]:focus:not([readonly]) {
-    border-color: #C00;
-    box-shadow: 0 1px 0 0 #C00;
-    color: #fff;
-  }
-  &[type="text"] {
-    &:not([readonly]) + label {
-      color: rgba(255, 255, 255, 0.65);
-    }
-    &:focus:not([readonly]) + label {
-      color: #fff;
-    }
-  }
-  &[type="email"]:focus:not([readonly]) + label, &[type="password"]:focus:not([readonly]) + label {
-    color: #fff;
-  }
+#intro input[type="text"]:not([readonly])+label {
+  color: rgba(255, 255, 255, .65);
 }
 
-input {
-  &[type=email], &[type=number], &[type=password], &[type=search-md], &[type=search], &[type=tel], &[type=text], &[type=time], &[type=url] {
-    color: #fff;
-  }
-}
+// #intro input {
+//   &[type="text"]:focus:not([readonly]), &[type="password"]:focus:not([readonly]), &[type="email"]:focus:not([readonly]) {
+//     border-color: #C00;
+//     box-shadow: 0 1px 0 0 #C00;
+//     color: #fff;
+//   }
+//   &[type="text"] {
+//     &:not([readonly]) + label {
+//       color: rgba(255, 255, 255, 0.65);
+//     }
+//     &:focus:not([readonly]) + label {
+//       color: #fff;
+//     }
+//   }
+//   &[type="email"]:focus:not([readonly]) + label, &[type="password"]:focus:not([readonly]) + label {
+//     color: #fff;
+//   }
+// }
 
-textarea.md-textarea {
-  color: #fff;
-}
+// input {
+//   &[type=email], &[type=number], &[type=password], &[type=search-md], &[type=search], &[type=tel], &[type=text], &[type=time], &[type=url] {
+//     color: #fff;
+//   }
+// }
+
+// textarea.md-textarea {
+//   color: #fff;
+// }
 
 ul {
   list-style: none;
@@ -92,7 +96,7 @@ ul {
     margin-top: 100px;
   }
   .signup {
-    width: 450px;
+    width: 550px;
   }
   .add {
     margin: 0 auto;
@@ -100,6 +104,12 @@ ul {
   .custom-file-input {
     min-width: 25rem;
   }
+}
+
+.test {
+  background: #fff;
+  margin-top: 46px;
+  padding: 0 24px
 }
 
 .card {
