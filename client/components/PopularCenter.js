@@ -14,7 +14,6 @@ class PopularEvent extends React.Component {
             fetchingEvents: false
         };
     }
-
     componentWillMount() {
         this.props.getAllEvents();
     }
@@ -24,6 +23,11 @@ class PopularEvent extends React.Component {
         } else {
             this.setState({ fetchingEvents: true });
         }
+    }
+    showEventDetails = () => {
+        console.log('coming from the component')
+        this.props.getSingleEvent();
+        console.log('the component5 baba', userActions.getSingleEvent)
     }
     render() {
         return (
@@ -41,7 +45,8 @@ class PopularEvent extends React.Component {
                                             <h4 className="card-title">{event.title}</h4>
                                             <p className="card-text">{event.description}</p>
                                             <p className="card-text">Date: {event.date}</p>
-                                            <Link to="/eventdetails" className="btn btn-mycolor btn-sm">Details</Link>
+                                            <button onClick={this.showEventDetails} className="btn btn-mycolor btn-sm">Details</button>
+                                            {/* <Link to="/eventdetails" className="usghjuo" onClick={this.showEventDetails} className="btn btn-mycolor btn-sm">Details</Link> */}
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +68,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getAllEvents: (eventData) => dispatch(userActions.getAllEvents(eventData))
+        getAllEvents: (eventData) => dispatch(userActions.getAllEvents(eventData)),
+        getSingleEvent: (eventData) => dispatch(userActions.getSingleEvent(eventData))
     };
 }
 
