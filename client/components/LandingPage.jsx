@@ -24,7 +24,7 @@ class LandingPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getAllCenters();
+        this.props.getTrendingCenters();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -61,7 +61,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getAllCenters: (centerData) => dispatch(userActions.getAllCenters(centerData))
+        getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData))
     };
 }
 

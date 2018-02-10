@@ -58,6 +58,28 @@ export function addCenter(centerData) {
         });
 }
 
+export function getTrendingCentersAction(centerData) {
+    return {
+        type: types.GET_TRENDING_CENTERS,
+        centerData
+    };
+}
+
+export function getTrendingCenters() {
+    return (dispatch) => axios.get('/api/v1/centers/trend', {
+        // headers:
+        //  {
+        //      'x-access-token': localStorage.getItem('x-access-token')
+        //  }
+    })
+        .then((response) => {
+            dispatch(getTrendingCentersAction(response.data));
+        })
+        .catch((error) => {
+            throw (error);
+        });
+}
+
 export function getAllCentersAction(centerData) {
     return {
         type: types.GET_ALL_CENTERS,
