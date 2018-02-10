@@ -88,7 +88,7 @@ export function getAllCentersAction(centerData) {
 }
 
 export function getAllCenters() {
-    return (dispatch) => axios.get('/api/v1/centers/trend', {
+    return (dispatch) => axios.get('/api/v1/centers/', {
         // headers:
         //  {
         //      'x-access-token': localStorage.getItem('x-access-token')

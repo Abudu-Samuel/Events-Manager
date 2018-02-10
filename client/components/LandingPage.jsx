@@ -28,7 +28,6 @@ class LandingPage extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-      console.log(nextProps)
         if (nextProps.getCenters[0]) {
             this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
         } else {
