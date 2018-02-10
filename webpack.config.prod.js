@@ -20,6 +20,7 @@ module.exports = {
             loader: ['style-loader', 'css-loader', 'sass-loader']
         }]
     },
+    resolve: { extensions: ['.js', '.jsx', '.css'] },
     output: {
         path: path.join(__dirname, 'client-dist'),
         filename: 'bundle.js',

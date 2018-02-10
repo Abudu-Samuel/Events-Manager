@@ -26,6 +26,7 @@ var router = _express2.default.Router();
 
 router.post('/', _authenticate2.default.authenticated, _validation2.default.addCenter, _center2.default.add);
 router.get('/', _center2.default.getAll);
+router.get('/trend', _center2.default.getTrendingCenters);
 router.get('/:centerId', _authenticate2.default.authenticated, _validation2.default.centerId, _center2.default.retrieve);
 router.put('/:centerId', _authenticate2.default.authenticated, _validation2.default.centerId, _validation2.default.addCenter, _center2.default.modify);
 

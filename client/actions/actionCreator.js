@@ -66,7 +66,7 @@ export function getAllCentersAction(centerData) {
 }
 
 export function getAllCenters() {
-    return (dispatch) => axios.get('/api/v1/centers/', {
+    return (dispatch) => axios.get('/api/v1/centers/trend', {
         // headers:
         //  {
         //      'x-access-token': localStorage.getItem('x-access-token')
@@ -88,7 +88,7 @@ export function getAllEventsAction(eventData) {
 }
 
 export function getAllEvents() {
-    return (dispatch) => axios.get('/api/v1/events/', {
+    return (dispatch) => axios.get('/api/v1/events/popular', {
         // headers:
         // {
         //     'x-access-token': localStorage.getItem('x-access-token')
@@ -112,7 +112,7 @@ export function getSingleEventAction(eventData) {
 export function getSingleEvent() {
      console.log('coming from backend')
     //  const eventId = parseInt(':eventId', 10)
-    return (dispatch) => axios.get('api/v1/events/5', {
+    return (dispatch) => axios.get('api/v1/events/1', {
         headers:
         {
             'x-access-token': localStorage.getItem('x-access-token')
