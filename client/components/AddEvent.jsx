@@ -30,12 +30,17 @@ const AddEvent = () => (
                         <div className="md-form">
                             <i className="fa fa-clock-o prefix teal-text" />
                             <input type="text" id="username-name" className="form-control" />
-                            <label htmlFor="orangeForm-name">Starts</label>
+                            <label htmlFor="orangeForm-name">Event Date</label>
                         </div>
                         <div className="md-form">
                             <i className="fa fa-clock-o prefix teal-text" />
                             <input type="text" id="ends-name" className="form-control" />
-                            <label htmlFor="orangeForm-name">Ends</label>
+                            <label htmlFor="orangeForm-name">Event Time</label>
+                        </div>
+                        <div className="md-form">
+                            <i className="fa fa-clock-o prefix teal-text" />
+                            <input type="text" id="ends-name" className="form-control" />
+                            <label htmlFor="orangeForm-name">Event Type</label>
                         </div>
                         <div className="md-form myfile">
                             <i className="fa fa-camera-retro prefix teal-text" />

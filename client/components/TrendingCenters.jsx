@@ -3,45 +3,17 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Navbar from './Navbar';
 
-import * as userActions from '../actions/actionCreator';
 
-class TrendingCenter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: null,
-            centers: [],
-            fetchingCenters: false
-        };
-    }
-
-    componentWillMount() {
-        this.props.getAllCenters();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.getCenters[0]) {
-            this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
-        } else {
-            this.setState({ fetchingCenters: true });
-        }
-    }
-    /**
-     *
-     *
-     * @returns
-     *
-     * @memberOf TrendingCenter
-     */
-    render() {
-        return (
+const TrendingCenter = ({
+    centers
+}) => (
             <div className="container space">
                 <Navbar />
                 <section id="popular centers">
                     <h2 className="mb-3 font-weight-bold grey-text">Trending Centers</h2>
                     <div className="row mb-4">
                         {
-                            this.state.centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
+                            centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
                                     <div className="card text-center">
                                         <img className="img-fluid hoverable" src={center.image} alt="Card image cap" />
                                         <div className="card-body">
@@ -57,22 +29,7 @@ class TrendingCenter extends React.Component {
                 <hr className="my-5" />
             </div>
         );
-    }
-}
 
+// const TrendingCenters = connect(mapStateToProps, mapDispatchToProps)(TrendingCenter);
 
-function mapStateToProps(state, ownProps) {
-    return {
-        getCenters: state.centers.foundCenters
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        getAllCenters: (centerData) => dispatch(userActions.getAllCenters(centerData))
-    };
-}
-
-const TrendingCenters = connect(mapStateToProps, mapDispatchToProps)(TrendingCenter);
-
-export default TrendingCenters;
+export default TrendingCenter;

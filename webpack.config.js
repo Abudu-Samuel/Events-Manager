@@ -8,6 +8,12 @@ module.exports = {
         'webpack-hot-middleware/client?reload=true',
         path.resolve(__dirname, 'client/index.js')
     ],
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
+    },
+    resolve: { extensions: ['.js', '.jsx', '.css'] },
     module: {
         loaders: [{
             test: /\.(js|jsx)$/,
@@ -17,11 +23,6 @@ module.exports = {
             test: /\.(sass|scss|css)$/,
             loader: ['style-loader', 'css-loader', 'sass-loader']
         }]
-    },
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: '/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

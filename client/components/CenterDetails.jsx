@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 /**
@@ -13,8 +14,8 @@ const CenterDetails = () => (
                 <div className="row">
 
                     <div className="col-xl-6 mb-4">
-
-                        <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
+                    <img className="img-fluid" src="https://static.pexels.com/photos/12574/SW_Dylan%2BRives.jpg" alt="Card image cap" />
+                        {/* <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
                             <ol className="carousel-indicators">
                                 <li data-target="#carousel-example-1z" data-slide-to="0" className="active" />
@@ -47,12 +48,14 @@ const CenterDetails = () => (
                                 <span className="sr-only">Next</span>
                             </a>
 
-                        </div>
+                        </div> */}
 
                     </div>
 
                     <div className="col-xl-6">
                         <h4 className="mb-2 font-weight-bold"><i className="fa fa-bolt indigo-text mr-2 fa-1x" /><strong>Hall of Fame</strong></h4>
+                        <h5>Available</h5>
+                        <Link to="/addevent" className="btn btn-mycolor btn-sm">Book</Link>
                         <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" /><strong>Ikeja, Lagos</strong> <i className="fa fa-group grey-text ml-2 mr-2 fa-2x" /><strong>450 Guests</strong></h6>
                         <p className="text-justify">Lorem ipsum dolor sit amet,lore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo adipisicing e exercitation ullamco laboris nisi.
                         </p>

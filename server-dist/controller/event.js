@@ -219,6 +219,30 @@ var Event = function () {
         }
 
         /**
+        * 
+        * 
+        * @static
+        * @param {any} req 
+        * @param {any} res 
+        * @returns 
+        * 
+        * @memberOf Event
+        */
+
+    }, {
+        key: 'getPopularEvents',
+        value: function getPopularEvents(req, res) {
+            return events.findAll({ limit: 1, order: [['createdAt', 'DESC']] }).then(function (foundEvents) {
+                return res.status(200).send({
+                    message: 'Events Found',
+                    foundEvents: foundEvents
+                });
+            }).catch(function (error) {
+                return res.status(500).json(error);
+            });
+        }
+
+        /**
         * @static
         * @param {object} req
         * @param {object} res

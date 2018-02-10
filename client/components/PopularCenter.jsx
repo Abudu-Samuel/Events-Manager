@@ -27,7 +27,9 @@ class PopularEvent extends React.Component {
     showEventDetails = () => {
         console.log('coming from the component')
         this.props.getSingleEvent();
-        console.log('the component5 baba', userActions.getSingleEvent)
+        this.props.getEventsDetail;
+        console.log('the component baba', this.props.getSingleEvent());
+        console.log('the component tuale', this.props.getEventsDetail)
     }
     render() {
         return (

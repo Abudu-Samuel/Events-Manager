@@ -184,6 +184,26 @@ class Event {
             .catch(error => res.status(500).json(error));
     }
 
+     /**
+     * 
+     * 
+     * @static
+     * @param {any} req 
+     * @param {any} res 
+     * @returns 
+     * 
+     * @memberOf Event
+     */
+    static getPopularEvents(req, res) {
+        return events
+            .findAll({ limit: 1, order: [['createdAt', 'DESC']] })
+            .then(foundEvents => res.status(200).send({
+                message: 'Events Found',
+                foundEvents
+            }))
+            .catch(error => res.status(500).json(error));
+    }
+
     /**
    * @static
    * @param {object} req
