@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Navbar from './Navbar';
 
 
@@ -29,7 +28,5 @@ const TrendingCenter = ({
                 <hr className="my-5" />
             </div>
         );
-
-// const TrendingCenters = connect(mapStateToProps, mapDispatchToProps)(TrendingCenter);
 
 export default TrendingCenter;

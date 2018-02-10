@@ -24,11 +24,10 @@ class LandingPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getAllCenters();
+        this.props.getTrendingCenters();
     }
 
     componentWillReceiveProps(nextProps) {
-      console.log(nextProps)
         if (nextProps.getCenters[0]) {
             this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
         } else {
@@ -61,7 +60,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getAllCenters: (centerData) => dispatch(userActions.getAllCenters(centerData))
+        getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData))
     };
 }
 
