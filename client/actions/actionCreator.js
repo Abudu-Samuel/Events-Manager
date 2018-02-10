@@ -102,6 +102,28 @@ export function getAllCenters() {
         });
 }
 
+export function getPopularEventsAction(eventData) {
+    return {
+        type: types.GET_POPULAR_EVENTS,
+        eventData
+    };
+}
+
+export function getPopularEvents() {
+    return (dispatch) => axios.get('/api/v1/events/popular', {
+        // headers:
+        // {
+        //     'x-access-token': localStorage.getItem('x-access-token')
+        // }
+    })
+        .then((response) => {
+            dispatch(getPopularEventsAction(response.data));
+        })
+        .catch((error) => {
+            throw (error);
+        });
+}
+
 export function getAllEventsAction(eventData) {
     return {
         type: types.GET_ALL_EVENTS,
@@ -110,7 +132,7 @@ export function getAllEventsAction(eventData) {
 }
 
 export function getAllEvents() {
-    return (dispatch) => axios.get('/api/v1/events/popular', {
+    return (dispatch) => axios.get('/api/v1/events/', {
         // headers:
         // {
         //     'x-access-token': localStorage.getItem('x-access-token')

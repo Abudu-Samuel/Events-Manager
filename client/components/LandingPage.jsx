@@ -19,12 +19,14 @@ class LandingPage extends React.Component {
         this.state = {
             user: null,
             centers: [],
+            events: [],
             fetchingCenters: false
         };
     }
 
     componentDidMount() {
         this.props.getTrendingCenters();
+        this.props.getPopularEvents();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -33,7 +35,13 @@ class LandingPage extends React.Component {
         } else {
             this.setState({ fetchingCenters: true });
         }
+        if (nextProps.getEvents) {
+            this.setState({ events: nextProps.getEvents, fetchingEvents: false });
+        } else {
+            this.setState({ fetchingEvents: true });
+        }
     }
+
 
   render() {
     return (
@@ -43,7 +51,9 @@ class LandingPage extends React.Component {
             <TrendingCenter 
             centers = 
             {this.state.centers} />
-            <PopularCenter />
+            <PopularCenter 
+            events = 
+            {this.state.events}/>
             <Gallery />
             <ContactUs />
             <Footer />
@@ -54,13 +64,15 @@ class LandingPage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
     return {
-        getCenters: state.centers.foundCenters
+        getCenters: state.centers.foundCenters,
+        getEvents: state.events.foundEvents
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData))
+        getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
+        getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData))
     };
 }
 
