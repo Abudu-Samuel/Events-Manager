@@ -22,8 +22,14 @@ class LandingPage extends React.Component {
             events: [],
             fetchingCenters: false
         };
+        this.getCenterId = this.getCenterId.bind(this);
     }
 
+
+    getCenterId(event) {
+        event.preventDefault();
+        console.log(event.target.dataset.centerid);
+    }
     componentDidMount() {
         this.props.getTrendingCenters();
         this.props.getPopularEvents();
@@ -49,8 +55,8 @@ class LandingPage extends React.Component {
           <Navbar />
             <Body />
             <TrendingCenter 
-            centers = 
-            {this.state.centers} />
+            centers = {this.state.centers}
+            getCenterId = {this.getCenterId}/>
             <PopularCenter 
             events = 
             {this.state.events}/>
