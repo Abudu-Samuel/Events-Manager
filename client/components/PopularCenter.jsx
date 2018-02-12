@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const PopularEvents = ({
-    events
+  events
 }) => (
     <div className="container space">
         <Navbar />
@@ -12,7 +12,7 @@ const PopularEvents = ({
             <div className="row mb-4">
                 {
                     events.map((event, key) => (
-                        <div className="col-md-4 mb-4" key={event.id}>
+                   <div className="col-md-4 mb-4" key={event.id}>
                             <div className="card text-center">
                                 <img className="img-fluid hoverable" src={event.image} alt="Card image cap" />
                                 <div className="card-body">
