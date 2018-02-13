@@ -9,77 +9,143 @@ import ContactUs from './ContactUs';
 import Footer from './Footer';
 import '../../public/css/style.scss';
 import * as userActions from '../actions/actionCreator';
+
 /**
- * creates Landing Page component
- *  @returns {funct} Landing Page
+ * @description LandingPage component
+ *
+ * @class LandingPage
+ *
+ * @extends {React.Component}
  */
 class LandingPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: null,
-            centers: [],
-            events: [],
-            fetchingCenters: false
-        };
-        this.getCenterId = this.getCenterId.bind(this);
+  /**
+     * Creates an instance of LandingPage.
+     *
+     * @param {any} props
+     *
+     * @memberof LandingPage
+     */
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+      centers: [],
+      events: [],
+      fetchingCenters: false
+    };
+    this.getCenterId = this.getCenterId.bind(this);
+  }
+
+  /**
+   * @method componentDidMount
+   *
+   * @memberof LandingPage
+   *
+   * @description React lifecycle hook
+   *
+   * @return {object} updated state
+   */
+  componentDidMount() {
+    this.props.getTrendingCenters();
+    this.props.getPopularEvents();
+  }
+
+  /**
+   * @method componentWillReceiveProps
+   *
+   * @param {object} nextProps
+   *
+   * @description React lifecycle hook
+   *
+   * @memberof LandingPage
+   *
+   * @return {object} updated state
+   */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.getCenters[0]) {
+      this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
+    } else {
+      this.setState({ fetchingCenters: true });
     }
-
-
-    getCenterId(event) {
-        event.preventDefault();
-        console.log(event.target.dataset.centerid);
+    if (nextProps.getEvents) {
+      this.setState({ events: nextProps.getEvents, fetchingEvents: false });
+    } else {
+      this.setState({ fetchingEvents: true });
     }
-    componentDidMount() {
-        this.props.getTrendingCenters();
-        this.props.getPopularEvents();
-    }
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.getCenters[0]) {
-            this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
-        } else {
-            this.setState({ fetchingCenters: true });
-        }
-        if (nextProps.getEvents) {
-            this.setState({ events: nextProps.getEvents, fetchingEvents: false });
-        } else {
-            this.setState({ fetchingEvents: true });
-        }
-    }
+  /**
+   * @method getCenterId
+   *
+   * @description retrieve Id of a center
+   *
+   * @param {object} event
+   *
+   * @return {object} updated state with center Id
+   *
+   * @memberof LandingPage
+   */
+  getCenterId(event) {
+    event.preventDefault();
+    console.log(this.event.target.dataset.centerid);
+  }
 
-
+  /**
+   * @method render
+   *
+   * @description React method render
+   *
+   * @return {jsx} Jsx representation of the dom
+   *
+   * @memberof LandingPage
+   */
   render() {
     return (
-    <div>
-          <Navbar />
-            <Body />
-            <TrendingCenter 
-            centers = {this.state.centers}
-            getCenterId = {this.getCenterId}/>
-            <PopularCenter 
-            events = 
+      <div>
+        <Navbar />
+        <Body />
+        <TrendingCenter
+          centers = {this.state.centers}
+          getCenterId = {this.getCenterId}/>
+        <PopularCenter
+          events =
             {this.state.events}/>
-            <Gallery />
-            <ContactUs />
-            <Footer />
-        </div>
+        <Gallery />
+        <ContactUs />
+        <Footer />
+      </div>
     );
   }
-  }
-
-function mapStateToProps(state, ownProps) {
-    return {
-        getCenters: state.centers.foundCenters,
-        getEvents: state.events.foundEvents
-    };
 }
 
+/**
+ * @description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} state
+ *
+ * @param {function} ownProps
+ *
+ * @return {object} mapped dispatch
+ */
+function mapStateToProps(state, ownProps) {
+  return {
+    getCenters: state.centers.foundCenters,
+    getEvents: state.events.foundEvents
+  };
+}
+
+/**
+ *@description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} dispatch
+ *
+ * @return {object} mapped dispatch
+ */
 function mapDispatchToProps(dispatch) {
-    return {
-        getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
-        getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData))
-    };
+  return {
+    getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
+    getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData))
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
