@@ -6,9 +6,9 @@ import LandingPage from '../components/LandingPage';
  * @returns {function} App
  */
 const App = () => (
-    <div>
-        <LandingPage />
-    </div>
+  <div>
+    <LandingPage />
+  </div>
 );
 
 export default App;

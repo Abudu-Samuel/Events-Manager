@@ -5,11 +5,23 @@ import TrendingCenters from '../components/TrendingCenters';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import * as userActions from '../actions/actionCreator';
+
+
 /**
- * creates Navbar component
- *  @returns {funct} Navbar
+ * @description Allevents component
+ *
+ * @class Allevents
+ *
+ * @extends {React.Component}
  */
 class Allevents extends React.Component {
+  /**
+   * Creates an instance of Allevents.
+   *
+   * @param {object} props
+   *
+   * @memberof Allevents
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -19,11 +31,31 @@ class Allevents extends React.Component {
       fetchingCenters: false
     };
   }
+  /**
+   *@method componentWillMount
+   *
+   * @description React lifecycle hook
+   *
+   * @return {object} updated state
+   *
+   * @memberof Allevents
+   */
   componentWillMount() {
     this.props.getAllCenters();
     this.props.getAllEvents();
   }
 
+  /**
+   * @method componentWillReceiveProps
+   *
+   * @description React lifecycle hook
+   *
+   * @param {object} nextProps
+   *
+   * @return {object} updated state
+   *
+   * @memberof Allevents
+   */
   componentWillReceiveProps(nextProps) {
     if (nextProps.getCenters[0]) {
       this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
@@ -37,6 +69,15 @@ class Allevents extends React.Component {
     }
   }
 
+  /**
+   * @method render
+   *
+   * @description React method render
+   *
+   * @return {jsx} Jsx representation of the dom
+   *
+   * @memberof Allevents
+   */
   render() {
     return (
       <div className="space">
@@ -60,6 +101,15 @@ class Allevents extends React.Component {
   }
 }
 
+/**
+ * @description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} state
+ *
+ * @param {function} ownProps
+ *
+ * @return {object} mapped dispatch
+ */
 function mapStateToProps(state, ownProps) {
   return {
     getCenters: state.centers.foundCenters,
@@ -67,6 +117,13 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+/**
+ * @description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} dispatch
+ *
+ * @return {object} mapped dispatch
+ */
 function mapDispatchToProps(dispatch) {
   return {
     getAllCenters: centerData => dispatch(userActions.getAllCenters(centerData)),
