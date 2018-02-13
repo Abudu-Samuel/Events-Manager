@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * creates Gallery component
- *  @returns {funct} Gallery
- */
 const Gallery = () => (
   <div className="container">
     <section id="gallery">
