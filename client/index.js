@@ -6,9 +6,9 @@ import configStore from './store';
 
 const store = configStore();
 render(
-    <Provider store={store}>
-        <Root />
-    </Provider>
-    ,
-    document.getElementById('app')
+  <Provider store={store}>
+    <Root />
+  </Provider>
+  ,
+  document.getElementById('app')
 );

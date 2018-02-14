@@ -44,7 +44,7 @@ class Signin extends React.Component {
     /**
      * @method handleSubmit
      *
-     * @param {any} event
+     * @param {object} event
      *
      * @return {object} updated state
      *
