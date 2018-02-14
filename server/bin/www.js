@@ -11,10 +11,10 @@ const port = parseInt(process.env.PORT, 10) || 8000;
 app.set('port', port);
 
 app.use(webpackDevMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
-    noInfo: true
+  publicPath: webpackConfig.output.publicPath,
+  noInfo: true
 }));
-  
+
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.resolve(__dirname, '../../client')));
