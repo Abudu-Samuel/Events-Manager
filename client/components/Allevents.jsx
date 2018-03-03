@@ -69,6 +69,11 @@ class Allevents extends React.Component {
     }
   }
 
+  // getCenterId(event) {
+  //   event.preventDefault();
+  //   console.log(event.target.dataset.centerid);
+  // }
+
   /**
    * @method render
    *
@@ -93,7 +98,10 @@ class Allevents extends React.Component {
               {this.state.events}/>
           <TrendingCenters
             centers =
-              {this.state.centers}/>
+              {this.state.centers}
+            /* getCenterId = {this.getCenterId} */
+
+          />
         </div>
         <Footer />
       </div>

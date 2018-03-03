@@ -190,7 +190,7 @@ class Event {
      */
   static getPopularEvents(req, res) {
     return events
-      .findAll({ limit: 1, order: [['createdAt', 'DESC']] })
+      .findAll({ limit: 3, order: [['createdAt', 'DESC']] })
       .then(foundEvents => res.status(200).send({
         message: 'Events Found',
         foundEvents

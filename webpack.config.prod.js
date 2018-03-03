@@ -7,35 +7,36 @@ const GLOBALS = {
 };
 
 module.exports = {
-    entry: [
-        path.resolve(__dirname, 'client/index.js')
-    ],
-    module: {
-        loaders: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }, {
-            test: /\.(sass|scss|css)$/,
-            loader: ['style-loader', 'css-loader', 'sass-loader']
-        }]
-    },
-    resolve: { extensions: ['.js', '.jsx', '.css'] },
-    output: {
-        path: path.join(__dirname, 'client-dist'),
-        filename: 'bundle.js',
-        publicPath: '/'
-    },
-    plugins: [
-        new webpack.DefinePlugin(GLOBALS),
-        new htmlWebpackPlugin({
-            template: path.resolve(__dirname, './client/index.html')
-        }),
-        new webpack.optimize.UglifyJsPlugin()
-    ],
-    devServer: {
-        contentBase: path.resolve(__dirname, 'client-dist'),
-        historyApiFallback: true
-    }
+  entry: [
+    path.resolve(__dirname, 'client/index.js')
+  ],
+  module: {
+    loaders: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }, {
+      test: /\.(sass|scss|css)$/,
+      loader: ['style-loader', 'css-loader', 'sass-loader']
+    }]
+  },
+  resolve: { extensions: ['.js', '.jsx', '.css'] },
+  output: {
+    path: path.join(__dirname, 'client-dist'),
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
+  devtool: 'cheap-eval-source-map',
+  plugins: [
+    new webpack.DefinePlugin(GLOBALS),
+    new htmlWebpackPlugin({
+      template: path.resolve(__dirname, './client/index.html')
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'client-dist'),
+    historyApiFallback: true
+  }
 };
 

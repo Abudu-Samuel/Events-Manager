@@ -31,6 +31,8 @@ class LandingPage extends React.Component {
       user: null,
       centers: [],
       events: [],
+      centerid: '',
+      errorMessage: '',
       fetchingCenters: false
     };
     this.getCenterId = this.getCenterId.bind(this);
@@ -48,6 +50,7 @@ class LandingPage extends React.Component {
   componentDidMount() {
     this.props.getTrendingCenters();
     this.props.getPopularEvents();
+    // this.props.singleCenter(parseInt(this.state.centerid, 10));
   }
 
   /**
@@ -87,7 +90,10 @@ class LandingPage extends React.Component {
    */
   getCenterId(event) {
     event.preventDefault();
-    console.log(this.event.target.dataset.centerid);
+    // console.log(parseInt(event.target.dataset.centerid, 10));
+    this.setState({
+      centerid: parseInt(event.target.dataset.centerid, 10)
+    });
   }
 
   /**
@@ -144,7 +150,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
-    getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData))
+    getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData)),
+
   };
 }
 

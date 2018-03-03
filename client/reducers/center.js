@@ -2,6 +2,10 @@ import * as types from '../actionTypes/index';
 
 const centerAccess = (state = {}, action) => {
   switch (action.type) {
+  case types.GET_SINGLE_CENTER:
+    return {
+      ...action.centerData
+    };
   case types.GET_TRENDING_CENTERS:
     return {
       ...state, ...action.centerData
