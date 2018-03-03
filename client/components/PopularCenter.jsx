@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const PopularEvents = ({
-  events
+  events,
+  getEventId
 }) => (
   <div className="container space">
     <Navbar />
@@ -19,8 +20,13 @@ const PopularEvents = ({
                   <h4 className="card-title">{event.title}</h4>
                   <p className="card-text">{event.description}</p>
                   <p className="card-text">Date: {event.date}</p>
-                  {/* <button onClick={this.showEventDetails} className="btn btn-mycolor btn-sm">Details</button> */}
-                  <Link to="/eventdetails" className="btn btn-mycolor btn-sm">Details</Link>
+                  <button
+                    className="btn btn-mycolor btn-sm"
+                    data-centerid={event.id}
+                    onClick={getEventId}
+                  ><Link className="btn btn-mycolor btn-sm"
+                      to={`/events/${event.id}`}>Details</Link>
+                  </button>
                 </div>
               </div>
             </div>
