@@ -21,7 +21,7 @@ export default () => (
       <Route exact path="/addevent" component={AddEvent}/>
       <Route exact path="/addcenter" component={AddCenter}/>
       <Route exact path="/events/:eventId" component={EventDetails}/>
-      <Route exact path="/centerdetails" component={CenterDetails}/>
+      <Route path="/centers/:centerId" component={CenterDetails}/>
       <Route exact path="/allcenters/" component={TrendingCenters}/>
       <Route exact path="/allevents/" component={PopularCenter}/>
     </Switch>

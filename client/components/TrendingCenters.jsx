@@ -19,12 +19,13 @@ const TrendingCenter = ({
               <div className="card-body">
                 <h4 className="card-title">{center.name}</h4>
                 <p className="card-text">{center.description}</p>
-                <Link
-                  to="/centerdetails"
+                <button
                   className="btn btn-mycolor btn-sm"
                   data-centerid={center.id}
-                  onClick={getCenterId}>Details
-                </Link>
+                  onClick={getCenterId}
+                ><Link className="btn btn-mycolor btn-sm"
+                    to={`/centers/${center.id}`}>Details</Link>
+                </button>
               </div>
             </div>
           </div>))

@@ -74,7 +74,9 @@ class Center {
    */
   static getTrendingCenters(req, res) {
     return centers
-      .findAll({ limit: 1, order: [['createdAt', 'DESC']] })
+      .findAll({ limit: 3, order: [['createdAt', 'DESC']] }, {
+        include: [{ model: events }]
+      })
       .then(foundCenters => res.status(200).json({
         message: 'Centers found',
         foundCenters

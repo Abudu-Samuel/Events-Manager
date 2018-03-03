@@ -10,12 +10,10 @@ import * as types from '../actionTypes/index';
  *
  * @return {object} Action type and userdata
  */
-export function signInAction(userData) {
-  return {
-    type: types.SIGN_IN,
-    userData
-  };
-}
+export const signInAction = userData => ({
+  type: types.SIGN_IN,
+  userData
+});
 
 /**
  * @export signIn
@@ -26,8 +24,8 @@ export function signInAction(userData) {
  *
  * @return {object} axios response and userData
  */
-export function signIn(userData) {
-  return (dispatch) => axios.post('/api/v1/users/login', userData)
+export const signIn = userData => dispatch =>
+  axios.post('/api/v1/users/login', userData)
     .then((response) => {
       dispatch(signInAction(response.data));
       window.localStorage.setItem('x-access-token', response.data.token);
@@ -35,7 +33,6 @@ export function signIn(userData) {
     .catch((error) => {
       throw (error);
     });
-}
 
 /**
  * @export signUpAction
@@ -46,12 +43,10 @@ export function signIn(userData) {
  *
  * @return {object} Action type and userData
  */
-export function signUpAction(userData) {
-  return {
-    type: types.SIGN_UP,
-    userData
-  };
-}
+export const signUpAction = userData => ({
+  type: types.SIGN_UP,
+  userData
+});
 
 /**
  * @export signUp
@@ -62,15 +57,14 @@ export function signUpAction(userData) {
  *
  * @return {object} Axios response and action type
  */
-export function signUp(userData) {
-  return (dispatch) => axios.post('/api/v1/users/', userData)
+export const signUp = userData => dispatch =>
+  axios.post('/api/v1/users/', userData)
     .then((response) => {
       dispatch(signUpAction(response.data));
     })
     .catch((error) => {
       throw (error);
     });
-}
 
 /**
  * @export addCenterAction
@@ -81,12 +75,10 @@ export function signUp(userData) {
  *
  * @return {object} Action type and centerData
  */
-export function addCenterAction(centerData) {
-  return {
-    type: types.ADD_CENTER,
-    centerData
-  };
-}
+export const addCenterAction = centerData => ({
+  type: types.ADD_CENTER,
+  centerData
+});
 
 /**
  * @export addCenter
@@ -97,8 +89,8 @@ export function addCenterAction(centerData) {
  *
  * @return {object} Axios response and action type
  */
-export function addCenter(centerData) {
-  return (dispatch) => axios.post('/api/v1/centers/', centerData, {
+export const addCenter = centerData => dispatch =>
+  axios.post('/api/v1/centers/', centerData, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')
@@ -110,7 +102,6 @@ export function addCenter(centerData) {
     .catch((error) => {
       throw (error);
     });
-}
 
 /**
  * @export getTrendingCentersAction
@@ -121,12 +112,10 @@ export function addCenter(centerData) {
  *
  * @return {object} Action type and centerData
  */
-export function getTrendingCentersAction(centerData) {
-  return {
-    type: types.GET_TRENDING_CENTERS,
-    centerData
-  };
-}
+export const getTrendingCentersAction = centerData => ({
+  type: types.GET_TRENDING_CENTERS,
+  centerData
+});
 
 /**
  * @export getTrendingCenters
@@ -135,8 +124,8 @@ export function getTrendingCentersAction(centerData) {
  *
  * @return {object} Axios response
  */
-export function getTrendingCenters() {
-  return (dispatch) => axios.get('/api/v1/centers/trend', {
+export const getTrendingCenters = () => dispatch =>
+  axios.get('/api/v1/centers/trend', {
     // headers:
     //  {
     //      'x-access-token': localStorage.getItem('x-access-token')
@@ -148,7 +137,6 @@ export function getTrendingCenters() {
     .catch((error) => {
       throw (error);
     });
-}
 
 /**
  * @export getAllCentersAction
@@ -159,12 +147,10 @@ export function getTrendingCenters() {
  *
  * @return {object} action type and centerData
  */
-export function getAllCentersAction(centerData) {
-  return {
-    type: types.GET_ALL_CENTERS,
-    centerData
-  };
-}
+export const getAllCentersAction = centerData => ({
+  type: types.GET_ALL_CENTERS,
+  centerData
+});
 
 /**
  * @export getAllCenters
@@ -173,8 +159,8 @@ export function getAllCentersAction(centerData) {
  *
  * @return {object} Axios response
  */
-export function getAllCenters() {
-  return (dispatch) => axios.get('/api/v1/centers/', {
+export const getAllCenters = () => dispatch =>
+  axios.get('/api/v1/centers/', {
     // headers:
     //  {
     //      'x-access-token': localStorage.getItem('x-access-token')
@@ -186,7 +172,6 @@ export function getAllCenters() {
     .catch((error) => {
       throw (error);
     });
-}
 
 /**
  * @export getPopularEventsAction
@@ -197,12 +182,10 @@ export function getAllCenters() {
  *
  * @return {object} action type and eventData
  */
-export function getPopularEventsAction(eventData) {
-  return {
-    type: types.GET_POPULAR_EVENTS,
-    eventData
-  };
-}
+export const getPopularEventsAction = eventData => ({
+  type: types.GET_POPULAR_EVENTS,
+  eventData
+});
 
 /**
  * @export getPopularEvents
@@ -211,8 +194,8 @@ export function getPopularEventsAction(eventData) {
  *
  * @return {object} Axios response
  */
-export function getPopularEvents() {
-  return (dispatch) => axios.get('/api/v1/events/popular', {
+export const getPopularEvents = () => dispatch =>
+  axios.get('/api/v1/events/popular', {
     // headers:
     // {
     //     'x-access-token': localStorage.getItem('x-access-token')
@@ -224,7 +207,6 @@ export function getPopularEvents() {
     .catch((error) => {
       throw (error);
     });
-}
 
 /**
  * @export getAllEventsAction
@@ -235,12 +217,10 @@ export function getPopularEvents() {
  *
  * @return {object} Action type and eventData
  */
-export function getAllEventsAction(eventData) {
-  return {
-    type: types.GET_ALL_EVENTS,
-    eventData
-  };
-}
+export const getAllEventsAction = eventData => ({
+  type: types.GET_ALL_EVENTS,
+  eventData
+});
 
 /**
  * @export getAllEvents
@@ -249,8 +229,8 @@ export function getAllEventsAction(eventData) {
  *
  * @return {object} Axios response
  */
-export function getAllEvents() {
-  return (dispatch) => axios.get('/api/v1/events/', {
+export const getAllEvents = () => dispatch =>
+  axios.get('/api/v1/events/', {
     // headers:
     // {
     //     'x-access-token': localStorage.getItem('x-access-token')
@@ -262,7 +242,26 @@ export function getAllEvents() {
     .catch((error) => {
       throw (error);
     });
-}
+
+export const singleCenterAction = centerData => ({
+  type: types.GET_SINGLE_CENTER,
+  centerData
+});
+
+export const singleCenter = () => dispatch =>
+  axios.get(`/api/v1/centers/1`, {
+    headers:
+    {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      console.log(response.data);
+      dispatch(singleCenterAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    });
 
 // /**
 //  *
