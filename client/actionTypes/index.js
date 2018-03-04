@@ -6,4 +6,5 @@ export const ADD_CENTER = 'ADD_CENTER';
 export const GET_ALL_EVENTS = 'GET_ALL_EVENTS';
 export const GET_POPULAR_EVENTS = 'GET_POPULAR_EVENTS';
 export const GET_SINGLE_CENTER = 'GET_SINGLE_CENTER';
+export const GET_SINGLE_EVENT = 'GET_SINGLE_EVENT';
 

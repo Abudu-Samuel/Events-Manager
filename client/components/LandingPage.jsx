@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
 import Navbar from './Navbar';
 import Body from './Body';
 import TrendingCenter from './TrendingCenters';
@@ -32,10 +33,12 @@ class LandingPage extends React.Component {
       centers: [],
       events: [],
       centerid: '',
+      eventid: '',
       errorMessage: '',
       fetchingCenters: false
     };
     this.getCenterId = this.getCenterId.bind(this);
+    this.getEventId = this.getEventId.bind(this);
   }
 
   /**
@@ -90,9 +93,28 @@ class LandingPage extends React.Component {
    */
   getCenterId(event) {
     event.preventDefault();
-    // console.log(parseInt(event.target.dataset.centerid, 10));
     this.setState({
       centerid: parseInt(event.target.dataset.centerid, 10)
+    });
+  }
+
+  /**
+   * @method getEventId
+   *
+   * @description retrieve Id of an event
+   *
+   * @param {object} event
+   *
+   * @return {object} updated state with center Id
+   *
+   * @memberof LandingPage
+   */
+  getEventId(event) {
+    event.preventDefault();
+    console.log(parseInt(event.target.dataset.centerid, 10));
+    this.setState({
+      eventid: parseInt(event.target.dataset.centerid, 10)
+
     });
   }
 
@@ -115,7 +137,8 @@ class LandingPage extends React.Component {
           getCenterId = {this.getCenterId}/>
         <PopularCenter
           events =
-            {this.state.events}/>
+            {this.state.events}
+          getEventId = {this.getEventId}/>
         <Gallery />
         <ContactUs />
         <Footer />
@@ -156,4 +179,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
-

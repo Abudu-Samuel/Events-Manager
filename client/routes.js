@@ -10,6 +10,7 @@ import TrendingCenters from './components/TrendingCenters';
 import PopularCenter from './components/PopularCenter';
 import EventDetails from './components/EventDetails';
 import CenterDetails from './components/CenterDetails';
+import UserEvent from './components/UserEvent';
 
 export default () => (
   <BrowserRouter>
@@ -24,6 +25,7 @@ export default () => (
       <Route path="/centers/:centerId" component={CenterDetails}/>
       <Route exact path="/allcenters/" component={TrendingCenters}/>
       <Route exact path="/allevents/" component={PopularCenter}/>
+      <Route exact path="/manage/events/" component={UserEvent}/>
     </Switch>
   </BrowserRouter>
 );
