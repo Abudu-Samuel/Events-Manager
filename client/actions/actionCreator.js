@@ -263,40 +263,25 @@ export const singleCenter = () => dispatch =>
       throw (error);
     });
 
-// /**
-//  *
-//  *
-//  * @export
-//  * @param {any} eventData
-//  * @returns
-//  */
-// export function getSingleEventAction(eventData) {
-//   return {
-//     type: types.GET_SINGLE_EVENT,
-//     eventData
-//   };
-// }
+export const singleEventAction = eventData => ({
+  type: types.GET_SINGLE_EVENT,
+  eventData
+});
 
-// /**
-//  *
-//  *
-//  * @export
-//  * @returns
-//  */
-// export function getSingleEvent() {
-//   console.log('coming from backend');
-//   //  const eventId = parseInt(':eventId', 10)
-//   return (dispatch) => axios.get('api/v1/events/1', {
-//     headers:
-//     {
-//       'x-access-token': localStorage.getItem('x-access-token')
-//     }
-//   })
-//     .then((response) => {
-//       dispatch(getSingleEventAction(response.data.event));
-//       console.log('this is action', response.data.event);
-//     })
-//     .catch((error) => {
-//       throw (error);
-//     });
-// }
+export const singleEvent = () => dispatch =>
+  axios.get(`/api/v1/events/1`, {
+    headers:
+    {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      console.log(response.data);
+      console.log('==============================');
+      console.log(response);
+      dispatch(singleEventAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    });
+

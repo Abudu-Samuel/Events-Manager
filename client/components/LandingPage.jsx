@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
 import Navbar from './Navbar';
 import Body from './Body';
 import TrendingCenter from './TrendingCenters';
@@ -110,9 +111,10 @@ class LandingPage extends React.Component {
    */
   getEventId(event) {
     event.preventDefault();
-    console.log(event.target.dataset.centerid);
+    console.log(parseInt(event.target.dataset.centerid, 10));
     this.setState({
       eventid: parseInt(event.target.dataset.centerid, 10)
+
     });
   }
 
@@ -177,4 +179,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
-
