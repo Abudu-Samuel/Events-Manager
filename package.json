@@ -38,6 +38,7 @@
     },
     "homepage": "https://github.com/Abudu-Samuel/Events-Manager#readme",
     "devDependencies": {
+        "babel-preset-env": "^1.6.1",
         "cross-env": "^5.1.1",
         "eslint": "^4.11.0",
         "eslint-config-airbnb-base": "^12.1.0",
