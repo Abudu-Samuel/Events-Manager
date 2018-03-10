@@ -32,7 +32,7 @@ class EventDetails extends React.Component {
    * @memberof EventDetails
    */
   componentWillMount() {
-    this.props.singleEvent();
+    this.props.singleEvent(this.props.match.params.eventId);
   }
 
   /**

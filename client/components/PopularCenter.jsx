@@ -23,9 +23,8 @@ const PopularEvents = ({
                   <button
                     className="btn btn-mycolor btn-sm"
                     data-centerid={event.id}
-                    onClick={getEventId}
-                  ><Link className="btn btn-mycolor btn-sm"
-                      to={`/events/${event.id}`}>Details</Link>
+                    onClick={getEventId}>
+                    <Link to={`/events/${event.id}`}>Details</Link>
                   </button>
                 </div>
               </div>
