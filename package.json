@@ -14,7 +14,7 @@
         "build": "npm-run-all --parallel build:client build:server",
         "build:client": "rimraf client-dist && webpack --config webpack.config.prod.js",
         "build:server": "rimraf server-dist && babel server -d server-dist",
-        "start": "node server-dist/bin/distServer.js",
+        "start": "npm run build && node server-dist/bin/distServer.js",
         "test:dev:t": "./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate:undo:all && ./node_modules/.bin/cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test nyc mocha --require babel-polyfill --compilers js:babel-register ./server/test/test.js --exit",
         "heroku-postbuild": "npm run build",
         "coverage": "nyc report --reporter=text-lcov | coveralls",

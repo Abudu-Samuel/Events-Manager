@@ -1,19 +1,32 @@
 'use strict';
 
+var bcrypt = require('bcrypt');
+
+require('dotenv').config();
+
 module.exports = {
   up: function up(queryInterface) {
-    return queryInterface.bulkInsert('user', [{
-      id: 1,
+    return queryInterface.bulkInsert('users', [{
       firstname: 'David',
       lastname: 'Blind',
       username: 'admin',
       email: 'david@gmail.com',
-      password: 'password',
-      isAdmin: true
-    }, {}], {});
+      password: bcrypt.hashSync('password', 10),
+      isAdmin: true,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      firstname: 'Brian',
+      lastname: 'Pett',
+      username: 'user',
+      email: 'pet@gmail.com',
+      password: bcrypt.hashSync('password', 10),
+      isAdmin: true,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }], { individualHooks: true });
   },
-
   down: function down(queryInterface) {
-    return queryInterface.bulkDelete('Person', null, {});
+    return queryInterface.bulkDelete('users', null, {});
   }
 };

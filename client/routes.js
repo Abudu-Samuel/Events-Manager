@@ -19,7 +19,7 @@ export default () => (
       <Route path="/signup" component={Signup}/>
       <Route path="/signin" component={Signin}/>
       <Route exact path="/dashboard" component={Allevents}/>
-      <Route exact path="/addevent" component={AddEvent}/>
+      <Route exact path="/center/:centerId/addevent" component={AddEvent}/>
       <Route exact path="/addcenter" component={AddCenter}/>
       <Route exact path="/events/:eventId" component={EventDetails}/>
       <Route path="/centers/:centerId" component={CenterDetails}/>

@@ -35,7 +35,7 @@ class LandingPage extends React.Component {
       centerid: '',
       eventid: '',
       errorMessage: '',
-      fetchingCenters: false
+      fetchingCenters: false,
     };
     this.getCenterId = this.getCenterId.bind(this);
     this.getEventId = this.getEventId.bind(this);
@@ -53,7 +53,6 @@ class LandingPage extends React.Component {
   componentDidMount() {
     this.props.getTrendingCenters();
     this.props.getPopularEvents();
-    // this.props.singleCenter(parseInt(this.state.centerid, 10));
   }
 
   /**
@@ -134,7 +133,8 @@ class LandingPage extends React.Component {
         <Body />
         <TrendingCenter
           centers = {this.state.centers}
-          getCenterId = {this.getCenterId}/>
+          getCenterId = {this.getCenterId}
+          centerid = {this.state.centerid}/>
         <PopularCenter
           events =
             {this.state.events}
@@ -174,6 +174,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
     getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData)),
+    singleCenter: (centerID) => dispatch(userActions.singleCenter(centerID))
 
   };
 }

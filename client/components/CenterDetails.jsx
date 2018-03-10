@@ -35,7 +35,7 @@ class CenterDetails extends React.Component {
    * @return {object} new afdfdfad
    */
   componentWillMount() {
-    this.props.singleCenter();
+    this.props.singleCenter(this.props.match.params.centerId);
   }
 
   /**
@@ -60,7 +60,6 @@ class CenterDetails extends React.Component {
    */
   render() {
     const { events } = this.state.center;
-    console.log(events, 'from cd');
     return (
       <div className="space">
         <Navbar />
