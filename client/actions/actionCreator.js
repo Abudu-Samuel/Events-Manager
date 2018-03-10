@@ -267,8 +267,8 @@ export const singleEventAction = eventData => ({
   eventData
 });
 
-export const singleEvent = () => dispatch =>
-  axios.get(`/api/v1/events/1`, {
+export const singleEvent = (centerid) => dispatch =>
+  axios.get(`/api/v1/events/${centerid}`, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')

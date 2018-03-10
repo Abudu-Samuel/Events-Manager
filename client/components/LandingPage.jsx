@@ -110,10 +110,8 @@ class LandingPage extends React.Component {
    */
   getEventId(event) {
     event.preventDefault();
-    console.log(parseInt(event.target.dataset.centerid, 10));
     this.setState({
       eventid: parseInt(event.target.dataset.centerid, 10)
-
     });
   }
 
@@ -136,9 +134,9 @@ class LandingPage extends React.Component {
           getCenterId = {this.getCenterId}
           centerid = {this.state.centerid}/>
         <PopularCenter
-          events =
-            {this.state.events}
-          getEventId = {this.getEventId}/>
+          events = {this.state.events}
+          getEventId = {this.getEventId}
+          eventid = {this.eventid}/>
         <Gallery />
         <ContactUs />
         <Footer />
