@@ -34,6 +34,7 @@ class Signin extends React.Component {
       errorMessage: '',
       errorStatus: false,
       redirect: false,
+      loading: false,
       redirectMessage: '',
       showRedirectMessage: false
     };
@@ -58,6 +59,7 @@ class Signin extends React.Component {
             errorMessage: '',
             errorStatus: false,
             redirectMessage: 'Redirecting To Dashboard',
+            loading: true,
             showRedirectMessage: true
           });
           setTimeout(() => {
@@ -87,7 +89,7 @@ class Signin extends React.Component {
     render() {
       return (
         this.state.redirect ?
-          <Redirect to ="/dashboard"/> :
+          <Redirect to ="/dashboard" loading/> :
           <div>
             <Navbar />
             <div id="intro" className="view hm-black-strong">

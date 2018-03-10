@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 
 
 const TrendingCenter = ({
   centers,
-  getCenterId
+  getCenterId,
 }) => (
   <div className="container space">
     <Navbar />
@@ -22,9 +22,8 @@ const TrendingCenter = ({
                 <button
                   className="btn btn-mycolor btn-sm"
                   data-centerid={center.id}
-                  onClick={getCenterId}
-                ><Link className="btn btn-mycolor btn-sm"
-                    to={`/centers/${center.id}`}>Details</Link>
+                  onClick={getCenterId}>
+                  <Link to={`/centers/${center.id}`}>Details</Link>
                 </button>
               </div>
             </div>
@@ -35,5 +34,4 @@ const TrendingCenter = ({
     <hr className="my-5" />
   </div>
 );
-
 export default TrendingCenter;

@@ -31,34 +31,6 @@ body, */
   color: rgba(255, 255, 255, .65);
 }
 
-// #intro input {
-//   &[type="text"]:focus:not([readonly]), &[type="password"]:focus:not([readonly]), &[type="email"]:focus:not([readonly]) {
-//     border-color: #C00;
-//     box-shadow: 0 1px 0 0 #C00;
-//     color: #fff;
-//   }
-//   &[type="text"] {
-//     &:not([readonly]) + label {
-//       color: rgba(255, 255, 255, 0.65);
-//     }
-//     &:focus:not([readonly]) + label {
-//       color: #fff;
-//     }
-//   }
-//   &[type="email"]:focus:not([readonly]) + label, &[type="password"]:focus:not([readonly]) + label {
-//     color: #fff;
-//   }
-// }
-
-// input {
-//   &[type=email], &[type=number], &[type=password], &[type=search-md], &[type=search], &[type=tel], &[type=text], &[type=time], &[type=url] {
-//     color: #fff;
-//   }
-// }
-
-// textarea.md-textarea {
-//   color: #fff;
-// }
 
 ul {
   list-style: none;
@@ -86,9 +58,7 @@ ul {
 }
 
 @media (max-width: 992px) and (max-width: 1199px) {
-  /* .signup {
-      width: 350px
-  } */
+
 }
 
 @media (min-width: 1200px) {
@@ -128,9 +98,6 @@ ul {
   background-color: #00695c;
 }
 
-/* .signup {
-    width: 450px
-} */
 
 .space {
   margin-top: 90px;
@@ -164,4 +131,12 @@ ul {
 .btn-sizes {
   width: 200px;
   margin-right: 120px;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
 }

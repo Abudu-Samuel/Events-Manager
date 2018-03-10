@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Event from './Event';
+
 /**
  * creates Navbar component
  * @returns {funct} Popular Center
@@ -15,8 +17,6 @@ const CenterInfo = ({
       noCenter ?
         <h5>No center info to display</h5> :
         <div>
-          { console.log('******************************')}
-          { console.log(events)};
           <section>
             <div className="row">
               <div className="col-xl-6 mb-4">
@@ -25,7 +25,7 @@ const CenterInfo = ({
               <div className="col-xl-6">
                 <h4 className="mb-2 font-weight-bold"><i className="fa fa-bolt indigo-text mr-2 fa-1x" /><strong>{center.name}</strong></h4>
                 <h5>Available</h5>
-                <Link to="/addevent" className="btn btn-mycolor btn-sm">Book</Link>
+                <Link to={`/center/${center.id}/addevent`} className="btn btn-mycolor btn-sm">Book</Link>
                 <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" /><strong>{center.location}</strong> <i className="fa fa-group grey-text ml-2 mr-2 fa-2x" /><strong>{center.capacity} Guests</strong></h6>
                 <p className="text-justify">{center.description}
                 </p>
@@ -88,32 +88,7 @@ const CenterInfo = ({
           <section>
             <h3 className="mb-3 font-weight-bold text-center">Upcoming Events</h3>
             <div className="container">
-              <div className="row">
-                <div className="col-xl-4 mb-4">
-                  <div className="card">
-                    <img className="img-fluid" src="https://static.pexels.com/photos/382297/pexels-photo-382297.jpeg" alt="Card image cap" />
-                    <div className="card-body">
-                      <p className="grey-text">SAT. NOV 18 9:00 AM</p>
-                      <h4 className="card-title pt-1 text-center">The coming of Kings</h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-8">
-                  <h5 className="mb-2 font-weight-bold grey-text">The coming of Kings</h5>
-                  <p className="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo adipisicing
-                                      elit, sed adipioris nisi.
-                  </p>
-                  <p className="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo adipisicing
-                                      elit, sed adipim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-                  <p className="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo adipisicing
-                                      elit, sed adipim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-                  <a className="btn btn-default btn-sm">Read More</a>
-                </div>
-
-
-              </div>
+              {center.events && center.events.map(event => <Event key={event.id} event={event} />)}
             </div>
           </section>
         </div>

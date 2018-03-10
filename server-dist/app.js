@@ -24,22 +24,14 @@ var _index = require('./routes/index');
 
 var _index2 = _interopRequireDefault(_index);
 
-var _user = require('./routes/user');
-
-var _user2 = _interopRequireDefault(_user);
-
-var _event = require('./routes/event');
-
-var _event2 = _interopRequireDefault(_event);
-
-var _center = require('./routes/center');
-
-var _center2 = _interopRequireDefault(_center);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_dotenv2.default.config();
+// import user from './routes/user';
+// import event from './routes/event';
+// import center from './routes/center';
 
+
+_dotenv2.default.config();
 // Set up express app
 var app = (0, _express2.default)();
 // Log requests to the console
@@ -55,10 +47,9 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 // app.use('/api/v1/events/', event);
 // app.use('/api/v1/centers', center);
 
-// app.get('/', (req, res) => res.status(200).send({
+// app.get('/home', (req, res) => res.status(200).send({
 //   message: 'Welcome to Events Manager API'
 // }));
-
 
 // Handle routes that doesn't match
 // app.use((req, res, next) => {
