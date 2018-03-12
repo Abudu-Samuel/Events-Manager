@@ -299,3 +299,20 @@ export const addEvent = eventData => dispatch =>
       throw (error);
     });
 
+export const userEventsAction = (eventData) => ({
+  type: types.GET_USER_EVENTS,
+  eventData
+});
+
+export const userEvents = () => dispatch =>
+  axios.get(`/api/v1/events/user/events`, {
+    headers: {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      dispatch(userEventsAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    });
