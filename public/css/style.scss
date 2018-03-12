@@ -27,10 +27,9 @@ body, */
   }
 }
 
-#intro input[type="text"]:not([readonly])+label {
-  color: rgba(255, 255, 255, .65);
+#intro input[type="text"]:not([readonly]) + label {
+  color: rgba(255, 255, 255, 0.65);
 }
-
 
 ul {
   list-style: none;
@@ -58,20 +57,18 @@ ul {
 }
 
 @media (min-width: 768px) {
-.col-md-12 {
+  .col-md-12 {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 80%;
-}
-.col-md-6 {
-  flex: 0 0 500%;
+  }
+  .col-md-6 {
+    flex: 0 0 500%;
     max-width: 40%;
-}
+  }
 }
 
-@media (max-width: 992px) and (max-width: 1199px) {
-
-}
+@media (max-width: 992px) and (max-width: 1199px) {}
 
 @media (min-width: 1200px) {
   h1 {
@@ -91,7 +88,7 @@ ul {
 .test {
   background: #fff;
   margin-top: 46px;
-  padding: 0 24px
+  padding: 0 24px;
 }
 
 .card {
@@ -109,7 +106,6 @@ ul {
 .footer-color {
   background-color: #00695c;
 }
-
 
 .space {
   margin-top: 60px;
@@ -147,19 +143,17 @@ ul {
 
 a {
   color: #fff;
-}
-
-a:hover {
-  color: #fff;
+  &:hover {
+    color: #fff;
+  }
 }
 
 .md-form label {
-  top: -.1rem;
-}
-
-.md-form label.active {
-  -webkit-transform: translateY(-140%);
-  -ms-transform: translateY(-140%);
-  transform: translateY(-10%);
-  font-size: .8rem;
+  top: -0.1rem;
+  &.active {
+    -webkit-transform: translateY(-140%);
+    -ms-transform: translateY(-140%);
+    transform: translateY(-10%);
+    font-size: 0.8rem;
+  }
 }
