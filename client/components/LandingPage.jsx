@@ -172,7 +172,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
     getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData)),
-    singleCenter: (centerID) => dispatch(userActions.singleCenter(centerID))
+    // singleCenter: (centerID) => dispatch(userActions.singleCenter(centerID))
 
   };
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Navbar from '../components/Navbar';
 
@@ -117,10 +118,10 @@ class AddCenter extends React.Component {
                           <a className="btn btn-mycolor btn-block mr-4" href="#"><i className="fa fa-user mr-2 white-text" />Profile</a>
                         </li>
                         <li className="white-text mb-3">
-                          <a className="btn btn-mycolor btn-block mr-4" href="addcenter.html"><i className="fa fa-plus mr-2 white-text" />Add Center</a>
+                          <Link className="btn btn-mycolor btn-block mr-4" to="/addcenter"><i className="fa fa-plus mr-2 white-text" />Add Center</Link>
                         </li>
                         <li className="white-text mb-3">
-                          <a className="btn btn-mycolor btn-block mr-4" href="editcenter.html"><i className="fa fa-street-view mr-2 white-text" />View Centers</a>
+                          <Link to="/edit/center" className="btn btn-mycolor btn-block mr-4"><i className="fa fa-street-view mr-2 white-text" />View Centers</Link>
                         </li>
                         <li className="white-text mb-3">
                           <a className="btn btn-mycolor btn-block mr-4" href="#"><i className="fa fa-cog mr-2 white-text" />Settings</a>

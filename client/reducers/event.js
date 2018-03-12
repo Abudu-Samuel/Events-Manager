@@ -14,6 +14,10 @@ const eventAccess = (state = {}, action) => {
     return {
       ...state, ...action.eventData
     };
+  case types.ADD_EVENT:
+    return {
+      ...state, ...action.eventData
+    };
   default:
     return state;
   }

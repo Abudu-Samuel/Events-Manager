@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PopularCenter from '../components/PopularCenter';
 import TrendingCenters from '../components/TrendingCenters';
-import Navbar from '../components/Navbar';
+import LoggedInNavbar from '../components/LoggedInNavbar';
 import Footer from '../components/Footer';
 import * as userActions from '../actions/actionCreator';
 
@@ -86,7 +86,7 @@ class Allevents extends React.Component {
   render() {
     return (
       <div className="space">
-        <Navbar />
+        <LoggedInNavbar />
         <div className="container">
           <div className="row">
             <div className="col-md-12">

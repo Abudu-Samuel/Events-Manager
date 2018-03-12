@@ -102,10 +102,6 @@ const validation = {
         message: 'Description Field required'
       });
     // }
-    } else if (!userId) {
-      return res.status(400).json({
-        message: 'UserId Field required'
-      });
     } else if (!centerId) {
       return res.status(400).json({
         message: 'centerId Field required'

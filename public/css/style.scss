@@ -57,6 +57,18 @@ ul {
   }
 }
 
+@media (min-width: 768px) {
+.col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 80%;
+}
+.col-md-6 {
+  flex: 0 0 500%;
+    max-width: 40%;
+}
+}
+
 @media (max-width: 992px) and (max-width: 1199px) {
 
 }
@@ -100,7 +112,7 @@ ul {
 
 
 .space {
-  margin-top: 90px;
+  margin-top: 60px;
 }
 
 .myfile {
@@ -139,4 +151,15 @@ a {
 
 a:hover {
   color: #fff;
+}
+
+.md-form label {
+  top: -.1rem;
+}
+
+.md-form label.active {
+  -webkit-transform: translateY(-140%);
+  -ms-transform: translateY(-140%);
+  transform: translateY(-10%);
+  font-size: .8rem;
 }

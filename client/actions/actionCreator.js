@@ -281,3 +281,21 @@ export const singleEvent = (centerid) => dispatch =>
       throw (error);
     });
 
+export const addEventAction = eventData => ({
+  type: types.ADD_EVENT,
+  eventData
+});
+
+export const addEvent = eventData => dispatch =>
+  axios.post(`/api/v1/events`, eventData, {
+    headers: {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      dispatch(addEventAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    });
+
