@@ -50,6 +50,7 @@ class User {
               email: register.email,
               firstname: register.firstname,
               lastname: register.lastname,
+              register
             }
           }))
           .catch(error => res.status(500).send({

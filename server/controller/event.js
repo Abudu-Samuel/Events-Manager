@@ -47,7 +47,7 @@ class Event {
             }
             return events
               .create({
-                userId: req.body.userId,
+                userId: req.decoded.userId,
                 centerId: req.body.centerId,
                 title,
                 date,
@@ -179,6 +179,34 @@ class Event {
         foundEvents
       }))
       .catch(error => res.status(500).json(error));
+  }
+
+  /**
+     * @static
+     * @param {any} req
+     * @param {any} res
+     * @return {object} getUserEvent
+     * @memberOf Event
+     */
+  static getUserEvent(req, res) {
+    return events
+      .findAll({
+        where: {
+          userId: req.decoded.userId,
+        }
+      })
+      .then((eventFound) => {
+        return res.status(200).json({
+          message: 'Found your Event(s)',
+          eventFound
+        });
+        if (!eventFound) {
+          return res.status(400).json({
+            message: 'You have not created Event(s)!'
+          });
+        }
+      })
+      .catch(error => console.log(error));
   }
 
   /**
