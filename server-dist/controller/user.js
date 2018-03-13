@@ -76,7 +76,8 @@ var User = function () {
               username: register.username,
               email: register.email,
               firstname: register.firstname,
-              lastname: register.lastname
+              lastname: register.lastname,
+              register: register
             }
           });
         }).catch(function (error) {

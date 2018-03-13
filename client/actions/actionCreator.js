@@ -311,8 +311,29 @@ export const userEvents = () => dispatch =>
     }
   })
     .then((response) => {
-      dispatch(userEventsAction(response.data));
+      console.log(response.data);
+      dispatch(userEventsAction(response.data.eventFound));
     })
     .catch((error) => {
+      throw (error);
+    });
+
+export const deleteEventAction = (eventData) => ({
+  type: types.DELETE_EVENT,
+  eventData
+});
+
+export const deleteEvent = (eventid) => dispatch =>
+  axios.delete(`/api/v1/events/${eventid}`, {
+    headers: {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      console.log(response.data);
+      dispatch(deleteEventAction(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
       throw (error);
     });

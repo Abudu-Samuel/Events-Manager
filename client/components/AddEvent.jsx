@@ -109,7 +109,7 @@ class AddEvent extends React.Component {
                               null
                           }
                 <div className="text-center">
-                            <button className="btn btn-mycolor mb-3">Add Center<i className="fa fa-sign-in ml-1" /></button>
+                            <button className="btn btn-mycolor mb-3">Make your event live<i className="fa fa-sign-in ml-1" /></button>
                           </div>
               </form>
             </div>
