@@ -68,7 +68,7 @@ var Event = function () {
             });
           }
           return events.create({
-            userId: req.body.userId,
+            userId: req.decoded.userId,
             centerId: req.body.centerId,
             title: title,
             date: date,
@@ -212,6 +212,36 @@ var Event = function () {
         });
       }).catch(function (error) {
         return res.status(500).json(error);
+      });
+    }
+
+    /**
+       * @static
+       * @param {any} req
+       * @param {any} res
+       * @return {object} getUserEvent
+       * @memberOf Event
+       */
+
+  }, {
+    key: 'getUserEvent',
+    value: function getUserEvent(req, res) {
+      return events.findAll({
+        where: {
+          userId: req.decoded.userId
+        }
+      }).then(function (eventFound) {
+        return res.status(200).json({
+          message: 'Found your Event(s)',
+          eventFound: eventFound
+        });
+        if (!eventFound) {
+          return res.status(400).json({
+            message: 'You have not created Event(s)!'
+          });
+        }
+      }).catch(function (error) {
+        return console.log(error);
       });
     }
 

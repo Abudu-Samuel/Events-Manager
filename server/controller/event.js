@@ -246,7 +246,8 @@ class Event {
           return eventFound
             .destroy()
             .then(() => res.status(200).json({
-              message: 'Event Deleted!'
+              message: 'Event Deleted!',
+              eventFound
             }))
             .catch(error => res.status(400).json({
               message: error.errors[0].message
