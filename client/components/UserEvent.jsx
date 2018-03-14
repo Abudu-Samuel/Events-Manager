@@ -27,17 +27,14 @@ class UserEvent extends React.Component {
         fetchingCenter: false
       });
     } else {
-      this.setState({ 
+      this.setState({
         fetchingCenter: true,
-        noEvent: true 
+        noEvent: true
       });
     }
   }
 
-  handleDelete(event){
-    console.log(event);
-
-    // event.preventDefault();
+  handleDelete(event) {
     this.setState({
       centerid: parseInt(event, 10)
     });
@@ -50,12 +47,14 @@ class UserEvent extends React.Component {
       <div className="space">
         <LoggedInNavbar />
         {
-          this.state.noEvent ?
-            <h5>No center info to display</h5> :
+          this.state.noEvent ? <div className="space">
+            <i className="fa fa-exclamation-triangle fad" />
+            <h5 className="font-weight-bold grey-text">No Event to display. Add to make your Event go live</h5>
+          </div>             :
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <h2 className="mb-3 font-weight-bold grey-text text-center" style={{ marginLeft: 300, marginTop: 20 }}>My Events</h2>
+                  <h2 className="mb-3 font-weight-bold grey-text text-center">My Events</h2>
                 </div>
               </div>
               <div className="row">
