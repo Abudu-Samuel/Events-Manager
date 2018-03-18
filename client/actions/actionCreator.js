@@ -267,8 +267,8 @@ export const singleEventAction = eventData => ({
   eventData
 });
 
-export const singleEvent = (centerid) => dispatch =>
-  axios.get(`/api/v1/events/${centerid}`, {
+export const singleEvent = (eventId) => dispatch =>
+  axios.get(`/api/v1/events/${eventId}`, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')
@@ -330,10 +330,32 @@ export const deleteEvent = (eventid) => dispatch =>
     }
   })
     .then((response) => {
-      console.log(response.data);
       dispatch(deleteEventAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    });
+
+export const editEventAction = (eventData) => ({
+  type: types.EDIT_EVENT,
+  eventData
+});
+
+export const editEvent = (eventData) => dispatch => {
+  const eventId = parseInt(eventData.eventId, 10);
+  console.log(eventData.eventId, 'from');
+  console.log('===>', eventData);
+  return axios.put(`/api/v1/events/${eventId}`, eventData.data, {
+    headers: {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      console.log(response, 'bdass');
+      dispatch(editEventAction(response.data));
     })
     .catch((error) => {
       console.log(error);
       throw (error);
     });
+};

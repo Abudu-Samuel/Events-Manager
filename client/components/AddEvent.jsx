@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import LoggedInNavbar from '../components/LoggedInNavbar';
 import Footer from '../components/Footer';
+import Form from '../components/Form';
 
 import * as userActions from '../actions/actionCreator';
 
 /**
- * 
- * 
+ *
+ *
  * @class AddEvent
  * @extends {React.Component}
  */
@@ -24,6 +25,7 @@ class AddEvent extends React.Component {
       image: '',
       errorStatus: false,
       redirect: false,
+      editing: false
     };
   }
 
@@ -40,83 +42,55 @@ class AddEvent extends React.Component {
       errorStatus: false
     });
     this.props.addEvent({ ...this.state, centerId: this.props.match.params.centerId })
-    .then(() => {
-      this.setState({
-        errorStatus: false,
-        errorMessage: ''
-      });
-      setTimeout(() => {
+      .then(() => {
         this.setState({
-          redirect: true
+          errorStatus: false,
+          errorMessage: ''
         });
-      }, 1000);
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message,
-        errorStatus: true
+        setTimeout(() => {
+          this.setState({
+            redirect: true
+          });
+        }, 1000);
       })
-    })
-    
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.response.data.message,
+          errorStatus: true
+        });
+      });
   }
 
   render() {
     return (
       this.state.redirect ?
-          <Redirect to={`/centers/${this.props.match.params.centerId}`} /> :
-      <div className="space">
-        <Navbar />
-        <div className="container add">
-          <section>
-            <h4 className="font-weight-bold text-center">Create An Event</h4>
-          </section>
-          <section>
-            <div className="container">
-              <form onSubmit={this.handleSubmit} className="signup add">
-                <div className="md-form">
-                  <i className="fa fa-ticket prefix teal-text" />
-                  <input type="text" name="title" onChange={this.handleChange} id="first-name" className="form-control" />
-                  <label htmlFor="orangeForm-name">Event Title</label>
-                </div>
-                <div className="md-form">
-                  <i className="fa fa-clock-o prefix teal-text" />
-                  <input type="text" name="date" onChange={this.handleChange} id="username-name" className="form-control" />
-                  <label htmlFor="orangeForm-name">Event Date</label>
-                </div>
-                <div className="md-form">
-                  <i className="fa fa-clock-o prefix teal-text" />
-                  <input type="text" name="time" onChange={this.handleChange} id="ends-name" className="form-control" />
-                  <label htmlFor="orangeForm-name">Event Time</label>
-                </div>
-                <div className="md-form">
-                  <i className="fa fa-clock-o prefix teal-text" />
-                  <input type="text" name="type" onChange={this.handleChange} id="ends-name" className="form-control" />
-                  <label htmlFor="orangeForm-name">Event Type</label>
-                </div>
-                <div className="md-form myfile">
-                  <i className="fa fa-camera-retro prefix teal-text" />
-                  <input type="text" id="image" name="image" className="form-control" onChange={this.handleChange} />
-                                <label htmlFor="orangeForm-name">Image</label>
-                </div>
-                <div className="md-form form-sm">
-                  <i className="fa fa-pencil prefix teal-text" />
-                  <textarea type="text" name="description" onChange={this.handleChange} className="md-textarea" id="input-4" />
-                  <label htmlFor="input-4">Event Description</label>
-                </div>
-                {
-                            this.state.errorStatus ?
-                              <h5 className="text-center font-weight-bold red-text">{this.state.errorMessage}</h5> :
-                              null
-                          }
-                <div className="text-center">
-                            <button className="btn btn-mycolor mb-3">Make your event live<i className="fa fa-sign-in ml-1" /></button>
-                          </div>
-              </form>
-            </div>
-          </section>
+        <Redirect to={`/centers/${this.props.match.params.centerId}`} /> :
+        <div className="space">
+          <LoggedInNavbar />
+          <div className="container add">
+            <section>
+              <h4 className="font-weight-bold text-center">Create An Event</h4>
+            </section>
+            <section>
+              <div className="container">
+                <Form
+                  handleSubmit={this.handleSubmit}
+                  handleChange={this.handleChange}
+                  errorStatus={this.state.errorStatus}
+                  errorMessage={this.state.errorMessage}
+                  editing={this.state.editing}
+                  title={this.state.title}
+                  time={this.state.time}
+                  date={this.state.date}
+                  description={this.state.description}
+                  type={this.state.type}
+                  image={this.state.image}
+                />
+              </div>
+            </section>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
     );
   }
 }

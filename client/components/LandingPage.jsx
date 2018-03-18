@@ -5,8 +5,8 @@ import Navbar from './Navbar';
 import Body from './Body';
 import TrendingCenter from './TrendingCenters';
 import PopularCenter from './PopularCenter';
-import Gallery from './Gallery';
-import ContactUs from './ContactUs';
+// import Gallery from './Gallery';
+// import ContactUs from './ContactUs';
 import Footer from './Footer';
 import '../../public/css/style.scss';
 import * as userActions from '../actions/actionCreator';
@@ -137,8 +137,8 @@ class LandingPage extends React.Component {
           events = {this.state.events}
           getEventId = {this.getEventId}
           eventid = {this.eventid}/>
-        <Gallery />
-        <ContactUs />
+        {/* <Gallery />
+        <ContactUs /> */}
         <Footer />
       </div>
     );

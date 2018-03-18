@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import LoggedInNavbar from '../components/LoggedInNavbar';
 import * as userActions from '../actions/actionCreator';
 
@@ -21,7 +22,8 @@ class UserEvent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.getUserEvents && nextProps.getUserEvents > 0) {
+    console.log(nextProps, '@@@@@@@')
+    if (nextProps.getUserEvents && nextProps.getUserEvents.length > 0) {
       this.setState({
         events: nextProps.getUserEvents,
         fetchingCenter: false
@@ -35,6 +37,7 @@ class UserEvent extends React.Component {
   }
 
   handleDelete(event) {
+    console.log(event, 'handlebutton') ;
     this.setState({
       centerid: parseInt(event, 10)
     });
@@ -50,7 +53,7 @@ class UserEvent extends React.Component {
           this.state.noEvent ? <div className="space">
             <i className="fa fa-exclamation-triangle fad" />
             <h5 className="font-weight-bold grey-text">No Event to display. Add to make your Event go live</h5>
-          </div>             :
+          </div> :
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
@@ -65,12 +68,12 @@ class UserEvent extends React.Component {
                       <div className="card">
                         <img className="img-fluid" src={event.image} alt="Card image cap" />
                         <div className="card-body">
-                          <h6 className="grey-text" style={{ textAlign: "center" }}><i className="fa fa-clock-o grey-text mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
+                          <h6 className="grey-text"><i className="fa fa-clock-o grey-text mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
                           <h4 className="card-title pt-1 text-center">{event.title}</h4>
                           <h6 className="grey-text" style={{ textAlign: "center" }}>Created: {event.createdAt.slice(0, 10)}</h6>
 
                           <div style={{ textAlign: "center" }}>
-                            <button className="btn btn-default btn-sm">Edit</button>
+                            <button className="btn btn-default btn-sm"><Link to={`/events/${event.id}/edit`}>Edit</Link></button>
                             <button onClick={() => this.handleDelete(event.id)} className=
                               "btn btn-danger btn-sm">Delete</button>
                           </div>

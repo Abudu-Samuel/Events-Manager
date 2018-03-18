@@ -1,84 +1,127 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import LoggedInNavbar from '../components/LoggedInNavbar';
+import Form from '../components/Form';
+import * as userActions from '../actions/actionCreator';
 
-const EditEvent = () => (
-  <div className="space">
-    <div className="container add">
-      <section>
-        <h4 className="font-weight-bold text-center">Edit Event</h4>
-      </section>
-      <section>
-        <div className="container">
-          <form className="signup add">
-            <div className="md-form">
-              <i className="fa fa-ticket prefix teal-text" />
-              <input type="text" id="first-name" placeholder="The Coming of Kings" className="form-control" />
-              <label htmlFor="orangeForm-name">Event Title</label>
-            </div>
-            <div className="md-form">
-              <i className="fa fa-map-marker prefix teal-text" />
-              <input type="text" placeholder="Anthony, Lagos" id="last-name" className="form-control" />
-              <label htmlFor="orangeForm-name">Location</label>
-            </div>
-            <div className="md-form">
-              <i className="fa fa-clock-o prefix teal-text" />
-              <input type="text" placeholder="20/11/2014" id="username-name" className="form-control" />
-              <label htmlFor="orangeForm-name">Starts</label>
-            </div>
-            <div className="md-form">
-              <i className="fa fa-clock-o prefix teal-text" />
-              <input type="text" placeholder="20/11/2014" id="ends-name" className="form-control" />
-              <label htmlFor="orangeForm-name">Ends</label>
-            </div>
-            <div className="md-form myfile">
-              <i className="fa fa-camera-retro prefix teal-text" />
-              <label className="custom-file">
-                <input type="file" id="file2" placeholder="img" className="custom-file-input" />
-                <span className="custom-file-control" />
-              </label>
-            </div>
 
-            <div className="md-form form-sm">
-              <i className="fa fa-pencil prefix teal-text" />
-              <textarea type="text" className="md-textarea" id="input-4" name="" />
-              <label htmlFor="input-4">Event Description</label>
-            </div>
-            <div className="text-center">
-              <button type="button" data-toggle="modal" data-target="#centralModalSuccess" className="btn btn-mycolor">Make your event live<i className="fa fa-sign-in ml-1" /></button>
+class EditEvent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      time: '',
+      date: '',
+      description: '',
+      type: '',
+      image: '',
+      errorStatus: false,
+      redirect: false,
+      editing: false,
+      errorMessage: '',
+      centerId: ''
+    };
+  }
 
-              <div className="modal fade" id="centralModalSuccess" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-notify modal-success" role="document">
+  componentDidMount() {
+    this.props.singleEvent(this.props.match.params.eventId);
+  }
 
-                  <div className="modal-content">
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.getSingleEvent);
+    if (nextProps.getSingleEvent) {
+      this.setState({
+        title: nextProps.getSingleEvent.event.title,
+        centerId: nextProps.getSingleEvent.event.centerId,
+        time: nextProps.getSingleEvent.event.time,
+        date: nextProps.getSingleEvent.event.date,
+        description: nextProps.getSingleEvent.event.description,
+        type: nextProps.getSingleEvent.event.type,
+        image: nextProps.getSingleEvent.event.image,
 
-                    <div className="modal-header">
-                      <p className="heading lead">Event Editted Successfully</p>
+      });
+    }
+  }
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
 
-                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" className="white-text">&times;</span>
-                      </button>
-                    </div>
+handleSubmit = (event) => {
+  const eventId = this.props.match.params.eventId;
+  event.preventDefault();
+  this.setState({
+    errorMessage: '',
+    errorStatus: false
+  });
+  this.props.editEvent({ data: this.state, eventId: eventId })
+    .then(() => {
+      this.setState({
+        errorStatus: false,
+        errorMessage: ''
+      });
+      setTimeout(() => {
+        this.setState({
+          redirect: true
+        });
+      }, 100);
+    })
+    .catch((error) => {
+      console.log(error.response.data.message, 'here');
+      this.setState({
+        errorMessage: error.response.data.message,
+        errorStatus: true
+      });
+    });
+}
 
-                    <div className="modal-body">
-                      <div className="text-center">
-                        <i className="fa fa-check fa-4x mb-3 animated rotateIn" />
-                      </div>
-                    </div>
-
-                    <div className="modal-footer justify-content-center">
-                      <a type="button" href="userevent.html" className="btn btn-primary-modal">OK</a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </form>
-        </div>
-      </section>
+render() {
+  console.log(this.state);
+  return (
+    this.state.redirect ? 
+    <Redirect to="/manage/events" /> :
+    <div className="space">
+      <LoggedInNavbar />
+      <div className="container add">
+        <section>
+          <h4 className="font-weight-bold text-center">Edit Event</h4>
+        </section>
+        <section>
+          <div className="container">
+            <Form
+              editing={this.state.editing}
+              errorStatus={this.state.errorStatus}
+              errorMessage={this.state.errorMessage}
+              title={this.state.title}
+              time={this.state.time}
+              date={this.state.date}
+              description={this.state.description}
+              type={this.state.type}
+              image={this.state.image}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}/>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
-);
+  );
+}
+}
 
-export default EditEvent;
+function mapStateToProps(state, ownProps) {
+  return {
+    getSingleEvent: state.events.event
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  console.log(this.state, 'hello guy');
+  return {
+    singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
+    editEvent: eventData => dispatch(userActions.editEvent(eventData))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditEvent);
