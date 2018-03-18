@@ -14,10 +14,14 @@ class Event {
    * @memberOf Event
    */
   static add(req, res) {
-    const
-      {
-        title, date, time, type, image, description
-      } = req.body;
+    const {
+      title,
+      date,
+      time,
+      type,
+      image,
+      description
+    } = req.body;
     return centers
       .findOne({
         where: {
@@ -27,9 +31,9 @@ class Event {
       })
       .then((found) => {
         if (!found) {
-          return res.status(404).json({
-            message: 'Sorry, center is currently not available'
-          });
+          return res
+            .status(404)
+            .json({ message: 'Sorry, center is currently not available' });
         }
         return events
           .findOne({
@@ -41,9 +45,9 @@ class Event {
           })
           .then((eventFound) => {
             if (eventFound) {
-              return res.status(400).json({
-                message: 'Center has been booked'
-              });
+              return res
+                .status(400)
+                .json({ message: 'Center has been booked' });
             }
             return events
               .create({
@@ -67,9 +71,7 @@ class Event {
                   description: created.description
                 }
               }))
-              .catch(error => res.status(400).json({
-                message: error.errors[0].message
-              }));
+              .catch(error => res.status(400).json({ message: error.errors[0].message }));
           });
       });
   }
@@ -82,60 +84,64 @@ class Event {
    * @memberOf Event
    */
   static modify(req, res) {
-    const
-      {
-        title, date, time, type, image, description
-      } = req.body;
+    const {
+      title,
+      date,
+      time,
+      type,
+      image,
+      description
+    } = req.body;
     return events
       .findById(req.params.eventId)
       .then((eventFound) => {
         if (!eventFound) {
-          return res.status(400).json({
-            message: 'Event Not Found!'
-          });
+          return res
+            .status(400)
+            .json({ message: 'Event Not Found!' });
         }
-        if (req.decoded.userId === req.eventFound.userId) {
-          return events
-            .findOne({
-              where: {
-                centerId: req.body.centerId,
-                time,
-                date
-              }
+        if (req.decoded.userId === eventFound.userId) {
+          console.log(eventFound.date, '****', date, 'evevevevevevevve');
+          if (eventFound.date !== date) {
+            // check if the the center has been booked on that date
+            events
+              .findOne({
+                where: {
+                  date,
+                  centerId: eventFound.centerId
+                }
+
+              })
+              .then(eventData => {
+                if (eventData) {
+                  return res
+                    .status(400)
+                    .json({ message: 'center has been booked' });
+                }
+              });
+
+            // if so, return that center has been booked on the new choosen date
+          } else {
+            eventFound.update({
+              userId: req.decoded.userId,
+              centerId: req.body.centerId,
+              title: title || eventFound.title,
+              date: date || eventFound.date,
+              time: time || eventFound.time,
+              type: type || eventFound.type,
+              image: image || eventFound.image,
+              description: description || eventFound.description
             })
-            .then((FoundEvent) => {
-              if (FoundEvent) {
-                return res.status(400).json({
-                  message: 'Center has been booked'
-                });
-              }
-              return eventFound
-                .update({
-                  userId: req.body.userId,
-                  centerId: req.body.centerId,
-                  title: title || eventFound.title,
-                  date: date || eventFound.date,
-                  time: time || eventFound.time,
-                  type: type || eventFound.type,
-                  image: image || eventFound.image,
-                  description: description || eventFound.description
-                })
-                .then(updatedEvent => res.status(200).json({
-                  message: 'Event modification is successful',
-                  updatedEvent
-                }))
-                .catch(error => res.status(400).json({
-                  message: error.errors[0].message
-                }));
-            });
+              .then(updatedEvent => res.status(200).json({ message: 'Event modification is successful', updatedEvent }))
+              .catch(error => res.status(400).json({ message: error.errors[0].message }));
+          }
+        } else {
+          return res
+            .status(401)
+            .json({ message: 'You are not Authorized to edit this event!' });
         }
-        return res.status(401).json({
-          message: 'You are not Authorized to edit this event!'
-        });
       })
-      .catch(() => res.status(500).json({
-        message: 'some error occured'
-      }));
+      .catch((error) => res.status(500).json({ message: 'some error occured' }));
   }
 
   /**
@@ -150,18 +156,15 @@ class Event {
       .findById(req.params.eventId)
       .then((event) => {
         if (!event) {
-          return res.status(404).json({
-            message: 'Event Not Found'
-          });
+          return res
+            .status(404)
+            .json({ message: 'Event Not Found' });
         }
-        return res.status(200).json({
-          message: 'Event Found',
-          event
-        });
+        return res
+          .status(200)
+          .json({ message: 'Event Found', event });
       })
-      .catch(() => res.status(500).json({
-        message: 'Some error occured'
-      }));
+      .catch(() => res.status(500).json({ message: 'Some error occured' }));
   }
 
   /**
@@ -174,10 +177,7 @@ class Event {
   static getAll(req, res) {
     return events
       .findAll()
-      .then(foundEvents => res.status(200).send({
-        message: 'Events Found',
-        foundEvents
-      }))
+      .then(foundEvents => res.status(200).send({ message: 'Events Found', foundEvents }))
       .catch(error => res.status(500).json(error));
   }
 
@@ -192,18 +192,17 @@ class Event {
     return events
       .findAll({
         where: {
-          userId: req.decoded.userId,
+          userId: req.decoded.userId
         }
       })
       .then((eventFound) => {
-        return res.status(200).json({
-          message: 'Found your Event(s)',
-          eventFound
-        });
+        return res
+          .status(200)
+          .json({ message: 'Found your Event(s)', eventFound });
         if (!eventFound) {
-          return res.status(400).json({
-            message: 'You have not created Event(s)!'
-          });
+          return res
+            .status(400)
+            .json({ message: 'You have not created Event(s)!' });
         }
       })
       .catch(error => console.log(error));
@@ -218,11 +217,13 @@ class Event {
      */
   static getPopularEvents(req, res) {
     return events
-      .findAll({ limit: 3, order: [['createdAt', 'DESC']] })
-      .then(foundEvents => res.status(200).send({
-        message: 'Events Found',
-        foundEvents
-      }))
+      .findAll({
+        limit: 3,
+        order: [
+          ['createdAt', 'DESC']
+        ]
+      })
+      .then(foundEvents => res.status(200).send({ message: 'Events Found', foundEvents }))
       .catch(error => res.status(500).json(error));
   }
 
@@ -238,28 +239,21 @@ class Event {
       .findById(req.params.eventId)
       .then((eventFound) => {
         if (!eventFound) {
-          return res.status(404).json({
-            message: 'Event Not Found'
-          });
+          return res
+            .status(404)
+            .json({ message: 'Event Not Found' });
         }
         if (req.decoded.userId === eventFound.userId) {
           return eventFound
             .destroy()
-            .then(() => res.status(200).json({
-              message: 'Event Deleted!',
-              eventFound
-            }))
-            .catch(error => res.status(400).json({
-              message: error.errors[0].message
-            }));
+            .then(() => res.status(200).json({ message: 'Event Deleted!', eventFound }))
+            .catch(error => res.status(400).json({ message: error.errors[0].message }));
         }
-        return res.status(401).json({
-          message: 'You are not Authorized to delete this event!'
-        });
+        return res
+          .status(401)
+          .json({ message: 'You are not Authorized to delete this event!' });
       })
-      .catch(() => res.status(500).json({
-        message: 'Some error occured'
-      }));
+      .catch(() => res.status(500).json({ message: 'Some error occured' }));
   }
 }
 

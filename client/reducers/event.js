@@ -3,7 +3,10 @@ import * as types from '../actionTypes/index';
 const initialState = {
   deleteEvent: '',
   userEvents: [],
-  singleEvent: {},
+  singleEvent: {
+    message: '',
+    event: {}
+  },
   popularEvent: [],
   allEvents: [],
   addEvent: ''
@@ -16,6 +19,7 @@ const eventAccess = (state = initialState, action = {}) => {
     // return {
     //   ...state, ...action.eventData
     // };
+    console.log(state, 'nvcn');
     return Object.assign({}, state, {
       userEvents: state.userEvents.filter(event => event.id !== action.eventData.eventFound.id)
     });
@@ -27,8 +31,15 @@ const eventAccess = (state = initialState, action = {}) => {
       userEvents: action.eventData
     });
   case types.GET_SINGLE_EVENT:
+    console.log(action.eventData);
+    return (Object.assign(
+      {},
+      state,
+      { event: action.eventData }
+    ));
+  case types.EDIT_EVENT:
     return {
-      ...action.eventData
+      ...state, ...action.eventData
     };
   case types.GET_POPULAR_EVENTS:
     return {

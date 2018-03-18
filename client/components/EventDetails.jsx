@@ -20,7 +20,7 @@ class EventDetails extends React.Component {
     super(props);
     this.state = {
       user: null,
-      event: [],
+      event: {},
       noEvent: false,
       fetchingEvent: false
     };
@@ -42,8 +42,9 @@ class EventDetails extends React.Component {
    * @memberof EventDetails
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.getSingleEvent) {
-      this.setState({ event: nextProps.getSingleEvent, fetchingEvent: false });
+    console.log(nextProps.event.event, 'nextProps')
+    if (nextProps.event) {
+      this.setState({ event: nextProps.event.event, fetchingEvent: false });
     } else {
       this.setState({ fetchingEvent: true });
     }
@@ -78,7 +79,7 @@ class EventDetails extends React.Component {
  */
 function mapStateToProps(state, ownProps) {
   return {
-    getSingleEvent: state.events.event
+    event: state.events.event
   };
 }
 

@@ -11,6 +11,7 @@ import PopularCenter from './components/PopularCenter';
 import EventDetails from './components/EventDetails';
 import CenterDetails from './components/CenterDetails';
 import UserEvent from './components/UserEvent';
+import EditEvent from './components/EditEvent';
 import EditCenter from './components/EditCenter';
 
 
@@ -26,9 +27,10 @@ export default () => (
       <Route exact path="/events/:eventId" component={EventDetails}/>
       <Route path="/centers/:centerId" component={CenterDetails}/>
       <Route exact path="/allcenters/" component={TrendingCenters}/>
+      <Route exact path="/edit/center/" component={EditCenter}/>
       <Route exact path="/allevents/" component={PopularCenter}/>
       <Route exact path="/manage/events/" component={UserEvent}/>
-      <Route exact path="/edit/center" component={EditCenter}/>
+      <Route exact path="/events/:eventId/edit" component={EditEvent}/>
 
     </Switch>
   </BrowserRouter>

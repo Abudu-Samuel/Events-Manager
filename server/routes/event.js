@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/', auth.authenticated, validate.addEvent, eventController.add);
 router.get('/popular', eventController.getPopularEvents);
 router.get('/user/events', auth.authenticated, eventController.getUserEvent);
-router.put('/:eventId', auth.authenticated, validate.eventId, getEvent.event, validate.addEvent, eventController.modify);
+router.put('/:eventId', auth.authenticated, validate.eventId, validate.addEvent, eventController.modify);
 router.get('/:eventId', auth.authenticated, validate.eventId, eventController.get);
 router.get('/', eventController.getAll);
 router.delete('/:eventId', auth.authenticated, validate.eventId, eventController.delete);
