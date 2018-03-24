@@ -1,4 +1,6 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
+// import { Redirect } from 'react-router-dom';
 import * as types from '../actionTypes/index';
 
 /**
@@ -29,6 +31,12 @@ export const signIn = userData => dispatch =>
     .then((response) => {
       dispatch(signInAction(response.data));
       window.localStorage.setItem('x-access-token', response.data.token);
+      // if(jwt.decode(response.data.token).isAdmin) {
+      //   <Redirect to ='' />
+      // }
+      // if(!jwt.decode(response.data.token).isAdmin) {
+      //   redirect('/')
+      // }
     })
     .catch((error) => {
       throw (error);
@@ -343,15 +351,34 @@ export const editEventAction = (eventData) => ({
 
 export const editEvent = (eventData) => dispatch => {
   const eventId = parseInt(eventData.eventId, 10);
-  console.log(eventData.eventId, 'from');
-  console.log('===>', eventData);
   return axios.put(`/api/v1/events/${eventId}`, eventData.data, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
-      console.log(response, 'bdass');
+      dispatch(editEventAction(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+      throw (error);
+    });
+};
+
+export const editCenterAction = (centerData) => ({
+  type: types.EDIT_CENTER,
+  centerData
+});
+
+export const editCenter = (centerData) => dispatch => {
+  const centerId = parseInt(centerData.centerId, 10);
+  return axios.put(`/api/v1/centers/${centerId}`, centerData.data, {
+    headers: {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      console.log(response);
       dispatch(editEventAction(response.data));
     })
     .catch((error) => {

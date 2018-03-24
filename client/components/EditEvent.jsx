@@ -69,7 +69,6 @@ handleSubmit = (event) => {
       }, 100);
     })
     .catch((error) => {
-      console.log(error.response.data.message, 'here');
       this.setState({
         errorMessage: error.response.data.message,
         errorStatus: true
@@ -80,32 +79,32 @@ handleSubmit = (event) => {
 render() {
   console.log(this.state);
   return (
-    this.state.redirect ? 
-    <Redirect to="/manage/events" /> :
-    <div className="space">
-      <LoggedInNavbar />
-      <div className="container add">
-        <section>
-          <h4 className="font-weight-bold text-center">Edit Event</h4>
-        </section>
-        <section>
-          <div className="container">
-            <Form
-              editing={this.state.editing}
-              errorStatus={this.state.errorStatus}
-              errorMessage={this.state.errorMessage}
-              title={this.state.title}
-              time={this.state.time}
-              date={this.state.date}
-              description={this.state.description}
-              type={this.state.type}
-              image={this.state.image}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}/>
-          </div>
-        </section>
+    this.state.redirect ?
+      <Redirect to="/manage/events" /> :
+      <div className="space">
+        <LoggedInNavbar />
+        <div className="container add">
+          <section>
+            <h4 className="font-weight-bold text-center">Edit Event</h4>
+          </section>
+          <section>
+            <div className="container">
+              <Form
+                editing={this.state.editing}
+                errorStatus={this.state.errorStatus}
+                errorMessage={this.state.errorMessage}
+                title={this.state.title}
+                time={this.state.time}
+                date={this.state.date}
+                description={this.state.description}
+                type={this.state.type}
+                image={this.state.image}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}/>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
   );
 }
 }
@@ -117,7 +116,6 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log(this.state, 'hello guy');
   return {
     singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
     editEvent: eventData => dispatch(userActions.editEvent(eventData))

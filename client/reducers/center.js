@@ -10,6 +10,10 @@ const centerAccess = (state = {}, action) => {
     return {
       ...state, ...action.centerData
     };
+  case types.EDIT_CENTER:
+    return {
+      ...state, ...action.centerData
+    };
   case types.GET_ALL_CENTERS:
     return {
       ...state, ...action.centerData

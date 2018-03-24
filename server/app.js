@@ -3,9 +3,6 @@ import configEnv from 'dotenv';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import Router from './routes/index';
-// import user from './routes/user';
-// import event from './routes/event';
-// import center from './routes/center';
 
 
 configEnv.config();
@@ -20,13 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
 Router(app);
-// app.use('/api/v1/users', user);
-// app.use('/api/v1/events/', event);
-// app.use('/api/v1/centers', center);
 
-// app.get('/home', (req, res) => res.status(200).send({
-//   message: 'Welcome to Events Manager API'
-// }));
 
 // Handle routes that doesn't match
 // app.use((req, res, next) => {

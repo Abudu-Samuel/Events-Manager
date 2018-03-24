@@ -1,8 +1,10 @@
 import db from '../models';
 
-const centers = db.center;
 const events = db.event;
+const centers = db.center;
 /**
+ * This is a description
+ *
  * @class Center
  */
 class Center {
@@ -15,26 +17,35 @@ class Center {
    */
   static add(req, res) {
     const {
-      name, capacity, location, price, state, description, image, isAvailable
+      name,
+      capacity,
+      location,
+      price,
+      state,
+      description,
+      image,
+      isAvailable
     } = req.body;
     if (req.decoded.isAdmin) {
-      return centers
-        .create({
-          name,
-          capacity,
-          location,
-          price,
-          state,
-          description,
-          image,
-          isAvailable
-        })
-        .then(created => res.status(201).json({
-          message: 'Center created Successfully',
-          createdCenter: {
-            created
-          }
-        }))
+      return centers.create({
+        name,
+        capacity,
+        location,
+        price,
+        state,
+        description,
+        image,
+        isAvailable
+      })
+        .then(created =>
+          res
+            .status(201)
+            .json({
+              message: 'Center created Successfully',
+              createdCenter: {
+                created
+              }
+            }))
         .catch(error => res.status(400).json({
           message: error.errors[0].message
         }));
