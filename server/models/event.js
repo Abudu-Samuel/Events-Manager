@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Date Field Required!'
         },
         is: {
-          args: /(\d{2}(-\d{2}){2})/,
+          args: /(\d{4}(-\d{2}){2})/,
           msg: 'Fill in Date format, e.g yy-mm-dd'
         }
       }

@@ -22,7 +22,7 @@ const Form = ({
     </div>
     <div className="md-form">
       <i className="fa fa-clock-o prefix teal-text" />
-      <input type="text" name="date" onChange={handleChange} id="username-name" className="form-control" value={date}/>
+      <input type="date" name="date" onChange={handleChange} id="username-name" className="form-control" value={date}/>
       <label htmlFor="orangeForm-name">Event Date</label>
     </div>
     <div className="md-form">

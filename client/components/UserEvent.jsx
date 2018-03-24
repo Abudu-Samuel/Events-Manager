@@ -22,7 +22,7 @@ class UserEvent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, '@@@@@@@')
+    console.log(nextProps, '@@@@@@@');
     if (nextProps.getUserEvents && nextProps.getUserEvents.length > 0) {
       this.setState({
         events: nextProps.getUserEvents,
@@ -37,7 +37,7 @@ class UserEvent extends React.Component {
   }
 
   handleDelete(event) {
-    console.log(event, 'handlebutton') ;
+    console.log(event, 'handlebutton');
     this.setState({
       centerid: parseInt(event, 10)
     });
