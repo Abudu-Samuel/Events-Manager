@@ -1,7 +1,14 @@
 import axios from 'axios';
-import jwt from 'jsonwebtoken';
 // import { Redirect } from 'react-router-dom';
 import * as types from '../actionTypes/index';
+import {
+  logInSuccess,
+  signUpSuccess,
+  editEventSuccess,
+  editCenterSuccess,
+  addCenterSuccess,
+  addEventSuccess
+} from '../sweetAlert';
 
 /**
  * @export signInAction
@@ -37,6 +44,7 @@ export const signIn = userData => dispatch =>
       // if(!jwt.decode(response.data.token).isAdmin) {
       //   redirect('/')
       // }
+      logInSuccess();
     })
     .catch((error) => {
       throw (error);
@@ -69,6 +77,7 @@ export const signUp = userData => dispatch =>
   axios.post('/api/v1/users/', userData)
     .then((response) => {
       dispatch(signUpAction(response.data));
+      signUpSuccess();
     })
     .catch((error) => {
       throw (error);
@@ -106,6 +115,7 @@ export const addCenter = centerData => dispatch =>
   })
     .then((response) => {
       dispatch(addCenterAction(response.data));
+      addCenterSuccess();
     })
     .catch((error) => {
       throw (error);
@@ -302,6 +312,7 @@ export const addEvent = eventData => dispatch =>
   })
     .then((response) => {
       dispatch(addEventAction(response.data));
+      addEventSuccess();
     })
     .catch((error) => {
       throw (error);
@@ -357,7 +368,9 @@ export const editEvent = (eventData) => dispatch => {
     }
   })
     .then((response) => {
+      console.log(response, 'hjs');
       dispatch(editEventAction(response.data));
+      editEventSuccess();
     })
     .catch((error) => {
       console.log(error);
@@ -380,6 +393,7 @@ export const editCenter = (centerData) => dispatch => {
     .then((response) => {
       console.log(response);
       dispatch(editEventAction(response.data));
+      editCenterSuccess();
     })
     .catch((error) => {
       console.log(error);

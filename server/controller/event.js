@@ -39,16 +39,17 @@ class Event {
           .findOne({
             where: {
               centerId: req.body.centerId,
-              time,
               date
             }
           })
           .then((eventFound) => {
             if (eventFound) {
+              console.log('====> I found an event clashing');
               return res
                 .status(400)
                 .json({ message: 'Center has been booked' });
             }
+            // console.log('The date: ', eventFound.date, 'real date ', date
             return events
               .create({
                 userId: req.decoded.userId,
@@ -92,18 +93,16 @@ class Event {
       image,
       description
     } = req.body;
+    // console.log(req.body)
     return events
       .findById(req.params.eventId)
       .then((eventFound) => {
         if (!eventFound) {
-          return res
-            .status(400)
-            .json({ message: 'Event Not Found!' });
-        }
-        if (req.decoded.userId === eventFound.userId) {
-          console.log(eventFound.date, '****', date, 'evevevevevevevve');
+          res.status(400).json({ message: 'Event Not Found!' });
+        } else if (req.decoded.userId === eventFound.userId) {
+          console.log('=====>chekcing the owner');
           if (eventFound.date !== date) {
-            // check if the the center has been booked on that date
+            console.log('=====>date changes');
             events
               .findOne({
                 where: {
@@ -112,8 +111,9 @@ class Event {
                 }
               })
               .then(eventData => {
-                console.log(eventData);
+                console.log('=====>date clashing');
                 if (eventData) {
+                  console.log(eventData);
                   return res
                     .status(400)
                     .json({ message: 'center has been booked' });
@@ -129,11 +129,22 @@ class Event {
                     description: description || eventFound.description
                   })
                     .then(updatedEvent => res.status(200).json({ message: 'Event modification is successful', updatedEvent }))
-                    .catch(error => res.status(400).json({ message: error.errors[0].message }));
+                    .catch(error => res.status(400).json({ message: error }));
                 }
               });
-
-            // if so, return that center has been booked on the new choosen date
+          } else {
+            eventFound.update({
+              userId: req.decoded.userId,
+              centerId: req.body.centerId,
+              title: title || eventFound.title,
+              date: date || eventFound.date,
+              time: time || eventFound.time,
+              type: type || eventFound.type,
+              image: image || eventFound.image,
+              description: description || eventFound.description
+            })
+              .then(updatedEvent => res.status(200).json({ message: 'Event modification is successful', updatedEvent }))
+              .catch(error => res.status(400).json({ message: error }));
           }
         } else {
           return res
