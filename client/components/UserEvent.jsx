@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
+
 import { Link } from 'react-router-dom';
 import LoggedInNavbar from '../components/LoggedInNavbar';
 import * as userActions from '../actions/actionCreator';
@@ -42,6 +44,22 @@ class UserEvent extends React.Component {
       centerid: parseInt(event, 10)
     });
     this.props.deleteEvent(event);
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
   }
 
   render() {
@@ -74,7 +92,7 @@ class UserEvent extends React.Component {
 
                           <div style={{ textAlign: "center" }}>
                             <button className="btn btn-default btn-sm"><Link to={`/events/${event.id}/edit`}>Edit</Link></button>
-                            <button onClick={() => this.handleDelete(event.id)} className=
+                            <button onClick={() => swal.setActionValue(this.handleDelete(event.id))} className=
                               "btn btn-danger btn-sm">Delete</button>
                           </div>
                         </div>
