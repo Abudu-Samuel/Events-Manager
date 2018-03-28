@@ -597,6 +597,203 @@ describe('Events Manager', () => {
       });
   });
 
+  it('create event', (done) => {
+    request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding for tour',
+        date: '2014-02-01',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(201);
+        expect(res.body.message).to.equal('Event Created!');
+
+        done();
+      });
+  });
+
+  it('center has been booked', (done) => {
+    request(app)
+      .post('/api/v1/events')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding tour',
+        date: '2014-03-01',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('Center has been booked');
+
+        done();
+      });
+  });
+
+  it('center has been booked', (done) => {
+    request(app)
+      .put('/api/v1/events/14')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding tour updated',
+        date: '2014-03-01',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('Event Not Found!');
+
+        done();
+      });
+  });
+  ////
+  it('center has been booked', (done) => {
+    request(app)
+      .put('/api/v1/events/2')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding tour updated',
+        date: '2014-03-01',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('center has been booked');
+
+        done();
+      });
+  });
+
+  it('center has been booked', (done) => {
+    request(app)
+      .put('/api/v1/events/2')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding tour updated',
+        date: '2014-03-22',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('Event modification is successful');
+
+        done();
+      });
+  });
+
+  it('center has been booked', (done) => {
+    request(app)
+      .put('/api/v1/events/2')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding tour updated',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('Date Field required');
+
+        done();
+      });
+  });
+
+
+  it('unatuthorised editing of event', (done) => {
+    request(app)
+      .put('/api/v1/events/2')
+      .set('x-access-token', userToken2)
+      .send({
+        userId: 2,
+        centerId: 1,
+        title: 'wedding tour updated',
+        date: '2014-02-01',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        expect(res.body.message).to.equal('You are not Authorized to edit this event!');
+
+        done();
+      });
+  });
+
+  it('test', (done) => {
+    request(app)
+      .put('/api/v1/events/2')
+      .set('x-access-token', userToken)
+      .send({
+        userId: 12,
+        centerId: 6,
+        title: 'wedding tour updated',
+        date: '2014-02-26',
+        time: '12:32:11 pm',
+        type: 'church',
+        image: 'image.com',
+        description: 'lorem is the best'
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+
+        done();
+      });
+  });
+
+  it('get all events', (done) => {
+    request(app)
+      .get('/api/v1/events/')
+      .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('Events Found');
+        done();
+      });
+  });
+
+  it('found single event', (done) => {
+    request(app)
+      .get('/api/v1/events/1')
+      .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('Event Found');
+        done();
+      });
+  });
+
   it('parameter must be a number', (done) => {
     request(app)
       .get('/api/v1/events/fhg')
@@ -642,6 +839,67 @@ describe('Events Manager', () => {
       });
   });
 
+
+  it('event not found', (done) => {
+    request(app)
+      .delete('/api/v1/events/12')
+      .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        expect(res.body.message).to.equal('Event Not Found');
+
+        done();
+      });
+  });
+
+  it('event not found', (done) => {
+    request(app)
+      .delete('/api/v1/events/2')
+      .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('Event Deleted!');
+
+        done();
+      });
+  });
+
+  it('get latest events', (done) => {
+    request(app)
+      .get('/api/v1/events/user/events')
+      .set('x-access-token', userToken2)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+
+        expect(res.body.message).to.equal('Found your Event(s)');
+        done();
+      });
+  });
+
+  it('get latest events', (done) => {
+    request(app)
+      .get('/api/v1/events/popular')
+      .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('Events Found');
+
+        done();
+      });
+  });
+
+  it('all events not found', (done) => {
+    request(app)
+      .get('/api/v1/events/1')
+      .set('x-access-token', userToken2)
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        expect(res.body.message).to.equal('Event Not Found');
+        done();
+      });
+  });
+
+ 
 });
 
 export default app;
