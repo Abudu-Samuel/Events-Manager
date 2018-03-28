@@ -148,6 +148,20 @@ describe('Events Manager', () => {
       });
   });
 
+  it('unsuccessful sign in', (done) => {
+    request(app)
+      .post('/api/v1/users/login')
+      .send({
+        password: '123',
+        username: 'leumas',
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('invalid username or password');
+        done();
+      });
+  });
+
   it('Sign in successful as second user', (done) => {
     request(app)
       .post('/api/v1/users/login')
@@ -490,6 +504,18 @@ describe('Events Manager', () => {
       });
   });
 
+  it('All fields are required', (done) => {
+    request(app)
+      .post('/api/v1/centers')
+      .set('x-access-token', adminToken)
+      .send({})
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('All Fields are required');
+        done();
+      });
+  });
+
   it('should get all centers by either Admin or User', (done) => {
     request(app)
       .get('/api/v1/centers')
@@ -500,6 +526,7 @@ describe('Events Manager', () => {
       });
   });
 
+  
   it('should give an error without token', (done) => {
     request(app)
       .get('/api/v1/centers')
@@ -510,10 +537,21 @@ describe('Events Manager', () => {
       });
   });
 
+
+
   it('should enable users retrieve a center', (done) => {
     request(app)
       .get('/api/v1/centers/1')
       .set('x-access-token', userToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('should get latest centers', (done) => {
+    request(app)
+      .get('/api/v1/centers/trend')
       .end((err, res) => {
         expect(res.status).to.equal(200);
         done();
@@ -540,17 +578,6 @@ describe('Events Manager', () => {
       });
   });
 
-
-  // it('parameter must be a number', (done) => {
-  //   request(app)
-  //     .get('/api/v1/centers/fhg')
-  //     .set('x-access-token', userToken)
-  //     .end((err, res) => {
-  //       expect(res.status).to.equal(400);
-  //       expect(res.body.message).to.equal('Parameter must be a number!');
-  //       done();
-  //     });
-  // });
 
   it('check if center is availale while creating an event', (done) => {
     const object = {
@@ -680,6 +707,19 @@ describe('Events Manager', () => {
       .end((err, res) => {
         expect(res.status).to.equal(400);
         expect(res.body.message).to.equal('center has been booked');
+
+        done();
+      });
+  });
+
+  it('event error', (done) => {
+    request(app)
+      .post('/api/v1/events/')
+      .set('x-access-token', userToken2)
+      .send({})
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('All Fields are required');
 
         done();
       });
@@ -898,8 +938,6 @@ describe('Events Manager', () => {
         done();
       });
   });
-
- 
 });
 
 export default app;
