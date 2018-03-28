@@ -11,7 +11,6 @@ class EditEvent extends React.Component {
     super(props);
     this.state = {
       title: '',
-      time: '',
       date: '',
       description: '',
       type: '',
@@ -34,7 +33,6 @@ class EditEvent extends React.Component {
       this.setState({
         title: nextProps.getSingleEvent.event.title,
         centerId: nextProps.getSingleEvent.event.centerId,
-        time: nextProps.getSingleEvent.event.time,
         date: nextProps.getSingleEvent.event.date,
         description: nextProps.getSingleEvent.event.description,
         type: nextProps.getSingleEvent.event.type,
@@ -94,7 +92,6 @@ render() {
                 errorStatus={this.state.errorStatus}
                 errorMessage={this.state.errorMessage}
                 title={this.state.title}
-                time={this.state.time}
                 date={this.state.date}
                 description={this.state.description}
                 type={this.state.type}

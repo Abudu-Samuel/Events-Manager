@@ -7,7 +7,6 @@ const Form = ({
   errorMessage,
   editing,
   title,
-  time,
   type,
   date,
   image,
@@ -27,17 +26,12 @@ const Form = ({
     </div>
     <div className="md-form">
       <i className="fa fa-clock-o prefix teal-text" />
-      <input type="text" name="time" onChange={handleChange} id="ends-name" className="form-control" value={time}/>
-      <label htmlFor="orangeForm-name">Event Time</label>
-    </div>
-    <div className="md-form">
-      <i className="fa fa-clock-o prefix teal-text" />
       <input type="text" name="type" onChange={handleChange} id="ends-name" className="form-control" value={type}/>
       <label htmlFor="orangeForm-name">Event Type</label>
     </div>
     <div className="md-form myfile">
       <i className="fa fa-camera-retro prefix teal-text" />
-      <input type="text" id="image" name="image" className="form-control" onChange={handleChange} value={image}/>
+      <input type="file" id="image" name="image" className="form-control" onChange={handleChange} value={image}/>
       <label htmlFor="orangeForm-name">Image</label>
     </div>
     <div className="md-form form-sm">

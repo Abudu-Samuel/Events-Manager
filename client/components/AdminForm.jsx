@@ -64,18 +64,27 @@ const AdminForm = ({
           <label htmlFor="orangeForm-name">Capacity</label>
         </div>
       </div>
-      <div className="col-md-6">
-        <div className="md-form">
-          <i className="fa fa-money prefix teal-text" />
-          <input type="text" id="image" name="image" className="form-control" onChange={handleChange} value={image}/>
-          <label htmlFor="orangeForm-name">Image</label>
-        </div>
-      </div>
+
       <div className="col-md-6">
         <div className="md-form">
           <i className="fa fa-money prefix teal-text" />
           <input type="text" id="price" name="price" className="form-control" onChange={handleChange} value={price}/>
           <label htmlFor="orangeForm-name">Price</label>
+        </div>
+      </div>
+      <div className="col-md-12">
+        <div className="md-form">
+          <i className="fa fa-camera prefix teal-text" />
+          <div className="file-field lab">
+            <div className="btn btn-mycolor mt-5 ml-3  btn-sm">
+
+              <input type="file" />
+            </div>
+            <div className="file-path-wrapper">
+              <label className="mb-5 ml-5" htmlFor="orangeForm-name">Image</label>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -179,10 +179,10 @@ export const getAllCentersAction = centerData => ({
  */
 export const getAllCenters = () => dispatch =>
   axios.get('/api/v1/centers/', {
-    // headers:
-    //  {
-    //      'x-access-token': localStorage.getItem('x-access-token')
-    //  }
+    headers:
+     {
+       'x-access-token': localStorage.getItem('x-access-token')
+     }
   })
     .then((response) => {
       dispatch(getAllCentersAction(response.data));
@@ -249,10 +249,10 @@ export const getAllEventsAction = eventData => ({
  */
 export const getAllEvents = () => dispatch =>
   axios.get('/api/v1/events/', {
-    // headers:
-    // {
-    //     'x-access-token': localStorage.getItem('x-access-token')
-    // }
+    headers:
+    {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
   })
     .then((response) => {
       dispatch(getAllEventsAction(response.data));

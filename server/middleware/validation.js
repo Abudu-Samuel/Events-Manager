@@ -73,7 +73,7 @@ const validation = {
     const {
       title, date, time, type, image, description, userId, centerId
     } = req.body;
-    if (!title && !date && !time && !type && !image && !description && !userId && !centerId) {
+    if (!title && !date && !type && !image && !description && !userId && !centerId) {
       return res.status(400).json({
         message: 'All Fields are required'
       });
@@ -84,10 +84,6 @@ const validation = {
     } else if (!date) {
       return res.status(400).json({
         message: 'Date Field required'
-      });
-    } else if (!time) {
-      return res.status(400).json({
-        message: 'Time Field required'
       });
     } else if (!type) {
       return res.status(400).json({
@@ -161,7 +157,7 @@ const validation = {
       }
     } catch (error) {
       return res.status(400).json({
-        message: 'Is Available must be a boolean'
+        message: 'testing'
       });
     }
     next();

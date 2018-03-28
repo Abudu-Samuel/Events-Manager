@@ -257,14 +257,12 @@ class Event {
         if (req.decoded.userId === eventFound.userId) {
           return eventFound
             .destroy()
-            .then(() => res.status(200).json({ message: 'Event Deleted!', eventFound }))
-            .catch(error => res.status(400).json({ message: error.errors[0].message }));
+            .then(() => res.status(200).json({ message: 'Event Deleted!', eventFound }));
         }
         return res
           .status(401)
           .json({ message: 'You are not Authorized to delete this event!' });
-      })
-      .catch(() => res.status(500).json({ message: 'Some error occured' }));
+      });
   }
 }
 

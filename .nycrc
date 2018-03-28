@@ -1,0 +1,11 @@
+{
+  "exclude": [
+    "server/test/",
+    "server/models/index.js"
+  ],
+  "reporter": [
+    "lcov",
+    "html",
+    "text"
+  ]
+}

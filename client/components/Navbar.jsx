@@ -16,19 +16,10 @@ const Navbar = () => (
             </ul>
             <ul className="navbar-nav ml-auto nav-flex-icons">
               <li className="nav-item">
-                <a className="nav-link waves-effect waves-light"><i className="fa fa-twitter" /></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link waves-effect waves-light"><i className="fa fa-google-plus" /></a>
-              </li>
-              <li className="nav-item">
                 <Link to="/signup" className="nav-link waves-effect waves-light">Sign Up</Link>
               </li>
               <li className="nav-item">
                 <Link to="/signin" className="nav-link waves-effect waves-light">Sign In</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/addcenter" className="nav-link waves-effect waves-light">Admin</Link>
               </li>
             </ul>
           </div>
