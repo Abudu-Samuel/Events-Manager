@@ -20,7 +20,7 @@ module.exports = {
       username: 'user',
       email: 'pet@gmail.com',
       password: bcrypt.hashSync('password', 10),
-      isAdmin: true,
+      isAdmin: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }], { individualHooks: true });

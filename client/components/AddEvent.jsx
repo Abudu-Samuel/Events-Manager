@@ -18,7 +18,6 @@ class AddEvent extends React.Component {
     super(props);
     this.state = {
       title: '',
-      time: '',
       date: '',
       description: '',
       type: '',
@@ -80,7 +79,6 @@ class AddEvent extends React.Component {
                   errorMessage={this.state.errorMessage}
                   editing={this.state.editing}
                   title={this.state.title}
-                  time={this.state.time}
                   date={this.state.date}
                   description={this.state.description}
                   type={this.state.type}

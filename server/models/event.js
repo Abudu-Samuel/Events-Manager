@@ -58,20 +58,20 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Time Field Required!'
-        },
-        is: {
-          args: /(\d{2}(:\d{2}){2}\s(pm|am))/,
-          msg: 'Invalid time format. Try this format (hh:mm:ss am/pm)'
-        }
-      }
-    },
+    // time: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   validate: {
+    //     notEmpty: {
+    //       args: true,
+    //       msg: 'Time Field Required!'
+    //     },
+    //     is: {
+    //       args: /(\d{2}(:\d{2}){2}\s(pm|am))/,
+    //       msg: 'Invalid time format. Try this format (hh:mm:ss am/pm)'
+    //     }
+    //   }
+    // },
     type: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -107,7 +107,7 @@ class AddCenter extends React.Component {
       };
       return (
         this.state.redirect ?
-          <Redirect to ="/dashboard"/> :
+          <Redirect to ="/manage/center"/> :
           <div>
             <Navbar />
             <div className="space">

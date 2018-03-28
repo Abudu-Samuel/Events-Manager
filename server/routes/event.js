@@ -11,7 +11,7 @@ router.get('/popular', eventController.getPopularEvents);
 router.get('/user/events', auth.authenticated, eventController.getUserEvent);
 router.put('/:eventId', auth.authenticated, validate.eventId, validate.addEvent, eventController.modify);
 router.get('/:eventId', auth.authenticated, validate.eventId, eventController.get);
-router.get('/', eventController.getAll);
+router.get('/', auth.authenticated, eventController.getAll);
 router.delete('/:eventId', auth.authenticated, validate.eventId, eventController.delete);
 
 export default router;
