@@ -34,9 +34,9 @@ class Authenticate {
         req.decoded = decoded;
         next();
       })
-      .catch(() => res.status(500).send({
-        message: 'Authentication failed...'
-      }));
+      // .catch(() => res.status(500).send({
+      //   message: 'Authentication failed...'
+      // }));
   }
 }
 

@@ -44,7 +44,6 @@ class Event {
           })
           .then((eventFound) => {
             if (eventFound) {
-              console.log('====> I found an event clashing');
               return res
                 .status(400)
                 .json({ message: 'Center has been booked' });
@@ -206,17 +205,10 @@ class Event {
           userId: req.decoded.userId
         }
       })
-      .then((eventFound) => {
-        return res
-          .status(200)
-          .json({ message: 'Found your Event(s)', eventFound });
-        if (!eventFound) {
-          return res
-            .status(400)
-            .json({ message: 'You have not created Event(s)!' });
-        }
-      })
-      .catch(error => console.log(error));
+      .then((eventFound) => res
+        .status(200)
+        .json({ message: 'Found your Event(s)', eventFound }))
+      .catch(error => res.status(500).json(error));
   }
 
   /**

@@ -1,7 +1,8 @@
 {
   "exclude": [
     "server/test/",
-    "server/models/index.js"
+    "server/models/index.js",
+    "server/middleware/getevent.js"
   ],
   "reporter": [
     "lcov",
