@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import LoggedInNavbar from '../components/LoggedInNavbar';
 import SideBar from '../components/SideBar';
 import AdminForm from '../components/AdminForm';
@@ -31,7 +32,7 @@ class EditCenter extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.getSingleCenter.id, '#');
+    console.log(nextProps.getSingleCenter.image, '#');
     if (nextProps.getSingleCenter) {
       this.setState({
         name: nextProps.getSingleCenter.name,
@@ -53,6 +54,35 @@ class EditCenter extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+
+  handleUpload = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
+    const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+
+    axios({
+      url: CLOUDINARY_URL,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www- form-urlencoded '
+      },
+      data: formData
+    })
+      .then((res) => {
+        console.log(res.data.secure_url);
+        this.setState({
+          image: res.data.secure_url
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 handleSubmit = (event) => {
@@ -99,6 +129,7 @@ render() {
                     <AdminForm
                       handleChange={this.handleChange}
                       handleSubmit={this.handleSubmit}
+                      handleUpload={this.handleUpload}
                       errorStatus={this.state.errorStatus}
                       errorMessage={this.state.errorMessage}
                       name={this.state.name}

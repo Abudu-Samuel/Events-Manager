@@ -4,7 +4,7 @@ const AdminForm = ({
   handleChange,
   handleSubmit,
   errorStatus,
-  center,
+  handleUpload,
   errorMessage,
   name,
   capacity,
@@ -77,8 +77,7 @@ const AdminForm = ({
           <i className="fa fa-camera prefix teal-text" />
           <div className="file-field lab">
             <div className="btn btn-mycolor mt-5 ml-3  btn-sm">
-
-              <input type="file" />
+              <input type="file" name="image" onChange={handleUpload} />
             </div>
             <div className="file-path-wrapper">
               <label className="mb-5 ml-5" htmlFor="orangeForm-name">Image</label>

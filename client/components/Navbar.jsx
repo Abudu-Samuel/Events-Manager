@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => (
+const Navbar = (isAuthenticated) => (console.log('navbar', isAuthenticated),
+  
   <div>
+    
     <header className="header">
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
         <div className="container">
@@ -28,5 +30,6 @@ const Navbar = () => (
     </header>
   </div>
 );
+
 
 export default Navbar;
