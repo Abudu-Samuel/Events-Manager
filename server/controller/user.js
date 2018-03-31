@@ -4,17 +4,24 @@ import Token from '../middleware/token';
 
 
 const users = db.user;
-
 /**
+ * @exports User
+ *
+ * @description defines UserAction for sign up and sign in
+ *
  * @class User
  */
 class User {
   /**
    * @static
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} signup
-   * @memberOf User
+   *
+   * @description This method handles new user registration
+   *
+   * @param {object} req - request object
+   *
+   * @param {object} res - response object
+   *
+   * @returns {object} server
    */
   static signup(req, res) {
     const {
@@ -30,7 +37,7 @@ class User {
     })
       .then((found) => {
         if (found) {
-          return res.status(403).send({
+          return res.status(409).send({
             message: 'user already exist'
           });
         }
@@ -60,12 +67,18 @@ class User {
   }
 
   /**
-   * @static
-   * @param {object} req
-   * @param {object} res
-   * @returns{object} signin
-   * @memberOf User
-   */
+ * @static
+ *
+ * @description This method signs in a registred user
+
+* @param {object} req - request object
+ *
+ * @param {any} res - response object
+ *
+ * @returns { object } user data with token
+ *
+ * @memberof User
+ */
   static signin(req, res) {
     const { username, password } = req.body;
     return users
@@ -76,7 +89,7 @@ class User {
       })
       .then((found) => {
         if (!found) {
-          return res.status(400).send({
+          return res.status(401).send({
             message: 'Incorrect signin credentials'
           });
         }
@@ -91,7 +104,7 @@ class User {
             token
           });
         }
-        return res.status(400).send({
+        return res.status(401).send({
           message: 'invalid username or password'
         });
       })

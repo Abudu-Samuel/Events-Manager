@@ -143,7 +143,7 @@ export const getTrendingCentersAction = centerData => ({
  * @return {object} Axios response
  */
 export const getTrendingCenters = () => dispatch =>
-  axios.get('/api/v1/centers/trend', {
+  axios.get('/api/v1/centers/latest/centers', {
     // headers:
     //  {
     //      'x-access-token': localStorage.getItem('x-access-token')
@@ -213,7 +213,7 @@ export const getPopularEventsAction = eventData => ({
  * @return {object} Axios response
  */
 export const getPopularEvents = () => dispatch =>
-  axios.get('/api/v1/events/popular', {
+  axios.get('/api/v1/events/latest/events', {
     // headers:
     // {
     //     'x-access-token': localStorage.getItem('x-access-token')

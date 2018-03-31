@@ -4,16 +4,25 @@ const events = db.event;
 const centers = db.center;
 
 /**
+ * @description creates event controller
+ *
  * @class Event
  */
 class Event {
   /**
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} add
-   * @memberOf Event
+   * @static
+   *
+   * @description Adds a new event to the database
+   *
+   * @param {any} req - request object
+   *
+   * @param {any} res - response object
+   *
+   * @returns {object} add event message and event as payload
+   *
+   * @memberof Event
    */
-  static add(req, res) {
+  static addEvent(req, res) {
     const {
       title,
       date,
@@ -32,7 +41,7 @@ class Event {
       .then((found) => {
         if (!found) {
           return res
-            .status(404)
+            .status(403)
             .json({ message: 'Sorry, center is currently not available' });
         }
         return events
@@ -45,10 +54,9 @@ class Event {
           .then((eventFound) => {
             if (eventFound) {
               return res
-                .status(400)
+                .status(409)
                 .json({ message: 'Center has been booked' });
             }
-            // console.log('The date: ', eventFound.date, 'real date ', date
             return events
               .create({
                 userId: req.decoded.userId,
@@ -71,19 +79,26 @@ class Event {
                   description: created.description
                 }
               }))
-              .catch(error => res.status(400).json({ message: error.errors[0].message }));
+              .catch(error => res
+                .status(400)
+                .json({ message: error.errors[0].message }));
           });
       });
   }
-
   /**
-   * @static
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} modify
-   * @memberOf Event
-   */
-  static modify(req, res) {
+ * @static
+ *
+ * @description Modify event in the database
+ *
+ * @param {object} req - request object
+ *
+ * @param {object} res - respond object
+ *
+ * @returns {object} modified event message and modified event as payload
+ *
+ * @memberof Event
+ */
+  static modifyEvent(req, res) {
     const {
       title,
       date,
@@ -92,16 +107,15 @@ class Event {
       image,
       description
     } = req.body;
-    // console.log(req.body)
     return events
       .findById(req.params.eventId)
       .then((eventFound) => {
         if (!eventFound) {
-          res.status(400).json({ message: 'Event Not Found!' });
+          res
+            .status(404)
+            .json({ message: 'Event Not Found!' });
         } else if (req.decoded.userId === eventFound.userId) {
-          console.log('=====>chekcing the owner');
           if (eventFound.date !== date) {
-            console.log('=====>date changes');
             events
               .findOne({
                 where: {
@@ -110,11 +124,9 @@ class Event {
                 }
               })
               .then(eventData => {
-                console.log('=====>date clashing');
                 if (eventData) {
-                  console.log(eventData);
                   return res
-                    .status(400)
+                    .status(409)
                     .json({ message: 'center has been booked' });
                 } else {
                   eventFound.update({
@@ -127,7 +139,9 @@ class Event {
                     image: image || eventFound.image,
                     description: description || eventFound.description
                   })
-                    .then(updatedEvent => res.status(200).json({ message: 'Event modification is successful', updatedEvent }))
+                    .then(updatedEvent => res
+                      .status(200)
+                      .json({ message: 'Event modification is successful', updatedEvent }))
                     .catch(error => res.status(400).json({ message: error }));
                 }
               });
@@ -142,26 +156,35 @@ class Event {
               image: image || eventFound.image,
               description: description || eventFound.description
             })
-              .then(updatedEvent => res.status(200).json({ message: 'Event modification is successful', updatedEvent }))
+              .then(updatedEvent => res
+                .status(200)
+                .json({ message: 'Event modification is successful', updatedEvent }))
               .catch(error => res.status(400).json({ message: error }));
           }
         } else {
           return res
-            .status(401)
+            .status(422)
             .json({ message: 'You are not Authorized to edit this event!' });
         }
       })
-      .catch((error) => res.status(500).json({ message: 'some error occured' }));
+      .catch((error) => res
+        .status(500)
+        .json({ message: 'some error occured' }));
   }
-
   /**
-   * @static
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} get
-   * @memberOf Event
-   */
-  static get(req, res) {
+ * @static
+ *
+ * @description Gets single event by it's Id
+ *
+ * @param {object} req - request object
+ *
+ * @param {object} res - response object
+ *
+ * @returns {object} Get single event message and get single event payload
+ *
+ * @memberof Event
+ */
+  static getSingleEvent(req, res) {
     return events
       .findById(req.params.eventId)
       .then((event) => {
@@ -174,30 +197,46 @@ class Event {
           .status(200)
           .json({ message: 'Event Found', event });
       })
-      .catch(() => res.status(500).json({ message: 'Some error occured' }));
+      .catch(() => res
+        .status(500)
+        .json({ message: 'Some error occured' }));
   }
-
   /**
-     * @static
-     * @param {any} req
-     * @param {any} res
-     * @return {object} getAll
-     * @memberOf Event
-     */
-  static getAll(req, res) {
+ * @static
+ *
+ * @description Gets all events in the database
+ *
+ * @param {object} req - request object
+ *
+ * @param {object} res - response object
+ *
+ * @returns {object} get all events message and get all events as payload
+ *
+ * @memberof Event
+ */
+  static getAllEvents(req, res) {
     return events
       .findAll()
-      .then(foundEvents => res.status(200).send({ message: 'Events Found', foundEvents }))
-      .catch(error => res.status(500).json(error));
+      .then(foundEvents => res
+        .status(200)
+        .send({ message: 'Events Found', foundEvents }))
+      .catch(error => res
+        .status(500)
+        .json(error));
   }
-
   /**
-     * @static
-     * @param {any} req
-     * @param {any} res
-     * @return {object} getUserEvent
-     * @memberOf Event
-     */
+ * @static
+ *
+ * @description Gets all events in the database created by a single user
+ *
+ * @param {object} req - request object
+ *
+ * @param {object} res - respond object
+ *
+ * @returns {object} gets all user events message and get all user events as payload
+ *
+ * @memberof Event
+ */
   static getUserEvent(req, res) {
     return events
       .findAll({
@@ -210,15 +249,20 @@ class Event {
         .json({ message: 'Found your Event(s)', eventFound }))
       .catch(error => res.status(500).json(error));
   }
-
   /**
-     * @static
-     * @param {any} req
-     * @param {any} res
-     * @return {object} getPopularEvents
-     * @memberOf Event
-     */
-  static getPopularEvents(req, res) {
+ * @static
+ *
+ * @description Gets the three newest events in the database
+ *
+ * @param {object} req - request object
+ *
+ * @param {object} res - response object
+ *
+ * @returns {object} gets three newest events message and three newest events as payload
+ *
+ * @memberof Event
+ */
+  static latestEvents(req, res) {
     return events
       .findAll({
         limit: 3,
@@ -226,18 +270,26 @@ class Event {
           ['createdAt', 'DESC']
         ]
       })
-      .then(foundEvents => res.status(200).send({ message: 'Events Found', foundEvents }))
+      .then(foundEvents => res
+        .status(200)
+        .send({ message: 'Events Found', foundEvents }))
       .catch(error => res.status(500).json(error));
   }
 
   /**
-   * @static
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} get
-   * @memberOf Event
-   */
-  static delete(req, res) {
+ * @static
+ *
+ * @description Deletes event from the database by it's Id
+ *
+ * @param {object} req - request object
+ *
+ * @param {object} res - response object
+ *
+ * @returns {object} delete event message
+ *
+ * @memberof Event
+ */
+  static deleteEvent(req, res) {
     return events
       .findById(req.params.eventId)
       .then((eventFound) => {
@@ -249,10 +301,12 @@ class Event {
         if (req.decoded.userId === eventFound.userId) {
           return eventFound
             .destroy()
-            .then(() => res.status(200).json({ message: 'Event Deleted!', eventFound }));
+            .then(() => res
+              .status(200)
+              .json({ message: 'Event Deleted!', eventFound }));
         }
         return res
-          .status(401)
+          .status(422)
           .json({ message: 'You are not Authorized to delete this event!' });
       });
   }

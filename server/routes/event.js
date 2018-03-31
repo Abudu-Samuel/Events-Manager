@@ -6,12 +6,12 @@ import getEvent from '../middleware/getevent';
 
 const router = express.Router();
 
-router.post('/', auth.authenticated, validate.addEvent, eventController.add);
-router.get('/popular', eventController.getPopularEvents);
+router.post('/', auth.authenticated, validate.addEvent, eventController.addEvent);
+router.get('/latest/events', eventController.latestEvents);
 router.get('/user/events', auth.authenticated, eventController.getUserEvent);
-router.put('/:eventId', auth.authenticated, validate.eventId, validate.addEvent, eventController.modify);
-router.get('/:eventId', auth.authenticated, validate.eventId, eventController.get);
-router.get('/', auth.authenticated, eventController.getAll);
-router.delete('/:eventId', auth.authenticated, validate.eventId, eventController.delete);
+router.put('/:eventId', auth.authenticated, validate.eventId, validate.addEvent, eventController.modifyEvent);
+router.get('/:eventId', auth.authenticated, validate.eventId, eventController.getSingleEvent);
+router.get('/', auth.authenticated, eventController.getAllEvents);
+router.delete('/:eventId', auth.authenticated, validate.eventId, eventController.deleteEvent);
 
 export default router;
