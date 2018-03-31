@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import SideBar from '../components/SideBar';
 import AdminForm from '../components/AdminForm';
@@ -49,6 +50,36 @@ class AddCenter extends React.Component {
     handleChange = event => {
       this.setState({ [event.target.name]: event.target.value });
     }
+
+    handleUpload = (event) => {
+      event.preventDefault();
+      const file = event.target.files[0];
+      const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
+      const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www- form-urlencoded '
+        },
+        data: formData
+      })
+        .then((res) => {
+          console.log(res.data.secure_url);
+          this.setState({
+            image: res.data.secure_url
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
     /**
      *@method handleSubmit
      *
@@ -95,16 +126,16 @@ class AddCenter extends React.Component {
      * @memberof AddCenter
      */
     render() {
-      const center = {
-        name: this.state.name,
-        capacity: this.state.capacity,
-        location: this.state.location,
-        price: this.state.price,
-        state: this.state.state,
-        description: this.state.description,
-        image: this.state.image,
-        isAvailable: this.state.isAvailable,
-      };
+      // const center = {
+      //   name: this.state.name,
+      //   capacity: this.state.capacity,
+      //   location: this.state.location,
+      //   price: this.state.price,
+      //   state: this.state.state,
+      //   description: this.state.description,
+      //   image: this.state.image,
+      //   isAvailable: this.state.isAvailable,
+      // };
       return (
         this.state.redirect ?
           <Redirect to ="/manage/center"/> :
@@ -121,10 +152,18 @@ class AddCenter extends React.Component {
                         <AdminForm
                           handleChange={this.handleChange}
                           handleSubmit={this.handleSubmit}
+                          handleUpload={this.handleUpload}
                           errorStatus={this.state.errorStatus}
                           errorMessage={this.state.errorMessage}
                           name={this.state.name}
-                          center={center}
+                          capacity={this.state.capacity}
+                          location={this.state.location}
+                          price={this.state.price}
+                          state={this.state.state}
+                          description={this.state.description}
+                          image={this.state.image}
+                          isAvailable={this.state.isAvailable}
+                          // center={center}
                         />
                       </div>
                     </div>

@@ -25,7 +25,6 @@ const LoggedInNavbar = () => (
                 </div>
               </li>
             </ul>
-
           </div>
         </div>
       </nav>
