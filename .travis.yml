@@ -2,7 +2,7 @@ language: node_js
 node_js: 
   - "stable"
 script:
- -  npm run test:dev:ed
+ -  npm run test:dev:t
 install:
 - npm install
 services:

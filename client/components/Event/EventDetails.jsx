@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Navbar from './Navbar';
+import Navbar from '../common/Navbar';
 import EventInfo from './EventInfo';
-import * as userActions from '../actions/actionCreator';
+import * as userActions from '../../actions/actionCreator';
 
 /**
  *

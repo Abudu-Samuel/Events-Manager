@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import swal from 'sweetalert';
 
 import { Link } from 'react-router-dom';
-import LoggedInNavbar from '../components/LoggedInNavbar';
-import * as userActions from '../actions/actionCreator';
+import LoggedInNavbar from '../common/LoggedInNavbar';
+import * as userActions from '../../actions/actionCreator';
 
 
 class UserEvent extends React.Component {

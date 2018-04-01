@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import LoggedInNavbar from './LoggedInNavbar';
+import LoggedInNavbar from '../common/LoggedInNavbar';
 
 
 const TrendingCenter = ({

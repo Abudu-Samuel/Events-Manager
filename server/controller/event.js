@@ -14,9 +14,9 @@ class Event {
    *
    * @description Adds a new event to the database
    *
-   * @param {any} req - request object
+   * @param {object} req - request object
    *
-   * @param {any} res - response object
+   * @param {object} res - response object
    *
    * @returns {object} add event message and event as payload
    *

@@ -47,7 +47,7 @@
                 "FunctionExpression": false
             }
         }],
-        "react/display-name": [ 1, {"ignoreTranspilerName": false }],
+        "react/display-name": [ 0, {"ignoreTranspilerName": false }],
         "react/forbid-prop-types": [1, {"forbid": ["any"]}],
         "react/jsx-boolean-value": 1,
         "react/jsx-closing-bracket-location": 0,

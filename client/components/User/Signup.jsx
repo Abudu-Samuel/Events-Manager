@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Navbar from '../components/Navbar';
-import * as userActions from '../actions/actionCreator';
+import Navbar from '../common/Navbar';
+import * as userActions from '../../actions/actionCreator';
 
 /**
  * @description SignUp component

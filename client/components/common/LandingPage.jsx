@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Proptypes from 'prop-types';
-import Navbar from './Navbar';
-import Body from './Body';
-import TrendingCenter from './TrendingCenters';
-import PopularCenter from './PopularCenter';
+import Navbar from '../common/Navbar';
+import Body from '../common/Body';
+import TrendingCenter from '../Center/TrendingCenters';
+import PopularCenter from '../Event/PopularCenter';
 // import Gallery from './Gallery';
 // import ContactUs from './ContactUs';
-import Footer from './Footer';
-import '../../public/css/style.scss';
-import * as userActions from '../actions/actionCreator';
+import Footer from '../common/Footer';
+import '../../../public/css/style.scss';
+import * as userActions from '../../actions/actionCreator';
 
 /**
  * @description LandingPage component

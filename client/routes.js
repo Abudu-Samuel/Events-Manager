@@ -2,19 +2,19 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from './history';
 import App from './components/app';
-import Signup from './components/Signup';
-import Signin from './components/SignIn';
-import Allevents from './components/Allevents';
-import AddEvent from './components/AddEvent';
-import AddCenter from './components/AddCenter';
-import TrendingCenters from './components/TrendingCenters';
-import PopularCenter from './components/PopularCenter';
-import EventDetails from './components/EventDetails';
-import CenterDetails from './components/CenterDetails';
-import UserEvent from './components/UserEvent';
-import EditEvent from './components/EditEvent';
-import UserCenter from './components/UserCenter';
-import EditCenter from './components/EditCenter';
+import Signup from './components/User/Signup';
+import Signin from './components/User/SignIn';
+import Allevents from './components/common/Allevents';
+import AddEvent from './components/Event/AddEvent';
+import AddCenter from './components/Center/AddCenter';
+import TrendingCenters from './components/Center/TrendingCenters';
+import PopularCenter from './components/Event/PopularCenter';
+import EventDetails from './components/Event/EventDetails';
+import CenterDetails from './components/Center/CenterDetails';
+import UserEvent from './components/Event/UserEvent';
+import EditEvent from './components/Event/EditEvent';
+import UserCenter from './components/Center/UserCenter';
+import EditCenter from './components/Center/EditCenter';
 
 
 export default () => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Event from './Event';
+import Event from '../Event/Event';
 
 /**
  * creates Navbar component

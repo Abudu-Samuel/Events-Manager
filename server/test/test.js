@@ -271,7 +271,7 @@ describe('Events Manager', () => {
       })
       .end((err, res) => {
         expect(res.status).to.equal(401);
-        expect(res.body.message).to.equal('You are not Authorized to edit this center!');
+        expect(res.body.message).to.equal('You are not authorized to view this page');
         done();
       });
   });

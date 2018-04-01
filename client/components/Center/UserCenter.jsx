@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import LoggedInNavbar from '../components/LoggedInNavbar';
-import SideBar from '../components/SideBar';
-import * as userActions from '../actions/actionCreator';
+import LoggedInNavbar from '../common/LoggedInNavbar';
+import SideBar from '../common/SideBar';
+import * as userActions from '../../actions/actionCreator';
 
 
 class UserCenter extends React.Component {

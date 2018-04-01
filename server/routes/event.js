@@ -1,7 +1,7 @@
 import express from 'express';
-import eventController from '../controller/Event';
+import eventController from '../controller/event';
 import validate from '../middleware/validation';
-import auth from '../middleware/Authenticate';
+import auth from '../middleware/authenticate';
 
 const router = express.Router();
 

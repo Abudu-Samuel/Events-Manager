@@ -2,9 +2,9 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import { connect } from 'react-redux';
-import Navbar from '../components/Navbar';
-import * as userActions from '../actions/actionCreator';
-import history from '../history';
+import Navbar from '../common/Navbar';
+import * as userActions from '../../actions/actionCreator';
+import history from '../../history';
 
 /**
  * @description Signin component

@@ -1,7 +1,7 @@
 import express from 'express';
-import centerController from '../controller/Center';
+import centerController from '../controller/center';
 import validate from '../middleware/validation';
-import auth from '../middleware/Authenticate';
+import auth from '../middleware/authenticate';
 
 const router = express.Router();
 

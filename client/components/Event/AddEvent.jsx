@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import LoggedInNavbar from '../components/LoggedInNavbar';
-import Footer from '../components/Footer';
-import Form from '../components/Form';
+import LoggedInNavbar from '../common/LoggedInNavbar';
+import Footer from '../common/Footer';
+import Form from '../common/forms/Form';
 
-import * as userActions from '../actions/actionCreator';
+import * as userActions from '../../actions/actionCreator';
 
 /**
  *

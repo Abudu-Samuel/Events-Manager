@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import LoggedInNavbar from '../components/LoggedInNavbar';
-import SideBar from '../components/SideBar';
-import AdminForm from '../components/AdminForm';
-import * as userActions from '../actions/actionCreator';
+import LoggedInNavbar from '../common/LoggedInNavbar';
+import SideBar from '../common/SideBar';
+import AdminForm from '../common/forms/AdminForm';
+import * as userActions from '../../actions/actionCreator';
 
 class EditCenter extends React.Component {
   constructor(props) {

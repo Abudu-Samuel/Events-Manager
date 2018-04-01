@@ -4,7 +4,7 @@ const dotEnv = require('dotenv');
 
 dotEnv.config();
 
-/**
+/**ggit
  * @class Token
  */
 class Token {

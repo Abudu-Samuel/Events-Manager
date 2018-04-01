@@ -142,7 +142,7 @@ const validation = {
     if (!Number(eventId)) {
       return res.status(400).json({
         message: 'Parameter must be a number!'
-      });v
+      });
     }
     next();
   },
