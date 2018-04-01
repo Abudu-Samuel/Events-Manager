@@ -92,7 +92,7 @@ describe('Events Manager', () => {
         isAdmin: true
       })
       .end((err, res) => {
-        expect(res.status).to.equal(403);
+        expect(res.status).to.equal(409);
         expect(res.body.message).to.equal('user already exist');
         done();
       });
@@ -110,7 +110,7 @@ describe('Events Manager', () => {
         isAdmin: true
       })
       .end((err, res) => {
-        expect(res.status).to.equal(403);
+        expect(res.status).to.equal(409);
         expect(res.body.message).to.equal('user already exist');
         done();
       });
@@ -156,7 +156,7 @@ describe('Events Manager', () => {
         username: 'leumas',
       })
       .end((err, res) => {
-        expect(res.status).to.equal(400);
+        expect(res.status).to.equal(401);
         expect(res.body.message).to.equal('invalid username or password');
         done();
       });
@@ -186,7 +186,7 @@ describe('Events Manager', () => {
         username: 'blvckgfg',
       })
       .end((err, res) => {
-        expect(res.status).to.equal(400);
+        expect(res.status).to.equal(401);
         expect(res.body.message).to.equal('Incorrect signin credentials');
         done();
       });
@@ -551,7 +551,7 @@ describe('Events Manager', () => {
 
   it('should get latest centers', (done) => {
     request(app)
-      .get('/api/v1/centers/trend')
+      .get('/api/v1/centers/latest/centers')
       .end((err, res) => {
         expect(res.status).to.equal(200);
         done();
@@ -597,7 +597,7 @@ describe('Events Manager', () => {
       .send(object)
       .end((err, res) => {
         console.log('==================================>', object);
-        expect(res.status).to.equal(404);
+        expect(res.status).to.equal(403);
         done();
       });
   });
@@ -661,7 +661,7 @@ describe('Events Manager', () => {
         description: 'lorem is the best'
       })
       .end((err, res) => {
-        expect(res.status).to.equal(400);
+        expect(res.status).to.equal(409);
         expect(res.body.message).to.equal('Center has been booked');
 
         done();
@@ -683,7 +683,7 @@ describe('Events Manager', () => {
         description: 'lorem is the best'
       })
       .end((err, res) => {
-        expect(res.status).to.equal(400);
+        expect(res.status).to.equal(404);
         expect(res.body.message).to.equal('Event Not Found!');
 
         done();
@@ -705,7 +705,7 @@ describe('Events Manager', () => {
         description: 'lorem is the best'
       })
       .end((err, res) => {
-        expect(res.status).to.equal(400);
+        expect(res.status).to.equal(409);
         expect(res.body.message).to.equal('center has been booked');
 
         done();
@@ -784,7 +784,7 @@ describe('Events Manager', () => {
         description: 'lorem is the best'
       })
       .end((err, res) => {
-        expect(res.status).to.equal(401);
+        expect(res.status).to.equal(422);
         expect(res.body.message).to.equal('You are not Authorized to edit this event!');
 
         done();
@@ -861,7 +861,7 @@ describe('Events Manager', () => {
       .delete('/api/v1/events/1')
       .set('x-access-token', userToken2)
       .end((err, res) => {
-        expect(res.status).to.equal(401);
+        expect(res.status).to.equal(422);
         expect(res.body.message).to.equal('You are not Authorized to delete this event!');
         done();
       });
@@ -918,7 +918,7 @@ describe('Events Manager', () => {
 
   it('get latest events', (done) => {
     request(app)
-      .get('/api/v1/events/popular')
+      .get('/api/v1/events/latest/events')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);

@@ -18,13 +18,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Routes
 Router(app);
 
-
-// Handle routes that doesn't match
-// app.use((req, res, next) => {
-//   const err = res.status(404).send({
-//     message: '404: Sorry Page Not Found!'
-//   });
-//   next(err);
-// });
-
 export default app;
