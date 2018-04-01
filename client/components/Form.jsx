@@ -31,7 +31,7 @@ const Form = ({
     </div>
     <div className="md-form myfile">
       <i className="fa fa-camera-retro prefix teal-text" />
-      <input type="file" id="image" name="image" className="form-control" onChange={handleChange} value={image}/>
+      <input type="text" id="image" name="image" className="form-control" onChange={handleChange} value={image}/>
       <label htmlFor="orangeForm-name">Image</label>
     </div>
     <div className="md-form form-sm">

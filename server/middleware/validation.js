@@ -1,12 +1,5 @@
 const validation = {
 
-
-  /**
-   * @param {object} req
-   * @param {object} res
-   * @param {object} next
-   * @returns {funct} signup
-   */
   userSignup(req, res, next) {
     const {
       username, email, password, firstname, lastname,
@@ -39,12 +32,6 @@ const validation = {
     next();
   },
 
-  /**
-   * @returns {object} usersignin
-   * @param {object} req
-   * @param {object} res
-   * @param {object} next
-   */
   userSignin(req, res, next) {
     const { username, password } = req.body;
     if (!username && !password) {
@@ -63,15 +50,9 @@ const validation = {
     next();
   },
 
-  /**
-   * @returns {object} addEvent
-   * @param {object} req
-   * @param {object} res
-   * @param {object} next
-   */
   addEvent(req, res, next) {
     const {
-      title, date, time, type, image, description, userId, centerId
+      title, date, type, image, description, userId, centerId
     } = req.body;
     if (!title && !date && !type && !image && !description && !userId && !centerId) {
       return res.status(400).json({
@@ -97,7 +78,6 @@ const validation = {
       return res.status(400).json({
         message: 'Description Field required'
       });
-    // }
     } else if (!centerId) {
       return res.status(400).json({
         message: 'centerId Field required'
@@ -106,12 +86,6 @@ const validation = {
     next();
   },
 
-  /**
-   * @param {object} req
-   * @param {object} res
-   * @param {object} next
-   * @returns {object} addCenter
-   */
   addCenter(req, res, next) {
     const {
       name, capacity, location, price, state, description, image, isAvailable
@@ -163,31 +137,19 @@ const validation = {
     next();
   },
 
-  /**
-   * @param {object} req
-   * @param {object} res
-   * @param {object} next
-   * @returns {object} eventId
-   */
   eventId(req, res, next) {
     const { eventId } = req.params;
-    if (isNaN(eventId)) {
+    if (!Number(eventId)) {
       return res.status(400).json({
         message: 'Parameter must be a number!'
-      });
+      });v
     }
     next();
   },
 
-  /**
-   * @param {object} req
-   * @param {object} res
-   * @param {object} next
-   * @returns {object} eventId
-   */
   centerId(req, res, next) {
     const { centerId } = req.params;
-    if (isNaN(centerId)) {
+    if (!Number(centerId)) {
       return res.status(400).json({
         message: 'Parameter must be a number!'
       });
