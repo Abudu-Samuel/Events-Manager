@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PopularCenter from '../components/PopularCenter';
-import TrendingCenters from '../components/TrendingCenters';
-import LoggedInNavbar from '../components/LoggedInNavbar';
-import Footer from '../components/Footer';
-import * as userActions from '../actions/actionCreator';
+import PopularCenter from '../Event/PopularCenter';
+import TrendingCenters from '../Center/TrendingCenters';
+import LoggedInNavbar from '../common/LoggedInNavbar';
+import Footer from '../common/Footer';
+import * as userActions from '../../actions/actionCreator';
 
 
 /**

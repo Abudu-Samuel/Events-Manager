@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import LoggedInNavbar from '../components/LoggedInNavbar';
-import Form from '../components/Form';
-import * as userActions from '../actions/actionCreator';
+import LoggedInNavbar from '../common/LoggedInNavbar';
+import Form from '../common/forms/Form';
+import * as userActions from '../../actions/actionCreator';
 
 
 class EditEvent extends React.Component {

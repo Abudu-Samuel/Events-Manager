@@ -1,9 +1,9 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Navbar from './Navbar';
-import CenterInfo from './CenterInfo';
-import * as userActions from '../actions/actionCreator';
+import Navbar from '../common/Navbar';
+import CenterInfo from '../Center/CenterInfo';
+import * as userActions from '../../actions/actionCreator';
 
 /**
  *

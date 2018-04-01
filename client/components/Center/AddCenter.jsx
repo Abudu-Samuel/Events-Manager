@@ -2,11 +2,11 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import SideBar from '../components/SideBar';
-import AdminForm from '../components/AdminForm';
-import Navbar from '../components/Navbar';
+import SideBar from '../common/SideBar';
+import AdminForm from '../common/forms/AdminForm';
+import Navbar from '../common/Navbar';
 
-import * as userActions from '../actions/actionCreator';
+import * as userActions from '../../actions/actionCreator';
 
 /**
  * @class AddCenter
