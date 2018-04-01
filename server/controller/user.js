@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import db from '../models';
-import Token from '../middleware/Token';
+import Token from '../middleware/token';
 
 
 const users = db.user;
