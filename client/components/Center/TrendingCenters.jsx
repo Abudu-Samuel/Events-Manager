@@ -7,10 +7,10 @@ const TrendingCenter = ({
   centers,
   getCenterId,
 }) => (
-  <div className="container space">
+  <div className="container">
     <LoggedInNavbar />
     <section id="popular centers">
-      <h2 className="mb-3 font-weight-bold grey-text">Trending Centers</h2>
+      <h2 className="mb-3 slot font-weight-bold text-center">Latest Centers</h2>
       <div className="row mb-4">
         {
           centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>

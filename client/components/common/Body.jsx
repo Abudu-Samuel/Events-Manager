@@ -4,11 +4,11 @@ const Body = () => (
   <div>
     <div id="intro" className="view hm-black-strong">
       <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
-        <div className="row d-flex justify-content-center">
+        <div className="row d-flex land justify-content-center">
           <div className="col-md-12 text-center">
-            <ul>
+            <ul className="mb-5">
               <li>
-                <h1 className="h1-responsive wow fadeInUp title white-text mr-5 mb-3"><strong>Hey, wanna book an event center ?</strong></h1>
+                <h2 className="h2-responsive wow fadeInUp title white-text mr-5 mb-3"><strong>Hey, wanna book an event center?</strong></h2>
                 <h3 className="h3-responsive wow fadeInUp white-text mr-5 mb-4">Find your next experience</h3>
               </li>
               <li>
@@ -22,7 +22,7 @@ const Body = () => (
                   <div className="col-md-3">
                     <div className="md-form">
                       <input type="text" id="form2" className="form-control validate white-text" />
-                      <label htmlFor="form2">Number of Guests</label>
+                      <label htmlFor="form2">Guests</label>
                     </div>
                   </div>
                   <div className="col-md-3">
@@ -43,29 +43,26 @@ const Body = () => (
         </div>
       </div>
     </div>
-    <main className="mt-5">
+    <main className="mt-3">
       <div className="container">
         <section id="how it works" className="text-center">
-          <h2 className="mb-5 font-weight-bold text-center">How it works</h2>
+          <h2 className="mb-3 font-weight-bold text-center">How it works</h2>
           <div className="row d-flex justify-content-center mb-4">
             <div className="col-md-4">
               <i className="fa fa-search fa-4x orange-text mb-2" />
               <h4 className="font-weight-bold">Search</h4>
-              <p className="grey-text">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
             <div className="col-md-4 mb-4">
               <i className="fa fa-bolt fa-4x indigo-text mb-2" />
               <h4 className="font-weight-bold">Availability</h4>
-              <p className="grey-text">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
             <div className="col-md-4 mb-4">
               <i className="fa fa-check fa-4x blue-text mb-2" />
               <h4 className="font-weight-bold">Book</h4>
-              <p className="grey-text">Lorem ipsum dolor sit amet, consectetur</p>
             </div>
           </div>
         </section>
-        <hr className="my-5" />
+        <hr className="my-1" />
       </div>
     </main>
   </div>

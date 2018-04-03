@@ -1,6 +1,5 @@
 {
     "root": true,
-    "extends": ["airbnb-base", "react"],
     "env": {
         "node": true,
         "es6": true,
@@ -19,6 +18,7 @@
         "localStorage":true
     },
     "rules": {
+        "max-nested-callbacks": "off",
         "one-var": 0,
         "one-var-declaration-per-line": 0,
         "new-cap": 0,

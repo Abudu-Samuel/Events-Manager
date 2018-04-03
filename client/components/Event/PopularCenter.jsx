@@ -9,7 +9,7 @@ const PopularEvents = ({
   <div className="container space">
     <Navbar />
     <section id="events">
-      <h2 className="mb-3 font-weight-bold grey-text">Popular Events</h2>
+      <h2 className="mb-3 slot text-center font-weight-bold">Latest Events</h2>
       <div className="row mb-4">
         {
           events.map((event, key) => (
