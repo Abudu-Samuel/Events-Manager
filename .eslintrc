@@ -1,6 +1,5 @@
 {
     "root": true,
-    "extends": ["airbnb-base", "react"],
     "env": {
         "node": true,
         "es6": true,
