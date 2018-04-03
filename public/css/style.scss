@@ -4,6 +4,8 @@
 body, */
 /* .header, */
 
+$primary-color : #fff;
+
 #intro {
   height: 725.9px;
   background: url("https://static.pexels.com/photos/382297/pexels-photo-382297.jpeg") no-repeat center center fixed;
@@ -86,7 +88,7 @@ ul {
 }
 
 .test {
-  background: #fff;
+  background: $primary-color;
   margin-top: 46px;
   padding: 0 24px;
 }
@@ -142,9 +144,9 @@ ul {
 }
 
 a {
-  color: #fff;
+  color: $primary-color;
   &:hover {
-    color: #fff;
+    color: $primary-color;
   }
 }
 
@@ -169,6 +171,18 @@ a {
   // margin-bottom: 2rem !important
 }
 
+.admpro {
+  background-color: $primary-color;
+  margin-top: 11px;
+}
+
+.land {
+  margin-top: 110px;
+}
+
+.slot {
+  margin-top: -44px;
+}
 // body {
 //   text-align: center;
 // }
