@@ -15,6 +15,7 @@ import UserEvent from './components/Event/UserEvent';
 import EditEvent from './components/Event/EditEvent';
 import UserCenter from './components/Center/UserCenter';
 import EditCenter from './components/Center/EditCenter';
+import RouteProtector from './components/Hoc/RouteProtector';
 
 
 export default () => (
@@ -24,18 +25,16 @@ export default () => (
       <Route path="/signup" component={Signup}/>
       <Route exact path="/signin" component={Signin}/>
       <Route exact path="/dashboard" component={Allevents}/>
-      <Route exact path="/centers/:centerId/edit" component={EditCenter}/>
+      <Route exact path="/centers/:centerId/edit" component={RouteProtector(EditCenter)}/>
       <Route exact path="/center/:centerId/addevent" component={AddEvent}/>
-      <Route exact path="/addcenter" component={AddCenter}/>
+      <Route exact path="/addcenter" component={RouteProtector(AddCenter)}/>
       <Route exact path="/events/:eventId" component={EventDetails}/>
       <Route path="/centers/:centerId" component={CenterDetails}/>
       <Route exact path="/allcenters/" component={TrendingCenters}/>
-      <Route exact path="/manage/center/" component={UserCenter}/>
+      <Route exact path="/manage/center/" component={RouteProtector(UserCenter)}/>
       <Route exact path="/allevents/" component={PopularCenter}/>
       <Route exact path="/manage/events/" component={UserEvent}/>
       <Route exact path="/events/:eventId/edit" component={EditEvent}/>
-
-
     </Switch>
   </Router>
 );

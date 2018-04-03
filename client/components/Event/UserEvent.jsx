@@ -68,16 +68,12 @@ class UserEvent extends React.Component {
       <div className="space">
         <LoggedInNavbar />
         {
-          this.state.noEvent ? <div className="space">
+          this.state.noEvent ? <div className="space text-center">
             <i className="fa fa-exclamation-triangle fad" />
             <h5 className="font-weight-bold grey-text">No Event to display. Add to make your Event go live</h5>
           </div> :
             <div className="container">
-              <div className="row">
-                <div className="col-md-12">
                   <h2 className="mb-3 font-weight-bold grey-text text-center">My Events</h2>
-                </div>
-              </div>
               <div className="row">
                 {
                   events.map((event, key) => (
