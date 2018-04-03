@@ -88,11 +88,7 @@ class Allevents extends React.Component {
       <div className="space">
         <LoggedInNavbar />
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h2 className="font-weight-bold grey-text text-center">Events For You !</h2>
-            </div>
-          </div>
+          <h2 className="font-weight-bold text-center">Events For You !</h2>
           <PopularCenter
             events =
               {this.state.events}/>

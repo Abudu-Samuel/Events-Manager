@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
@@ -60,7 +61,6 @@ class AddCenter extends React.Component {
       formData.append('file', file);
       formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
-
       axios({
         url: CLOUDINARY_URL,
         method: 'POST',
@@ -70,7 +70,6 @@ class AddCenter extends React.Component {
         data: formData
       })
         .then((res) => {
-          console.log(res.data.secure_url);
           this.setState({
             image: res.data.secure_url
           });
@@ -93,6 +92,7 @@ class AddCenter extends React.Component {
      */
     handleSubmit(event) {
       event.preventDefault();
+      console.log(this.props.addCenter, 'uyt');
       this.props.addCenter(this.state)
         .then(() => {
           this.setState({
@@ -126,16 +126,6 @@ class AddCenter extends React.Component {
      * @memberof AddCenter
      */
     render() {
-      // const center = {
-      //   name: this.state.name,
-      //   capacity: this.state.capacity,
-      //   location: this.state.location,
-      //   price: this.state.price,
-      //   state: this.state.state,
-      //   description: this.state.description,
-      //   image: this.state.image,
-      //   isAvailable: this.state.isAvailable,
-      // };
       return (
         this.state.redirect ?
           <Redirect to ="/manage/center"/> :
@@ -163,7 +153,6 @@ class AddCenter extends React.Component {
                           description={this.state.description}
                           image={this.state.image}
                           isAvailable={this.state.isAvailable}
-                          // center={center}
                         />
                       </div>
                     </div>
@@ -176,6 +165,10 @@ class AddCenter extends React.Component {
     }
 }
 
+AddCenter.propTypes = {
+  addCenter: PropTypes.func
+};
+
 /**
  * @description Redux connect parameter - mapDispatchToProps
  *
@@ -183,11 +176,9 @@ class AddCenter extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapDispatchToProps(dispatch) {
-  return {
-    addCenter: (centerData) => dispatch(userActions.addCenter(centerData))
-  };
-}
+const mapDispatchToProps = (dispatch) => ({
+  addCenter: (centerData) => dispatch(userActions.addCenter(centerData))
+});
 
 const signReducer = connect(null, mapDispatchToProps)(AddCenter);
 
