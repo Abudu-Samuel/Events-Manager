@@ -82,11 +82,9 @@ class CenterDetails extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapStateToProps(state, ownProps) {
-  return {
-    getSingleCenter: state.centers.center
-  };
-}
+const mapStateToProps = (state) => ({
+  getSingleCenter: state.centers.center
+});
 
 /**
  * @description Redux connect parameter - mapDispatchToProps
@@ -95,11 +93,9 @@ function mapStateToProps(state, ownProps) {
  *
  * @return {object} mapped dispatch
  */
-function mapDispatchToProps(dispatch) {
-  return {
-    singleCenter: centerData => dispatch(userActions.singleCenter(centerData)),
-  };
-}
+const mapDispatchToProps = (dispatch) => ({
+  singleCenter: centerData => dispatch(userActions.singleCenter(centerData)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CenterDetails);
 

@@ -22,11 +22,10 @@ const CenterInfo = ({
               <div className="col-xl-6 mb-4">
                 <img className="img-fluid" src={center.image} alt="Card image cap" />
               </div>
-              <div className="col-xl-6">
-                <h4 className="mb-2 font-weight-bold"><i className="fa fa-bolt indigo-text mr-2 fa-1x" /><strong>{center.name}</strong></h4>
-                <h5>Available</h5>
-                <Link to={`/center/${center.id}/addevent`} className="btn btn-mycolor btn-sm">Book</Link>
-                <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" /><strong>{center.location}</strong> <i className="fa fa-group grey-text ml-2 mr-2 fa-2x" /><strong>{center.capacity} Guests</strong></h6>
+              <div className="col-xl-6 text-center">
+                <h4 className="mb-2 text-center font-weight-bold"><strong>{center.name}</strong></h4>
+                <h5 className="text-center"><i className="fa fa-bolt indigo-text mr-2 fa-1x" /> Available <Link to={`/center/${center.id}/addevent`} className="btn btn-mycolor btn-sm">Book</Link></h5>
+                <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" /><strong className="mr-3">{center.location}</strong> <i className="fa ml-3 fa-group grey-text ml-2 mr-2 fa-2x" /><strong>{center.capacity} Guests</strong></h6>
                 <p className="text-justify">{center.description}
                 </p>
                 <hr />
