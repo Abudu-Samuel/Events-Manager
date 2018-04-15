@@ -143,7 +143,7 @@ export const getTrendingCentersAction = centerData => ({
  * @return {object} Axios response
  */
 export const getTrendingCenters = () => dispatch =>
-  axios.get('/api/v1/centers/latest/centers', {
+  axios.get('/api/v1/centers/latest', {
     // headers:
     //  {
     //      'x-access-token': localStorage.getItem('x-access-token')
@@ -177,8 +177,8 @@ export const getAllCentersAction = centerData => ({
  *
  * @return {object} Axios response
  */
-export const getAllCenters = () => dispatch =>
-  axios.get('/api/v1/centers/', {
+export const getAllCenters = (page) => dispatch =>
+  axios.get(`/api/v1/centers/${page}`, {
     headers:
      {
        'x-access-token': localStorage.getItem('x-access-token')
@@ -267,7 +267,7 @@ export const singleCenterAction = centerData => ({
 });
 
 export const singleCenter = (centerid) => dispatch =>
-  axios.get(`/api/v1/centers/${centerid}`, {
+  axios.get(`/api/v1/centers/center/${centerid}`, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')
@@ -385,7 +385,7 @@ export const editCenterAction = (centerData) => ({
 
 export const editCenter = (centerData) => dispatch => {
   const centerId = parseInt(centerData.centerId, 10);
-  return axios.put(`/api/v1/centers/${centerId}`, centerData.data, {
+  return axios.put(`/api/v1/centers/center/${centerId}`, centerData.data, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }

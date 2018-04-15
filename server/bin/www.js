@@ -5,6 +5,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../webpack.config';
 import app from '../app';
+// import { stat } from 'fs';
 
 const compiler = webpack(webpackConfig);
 const port = parseInt(process.env.PORT, 10) || 8000;
@@ -29,6 +30,9 @@ app.get('*', (req, res) => (
   res.sendFile(path.join(__dirname, '../../client/index.html'))
 ));
 
+app.use((req, res) => {
+  res.status(404).json({ error: 'Page Not Found'})
+})
 
 app.listen(app.get('port'), () => {
   console.log(`app running on localhost:${app.get('port')}`);
