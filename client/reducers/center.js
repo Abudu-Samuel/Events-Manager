@@ -1,5 +1,6 @@
 import * as types from '../actionTypes/index';
 
+
 const centerAccess = (state = {}, action) => {
   switch (action.type) {
   case types.GET_SINGLE_CENTER:
@@ -15,8 +16,10 @@ const centerAccess = (state = {}, action) => {
       ...state, ...action.centerData
     };
   case types.GET_ALL_CENTERS:
+  console.log('>>>>>>>>', action.centerData)
     return {
-      ...state, ...action.centerData
+      ...state, center: action.centerData.center,
+      pages: action.centerData.pages
     };
   case types.ADD_CENTER:
     return {

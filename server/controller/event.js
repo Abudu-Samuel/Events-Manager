@@ -26,7 +26,6 @@ class Event {
     const {
       title,
       date,
-      time,
       type,
       image,
       description
@@ -63,7 +62,6 @@ class Event {
                 centerId: req.body.centerId,
                 title,
                 date,
-                time,
                 type,
                 image,
                 description
@@ -73,7 +71,6 @@ class Event {
                 createdEvent: {
                   title: created.title,
                   date: created.date,
-                  time: created.time,
                   type: created.type,
                   image: created.image,
                   description: created.description
@@ -102,7 +99,6 @@ class Event {
     const {
       title,
       date,
-      time,
       type,
       image,
       description
@@ -134,7 +130,6 @@ class Event {
                     centerId: req.body.centerId,
                     title: title || eventFound.title,
                     date: date || eventFound.date,
-                    time: time || eventFound.time,
                     type: type || eventFound.type,
                     image: image || eventFound.image,
                     description: description || eventFound.description
@@ -151,7 +146,6 @@ class Event {
               centerId: req.body.centerId,
               title: title || eventFound.title,
               date: date || eventFound.date,
-              time: time || eventFound.time,
               type: type || eventFound.type,
               image: image || eventFound.image,
               description: description || eventFound.description

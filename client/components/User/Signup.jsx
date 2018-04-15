@@ -1,8 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
+import { validateSignup } from '../../../server/middleware/validation';
 
 /**
  * @description SignUp component
@@ -38,7 +40,8 @@ class SignUp extends React.Component {
       errorStatus: false,
       redirect: false,
       redirectMessage: '',
-      showRedirectMessage: false
+      showRedirectMessage: false,
+      errors: {}
     };
   }
 
@@ -56,11 +59,11 @@ class SignUp extends React.Component {
    */
   handleSubmit(event) {
     event.preventDefault();
-    this.props.userSignUp(this.state)
+    if (this.validateInput()) {
+      this.setState({ errors: {} });
+      this.props.userSignUp(this.state)
       .then(() => {
         this.setState({
-          errorMessage: '',
-          errorStatus: false,
           redirectMessage: 'Redirecting To Sign In Page',
           showRedirectMessage: true
         });
@@ -70,14 +73,16 @@ class SignUp extends React.Component {
           });
         }, 2000);
       })
-      .catch((error) => {
-        this.setState({
-          errorMessage: error.response.data.message,
-          errorStatus: true,
-          showRedirectMessage: false,
-          redirectMessage: ''
-        });
-      });
+    }
+  }
+
+  validateInput() {
+    const { errors, validInput } = validateSignup(this.state);
+
+    if (!validInput) {
+      this.setState({ errors })
+    }
+    return validInput;
   }
   /**
    * @method render
@@ -89,6 +94,7 @@ class SignUp extends React.Component {
    * @memberof SignUp
    */
   render() {
+    const { errors } = this.state;
     return (
       this.state.redirect ?
         <Redirect to ="/signin"/> :
@@ -112,8 +118,9 @@ class SignUp extends React.Component {
                 </div>
                 <div className="md-form">
                   <i className="fa fa-user prefix teal-text" />
-                  <input type="text" id="username" name="username" onChange={this.handleChange} className="form-control" />
+                  <input type="text" id="username" name="username" onChange={this.handleChange} className={classNames("form-control", { 'has-errors': errors.username })}/>
                   <label htmlFor="orangeForm-name" className="teal-text">Username</label>
+                  { errors.username && <span>{ errors.username }</span> }
 
                 </div>
                 <div className="md-form">
@@ -127,16 +134,7 @@ class SignUp extends React.Component {
                   <input type="password" id="password" name="password" onChange={this.handleChange} className="form-control" />
                   <label htmlFor="orangeForm-pass" className="teal-text">Password</label>
                 </div>
-                {
-                  this.state.errorStatus ?
-                    <h5 className="text-center font-weight-bold red-text">{this.state.errorMessage}</h5> :
-                    null
-                }
-                {
-                  this.state.showRedirectMessage ?
-                    <h5 className="text-center font-weight-bold green-text">{this.state.redirectMessage}</h5> :
-                    null
-                }
+              
                 <div className="text-center mb-2">
                   <button type="submit" className="btn btn-mycolor">Sign Up</button>
                 </div>

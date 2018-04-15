@@ -79,15 +79,37 @@ class Center {
  * @memberof Center
  */
   static getAllCenters(req, res) {
+    let limit = 6;
+    let offset = 0;
+    // let singlePage;
     return centers
-      .findAll()
-      .then(foundCenters => res
-        .status(200)
-        .json({
-          message: 'Centers found',
-          foundCenters
-        }))
-      .catch(error => res.status(500).json(error));
+      .findAndCountAll()
+      .then((allCenters) => {
+        const { page } = req.params;
+        const pages = Math.ceil(allCenters.count / limit);
+        offset = limit * (page -1 );
+
+        centers.findAll({
+          limit,
+          offset,
+        }).then((center) => {
+          res.status(200).json({
+            center,
+            pages
+          });
+        })
+      }).catch(error => res.status(400).json({
+        message: error.errors[0].message
+      }));
+    // return centers
+    //   .findAll()
+    //   .then(foundCenters => res
+    //     .status(200)
+    //     .json({
+    //       message: 'Centers found',
+    //       foundCenters
+    //     }))
+    //   .catch(error => res.status(500).json(error));
   }
   /**
  * @static

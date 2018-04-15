@@ -26,7 +26,7 @@ const RouteProtector = (WrappedComponent) => class RouteProtectorClass extends R
     console.log(this.state.redirect);
     return (
       this.state.redirect ?
-        <Redirect to="/"/> :
+        <Redirect to="/dashboard"/> :
         <WrappedComponent {...this.props}/>
     );
   }

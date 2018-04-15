@@ -236,7 +236,7 @@ describe('Events Manager', () => {
 
   it('modify an event center as an admin and set availability to be true', (done) => {
     request(app)
-      .put('/api/v1/centers/1')
+      .put('/api/v1/centers/center/1')
       .set('x-access-token', adminToken)
       .send({
         name: 'Halsl of Fame',
@@ -257,7 +257,7 @@ describe('Events Manager', () => {
 
   it('can not modify an event center as a user', (done) => {
     request(app)
-      .put('/api/v1/centers/1')
+      .put('/api/v1/centers/center/1')
       .set('x-access-token', userToken)
       .send({
         name: 'Halsl of Fame',
@@ -278,7 +278,7 @@ describe('Events Manager', () => {
 
   it('center not found', (done) => {
     request(app)
-      .put('/api/v1/centers/111')
+      .put('/api/v1/centers/center/111')
       .set('x-access-token', adminToken)
       .send({
         name: 'Halsl of Fame',
@@ -299,7 +299,7 @@ describe('Events Manager', () => {
 
   it('cant modify with empty name field', (done) => {
     request(app)
-      .put('/api/v1/centers/1')
+      .put('/api/v1/centers/center/1')
       .set('x-access-token', adminToken)
       .send({
         name: '',
@@ -320,7 +320,7 @@ describe('Events Manager', () => {
 
   it('cant modify with empty name field', (done) => {
     request(app)
-      .put('/api/v1/centers/1')
+      .put('/api/v1/centers/center/1')
       .set('x-access-token', 'jhhhsudhdhshd')
       .send({
         name: 'dadffa',
@@ -516,9 +516,9 @@ describe('Events Manager', () => {
       });
   });
 
-  it('should get all centers by either Admin or User', (done) => {
+  it('should get all centers by either Admin or User for the first page', (done) => {
     request(app)
-      .get('/api/v1/centers')
+      .get('/api/v1/centers/1')
       .set('x-access-token', adminToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -529,7 +529,7 @@ describe('Events Manager', () => {
   
   it('should give an error without token', (done) => {
     request(app)
-      .get('/api/v1/centers')
+      .get('/api/v1/centers/1')
       .set('x-access-token', '')
       .end((err, res) => {
         expect(res.status).to.equal(401);
@@ -551,7 +551,7 @@ describe('Events Manager', () => {
 
   it('should get latest centers', (done) => {
     request(app)
-      .get('/api/v1/centers/latest/centers')
+      .get('/api/v1/centers/latest/')
       .end((err, res) => {
         expect(res.status).to.equal(200);
         done();
@@ -560,7 +560,7 @@ describe('Events Manager', () => {
 
   it('should return center not found', (done) => {
     request(app)
-      .get('/api/v1/centers/24')
+      .get('/api/v1/centers/center/24')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(404);
@@ -570,7 +570,7 @@ describe('Events Manager', () => {
 
   it('should return center not found', (done) => {
     request(app)
-      .get('/api/v1/centers/13')
+      .get('/api/v1/centers/center/13')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(404);
@@ -847,7 +847,7 @@ describe('Events Manager', () => {
 
   it('parameter must be a number', (done) => {
     request(app)
-      .get('/api/v1/centers/fhg')
+      .get('/api/v1/centers/center/fhg')
       .set('x-access-token', adminToken)
       .end((err, res) => {
         expect(res.status).to.equal(400);

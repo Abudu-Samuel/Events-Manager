@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactPaginate from 'react-paginate';
 import PopularCenter from '../Event/PopularCenter';
 import TrendingCenters from '../Center/TrendingCenters';
 import LoggedInNavbar from '../common/LoggedInNavbar';
@@ -30,6 +31,13 @@ class Allevents extends React.Component {
       events: [],
       fetchingCenters: false
     };
+    this.onPageDataChange = this.onPageDataChange.bind(this);
+  }
+
+  onPageDataChange(pageData) {
+    const nextCenterPage = pageData.selected + 1;
+    this.props.getAllCenters(nextCenterPage);
+
   }
   /**
    *@method componentWillMount
@@ -41,7 +49,7 @@ class Allevents extends React.Component {
    * @memberof Allevents
    */
   componentWillMount() {
-    this.props.getAllCenters();
+    this.props.getAllCenters(1);
     this.props.getAllEvents();
   }
 
@@ -57,7 +65,8 @@ class Allevents extends React.Component {
    * @memberof Allevents
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.getCenters[0]) {
+    console.log('<<<<<<<<', nextProps.getCenters)
+    if (nextProps.getCenters) {
       this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
     } else {
       this.setState({ fetchingCenters: true });
@@ -92,12 +101,34 @@ class Allevents extends React.Component {
           <PopularCenter
             events =
               {this.state.events}/>
-          <TrendingCenters
-            centers =
-              {this.state.centers}
-            /* getCenterId = {this.getCenterId} */
+          <div>
+            <TrendingCenters
+              centers =
+                {this.state.centers}
 
-          />
+            /* getCenterId = {this.getCenterId} */
+            
+            />
+            <ReactPaginate
+              previousLabel="Previous"
+              nextLabel="Next"
+              breakLabel={<a href="">...</a>}
+              breakClassName="page-link"
+              onPageChange={this.onPageDataChange}
+              pageCount={this.props.pages}
+              containerClassName="pagination pagination-lg custom-pagination"
+              pageLinkClassName="page-link"
+              nextLinkClassName="page-link"
+              previousLinkClassName="page-link"
+              disabledClassName="disabled"
+              pageClassName="page-item"
+              previousClassName="page-item"
+              nextClassName="page-item"
+              activeClassName="active"
+              subContainerClassName="pages pagination"
+            />
+          </div>
+          
         </div>
         <Footer />
       </div>
@@ -115,9 +146,11 @@ class Allevents extends React.Component {
  * @return {object} mapped dispatch
  */
 function mapStateToProps(state, ownProps) {
+  console.log('the state', state)
   return {
-    getCenters: state.centers.foundCenters,
-    getEvents: state.events.foundEvents
+    getCenters: state.centers.center,
+    getEvents: state.events.foundEvents,
+    pages: state.centers.pages
   };
 }
 

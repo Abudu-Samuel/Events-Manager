@@ -48,7 +48,7 @@ class AddCenter extends React.Component {
       showRedirectMessage: false
     };
   }
-    handleChange = event => {
+    handleChange = (event) => {
       this.setState({ [event.target.name]: event.target.value });
     }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import jwt from 'jsonwebtoken';
 import { connect } from 'react-redux';
 import Navbar from '../common/Navbar';
+import jwt from 'jsonwebtoken';
 import * as userActions from '../../actions/actionCreator';
 import history from '../../history';
 
@@ -57,7 +57,6 @@ class Signin extends React.Component {
      */
     handleSubmit(event) {
       event.preventDefault();
-      const token = localStorage.getItem('x-access-token');
       this.props.userSignIn(this.state)
         .then(() => {
           this.setState({
@@ -66,7 +65,6 @@ class Signin extends React.Component {
             redirectMessage: 'Redirecting To Dashboard',
             loading: true,
             showRedirectMessage: true,
-            isAuthenticated: token
           });
           console.log('@@@@@', this.state.isAuthenticated);
           const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
@@ -78,12 +76,15 @@ class Signin extends React.Component {
           }
         })
         .catch((error) => {
-          this.setState({
-            errorMessage: error.response.data.message,
-            errorStatus: true,
-            showRedirectMessage: false,
-            redirectMessage: ''
-          });
+          console.log(this.state.errorMessage)
+          if(error.response) {
+            return this.setState({
+              errorMessage: error.response.data.message,
+              errorStatus: true,
+              showRedirectMessage: false,
+              redirectMessage: ''
+            });
+          }
         });
     }
     /**
@@ -99,9 +100,7 @@ class Signin extends React.Component {
       console.log('========> this is from render', this.state.isAuthenticated);
       return (
         <div>
-          <Navbar
-            isAuthenticated={this.state.isAuthenticated}
-          />
+          <Navbar />
           <div id="intro" className="view hm-black-strong">
             <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
               <form onSubmit={this.handleSubmit} className="signup z-depth-1-half test mb-6">

@@ -1,3 +1,16 @@
+import { isEmpty } from 'lodash';
+
+export const validateSignup = (userData) => {
+  const errors = {};
+  if (userData.username === undefined || userData.username.trim() === '') {
+    errors.username = "Username is required."
+  }
+  return {
+    errors,
+    validInput: isEmpty(errors)
+  }
+}
+
 const validation = {
 
   userSignup(req, res, next) {
@@ -130,8 +143,8 @@ const validation = {
         });
       }
     } catch (error) {
-      return res.status(400).json({
-        message: 'testing'
+      return res.status(500).json({
+        message: 'Choose Availability'
       });
     }
     next();

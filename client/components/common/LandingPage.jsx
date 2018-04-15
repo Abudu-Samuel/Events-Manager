@@ -39,6 +39,7 @@ class LandingPage extends React.Component {
     };
     this.getCenterId = this.getCenterId.bind(this);
     this.getEventId = this.getEventId.bind(this);
+
   }
 
   /**
@@ -124,10 +125,12 @@ class LandingPage extends React.Component {
    *
    * @memberof LandingPage
    */
+
+
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar/>
         <Body />
         <TrendingCenter
           centers = {this.state.centers}
