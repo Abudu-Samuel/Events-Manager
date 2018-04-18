@@ -49,14 +49,12 @@ class Center {
             .status(201)
             .json({
               message: 'Center created Successfully',
-              createdCenter: {
-                created
-              }
+              created
             }))
         .catch(error => res
           .status(400)
           .json({
-            message: error.errors[0].message
+            message: error.message
           }));
     }
     return res
@@ -81,7 +79,6 @@ class Center {
   static getAllCenters(req, res) {
     let limit = 6;
     let offset = 0;
-    // let singlePage;
     return centers
       .findAndCountAll()
       .then((allCenters) => {
@@ -101,15 +98,6 @@ class Center {
       }).catch(error => res.status(400).json({
         message: error.errors[0].message
       }));
-    // return centers
-    //   .findAll()
-    //   .then(foundCenters => res
-    //     .status(200)
-    //     .json({
-    //       message: 'Centers found',
-    //       foundCenters
-    //     }))
-    //   .catch(error => res.status(500).json(error));
   }
   /**
  * @static
@@ -152,12 +140,7 @@ class Center {
  */
   static getSingleCenter(req, res) {
     return centers
-      .findById(req.params.centerId, {
-        include: [{
-          model: events,
-          as: 'events'
-        }]
-      })
+      .findById(req.params.centerId)
       .then((center) => {
         if (!center) {
           return res

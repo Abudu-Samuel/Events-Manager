@@ -174,6 +174,8 @@ export const getAllCentersAction = centerData => ({
  * @export getAllCenters
  *
  * @description Creates getAllCenters thunk action
+ * 
+ * @param {object} page
  *
  * @return {object} Axios response
  */
@@ -244,17 +246,20 @@ export const getAllEventsAction = eventData => ({
  * @export getAllEvents
  *
  * @description Creates getAllEvents thunk action
+ * 
+ * @param {object} page
  *
  * @return {object} Axios response
  */
-export const getAllEvents = () => dispatch =>
-  axios.get('/api/v1/events/', {
+export const getAllEvents = (page) => dispatch =>
+  axios.get(`/api/v1/events/${page}`, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
+      console.log(response.data, "00000000000")
       dispatch(getAllEventsAction(response.data));
     })
     .catch((error) => {

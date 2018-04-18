@@ -197,6 +197,47 @@ class Event {
   }
   /**
  * @static
+ * 
+ * @description Gets event(s) slated for a center
+ * @param {object} req
+ * 
+ * @param {object} res
+ * 
+ * @returns {object} Get event(s) slated for center message and get event(s) slated for center payload
+ * 
+ * @memberof Event
+ */
+  static centerEvent(req, res) {
+    let limit = 3;
+    let offset = 0
+
+    return events
+      .findAndCountAll()
+      .then((centerEvents) => {
+        const { page } = req.query;
+        const pages = Math.ceil(centerEvents.count / limit);
+        offset = limit * (page -1 );
+
+        events.findAll({
+          where: {
+            centerId: req.params.eventId
+          },
+          limit,
+          offset,
+         
+        }).then((event) => {
+          res.status(200).json({
+            message: 'Upcoming Event(s) Found', UpcomingEvent: event,
+            pages
+          });
+        })
+      }).catch(error => res.status(400).json({
+        message: error.errors[0].message
+      }));
+  }
+
+  /**
+ * @static
  *
  * @description Gets all events in the database
  *
@@ -209,14 +250,28 @@ class Event {
  * @memberof Event
  */
   static getAllEvents(req, res) {
+    let limit = 6;
+    let offset = 0;
+
     return events
-      .findAll()
-      .then(foundEvents => res
-        .status(200)
-        .send({ message: 'Events Found', foundEvents }))
-      .catch(error => res
-        .status(500)
-        .json(error));
+      .findAndCountAll()
+      .then((allEvents) => {
+        const { page } = req.params;
+        const pages = Math.ceil(allEvents.count / limit);
+        offset = limit * (page -1 );
+
+        events.findAll({
+          limit,
+          offset,
+        }).then((event) => {
+          res.status(200).json({
+            event,
+            pages
+          });
+        })
+      }).catch(error => res.status(400).json({
+        message: error.errors[0].message
+      }));
   }
   /**
  * @static
@@ -232,16 +287,43 @@ class Event {
  * @memberof Event
  */
   static getUserEvent(req, res) {
+    let limit = 6;
+    let offset = 0;
+
     return events
-      .findAll({
-        where: {
-          userId: req.decoded.userId
-        }
-      })
-      .then((eventFound) => res
-        .status(200)
-        .json({ message: 'Found your Event(s)', eventFound }))
-      .catch(error => res.status(500).json(error));
+      .findAndCountAll()
+      .then((userEvents) => {
+        const { page } = req.params;
+        const pages = Math.ceil(userEvents.count / limit);
+        offset = limit * (page -1 );
+
+        events.findAll({
+          where: {
+            userId: req.decoded.userId
+          },
+          limit,
+          offset,
+         
+        }).then((event) => {
+          res.status(200).json({
+            event,
+            pages
+          });
+        })
+      }).catch(error => res.status(400).json({
+        message: error.errors[0].message
+      }));
+    // 
+    // return events
+    //   .findAll({
+    //     where: {
+    //       userId: req.decoded.userId
+    //     }
+    //   })
+    //   .then((eventFound) => res
+    //     .status(200)
+    //     .json({ message: 'Found your Event(s)', eventFound }))
+    //   .catch(error => res.status(500).json(error));
   }
   /**
  * @static

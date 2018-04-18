@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
           args: true,
           msg: 'Price Field Required!'
         },
-        isInt: {
+        isFloat: {
           args: true,
           msg: 'Price Should contain only Numbers'
         }

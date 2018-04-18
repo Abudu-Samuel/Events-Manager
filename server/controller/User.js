@@ -52,12 +52,14 @@ class User {
           })
           .then(register => res.status(201).send({
             responseData: {
-              newUser: 'Account Created',
+              message: 'Account Created',
+              id: register.id,
               username: register.username,
               email: register.email,
               firstname: register.firstname,
               lastname: register.lastname,
-              register
+              updatedAt: register.updatedAt,
+              createdAt: register.createdAt,
             }
           }))
           .catch(error => res.status(500).send({
@@ -90,7 +92,7 @@ class User {
       .then((found) => {
         if (!found) {
           return res.status(401).send({
-            message: 'Incorrect signin credentials'
+            message: 'Invalid username or password'
           });
         }
         const hashedPassword = bcrypt.compareSync(password, found.password);
@@ -105,7 +107,7 @@ class User {
           });
         }
         return res.status(401).send({
-          message: 'invalid username or password'
+          message: 'Invalid username or password'
         });
       })
       .catch(() => res.status(500).send({

@@ -23,7 +23,6 @@ class UserCenter extends React.Component {
   onPageDataChange(pageData) {
     const nextCenterPage = pageData.selected + 1;
     this.props.getAllCenters(nextCenterPage);
-
   }
 
   componentWillMount() {
