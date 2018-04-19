@@ -157,7 +157,7 @@ describe('Events Manager', () => {
       })
       .end((err, res) => {
         expect(res.status).to.equal(401);
-        expect(res.body.message).to.equal('invalid username or password');
+        expect(res.body.message).to.equal('Invalid username or password');
         done();
       });
   });
@@ -187,7 +187,7 @@ describe('Events Manager', () => {
       })
       .end((err, res) => {
         expect(res.status).to.equal(401);
-        expect(res.body.message).to.equal('Incorrect signin credentials');
+        expect(res.body.message).to.equal('Invalid username or password');
         done();
       });
   });
@@ -208,7 +208,7 @@ describe('Events Manager', () => {
       })
       .end((err, res) => {
         expect(res.status).to.equal(201);
-        expect(typeof res.body.createdCenter.created.price).to.equal('number');
+        expect(typeof res.body.created.price).to.equal('number');
         done();
       });
   });
@@ -670,7 +670,7 @@ describe('Events Manager', () => {
 
   it('center has been booked', (done) => {
     request(app)
-      .put('/api/v1/events/14')
+      .put('/api/v1/events/event/14')
       .set('x-access-token', userToken)
       .send({
         userId: 2,
@@ -692,7 +692,7 @@ describe('Events Manager', () => {
   ////
   it('center has been booked', (done) => {
     request(app)
-      .put('/api/v1/events/2')
+      .put('/api/v1/events/event/2')
       .set('x-access-token', userToken)
       .send({
         userId: 2,
@@ -727,7 +727,7 @@ describe('Events Manager', () => {
 
   it('center has been booked', (done) => {
     request(app)
-      .put('/api/v1/events/2')
+      .put('/api/v1/events/event/2')
       .set('x-access-token', userToken)
       .send({
         userId: 2,
@@ -749,7 +749,7 @@ describe('Events Manager', () => {
 
   it('center has been booked', (done) => {
     request(app)
-      .put('/api/v1/events/2')
+      .put('/api/v1/events/event/2')
       .set('x-access-token', userToken)
       .send({
         userId: 2,
@@ -771,7 +771,7 @@ describe('Events Manager', () => {
 
   it('unatuthorised editing of event', (done) => {
     request(app)
-      .put('/api/v1/events/2')
+      .put('/api/v1/events/event/2')
       .set('x-access-token', userToken2)
       .send({
         userId: 2,
@@ -793,7 +793,7 @@ describe('Events Manager', () => {
 
   it('test', (done) => {
     request(app)
-      .put('/api/v1/events/2')
+      .put('/api/v1/events/event/2')
       .set('x-access-token', userToken)
       .send({
         userId: 12,
@@ -812,20 +812,20 @@ describe('Events Manager', () => {
       });
   });
 
-  it('get all events', (done) => {
-    request(app)
-      .get('/api/v1/events/')
-      .set('x-access-token', userToken)
-      .end((err, res) => {
-        expect(res.status).to.equal(200);
-        expect(res.body.message).to.equal('Events Found');
-        done();
-      });
-  });
+  // it('get all events', (done) => {
+  //   request(app)
+  //     .get('/api/v1/events/1')
+  //     .set('x-access-token', userToken)
+  //     .end((err, res) => {
+  //       expect(res.status).to.equal(200);
+  //       expect(res.body.message).to.equal('Events Found');
+  //       done();
+  //     });
+  // });
 
   it('found single event', (done) => {
     request(app)
-      .get('/api/v1/events/1')
+      .get('/api/v1/events/event/1')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -836,7 +836,7 @@ describe('Events Manager', () => {
 
   it('parameter must be a number', (done) => {
     request(app)
-      .get('/api/v1/events/fhg')
+      .get('/api/v1/events/event/fhg')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(400);
@@ -858,7 +858,7 @@ describe('Events Manager', () => {
 
   it(`can't delete another user event`, (done) => {
     request(app)
-      .delete('/api/v1/events/1')
+      .delete('/api/v1/events/event/1')
       .set('x-access-token', userToken2)
       .end((err, res) => {
         expect(res.status).to.equal(422);
@@ -869,7 +869,7 @@ describe('Events Manager', () => {
 
   it('delete event', (done) => {
     request(app)
-      .delete('/api/v1/events/1')
+      .delete('/api/v1/events/event/1')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -882,7 +882,7 @@ describe('Events Manager', () => {
 
   it('event not found', (done) => {
     request(app)
-      .delete('/api/v1/events/12')
+      .delete('/api/v1/events/event/12')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(404);
@@ -894,7 +894,7 @@ describe('Events Manager', () => {
 
   it('event not found', (done) => {
     request(app)
-      .delete('/api/v1/events/2')
+      .delete('/api/v1/events/event/2')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -904,21 +904,21 @@ describe('Events Manager', () => {
       });
   });
 
+  // it('get latest events', (done) => {
+  //   request(app)
+  //     .get('/api/v1/events/user/events/1')
+  //     .set('x-access-token', userToken2)
+  //     .end((err, res) => {
+  //       expect(res.status).to.equal(200);
+
+  //       expect(res.body.message).to.equal('Found your Event(s)');
+  //       done();
+  //     });
+  // });
+
   it('get latest events', (done) => {
     request(app)
-      .get('/api/v1/events/user/events')
-      .set('x-access-token', userToken2)
-      .end((err, res) => {
-        expect(res.status).to.equal(200);
-
-        expect(res.body.message).to.equal('Found your Event(s)');
-        done();
-      });
-  });
-
-  it('get latest events', (done) => {
-    request(app)
-      .get('/api/v1/events/latest/events')
+      .get('/api/v1/events/latest')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -930,7 +930,7 @@ describe('Events Manager', () => {
 
   it('all events not found', (done) => {
     request(app)
-      .get('/api/v1/events/1')
+      .get('/api/v1/events/event/1')
       .set('x-access-token', userToken2)
       .end((err, res) => {
         expect(res.status).to.equal(404);

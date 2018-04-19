@@ -66,6 +66,8 @@ class Allevents extends React.Component {
    */
   componentWillReceiveProps(nextProps) {
     console.log('<<<<<<<<', nextProps.getCenters)
+    console.log('<<<<<<<<', nextProps.getEvents)
+
     if (nextProps.getCenters) {
       this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
     } else {
@@ -146,7 +148,7 @@ class Allevents extends React.Component {
  * @return {object} mapped dispatch
  */
 function mapStateToProps(state, ownProps) {
-  console.log('the state', state)
+  console.log('the state', state.events)
   return {
     getCenters: state.centers.center,
     getEvents: state.events.foundEvents,
