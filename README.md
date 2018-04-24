@@ -5,37 +5,70 @@
 
 # EVENTS MANAGER 
 
-Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center. 
+> Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center. 
 
-## Development
+## Table Of Content
+* [Features of the application] (#features-of-the-app)
+* [Technology used for development] (#technology-used-for-develop)
+* [Getting Started] (#getting-started)
+* [Running Test] (#running-test)
+* [How to contribute] (#how-to-contribute)
+
+## Features of the application
+* Users can sign up 
+* Users can sign in
+* Users can view all centers in the app
+* Users can view all events in the app
+* Users can view detail of a single center
+* Users can view detail of a single event
+* Users can add event to a center
+* Users can view events they created
+* Users can edit events
+* Users can delete events
+
+## Technology used for development
 Events Manager application leverages:
-*  Node,
-* Express and
-* Sequelize for Orm
+* Node,
+* ExpressJs
+* PostgreSql
+* Sequelize orm
+* ReactJs
+* Redux
 
-## Installation
+
+## Getting Started
 - Install  `node` and `postgres` 
-- Clone the repository: git clone https://github.com/Abudu-Samuel/Events-Manager
-- Install dependencies `npm install`
-- Test `npm test:dev:ed`
-- Start app `npm start:dev`
-- Test via postman
+- Clone the repository: 
+```sh
+> $ git clone https://github.com/Abudu-Samuel/Events-Manager
+```
+- Change directory into events-manager directory
+```sh
+> $ cd events-manager
+```
+- Install dependencies 
+```sh
+> $ npm install
+```
+- Once installation is done, create a `.env` file and fill it with the neccessary environment variables (**see `.env.example` for the neccessary environment variables required**)
+- Create a database to be used with the application
+- Migrate database by running
+```sh
+> $ sequelize db:migrate
+```
+- Start app
+```sh
+> $ npm start:dev
+```
 
-## Endpoints
-
-### Users
-- User Signup                - api/v1/users                      - Register a user
-- User Signin                - api/v1/users/login                - Logs a user
-- Get Event                  - api/v1/events                     - Allows a user to view all events
-
-
-### Admin
-- User Signin               - api/v1/users                       - Logs an admin in
-- Create Center             - api/v1/centers                     - Allows admin create center
-- Modify Center             - api/v1/centers/<:eventId>          - Allows admin modify center
-
-## Verbs
-- GET
-- PUT
-- DELETE
-- POST
+## Running Test
+### Server-side test 
+- Run
+```sh
+> $ npm run test
+```
+## How to contribute
+* Fork the repository
+* Create a feature branch with a feature.md file
+* Write tests and make them pass
+* Open a pull request
