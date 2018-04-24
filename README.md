@@ -8,11 +8,11 @@
 > Events Manager provides a platform that helps manage creation and development of events such as conferences, ceremonies, weddings, formal parties, concerts, or conventions and as well provide centers to host these events. Suppose a user has an event coming up, He/She can post it on Events Manager and get a center. 
 
 ## Table Of Content
-* [Features of the application] (#features-of-the-app)
-* [Technology used for development] (#technology-used-for-develop)
-* [Getting Started] (#getting-started)
-* [Running Test] (#running-test)
-* [How to contribute] (#how-to-contribute)
+- [Features of the application](#features-of-the-application)
+- [Technology used for development](#technology-used-for-develop)
+- [Getting Started](#getting-started)
+- [Running Test](#running-test)
+- [How to contribute](#how-to-contribute)
 
 ## Features of the application
 * Users can sign up 
