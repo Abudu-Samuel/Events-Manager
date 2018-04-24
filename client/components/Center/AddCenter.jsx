@@ -55,11 +55,11 @@ class AddCenter extends React.Component {
     handleUpload = (event) => {
       event.preventDefault();
       const file = event.target.files[0];
-      const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
-      const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
+      const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
+      const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+      formData.append(process.env.CLOUDINARY_PRESET, CLOUDINARY_UPLOAD_PRESET);
 
       axios({
         url: CLOUDINARY_URL,

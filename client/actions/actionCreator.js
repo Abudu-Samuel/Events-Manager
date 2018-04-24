@@ -24,6 +24,18 @@ export const signInAction = userData => ({
   userData
 });
 
+export const logOutAction = (userData) => ({
+  types: types.LOG_OUT,
+  userData
+});
+
+export const logout = () => {
+  return (dispatch) => {
+    localStorage.removeItem('x-access-token');
+    dispatch(logOutAction({}));
+  };
+};
+
 /**
  * @export signIn
  *
@@ -215,7 +227,7 @@ export const getPopularEventsAction = eventData => ({
  * @return {object} Axios response
  */
 export const getPopularEvents = () => dispatch =>
-  axios.get('/api/v1/events/latest/events', {
+  axios.get('/api/v1/events/latest', {
     // headers:
     // {
     //     'x-access-token': localStorage.getItem('x-access-token')
@@ -328,8 +340,8 @@ export const userEventsAction = (eventData) => ({
   eventData
 });
 
-export const userEvents = () => dispatch =>
-  axios.get(`/api/v1/events/user/events`, {
+export const userEvents = (page) => dispatch =>
+  axios.get(`/api/v1/events/user/events/${page}`, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }

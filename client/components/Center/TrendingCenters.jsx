@@ -15,7 +15,7 @@ const TrendingCenter = ({
         {
           centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
             <div className="card text-center">
-              <img className="img-fluid hoverable" src={center.image} alt="Card image cap" />
+              <img className="img-fluid hoverable max" src={center.image} alt="Card image cap" />
               <div className="card-body">
                 <h4 className="card-title">{center.name}</h4>
                 <p className="card-text">{center.description}</p>
@@ -31,7 +31,6 @@ const TrendingCenter = ({
         }
       </div>
     </section>
-    <hr className="my-5" />
   </div>
 );
 export default TrendingCenter;

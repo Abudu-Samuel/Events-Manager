@@ -33,7 +33,6 @@ const PopularEvents = ({
         }
       </div>
     </section>
-    <hr className="my-5" />
   </div>
 );
 export default PopularEvents;

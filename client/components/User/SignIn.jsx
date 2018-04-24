@@ -40,7 +40,6 @@ class Signin extends React.Component {
       redirectMessage: '',
       showRedirectMessage: false,
       isAdmin: false,
-      isAuthenticated: false
     };
   }
     handleChange = event => {
@@ -126,7 +125,7 @@ class Signin extends React.Component {
                     null
                 }
                 <div className="text-center mb-2">
-                  <button type="submit" className="btn btn-mycolor">SignIn</button>
+                  <button type="submit" className="btn btn-mycolor">Sign In</button>
                 </div>
                 <div className="white-text text-center">
                   <h4 className="teal-text font-weight-bold">Don't have an account ?
@@ -144,7 +143,7 @@ class Signin extends React.Component {
 /**
  * @description Redux connect parameter - mapDispatchToProps
  *
- * @param {function} dispatch
+ * @param {function} dispatch 
  *
  * @return {object} mapped dispatch
  */

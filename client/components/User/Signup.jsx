@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
-import { validateSignup } from '../../../server/middleware/validation';
+import { validateSignup } from '../Utils/Validator';
 
 /**
  * @description SignUp component
@@ -108,31 +108,31 @@ class SignUp extends React.Component {
                   <i className="fa fa-user prefix teal-text" />
                   <input type="text" id="firstname" name="firstname" onChange={this.handleChange} className="form-control" />
                   <label htmlFor="orangeForm-name" className="teal-text">First name</label>
-
+                  <p className="text-center red-text">{ errors.firstname && <span>{ errors.firstname }</span> }</p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-user prefix teal-text" />
                   <input type="text" id="lastname" name="lastname" onChange={this.handleChange} className="form-control" />
                   <label htmlFor="orangeForm-name" className="teal-text">Last name</label>
-
+                  <p className="text-center red-text">{ errors.lastname && <span>{ errors.lastname }</span> }</p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-user prefix teal-text" />
                   <input type="text" id="username" name="username" onChange={this.handleChange} className={classNames("form-control", { 'has-errors': errors.username })}/>
                   <label htmlFor="orangeForm-name" className="teal-text">Username</label>
-                  { errors.username && <span>{ errors.username }</span> }
-
+                  <p className="text-center red-text">{ errors.username && <span>{ errors.username }</span> }</p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-envelope prefix teal-text" />
                   <input type="email" id="email" name="email" onChange={this.handleChange} className="form-control" />
                   <label htmlFor="orangeForm-email" className="teal-text">Email</label>
-
+                  <p className="text-center red-text">{ errors.email && <span>{ errors.email }</span> }</p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-lock prefix teal-text" />
                   <input type="password" id="password" name="password" onChange={this.handleChange} className="form-control" />
                   <label htmlFor="orangeForm-pass" className="teal-text">Password</label>
+                  <p className="text-center red-text">{ errors.password && <span>{ errors.password }</span> }</p>
                 </div>
               
                 <div className="text-center mb-2">

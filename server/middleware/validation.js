@@ -1,16 +1,3 @@
-import { isEmpty } from 'lodash';
-
-export const validateSignup = (userData) => {
-  const errors = {};
-  if (userData.username === undefined || userData.username.trim() === '') {
-    errors.username = "Username is required."
-  }
-  return {
-    errors,
-    validInput: isEmpty(errors)
-  }
-}
-
 const validation = {
 
   userSignup(req, res, next) {
