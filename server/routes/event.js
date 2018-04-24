@@ -12,6 +12,6 @@ router.put('/event/:eventId', auth.authenticated, validate.eventId, validate.add
 router.get('/event/:eventId', auth.authenticated, validate.eventId, eventController.getSingleEvent);
 router.get('/:page', auth.authenticated, eventController.getAllEvents);
 router.delete('/event/:eventId', auth.authenticated, validate.eventId, eventController.deleteEvent);
-router.get('/center/:eventId/', auth.authenticated, validate.eventId, eventController.centerEvent);
+router.get('/center/:eventId', auth.authenticated, validate.eventId, eventController.centerEvent);
 
 export default router;

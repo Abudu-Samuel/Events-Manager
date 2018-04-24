@@ -1,14 +1,29 @@
 import * as types from '../actionTypes/index';
 
-const userAccess = (state = {}, action) => {
+const defaultState = {
+  isAuthenticated: !!localStorage.getItem('x-access-token')
+}
+
+const userAccess = (state = defaultState, action) => {
   switch (action.type) {
   case types.SIGN_IN:
+  console.log('?????????', action)
     return {
-      ...state, ...action.userData
+      ...state,
+      isAuthenticated: true,
+      ...action.userData.token
     };
-  case types.SIGN_UP:
+  case types.LOG_OUT:
     return {
-      ...state, ...action.userData
+      ...state,
+      isAuthenticated: false
+    }
+  case types.SIGN_UP:
+  console.log('?????????', action)
+    return {
+      ...state,
+      isAuthenticated: true,
+      ...action.userData.token
     };
   default:
     return state;

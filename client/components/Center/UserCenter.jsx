@@ -87,7 +87,10 @@ class UserCenter extends React.Component {
                         </div>
                       </div>))
                     }
-                    <ReactPaginate
+                    
+                 
+                  </div>
+                  <ReactPaginate
                       previousLabel="Previous"
                       nextLabel="Next"
                       breakLabel={<a href="">...</a>}
@@ -105,8 +108,6 @@ class UserCenter extends React.Component {
                       activeClassName="active"
                       subContainerClassName="pages pagination"
                     />
-                  </div>
-                  
                 </div>
               </div>
             </div>

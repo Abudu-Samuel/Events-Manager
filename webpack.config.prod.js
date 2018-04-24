@@ -1,4 +1,5 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -29,6 +30,9 @@ module.exports = {
   devtool: 'cheap-eval-source-map',
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
+    new Dotenv({
+      systemvars: true
+    }),
     new htmlWebpackPlugin({
       template: path.resolve(__dirname, './client/index.html')
     }),

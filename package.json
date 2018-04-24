@@ -68,6 +68,7 @@
         "coveralls": "^3.0.0",
         "css-loader": "^0.28.7",
         "dotenv": "^4.0.0",
+        "dotenv-webpack": "^1.5.5",
         "eslint-config-react": "^1.1.7",
         "eslint-plugin-flowtype": "^2.46.1",
         "express": "^4.16.2",

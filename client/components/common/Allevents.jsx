@@ -50,7 +50,7 @@ class Allevents extends React.Component {
    */
   componentWillMount() {
     this.props.getAllCenters(1);
-    this.props.getAllEvents();
+    this.props.getAllEvents(1);
   }
 
   /**
@@ -100,9 +100,30 @@ class Allevents extends React.Component {
         <LoggedInNavbar />
         <div className="container">
           <h2 className="font-weight-bold text-center">Events For You !</h2>
-          <PopularCenter
-            events =
-              {this.state.events}/>
+          <div>
+            <PopularCenter
+              events =
+                {this.state.events}/>
+            <ReactPaginate
+              previousLabel="Previous"
+              nextLabel="Next"
+              breakLabel={<a href="">...</a>}
+              breakClassName="page-link"
+              onPageChange={this.onPageDataChange}
+              pageCount={this.props.pages}
+              containerClassName="pagination pagination-lg custom-pagination"
+              pageLinkClassName="page-link"
+              nextLinkClassName="page-link"
+              previousLinkClassName="page-link"
+              disabledClassName="disabled"
+              pageClassName="page-item"
+              previousClassName="page-item"
+              nextClassName="page-item"
+              activeClassName="active"
+              subContainerClassName="pages pagination"
+            />
+          </div>
+          <hr className="my-5" />
           <div>
             <TrendingCenters
               centers =
@@ -151,7 +172,7 @@ function mapStateToProps(state, ownProps) {
   console.log('the state', state.events)
   return {
     getCenters: state.centers.center,
-    getEvents: state.events.foundEvents,
+    getEvents: state.events.event,
     pages: state.centers.pages
   };
 }

@@ -20,7 +20,7 @@ class UserEvent extends React.Component {
   }
 
   componentWillMount() {
-    this.props.userEvents();
+    this.props.userEvents(1);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -73,7 +73,7 @@ class UserEvent extends React.Component {
             <h5 className="font-weight-bold grey-text">No Event to display. Add to make your Event go live</h5>
           </div> :
             <div className="container">
-                  <h2 className="mb-3 font-weight-bold grey-text text-center">My Events</h2>
+              <h2 className="mb-3 font-weight-bold grey-text text-center">My Events</h2>
               <div className="row">
                 {
                   events.map((event, key) => (
@@ -106,8 +106,9 @@ class UserEvent extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  console.log('>>>>>>>****', state.events.event)
   return {
-    getUserEvents: state.events.userEvents
+    getUserEvents: state.events.event
   };
 }
 
