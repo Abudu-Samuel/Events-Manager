@@ -110,8 +110,9 @@ class User {
           message: 'Invalid username or password'
         });
       })
-      .catch(() => res.status(500).send({
-        message: 'Sorry, some error occured!'
+      .catch((err) => res.status(500).send({
+        message: 'Sorry, some error occured!',
+        err
       }));
   }
 }
