@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import app from '../../app'
+import app from '../../app';
 
 let userToken;
 let userToken2;
@@ -17,7 +17,7 @@ describe('Events Manager', () => {
       })
       .end((error, response) => {
         userToken = response.body.token;
-      })
+      });
     request(app)
       .post('/api/v1/users/login')
       .set('Connection', 'keep alive')
@@ -29,7 +29,7 @@ describe('Events Manager', () => {
       .end((error, response) => {
         userToken2 = response.body.token;
         done();
-      })
+      });
   });
 
   it('check if center is availale while creating an event', (done) => {
@@ -141,7 +141,7 @@ describe('Events Manager', () => {
         done();
       });
   });
-  
+
   it('center has been booked', (done) => {
     request(app)
       .put('/api/v1/events/event/2')
@@ -265,7 +265,6 @@ describe('Events Manager', () => {
   });
 
 
-
   it('found single event', (done) => {
     request(app)
       .get('/api/v1/events/event/1')
@@ -289,7 +288,7 @@ describe('Events Manager', () => {
   });
 
 
-  it(`can't delete another user event`, (done) => {
+  it('can\'t delete another user event', (done) => {
     request(app)
       .delete('/api/v1/events/event/1')
       .set('x-access-token', userToken2)
@@ -366,28 +365,28 @@ describe('Events Manager', () => {
       .get('/api/v1/events/user/events/1')
       .set('x-access-token', userToken)
       .end((err, res) => {
-        expect(res.status).to.equal(200)
-        done()
-      })
-  })
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
 
   it('Fetch first six events of all events in the database', (done) => {
     request(app)
       .get('/api/v1/events/1')
       .set('x-access-token', userToken)
       .end((err, res) => {
-        expect(res.status).to.equal(200)
-        done()
-      })
-  }) 
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
 
   it('Fetch first six events of all events slated for a center', (done) => {
     request(app)
       .get('/api/v1/events/center/1/?page=1')
       .set('x-access-token', userToken)
       .end((err, res) => {
-        expect(res.status).to.equal(200)
-        done()
-      })
-  }) 
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
 });

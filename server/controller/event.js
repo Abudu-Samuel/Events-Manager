@@ -119,26 +119,25 @@ class Event {
                   centerId: eventFound.centerId
                 }
               })
-              .then(eventData => {
+              .then((eventData) => {
                 if (eventData) {
                   return res
                     .status(409)
                     .json({ message: 'center has been booked' });
-                } else {
-                  eventFound.update({
-                    userId: req.decoded.userId,
-                    centerId: req.body.centerId,
-                    title: title || eventFound.title,
-                    date: date || eventFound.date,
-                    type: type || eventFound.type,
-                    image: image || eventFound.image,
-                    description: description || eventFound.description
-                  })
-                    .then(updatedEvent => res
-                      .status(200)
-                      .json({ message: 'Event modification is successful', updatedEvent }))
-                    .catch(error => res.status(400).json({ message: error }));
                 }
+                eventFound.update({
+                  userId: req.decoded.userId,
+                  centerId: req.body.centerId,
+                  title: title || eventFound.title,
+                  date: date || eventFound.date,
+                  type: type || eventFound.type,
+                  image: image || eventFound.image,
+                  description: description || eventFound.description
+                })
+                  .then(updatedEvent => res
+                    .status(200)
+                    .json({ message: 'Event modification is successful', updatedEvent }))
+                  .catch(error => res.status(400).json({ message: error }));
               });
           } else {
             eventFound.update({
@@ -161,7 +160,7 @@ class Event {
             .json({ message: 'You are not Authorized to edit this event!' });
         }
       })
-      .catch((error) => res
+      .catch(() => res
         .status(500)
         .json({ message: 'some error occured' }));
   }
@@ -197,26 +196,26 @@ class Event {
   }
   /**
  * @static
- * 
+ *
  * @description Gets event(s) slated for a center
  * @param {object} req
- * 
+ *
  * @param {object} res
- * 
+ *
  * @returns {object} Get event(s) slated for center message and get event(s) slated for center payload
- * 
+ *
  * @memberof Event
  */
   static centerEvent(req, res) {
-    let limit = 3;
-    let offset = 0
+    const limit = 3;
+    let offset = 0;
 
     return events
       .findAndCountAll()
       .then((centerEvents) => {
         const { page } = req.query;
         const pages = Math.ceil(centerEvents.count / limit);
-        offset = limit * (page -1 );
+        offset = limit * (page - 1);
 
         events.findAll({
           where: {
@@ -224,13 +223,14 @@ class Event {
           },
           limit,
           offset,
-         
+
         }).then((event) => {
           res.status(200).json({
-            message: 'Upcoming Event(s) Found', UpcomingEvent: event,
+            message: 'Upcoming Event(s) Found',
+            UpcomingEvent: event,
             pages
           });
-        })
+        });
       }).catch(error => res.status(400).json({
         message: error.errors[0].message
       }));
@@ -250,7 +250,7 @@ class Event {
  * @memberof Event
  */
   static getAllEvents(req, res) {
-    let limit = 6;
+    const limit = 6;
     let offset = 0;
 
     return events
@@ -258,7 +258,7 @@ class Event {
       .then((allEvents) => {
         const { page } = req.params;
         const pages = Math.ceil(allEvents.count / limit);
-        offset = limit * (page -1 );
+        offset = limit * (page - 1);
 
         events.findAll({
           limit,
@@ -268,7 +268,7 @@ class Event {
             event,
             pages
           });
-        })
+        });
       }).catch(error => res.status(400).json({
         message: error.errors[0].message
       }));
@@ -287,7 +287,7 @@ class Event {
  * @memberof Event
  */
   static getUserEvent(req, res) {
-    let limit = 6;
+    const limit = 6;
     let offset = 0;
 
     return events
@@ -295,7 +295,7 @@ class Event {
       .then((userEvents) => {
         const { page } = req.params;
         const pages = Math.ceil(userEvents.count / limit);
-        offset = limit * (page -1 );
+        offset = limit * (page - 1);
 
         events.findAll({
           where: {
@@ -303,17 +303,17 @@ class Event {
           },
           limit,
           offset,
-         
+
         }).then((event) => {
           res.status(200).json({
             event,
             pages
           });
-        })
+        });
       }).catch(error => res.status(400).json({
         message: error.errors[0].message
       }));
-    // 
+    //
     // return events
     //   .findAll({
     //     where: {

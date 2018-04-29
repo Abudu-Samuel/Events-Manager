@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import app from '../../app'
+import app from '../../app';
 
 let adminToken;
 let userToken;
@@ -30,8 +30,8 @@ describe('Events Manager - Center Test', () => {
       .end((error, response) => {
         userToken = response.body.token;
         done();
-      })
-  })
+      });
+  });
   it('create an event center as an admin and set availability to be true', (done) => {
     request(app)
       .post('/api/v1/centers')
@@ -49,7 +49,7 @@ describe('Events Manager - Center Test', () => {
       .end((err, res) => {
         expect(res.status).to.equal(201);
         expect(typeof res.body.created.price).to.equal('number');
-        done()
+        done();
       });
   });
 
@@ -137,7 +137,7 @@ describe('Events Manager - Center Test', () => {
       });
   });
 
-  it(`can't modify with empty name field`, (done) => {
+  it('can\'t modify with empty name field', (done) => {
     request(app)
       .put('/api/v1/centers/center/1')
       .set('x-access-token', adminToken)
@@ -158,7 +158,7 @@ describe('Events Manager - Center Test', () => {
       });
   });
 
-  it(`can't modify center with invalid token`, (done) => {
+  it('can\'t modify center with invalid token', (done) => {
     request(app)
       .put('/api/v1/centers/center/1')
       .set('x-access-token', 'jhhhsudhdhshd')
@@ -358,7 +358,7 @@ describe('Events Manager - Center Test', () => {
 
   it('should get all centers by either Admin or User for the first six centers', (done) => {
     request(app)
-      .get('/api/v1/centers/1')
+      .get('/api/v1/centers?page=1')
       .set('x-access-token', adminToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -366,10 +366,10 @@ describe('Events Manager - Center Test', () => {
       });
   });
 
-  
+
   it('should give an error without token', (done) => {
     request(app)
-      .get('/api/v1/centers/1')
+      .get('/api/v1/centers/')
       .set('x-access-token', '')
       .end((err, res) => {
         expect(res.status).to.equal(401);
@@ -378,10 +378,9 @@ describe('Events Manager - Center Test', () => {
   });
 
 
-
   it('should enable users retrieve a center', (done) => {
     request(app)
-      .get('/api/v1/centers/1')
+      .get('/api/v1/centers/center/1')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);

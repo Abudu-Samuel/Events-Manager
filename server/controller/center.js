@@ -77,14 +77,28 @@ class Center {
  * @memberof Center
  */
   static getAllCenters(req, res) {
-    let limit = 6;
+    const limit = 2;
     let offset = 0;
+    let { page } = req.query;
+    page = Number(page);
+    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
+    const current = `${baseUrl}?page=${page}`;
+    let previous;
+    let next;
+
     return centers
       .findAndCountAll()
       .then((allCenters) => {
-        const { page } = req.params;
         const pages = Math.ceil(allCenters.count / limit);
-        offset = limit * (page -1 );
+        offset = limit * (page - 1);
+
+        if (page !== 1) {
+          previous = `${baseUrl}?page=${page - 1}`;
+        }
+
+        if (pages > page) {
+          next = `${baseUrl}?page=${page + 1}`;
+        }
 
         centers.findAll({
           limit,
@@ -92,11 +106,18 @@ class Center {
         }).then((center) => {
           res.status(200).json({
             center,
-            pages
+            pagination: {
+              current,
+              previous,
+              next,
+              page,
+              pages,
+            }
           });
-        })
+        });
       }).catch(error => res.status(400).json({
-        message: error.errors[0].message
+        error
+        // message: error.errors[0].message
       }));
   }
   /**
