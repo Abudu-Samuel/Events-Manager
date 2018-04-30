@@ -192,7 +192,7 @@ export const getAllCentersAction = centerData => ({
  * @return {object} Axios response
  */
 export const getAllCenters = (page) => dispatch =>
-  axios.get(`/api/v1/centers/${page}`, {
+  axios.get(`/api/v1/centers?page=${page}`, {
     headers:
      {
        'x-access-token': localStorage.getItem('x-access-token')

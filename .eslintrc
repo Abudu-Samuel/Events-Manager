@@ -1,14 +1,14 @@
 {
     "root": true,
+    "extends": "airbnb-base",
     "env": {
         "node": true,
         "es6": true,
         "mocha": true
     },
     "plugins": [
-        "react",
-        "import"
-    ],
+        "react"
+        ],
     "parserOptions": {
         "sourceType": "module",
         "ecmaFeatures": {
