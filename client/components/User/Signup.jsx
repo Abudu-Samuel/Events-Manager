@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import Navbar from '../common/Navbar';
@@ -29,7 +30,7 @@ class SignUp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
-    //setting the initial state of the component
+    // setting the initial state of the component
     this.state = {
       username: '',
       email: '',
@@ -44,8 +45,16 @@ class SignUp extends React.Component {
       errors: {}
     };
   }
-
-  handleChange = event => {
+  /**
+ * @method handleChange
+ *
+ * @param {object} event
+ *
+ * @returns {object} updated event
+ *
+ * @memberof SignUp
+ */
+  handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
   /**
@@ -62,25 +71,40 @@ class SignUp extends React.Component {
     if (this.validateInput()) {
       this.setState({ errors: {} });
       this.props.userSignUp(this.state)
-      .then(() => {
-        this.setState({
-          redirectMessage: 'Redirecting To Sign In Page',
-          showRedirectMessage: true
-        });
-        setTimeout(() => {
+        .then(() => {
           this.setState({
-            redirect: true
+            redirectMessage: 'Redirecting To Sign In Page',
+            showRedirectMessage: true
           });
-        }, 2000);
-      })
+          setTimeout(() => {
+            this.setState({
+              redirect: true
+            });
+          }, 2000);
+        })
+        .catch((error) => {
+          if (error.response) {
+            return this.setState({
+              errorMessage: error.response.data.message,
+              errorStatus: true,
+              showRedirectMessage: false,
+              redirectMessage: ''
+            });
+          }
+        });
     }
   }
-
+  /**
+ * @method validateInput
+ *
+ * @returns {object} error state
+ *
+ * @memberof SignUp
+ */
   validateInput() {
     const { errors, validInput } = validateSignup(this.state);
-
     if (!validInput) {
-      this.setState({ errors })
+      this.setState({ errors });
     }
     return validInput;
   }
@@ -106,42 +130,102 @@ class SignUp extends React.Component {
                 <h3 className="text-center mt-5 teal-text font-weight-bold">Sign up</h3>
                 <div className="md-form">
                   <i className="fa fa-user prefix teal-text" />
-                  <input type="text" id="firstname" name="firstname" onChange={this.handleChange} className="form-control" />
+                  <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    onChange={this.handleChange}
+                    className="form-control"
+                  />
                   <label htmlFor="orangeForm-name" className="teal-text">First name</label>
-                  <p className="text-center red-text">{ errors.firstname && <span>{ errors.firstname }</span> }</p>
+                  <p className="text-center error-msg">
+                    {
+                      errors.firstname && <span>{ errors.firstname }</span>
+                    }
+                  </p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-user prefix teal-text" />
-                  <input type="text" id="lastname" name="lastname" onChange={this.handleChange} className="form-control" />
+                  <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    onChange={this.handleChange}
+                    className="form-control"
+                  />
                   <label htmlFor="orangeForm-name" className="teal-text">Last name</label>
-                  <p className="text-center red-text">{ errors.lastname && <span>{ errors.lastname }</span> }</p>
+                  <p className="text-center error-msg">
+                    {
+                      errors.lastname && <span>{ errors.lastname }</span>
+                    }
+                  </p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-user prefix teal-text" />
-                  <input type="text" id="username" name="username" onChange={this.handleChange} className={classNames("form-control", { 'has-errors': errors.username })}/>
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    onChange={this.handleChange}
+                    className={classNames('form-control', { 'has-errors': errors.username })}
+                  />
                   <label htmlFor="orangeForm-name" className="teal-text">Username</label>
-                  <p className="text-center red-text">{ errors.username && <span>{ errors.username }</span> }</p>
+                  <p className="text-center error-msg">
+                    {
+                      errors.username && <span>{ errors.username }</span>
+                    }
+                  </p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-envelope prefix teal-text" />
-                  <input type="email" id="email" name="email" onChange={this.handleChange} className="form-control" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    onChange={this.handleChange}
+                    className="form-control"
+                  />
                   <label htmlFor="orangeForm-email" className="teal-text">Email</label>
-                  <p className="text-center red-text">{ errors.email && <span>{ errors.email }</span> }</p>
+                  <p className="text-center error-msg">
+                    {
+                      errors.email && <span>{ errors.email }</span>
+                    }
+                  </p>
                 </div>
                 <div className="md-form">
                   <i className="fa fa-lock prefix teal-text" />
-                  <input type="password" id="password" name="password" onChange={this.handleChange} className="form-control" />
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    onChange={this.handleChange}
+                    className="form-control"
+                  />
                   <label htmlFor="orangeForm-pass" className="teal-text">Password</label>
-                  <p className="text-center red-text">{ errors.password && <span>{ errors.password }</span> }</p>
+                  <p className="text-center error-msg">
+                    {
+                      errors.password && <span>{ errors.password }</span>
+                    }
+                  </p>
                 </div>
-              
                 <div className="text-center mb-2">
                   <button type="submit" className="btn btn-mycolor">Sign Up</button>
                 </div>
+                {
+                  this.state.errorStatus ?
+                    <h5 className="text-center font-weight-bold red-text">
+                      {
+                        this.state.errorMessage
+                      }
+                    </h5> :
+                    null
+                }
                 <div className="white-text text-center">
-                  <h4 className="teal-text font-weight-bold">Already have an account ?
-                    <a href="signin.html" className="btn btn-sm btn-mycolor">Sign In<i className="fa fa-sign-in ml-1" /></a>
-                  </h4>
+                  <h6 className="teal-text font-weight-bold">Already have an account ?
+                    <Link to="/signin" className="teal-text"> <u>Sign In</u>
+                      <i className="fa fa-sign-in ml-1" />
+                    </Link>
+                  </h6>
                 </div>
               </form>
             </div>
@@ -150,8 +234,13 @@ class SignUp extends React.Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-  userSignUp: (userData) => dispatch(userActions.signUp(userData))
+
+SignUp.propTypes = {
+  userSignUp: PropTypes.func
+};
+
+const mapDispatchToProps = dispatch => ({
+  userSignUp: userData => dispatch(userActions.signUp(userData))
 });
 
 const signReducer = connect(null, mapDispatchToProps)(SignUp);

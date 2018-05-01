@@ -11,13 +11,6 @@ const compiler = webpack(webpackConfig);
 const port = parseInt(process.env.PORT, 10) || 8000;
 app.set('port', port);
 
-// app.all('*', (req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-//   res.header('Access-Control-Allow-Headers', '*');
-//   next();
-// });
-
 app.use(webpackDevMiddleware(compiler, {
   publicPath: webpackConfig.output.publicPath,
   noInfo: true
@@ -31,7 +24,7 @@ app.get('*', (req, res) => (
 ));
 
 app.use((req, res) => {
-  res.status(404).json({ error: 'Page Not Found'})
+  res.status(404).json({ error: 'Page Not Found' });
 });
 
 app.listen(app.get('port'), () => {

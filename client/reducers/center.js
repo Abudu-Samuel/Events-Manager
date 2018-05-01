@@ -16,9 +16,9 @@ const centerAccess = (state = {}, action) => {
       ...state, ...action.centerData
     };
   case types.GET_ALL_CENTERS:
-  console.log('>>>>>>>>', action.centerData)
     return {
-      ...state, center: action.centerData.center,
+      ...state,
+      center: action.centerData.center,
       pages: action.centerData.pages
     };
   case types.ADD_CENTER:

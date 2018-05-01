@@ -19,7 +19,6 @@ const eventAccess = (state = initialState, action = {}) => {
     // return {
     //   ...state, ...action.eventData
     // };
-    console.log(state, 'nvcn');
     return Object.assign({}, state, {
       userEvents: state.userEvents.filter(event => event.id !== action.eventData.eventFound.id)
     });
@@ -27,12 +26,10 @@ const eventAccess = (state = initialState, action = {}) => {
     // return {
     //   ...state, ...action.eventData
     // };
-    console.log('Reducer gets called>>>>>>>>>>>>>>>>>>>>>');
     return Object.assign({}, state, {
       userEvents: action.eventData
     });
   case types.GET_SINGLE_EVENT:
-    console.log(action.eventData);
     return (Object.assign(
       {},
       state,
@@ -47,7 +44,6 @@ const eventAccess = (state = initialState, action = {}) => {
       ...state, ...action.eventData
     };
   case types.GET_ALL_EVENTS:
-    console.log('*********', action.eventData);
     return {
       ...state, ...action.eventData,
     // pages: action.eData.pages

@@ -2,12 +2,11 @@ import * as types from '../actionTypes/index';
 
 const defaultState = {
   isAuthenticated: !!localStorage.getItem('x-access-token')
-}
+};
 
 const userAccess = (state = defaultState, action) => {
   switch (action.type) {
   case types.SIGN_IN:
-  console.log('?????????', action)
     return {
       ...state,
       isAuthenticated: true,
@@ -17,9 +16,8 @@ const userAccess = (state = defaultState, action) => {
     return {
       ...state,
       isAuthenticated: false
-    }
+    };
   case types.SIGN_UP:
-  console.log('?????????', action)
     return {
       ...state,
       isAuthenticated: true,

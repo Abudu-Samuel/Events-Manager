@@ -98,7 +98,12 @@ class User {
         const hashedPassword = bcrypt.compareSync(password, found.password);
         if (hashedPassword) {
           const payLoad = {
-            userId: found.id, email: found.email, firstname: found.firstname, lastname: found.lastname, username: found.username, isAdmin: found.isAdmin
+            userId: found.id,
+            email: found.email,
+            firstname: found.firstname,
+            lastname: found.lastname,
+            username: found.username,
+            isAdmin: found.isAdmin
           };
           const token = Token.generateToken(payLoad);
           return res.status(200).send({
@@ -110,7 +115,7 @@ class User {
           message: 'Invalid username or password'
         });
       })
-      .catch((err) => res.status(500).send({
+      .catch(err => res.status(500).send({
         message: 'Sorry, some error occured!',
         err
       }));

@@ -37,7 +37,7 @@ class Authenticate {
           id: parseInt(decoded.userId, 10)
         }
       })
-      .then((found) => {
+      .then(() => {
         req.decoded = decoded;
         next();
       });

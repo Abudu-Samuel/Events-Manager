@@ -4,7 +4,9 @@
 body, */
 /* .header, */
 
-$primary-color : #fff;
+$primary-color: #fff;
+$error-color: #86181d;
+$error-back: #ffdce0;
 
 #intro {
   height: 725.9px;
@@ -187,4 +189,10 @@ a {
 .max {
   max-height: 245px;
   min-height: 245px;
+}
+
+.error-msg {
+  background: $error-back;
+  color: $error-color;
+  margin-left: 47px;
 }
