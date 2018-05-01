@@ -7,10 +7,10 @@ const router = express.Router();
 
 router.post('/', auth.authenticated, validate.addEvent, eventController.addEvent);
 router.get('/latest', eventController.latestEvents);
-router.get('/user/events/:page', auth.authenticated, eventController.getUserEvent);
+router.get('/user/events', auth.authenticated, eventController.getUserEvent);
 router.put('/event/:eventId', auth.authenticated, validate.eventId, validate.addEvent, eventController.modifyEvent);
 router.get('/event/:eventId', auth.authenticated, validate.eventId, eventController.getSingleEvent);
-router.get('/:page', auth.authenticated, eventController.getAllEvents);
+router.get('/', auth.authenticated, eventController.getAllEvents);
 router.delete('/event/:eventId', auth.authenticated, validate.eventId, eventController.deleteEvent);
 router.get('/center/:eventId', auth.authenticated, validate.eventId, eventController.centerEvent);
 

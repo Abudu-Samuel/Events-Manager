@@ -362,7 +362,7 @@ describe('Events Manager', () => {
 
   it('Fetch first page of events created by the user', (done) => {
     request(app)
-      .get('/api/v1/events/user/events/1')
+      .get('/api/v1/events/user/events?page=1')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -372,7 +372,7 @@ describe('Events Manager', () => {
 
   it('Fetch first six events of all events in the database', (done) => {
     request(app)
-      .get('/api/v1/events/1')
+      .get('/api/v1/events?page=1')
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);

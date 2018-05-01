@@ -45,19 +45,19 @@ class UserEvent extends React.Component {
     });
     this.props.deleteEvent(event);
     swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
-      icon: "warning",
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this imaginary file!',
+      icon: 'warning',
       buttons: true,
       dangerMode: true,
     })
       .then((willDelete) => {
         if (willDelete) {
-          swal("Poof! Your imaginary file has been deleted!", {
-            icon: "success",
+          swal('Poof! Your imaginary file has been deleted!', {
+            icon: 'success',
           });
         } else {
-          swal("Your imaginary file is safe!");
+          swal('Your imaginary file is safe!');
         }
       });
   }
@@ -84,9 +84,9 @@ class UserEvent extends React.Component {
                         <div className="card-body">
                           <h6 className="grey-text"><i className="fa fa-clock-o grey-text mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
                           <h4 className="card-title pt-1 text-center">{event.title}</h4>
-                          <h6 className="grey-text" style={{ textAlign: "center" }}>Created: {event.createdAt.slice(0, 10)}</h6>
+                          <h6 className="grey-text" style={{ textAlign: 'center' }}>Created: {event.createdAt.slice(0, 10)}</h6>
 
-                          <div style={{ textAlign: "center" }}>
+                          <div style={{ textAlign: 'center' }}>
                             <button className="btn btn-default btn-sm"><Link to={`/events/${event.id}/edit`}>Edit</Link></button>
                             <button onClick={() => swal.setActionValue(this.handleDelete(event.id))} className=
                               "btn btn-danger btn-sm">Delete</button>
@@ -106,9 +106,9 @@ class UserEvent extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log('>>>>>>>****', state.events.event)
+  console.log('>>>>>>>****', state.events.userEvents);
   return {
-    getUserEvents: state.events.event
+    getUserEvents: state.events.UserEvents
   };
 }
 
