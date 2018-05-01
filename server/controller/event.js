@@ -209,13 +209,26 @@ class Event {
   static centerEvent(req, res) {
     const limit = 3;
     let offset = 0;
+    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
+    let { page } = req.query;
+    page = Number(page);
+    const current = `${baseUrl}?page=${page}`;
+    let previous;
+    let next;
 
     return events
       .findAndCountAll()
       .then((centerEvents) => {
-        const { page } = req.query;
         const pages = Math.ceil(centerEvents.count / limit);
         offset = limit * (page - 1);
+
+        if (page !== 1) {
+          previous = `${baseUrl}?page=${page - 1}`;
+        }
+
+        if (pages > page) {
+          next = `${baseUrl}?page=${page + 1}`;
+        }
 
         events.findAll({
           where: {
@@ -228,7 +241,13 @@ class Event {
           res.status(200).json({
             message: 'Upcoming Event(s) Found',
             UpcomingEvent: event,
-            pages
+            pagination: {
+              current,
+              previous,
+              next,
+              page,
+              pages
+            }
           });
         });
       }).catch(error => res.status(400).json({
@@ -252,13 +271,26 @@ class Event {
   static getAllEvents(req, res) {
     const limit = 6;
     let offset = 0;
+    let { page } = req.query;
+    page = Number(page);
+    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
+    const current = `${baseUrl}?page=${page}`;
+    let previous;
+    let next;
 
     return events
       .findAndCountAll()
       .then((allEvents) => {
-        const { page } = req.params;
         const pages = Math.ceil(allEvents.count / limit);
         offset = limit * (page - 1);
+
+        if (page !== 1) {
+          previous = `${baseUrl}?page=${page - 1}`;
+        }
+
+        if (pages > page) {
+          next = `${baseUrl}?page=${page + 1}`;
+        }
 
         events.findAll({
           limit,
@@ -266,7 +298,13 @@ class Event {
         }).then((event) => {
           res.status(200).json({
             event,
-            pages
+            pagination: {
+              current,
+              previous,
+              next,
+              page,
+              pages
+            }
           });
         });
       }).catch(error => res.status(400).json({
@@ -289,13 +327,26 @@ class Event {
   static getUserEvent(req, res) {
     const limit = 6;
     let offset = 0;
+    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
+    let { page } = req.query;
+    page = Number(page);
+    const current = `${baseUrl}?page=~${page}`;
+    let previous;
+    let next;
 
     return events
       .findAndCountAll()
       .then((userEvents) => {
-        const { page } = req.params;
         const pages = Math.ceil(userEvents.count / limit);
         offset = limit * (page - 1);
+
+        if (page !== 1) {
+          previous = `${baseUrl}?page=${page - 1}`;
+        }
+
+        if (pages > page) {
+          next = `${baseUrl}?page=${page + 1}`;
+        }
 
         events.findAll({
           where: {
@@ -307,7 +358,13 @@ class Event {
         }).then((event) => {
           res.status(200).json({
             event,
-            pages
+            pagination: {
+              current,
+              previous,
+              next,
+              page,
+              pages
+            }
           });
         });
       }).catch(error => res.status(400).json({

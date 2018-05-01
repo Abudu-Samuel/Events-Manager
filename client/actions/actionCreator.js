@@ -24,17 +24,15 @@ export const signInAction = userData => ({
   userData
 });
 
-export const logOutAction = (userData) => ({
+export const logOutAction = userData => ({
   types: types.LOG_OUT,
   userData
 });
 
-export const logout = () => {
-  return (dispatch) => {
+export const logout = () => (dispatch) => {
     localStorage.removeItem('x-access-token');
     dispatch(logOutAction({}));
   };
-};
 
 /**
  * @export signIn
@@ -186,12 +184,12 @@ export const getAllCentersAction = centerData => ({
  * @export getAllCenters
  *
  * @description Creates getAllCenters thunk action
- * 
+ *
  * @param {object} page
  *
  * @return {object} Axios response
  */
-export const getAllCenters = (page) => dispatch =>
+export const getAllCenters = page => dispatch =>
   axios.get(`/api/v1/centers?page=${page}`, {
     headers:
      {
@@ -258,20 +256,20 @@ export const getAllEventsAction = eventData => ({
  * @export getAllEvents
  *
  * @description Creates getAllEvents thunk action
- * 
+ *
  * @param {object} page
  *
  * @return {object} Axios response
  */
-export const getAllEvents = (page) => dispatch =>
-  axios.get(`/api/v1/events/${page}`, {
+export const getAllEvents = page => dispatch =>
+  axios.get(`/api/v1/events?page=${page}`, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
-      console.log(response.data, "00000000000")
+      console.log(response.data, '00000000000');
       dispatch(getAllEventsAction(response.data));
     })
     .catch((error) => {
@@ -283,7 +281,7 @@ export const singleCenterAction = centerData => ({
   centerData
 });
 
-export const singleCenter = (centerid) => dispatch =>
+export const singleCenter = centerid => dispatch =>
   axios.get(`/api/v1/centers/center/${centerid}`, {
     headers:
     {
@@ -302,7 +300,7 @@ export const singleEventAction = eventData => ({
   eventData
 });
 
-export const singleEvent = (eventId) => dispatch =>
+export const singleEvent = eventId => dispatch =>
   axios.get(`/api/v1/events/${eventId}`, {
     headers:
     {
@@ -322,7 +320,7 @@ export const addEventAction = eventData => ({
 });
 
 export const addEvent = eventData => dispatch =>
-  axios.post(`/api/v1/events`, eventData, {
+  axios.post('/api/v1/events', eventData, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
@@ -335,31 +333,32 @@ export const addEvent = eventData => dispatch =>
       throw (error);
     });
 
-export const userEventsAction = (eventData) => ({
+export const userEventsAction = eventData => ({
   type: types.GET_USER_EVENTS,
   eventData
 });
 
-export const userEvents = (page) => dispatch =>
-  axios.get(`/api/v1/events/user/events/${page}`, {
+export const userEvents = page => dispatch =>
+  axios.get(`/api/v1/events/user/events?page=${page}`, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
-      console.log(response.data);
-      dispatch(userEventsAction(response.data.eventFound));
+      console.log('I got called>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+      console.log(response.data.event);
+      dispatch(userEventsAction(response.data.event));
     })
     .catch((error) => {
       throw (error);
     });
 
-export const deleteEventAction = (eventData) => ({
+export const deleteEventAction = eventData => ({
   type: types.DELETE_EVENT,
   eventData
 });
 
-export const deleteEvent = (eventid) => dispatch =>
+export const deleteEvent = eventid => dispatch =>
   axios.delete(`/api/v1/events/${eventid}`, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
@@ -372,12 +371,12 @@ export const deleteEvent = (eventid) => dispatch =>
       throw (error);
     });
 
-export const editEventAction = (eventData) => ({
+export const editEventAction = eventData => ({
   type: types.EDIT_EVENT,
   eventData
 });
 
-export const editEvent = (eventData) => dispatch => {
+export const editEvent = eventData => (dispatch) => {
   const eventId = parseInt(eventData.eventId, 10);
   return axios.put(`/api/v1/events/${eventId}`, eventData.data, {
     headers: {
@@ -395,12 +394,12 @@ export const editEvent = (eventData) => dispatch => {
     });
 };
 
-export const editCenterAction = (centerData) => ({
+export const editCenterAction = centerData => ({
   type: types.EDIT_CENTER,
   centerData
 });
 
-export const editCenter = (centerData) => dispatch => {
+export const editCenter = centerData => (dispatch) => {
   const centerId = parseInt(centerData.centerId, 10);
   return axios.put(`/api/v1/centers/center/${centerId}`, centerData.data, {
     headers: {

@@ -27,6 +27,7 @@ const eventAccess = (state = initialState, action = {}) => {
     // return {
     //   ...state, ...action.eventData
     // };
+    console.log('Reducer gets called>>>>>>>>>>>>>>>>>>>>>');
     return Object.assign({}, state, {
       userEvents: action.eventData
     });
@@ -46,11 +47,11 @@ const eventAccess = (state = initialState, action = {}) => {
       ...state, ...action.eventData
     };
   case types.GET_ALL_EVENTS:
-  console.log('*********', action.eventData)
-  return {
-    ...state, ...action.eventData,
+    console.log('*********', action.eventData);
+    return {
+      ...state, ...action.eventData,
     // pages: action.eData.pages
-  };
+    };
   case types.ADD_EVENT:
     return {
       ...state, ...action.eventData

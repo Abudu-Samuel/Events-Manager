@@ -77,7 +77,7 @@ class Center {
  * @memberof Center
  */
   static getAllCenters(req, res) {
-    const limit = 2;
+    const limit = 6;
     let offset = 0;
     let { page } = req.query;
     page = Number(page);
