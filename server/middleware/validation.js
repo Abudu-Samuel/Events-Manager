@@ -90,7 +90,9 @@ const validation = {
     const {
       name, capacity, location, price, state, description, image, isAvailable
     } = req.body;
-    if (!name && !capacity && !location && !price && !state && !description && !image && !isAvailable) {
+    if (
+      !name && !capacity && !location && !price && !state && !description && !image && !isAvailable
+    ) {
       return res.status(400).json({
         message: 'All Fields are required'
       });

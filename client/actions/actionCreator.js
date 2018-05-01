@@ -301,7 +301,7 @@ export const singleEventAction = eventData => ({
 });
 
 export const singleEvent = eventId => dispatch =>
-  axios.get(`/api/v1/events/${eventId}`, {
+  axios.get(`/api/v1/events/event/${eventId}`, {
     headers:
     {
       'x-access-token': localStorage.getItem('x-access-token')

@@ -1,27 +1,27 @@
 import swal from 'sweetalert';
 
 const logInSuccess = () => {
-  swal("Login Successful!", "", "success");
+  swal('Login Successful!', '', 'success');
 };
 
 const signUpSuccess = () => {
-  swal("SignUp Successful", "", "success");
+  swal('SignUp Successful', '', 'success');
 };
 
 const editEventSuccess = () => {
-  swal("Event Edited", "", "success");
+  swal('Event Edited', '', 'success');
 };
 
 const editCenterSuccess = () => {
-  swal("Center Edited", "", "success");
+  swal('Center Edited', '', 'success');
 };
 
 const addCenterSuccess = () => {
-  swal("Center Added", "", "success");
+  swal('Center Added', '', 'success');
 };
 
 const addEventSuccess = () => {
-  swal("Event Added", "", "success");
+  swal('Event Added', '', 'success');
 };
 
 export {

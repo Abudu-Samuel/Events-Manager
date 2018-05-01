@@ -370,17 +370,6 @@ class Event {
       }).catch(error => res.status(400).json({
         message: error.errors[0].message
       }));
-    //
-    // return events
-    //   .findAll({
-    //     where: {
-    //       userId: req.decoded.userId
-    //     }
-    //   })
-    //   .then((eventFound) => res
-    //     .status(200)
-    //     .json({ message: 'Found your Event(s)', eventFound }))
-    //   .catch(error => res.status(500).json(error));
   }
   /**
  * @static

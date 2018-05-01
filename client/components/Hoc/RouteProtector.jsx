@@ -1,18 +1,24 @@
-import React from "react";
+import React from 'react';
 import jwt from 'jsonwebtoken';
 import { Redirect } from 'react-router-dom';
 
-const RouteProtector = (WrappedComponent) => class RouteProtectorClass extends React.Component {
+const RouteProtector = WrappedComponent => class RouteProtectorClass extends React.Component {
+  /**
+   * Creates an instance of RouteProtectorClass.
+   * @param {any} props
+   */
   constructor(props) {
     super(props);
-
     this.state = {
       redirect: false
     };
   }
+  /**
+   *
+   * @returns {object} admin role
+   */
   componentWillMount() {
     const decoded = jwt.decode(localStorage.getItem('x-access-token'));
-    console.log(decoded);
     if (decoded.isAdmin) {
       return this.setState({
         redirect: false
@@ -22,8 +28,11 @@ const RouteProtector = (WrappedComponent) => class RouteProtectorClass extends R
       redirect: true
     });
   }
+  /**
+   *
+   * @returns {object} updated state
+   */
   render() {
-    console.log(this.state.redirect);
     return (
       this.state.redirect ?
         <Redirect to="/dashboard"/> :

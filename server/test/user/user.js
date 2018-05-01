@@ -1,8 +1,8 @@
 import request from 'supertest';
-import { expect, assert } from 'chai';
-import app from '../../app'
+import { expect } from 'chai';
+import app from '../../app';
 
-describe ('Events Manager - User Test', () => {
+describe('Events Manager - User Test', () => {
   it('Account Created as an admin', (done) => {
     request(app)
       .post('/api/v1/users')
@@ -16,8 +16,8 @@ describe ('Events Manager - User Test', () => {
       })
       .end((err, res) => {
         expect(res.status).to.equal(201);
-        expect(typeof res.body.responseData.username).to.equal("string");
-        expect(typeof res.body.responseData.username).to.equal("string");
+        expect(typeof res.body.responseData.username).to.equal('string');
+        expect(typeof res.body.responseData.username).to.equal('string');
         done();
       });
   });
@@ -161,7 +161,6 @@ describe ('Events Manager - User Test', () => {
         done();
       });
   });
-
-})
+});
 
 export default app;
