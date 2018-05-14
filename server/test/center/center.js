@@ -49,6 +49,8 @@ describe('Events Manager - Center Test', () => {
       .end((err, res) => {
         expect(res.status).to.equal(201);
         expect(typeof res.body.created.price).to.equal('number');
+        expect(res.body.created).to.be.an('object');
+        expect(res.body.created.price).to.equal(50000);
         done();
       });
   });
@@ -91,6 +93,9 @@ describe('Events Manager - Center Test', () => {
       .end((err, res) => {
         expect(res.status).to.equal(200);
         expect(res.body.message).to.equal('Center modification is successful');
+        expect(res.body.updatedCenter).to.be.an('object');
+        expect(res.body.updatedCenter.capacity).to.be.a('number');
+        expect(res.body.updatedCenter.capacity).to.equal(1234);
         done();
       });
   });
