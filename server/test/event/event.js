@@ -71,6 +71,9 @@ describe('Events Manager', () => {
       .end((err, res) => {
         expect(res.status).to.equal(201);
         expect(res.body.message).to.equal('Event Created!');
+        expect(res.body.createdEvent).to.be.an('object');
+        expect(res.body.createdEvent.title).to.be.a('string');
+        expect(res.body.createdEvent.title).to.equal('wedding tour');
 
         done();
       });
@@ -93,7 +96,9 @@ describe('Events Manager', () => {
       .end((err, res) => {
         expect(res.status).to.equal(201);
         expect(res.body.message).to.equal('Event Created!');
-
+        expect(res.body.createdEvent).to.not.be.a('number');
+        expect(res.body.createdEvent.type).to.be.a('string');
+        expect(res.body.createdEvent.type).to.equal('church');
         done();
       });
   });
@@ -115,7 +120,7 @@ describe('Events Manager', () => {
       .end((err, res) => {
         expect(res.status).to.equal(409);
         expect(res.body.message).to.equal('Center has been booked');
-
+        expect(res.body).to.be.an('object');
         done();
       });
   });
@@ -386,6 +391,8 @@ describe('Events Manager', () => {
       .set('x-access-token', userToken)
       .end((err, res) => {
         expect(res.status).to.equal(200);
+        expect(res.body.UpcomingEvent).to.be.an('array');
+        expect(res.body.pagination).to.be.an('object');
         done();
       });
   });

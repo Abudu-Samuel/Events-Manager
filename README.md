@@ -66,6 +66,9 @@ Events Manager application leverages:
 ```sh
 > $ npm run test
 ```
+
+## API Docs
+To use the API, a good place to start would be here: [Events manger](https://abudu-samuel.github.io/slate/) doc.
 ## How to contribute
 * Fork the repository
 * Create a feature branch with a feature.md file

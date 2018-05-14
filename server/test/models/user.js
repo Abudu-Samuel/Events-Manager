@@ -5,7 +5,7 @@ const { user } = models;
 
 describe('User Model', () => {
   describe('Create User', () => {
-    it('should throw an error if no password is provided when during creation', (done) => {
+    it('should throw an error if no password is provided when creating a user', (done) => {
       user.create({
         email: 'abcd@gmail.com',
         username: 'blvck',
