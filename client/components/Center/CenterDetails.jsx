@@ -1,6 +1,7 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Navbar from '../common/Navbar';
 import CenterInfo from '../Center/CenterInfo';
 import * as userActions from '../../actions/actionCreator';
@@ -22,20 +23,28 @@ class CenterDetails extends React.Component {
     this.state = {
       user: null,
       center: [],
-      noCenter: false,
+      upcomingEventsData: {
+        message: '',
+        pagination: {},
+        upcomingEvent: []
+      },
+      noEvent: false,
       fetchingCenter: false
     };
+    this.eventPaginate = this.eventPaginate.bind(this);
   }
   /**
    *
-   *@description jkkkk
+   *@description kkk
    *
    * @memberof CenterDetails
    *
    * @return {object} new afdfdfad
    */
-  componentWillMount() {
-    this.props.singleCenter(this.props.match.params.centerId);
+  componentDidMount() {
+    const { centerId } = this.props.match.params;
+    this.props.singleCenter(centerId);
+    this.props.slatedEvent(centerId, 1);
   }
 
   /**
@@ -50,6 +59,16 @@ class CenterDetails extends React.Component {
     } else {
       this.setState({ fetchingCenter: true });
     }
+    if (nextProps.getSlatedEvents && nextProps.getSlatedEvents.upcomingEvent.length > 0) {
+      this.setState({ upcomingEventsData: nextProps.getSlatedEvents, fetchingCenter: false, noEvent: false });
+    } else {
+      this.setState({ fetchingCenter: true, noEvent: true });
+    }
+  }
+
+  eventPaginate(pageData) {
+    const nextEventPage = pageData.selected + 1;
+    this.props.getSlatedEvents(nextEventPage);
   }
 
   /**
@@ -59,15 +78,42 @@ class CenterDetails extends React.Component {
    * @memberof CenterDetails
    */
   render() {
-    const { events } = this.state.center;
+    const { center, upcomingEventsData, noEvent } = this.state;
     return (
       <div className="space">
         <Navbar />
         <CenterInfo
-          center={this.state.center}
-          events={events}
-          noCenter={this.state.noCenter}
-        />
+          center={center}
+          upcomingEventsData={upcomingEventsData}
+          noEvent={noEvent}
+        />{
+          noEvent ? <div className="space text-center">
+            <i className="fa fa-exclamation-triangle no-event" />
+            <h5 className="font-weight-bold mb-5">No event allocated to this center,
+              Click <strong><Link to={`/center/${center.id}/addevent`} className="add-event">Here</Link></strong> to book a center
+            </h5>
+          </div> :
+            <ReactPaginate
+              previousLabel="Previous"
+              nextLabel="Next"
+              breakLabel={<a href="">...</a>}
+              breakClassName="page-link"
+              onPageChange={this.eventPaginate}
+              pageCount={Number(this.props.eventPage)}
+              containerClassName="pagination pagination-lg custom-pagination"
+              pageLinkClassName="page-link"
+              nextLinkClassName="page-link"
+              previousLinkClassName="page-link"
+              disabledClassName="disabled"
+              pageClassName="page-item"
+              previousClassName="page-item"
+              nextClassName="page-item"
+              activeClassName="active"
+              subContainerClassName="pages pagination"
+            />
+        }
+
+
       </div>
     );
   }
@@ -82,8 +128,10 @@ class CenterDetails extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-const mapStateToProps = (state) => ({
-  getSingleCenter: state.centers.center
+const mapStateToProps = state => (console.log(state.events.upcomingEvent, 'tetettetteetet'), {
+  getSingleCenter: state.centers.center,
+  getSlatedEvents: state.events.upcomingEventsData,
+  eventPage: state.events.eventPage
 });
 
 /**
@@ -93,8 +141,9 @@ const mapStateToProps = (state) => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   singleCenter: centerData => dispatch(userActions.singleCenter(centerData)),
+  slatedEvent: (eventId, page) => dispatch(userActions.slatedEvent(eventId, page))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CenterDetails);

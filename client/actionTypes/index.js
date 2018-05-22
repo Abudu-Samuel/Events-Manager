@@ -12,4 +12,6 @@ export const GET_USER_EVENTS = 'GET_USER_EVENTS';
 export const DELETE_EVENT = 'DELETE_EVENT';
 export const EDIT_EVENT = 'EDIT_EVENT';
 export const EDIT_CENTER = 'EDIT_CENTER';
+export const GET_SLATED_EVENT = 'GET_SLATED_EVENT';
 export const LOG_OUT = 'LOG_OUT';
+

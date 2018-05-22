@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
-
+import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 import LoggedInNavbar from '../common/LoggedInNavbar';
 import * as userActions from '../../actions/actionCreator';
@@ -17,14 +17,14 @@ class UserEvent extends React.Component {
       fetchingCenter: false
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.eventPaginate = this.eventPaginate.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.userEvents(1);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, '@@@@@@@');
     if (nextProps.getUserEvents && nextProps.getUserEvents.length > 0) {
       this.setState({
         events: nextProps.getUserEvents,
@@ -38,8 +38,12 @@ class UserEvent extends React.Component {
     }
   }
 
+  eventPaginate(pageData) {
+    const nextCenterPage = pageData.selected + 1;
+    this.props.userEvents(nextCenterPage);
+  }
+
   handleDelete(event) {
-    console.log(event, 'handlebutton');
     this.setState({
       centerid: parseInt(event, 10)
     });
@@ -80,7 +84,7 @@ class UserEvent extends React.Component {
 
                     <div className="col-xl-4 mb-4" key={event.id}>
                       <div className="card">
-                        <img className="img-fluid" src={event.image} alt="Card image cap" />
+                        <img className="img-fluid hoverable max" src={event.image} alt="Card image cap" />
                         <div className="card-body">
                           <h6 className="grey-text"><i className="fa fa-clock-o grey-text mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
                           <h4 className="card-title pt-1 text-center">{event.title}</h4>
@@ -100,15 +104,33 @@ class UserEvent extends React.Component {
               </div>
             </div>
         }
+        <ReactPaginate
+              previousLabel="Previous"
+              nextLabel="Next"
+              breakLabel={<a href="">...</a>}
+              breakClassName="page-link"
+              onPageChange={this.eventPaginate}
+              // pageCount={this.props.eventPage}
+              containerClassName="pagination pagination-lg custom-pagination"
+              pageLinkClassName="page-link"
+              nextLinkClassName="page-link"
+              previousLinkClassName="page-link"
+              disabledClassName="disabled"
+              pageClassName="page-item"
+              previousClassName="page-item"
+              nextClassName="page-item"
+              activeClassName="active"
+              subContainerClassName="pages pagination"
+            />
       </div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log('>>>>>>>****', state.events.userEvents);
   return {
-    getUserEvents: state.events.UserEvents
+    getUserEvents: state.events.userEvents,
+    // eventPage: state.events.eventPage
   };
 }
 

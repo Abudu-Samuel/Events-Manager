@@ -27,12 +27,10 @@ class EditCenter extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match, '1');
     this.props.singleCenter(this.props.match.params.centerId);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.getSingleCenter.image, '#');
     if (nextProps.getSingleCenter) {
       this.setState({
         name: nextProps.getSingleCenter.name,
@@ -75,18 +73,16 @@ class EditCenter extends React.Component {
       data: formData
     })
       .then((res) => {
-        console.log(res.data.secure_url);
         this.setState({
           image: res.data.secure_url
         });
       })
       .catch((err) => {
-        console.log(err);
+        throw err
       });
   }
 
 handleSubmit = (event) => {
-  console.log(this.props.match, 'tested okay');
   const centerId = this.props.match.params.centerId;
   event.preventDefault();
   this.setState({

@@ -7,6 +7,7 @@ body, */
 $primary-color: #fff;
 $error-color: #86181d;
 $error-back: #ffdce0;
+$main-color: #00695c;
 
 #intro {
   height: 725.9px;
@@ -22,12 +23,12 @@ $error-back: #ffdce0;
 }
 
 .top-nav-collapse, .navcolor {
-  background: #00695c;
+  background: $main-color;
 }
 
 .dropdown .dropdown-menu .dropdown-item {
   &:active, &:focus, &:hover {
-    background-color: #00695c;
+    background-color: $main-color;
   }
 }
 
@@ -40,7 +41,7 @@ ul {
 }
 
 .btn-mycolor {
-  background: #00695c;
+  background: $main-color;
 }
 
 @media (max-width: 575px) {
@@ -48,7 +49,7 @@ ul {
     margin-top: 100px;
   }
   .navbar {
-    background: #00695c;
+    background: $main-color;
   }
 }
 
@@ -56,7 +57,7 @@ ul {
 
 @media (max-width: 768px) and (max-width: 991px) {
   .navbar {
-    background: #00695c;
+    background: $main-color;
   }
 }
 
@@ -96,7 +97,11 @@ ul {
 }
 
 .card {
-  border-bottom: 4px solid #00695c !important;
+  border-bottom: 4px solid $main-color !important;
+}
+
+.prev {
+  border-bottom: 0px solid $main-color !important;
 }
 
 .btn-size {
@@ -104,11 +109,11 @@ ul {
 }
 
 .navbar {
-  background: #00695c;
+  background: $main-color;
 }
 
 .footer-color {
-  background-color: #00695c;
+  background-color: $main-color;
 }
 
 .space {
@@ -116,7 +121,7 @@ ul {
 }
 
 .myfile {
-  margin-bottom: 100px;
+  margin-bottom: 7px;
 }
 
 /* .add {
@@ -132,7 +137,7 @@ ul {
 }
 
 .adm {
-  background-color: #00695c;
+  background-color: $main-color;
   width: 100%;
 }
 
@@ -164,7 +169,7 @@ a {
 
 .fad {
   font-size: 260px;
-  color: #00695c;
+  color: $main-color;
   margin-top: 100px;  
 }
 
@@ -191,8 +196,91 @@ a {
   min-height: 245px;
 }
 
+.img-view {
+  max-height: 180px;
+  min-height: 180px
+}
+
+.len {
+  margin-left: 0px !important;
+  margin-top: 9px !important;
+  width: 100%
+}
+
+.min-image {
+  max-height: 220px;
+  width: 100%;
+  min-height: 220px;
+}
+
 .error-msg {
   background: $error-back;
   color: $error-color;
   margin-left: 47px;
+}
+
+.pagination {
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  justify-content: center;
+  border-radius: .25rem;
+}
+
+.page-item.active .page-link {
+  z-index: 2;
+  color: $primary-color;
+  background-color: $main-color;
+  border-color: $main-color;
+}
+
+.page-item.active .page-link:hover {
+  z-index: 2;
+  color: $primary-color;
+  background-color: $main-color;
+  border-color: $main-color;
+}
+
+.page-link {
+  background-color: $primary-color;
+  border: 1px solid #ddd;
+  color: $main-color;
+  display: block;
+  line-height: 1.25;
+  margin-left: -1px;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+}
+
+.max-event {
+  max-height: 300px;
+  min-height: 300px;
+}
+
+.justify {
+  justify-content: center
+}
+
+.equal {
+  max-height: 290px;
+  min-height: 290px;
+}
+
+
+.no-event {
+  font-size: 140px;
+  color: $main-color;
+  margin-top: -56px; 
+}
+
+.add-event {
+  background: $primary-color;
+  color: $main-color;
+  font-size: 25px;
+}
+
+.add-event:hover {
+  background: $primary-color;
+  color: $main-color;
 }

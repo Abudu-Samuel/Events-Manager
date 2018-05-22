@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import LoggedInNavbar from '../common/LoggedInNavbar';
 import Footer from '../common/Footer';
 import Form from '../common/forms/Form';
@@ -22,6 +23,7 @@ class AddEvent extends React.Component {
       description: '',
       type: '',
       image: '',
+      imgPreviewSrc: '',
       errorStatus: false,
       redirect: false,
       editing: false
@@ -32,6 +34,36 @@ class AddEvent extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+
+  handleUpload = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    let imgPreview = document.getElementById('img-preview');
+    let imgPreviewSrc = imgPreview.src
+    const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
+    const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+    axios({
+      url: CLOUDINARY_URL,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www- form-urlencoded '
+      },
+      data: formData
+    })
+      .then((res) => {
+        this.setState({
+          image: res.data.secure_url,
+          imgPreviewSrc: res.data.secure_url
+        });
+      })
+      .catch((err) => {
+        throw err
+      });
   }
 
   handleSubmit = event => {
@@ -75,6 +107,7 @@ class AddEvent extends React.Component {
                 <Form
                   handleSubmit={this.handleSubmit}
                   handleChange={this.handleChange}
+                  handleUpload={this.handleUpload}
                   errorStatus={this.state.errorStatus}
                   errorMessage={this.state.errorMessage}
                   editing={this.state.editing}
@@ -83,6 +116,7 @@ class AddEvent extends React.Component {
                   description={this.state.description}
                   type={this.state.type}
                   image={this.state.image}
+                  imgPreviewSrc={this.state.imgPreviewSrc}
                 />
               </div>
             </section>

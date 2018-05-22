@@ -22,7 +22,8 @@ class EventDetails extends React.Component {
       user: null,
       event: {},
       noEvent: false,
-      fetchingEvent: false
+      fetchingEvent: false,
+      fetchingCenter: false
     };
   }
 
@@ -31,7 +32,7 @@ class EventDetails extends React.Component {
    *
    * @memberof EventDetails
    */
-  componentWillMount() {
+  componentDidMount() {
     this.props.singleEvent(this.props.match.params.eventId);
   }
 
@@ -42,7 +43,6 @@ class EventDetails extends React.Component {
    * @memberof EventDetails
    */
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.event.event, 'nextProps')
     if (nextProps.event) {
       this.setState({ event: nextProps.event.event, fetchingEvent: false });
     } else {
@@ -77,9 +77,10 @@ class EventDetails extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    event: state.events.event
+    event: state.events.event,
+    getSingleCenter: state.centers.center
   };
 }
 

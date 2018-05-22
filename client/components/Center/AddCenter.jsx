@@ -41,6 +41,7 @@ class AddCenter extends React.Component {
       state: '',
       description: '',
       image: '',
+      imgPreviewSrc: '',
       isAvailable: '',
       errorStatus: false,
       redirect: false,
@@ -55,11 +56,13 @@ class AddCenter extends React.Component {
     handleUpload = (event) => {
       event.preventDefault();
       const file = event.target.files[0];
-      const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
-      const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
+      let imgPreview = document.getElementById('img-preview');
+      let imgPreviewSrc = imgPreview.src
+      const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
+      const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
       const formData = new FormData();
       formData.append('file', file);
-      formData.append(process.env.CLOUDINARY_PRESET, CLOUDINARY_UPLOAD_PRESET);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
       axios({
         url: CLOUDINARY_URL,
@@ -71,12 +74,14 @@ class AddCenter extends React.Component {
       })
         .then((res) => {
           this.setState({
-            image: res.data.secure_url
+            image: res.data.secure_url,
+            imgPreviewSrc: res.data.secure_url
           });
         })
         .catch((err) => {
-          console.log(err);
-        });
+          throw err
+          }
+        );
     }
 
     /**
@@ -92,7 +97,6 @@ class AddCenter extends React.Component {
      */
     handleSubmit(event) {
       event.preventDefault();
-      console.log(this.props.addCenter, 'uyt');
       this.props.addCenter(this.state)
         .then(() => {
           this.setState({
@@ -150,6 +154,7 @@ class AddCenter extends React.Component {
                           location={this.state.location}
                           price={this.state.price}
                           state={this.state.state}
+                          imgPreviewSrc={this.state.imgPreviewSrc}
                           description={this.state.description}
                           image={this.state.image}
                           isAvailable={this.state.isAvailable}

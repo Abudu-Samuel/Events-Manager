@@ -1,7 +1,13 @@
 import * as types from '../actionTypes/index';
 
+const initialState = {
+  centerPage: '',
+  centers: {
+    center: []
+  }
+};
 
-const centerAccess = (state = {}, action) => {
+const centerAccess = (state = initialState, action) => {
   switch (action.type) {
   case types.GET_SINGLE_CENTER:
     return {
@@ -9,7 +15,8 @@ const centerAccess = (state = {}, action) => {
     };
   case types.GET_TRENDING_CENTERS:
     return {
-      ...state, ...action.centerData
+      ...state,
+      centers: action.centerData,
     };
   case types.EDIT_CENTER:
     return {
@@ -18,8 +25,8 @@ const centerAccess = (state = {}, action) => {
   case types.GET_ALL_CENTERS:
     return {
       ...state,
-      center: action.centerData.center,
-      pages: action.centerData.pages
+      centers: action.centerData,
+      centerPage: action.centerData.pagination.pages
     };
   case types.ADD_CENTER:
     return {

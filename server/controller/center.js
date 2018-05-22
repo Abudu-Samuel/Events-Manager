@@ -138,11 +138,11 @@ class Center {
       .findAll({ limit: 3, order: [['createdAt', 'DESC']] }, {
         include: [{ model: events }]
       })
-      .then(foundCenters => res
+      .then(center => res
         .status(200)
         .json({
-          message: 'Centers found',
-          foundCenters
+          message: 'Centers found!',
+          center
         }))
       .catch(error => res.status(500).json(error));
   }
