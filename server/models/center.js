@@ -95,7 +95,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Description can contain only alphabets'
         },
         len: {
-          args: [3, 40],
+          args: [3, 400],
           msg: 'Description should be longer than 3 words and less than 40 words'
         }
       }

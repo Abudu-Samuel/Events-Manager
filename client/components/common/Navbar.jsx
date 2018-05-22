@@ -10,7 +10,6 @@ class Navbar extends React.Component {
     this.logOut = this.logOut.bind(this);
   }   
   logOut() {
-    console.log(decodeToken, 'decode')
     localStorage.removeItem('x-access-token')
   
   }
@@ -61,7 +60,6 @@ class Navbar extends React.Component {
 }
 
 export const mapStateToProps = state => {
-  console.log(">>>>>>>>>>>>state>>>>>>>", state);
   return {
     isAuthenticated: state.userAccess.isAuthenticated
   }

@@ -207,7 +207,7 @@ class Event {
  * @memberof Event
  */
   static centerEvent(req, res) {
-    const limit = 3;
+    const limit = 2;
     let offset = 0;
     const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
     let { page } = req.query;
@@ -217,7 +217,11 @@ class Event {
     let next;
 
     return events
-      .findAndCountAll()
+      .findAndCountAll({
+        where: {
+          centerId: req.params.eventId
+        }
+      })
       .then((centerEvents) => {
         const pages = Math.ceil(centerEvents.count / limit);
         offset = limit * (page - 1);
@@ -240,7 +244,7 @@ class Event {
         }).then((event) => {
           res.status(200).json({
             message: 'Upcoming Event(s) Found',
-            UpcomingEvent: event,
+            upcomingEvent: event,
             pagination: {
               current,
               previous,
@@ -269,7 +273,7 @@ class Event {
  * @memberof Event
  */
   static getAllEvents(req, res) {
-    const limit = 6;
+    const limit = 2;
     let offset = 0;
     let { page } = req.query;
     page = Number(page);
@@ -325,7 +329,7 @@ class Event {
  * @memberof Event
  */
   static getUserEvent(req, res) {
-    const limit = 6;
+    const limit = 1;
     let offset = 0;
     const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
     let { page } = req.query;
@@ -335,7 +339,11 @@ class Event {
     let next;
 
     return events
-      .findAndCountAll()
+      .findAndCountAll({
+        where: {
+          userId: req.decoded.userId
+        }
+      })
       .then((userEvents) => {
         const pages = Math.ceil(userEvents.count / limit);
         offset = limit * (page - 1);
@@ -392,9 +400,9 @@ class Event {
           ['createdAt', 'DESC']
         ]
       })
-      .then(foundEvents => res
+      .then(event => res
         .status(200)
-        .send({ message: 'Events Found', foundEvents }))
+        .send({ message: 'Events Found', event }))
       .catch(error => res.status(500).json(error));
   }
 

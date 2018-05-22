@@ -269,7 +269,6 @@ export const getAllEvents = page => dispatch =>
     }
   })
     .then((response) => {
-      console.log(response.data, '00000000000');
       dispatch(getAllEventsAction(response.data));
     })
     .catch((error) => {
@@ -314,6 +313,27 @@ export const singleEvent = eventId => dispatch =>
       throw (error);
     });
 
+    export const slatedEventAction = eventData => {
+        return { 
+      type: types.GET_SLATED_EVENT,
+      eventData
+    }
+  };
+
+    export const slatedEvent = (eventId, page) => dispatch =>
+  axios.get(`/api/v1/events/center/${eventId}?page=${page}`, {
+    headers:
+    {
+      'x-access-token': localStorage.getItem('x-access-token')
+    }
+  })
+    .then((response) => {
+      dispatch(slatedEventAction(response.data));
+    })
+    .catch((error) => {
+      throw (error);
+    });
+
 export const addEventAction = eventData => ({
   type: types.ADD_EVENT,
   eventData
@@ -345,8 +365,6 @@ export const userEvents = page => dispatch =>
     }
   })
     .then((response) => {
-      console.log('I got called>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-      console.log(response.data.event);
       dispatch(userEventsAction(response.data.event));
     })
     .catch((error) => {
@@ -378,18 +396,16 @@ export const editEventAction = eventData => ({
 
 export const editEvent = eventData => (dispatch) => {
   const eventId = parseInt(eventData.eventId, 10);
-  return axios.put(`/api/v1/events/${eventId}`, eventData.data, {
+  return axios.put(`/api/v1/events/event/${eventId}`, eventData.data, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
-      console.log(response, 'hjs');
       dispatch(editEventAction(response.data));
       editEventSuccess();
     })
     .catch((error) => {
-      console.log(error);
       throw (error);
     });
 };
@@ -407,12 +423,10 @@ export const editCenter = centerData => (dispatch) => {
     }
   })
     .then((response) => {
-      console.log(response);
       dispatch(editEventAction(response.data));
       editCenterSuccess();
     })
     .catch((error) => {
-      console.log(error);
       throw (error);
     });
 };

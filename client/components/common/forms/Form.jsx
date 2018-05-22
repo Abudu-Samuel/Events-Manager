@@ -6,7 +6,9 @@ const Form = ({
   errorStatus,
   errorMessage,
   editing,
+  handleUpload,
   title,
+  imgPreviewSrc,
   type,
   date,
   image,
@@ -29,10 +31,24 @@ const Form = ({
       <input type="text" name="type" onChange={handleChange} id="ends-name" className="form-control" value={type}/>
       <label htmlFor="orangeForm-name">Event Type</label>
     </div>
+    <i className="fa fa-camera prefix teal-text" style={{ fontSize: 27, marginLeft: 3, marginBottom: 22 }}/>
     <div className="md-form myfile">
-      <i className="fa fa-camera-retro prefix teal-text" />
+      {/* <i className="fa fa-camera-retro prefix teal-text" />
       <input type="text" id="image" name="image" className="form-control" onChange={handleChange} value={image}/>
-      <label htmlFor="orangeForm-name">Image</label>
+      <label htmlFor="orangeForm-name">Image</label> */}
+          <div className="file-field lab">
+            <div className="file-field lab">
+              <div className="card prev file-path-wrapper">
+                {
+                  imgPreviewSrc ? <img className="img-fluid hoverable max-event" id="img-preview" src={imgPreviewSrc} alt="Card image cap" /> :
+                    <img className="img-fluid hoverable max-event" id="img-preview" src="http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg" alt="Card image cap" />
+                }
+              </div>
+            </div>
+            <div className="btn btn-mycolor mt-5 ml-3  btn-sm len">
+              <input type="file" name="image" onChange={handleUpload} />
+            </div>
+          </div>
     </div>
     <div className="md-form form-sm">
       <i className="fa fa-pencil prefix teal-text" />

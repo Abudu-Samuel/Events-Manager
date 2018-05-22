@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 
 class LoggedInNavbar extends React.Component {
 logOut = () => {
-  console.log(decodeToken, 'decode')
   localStorage.removeItem('x-access-token')
 }
   render() {

@@ -9,7 +9,8 @@ import Event from '../Event/Event';
  */
 const CenterInfo = ({
   center,
-  events,
+  upcomingEventsData,
+  getEventId,
   noCenter
 }) => (
   <div className="container-fluid">
@@ -83,11 +84,37 @@ const CenterInfo = ({
               </div>
             </div>
           </section>
-          <hr className="my-5" />
+          <hr className="my-4" />
           <section>
             <h3 className="mb-3 font-weight-bold text-center">Upcoming Events</h3>
             <div className="container">
-              {center.events && center.events.map(event => <Event key={event.id} event={event} />)}
+              <div className="row" style={{ justifyContent: 'center' }}>
+                {
+                  upcomingEventsData.upcomingEvent.map(event => (
+                    <div className="col-md-6 mb-4" key={event.id}>
+                      <div className="card text-center">
+                        <img className="img-fluid hoverable max" src={event.image} alt="Card image cap" />
+                        <div className="card-body">
+                          <h4 className="card-title">{event.title}</h4>
+                          <p className="card-text">
+                            {
+                              event.description.split('').length > 20 ? `${event.description.slice(0, 54)}...` : event.description
+                            }
+                          </p>
+                          <p className="card-text">Date: {event.date}</p>
+                          <button
+                            className="btn btn-mycolor btn-sm"
+                            data-centerid={event.id}
+                            onClick={getEventId}>
+                            <Link to={`/events/${event.id}`}>Details</Link>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+
             </div>
           </section>
         </div>

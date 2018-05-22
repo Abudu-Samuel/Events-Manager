@@ -13,12 +13,16 @@ const TrendingCenter = ({
       <h2 className="mb-3 slot font-weight-bold text-center">Latest Centers</h2>
       <div className="row mb-4">
         {
-          centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
+          centers.center.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
             <div className="card text-center">
               <img className="img-fluid hoverable max" src={center.image} alt="Card image cap" />
               <div className="card-body">
                 <h4 className="card-title">{center.name}</h4>
-                <p className="card-text">{center.description}</p>
+                <p className="card-text">
+                  {
+                    center.description.split('').length > 40 ? `${center.description.slice(0, 40)}...` : center.description
+                  }
+                </p>
                 <button
                   className="btn btn-mycolor btn-sm"
                   data-centerid={center.id}

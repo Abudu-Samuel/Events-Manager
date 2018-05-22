@@ -16,11 +16,10 @@ class UserCenter extends React.Component {
       centerid: '',
       fetchingCenter: false
     };
-    // this.handleDelete = this.handleDelete.bind(this);
-    this.onPageDataChange = this.onPageDataChange.bind(this);
+    this.centerPaginate = this.centerPaginate.bind(this);
 
   }
-  onPageDataChange(pageData) {
+  centerPaginate(pageData) {
     const nextCenterPage = pageData.selected + 1;
     this.props.getAllCenters(nextCenterPage);
   }
@@ -30,7 +29,6 @@ class UserCenter extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, 'center for user');
     if (nextProps.getUserCenters && nextProps.getUserCenters.length > 0) {
       this.setState({
         centers: nextProps.getUserCenters,
@@ -45,7 +43,6 @@ class UserCenter extends React.Component {
   }
 
   // handleDelete(event) {
-  //   console.log(event, 'handlebutton');
   //   this.setState({
   //     centerid: parseInt(event, 10)
   //   });
@@ -74,10 +71,16 @@ class UserCenter extends React.Component {
                     {
                       centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
                         <div className="card text-center">
-                          <img className="img-fluid hoverable" src={center.image} alt="Card image cap" />
+                          <img className="img-fluid hoverable img-view" src={center.image} alt="Card image cap" />
                           <div className="card-body">
-                            <h4 className="card-title">{center.name}</h4>
-                            <p className="card-text">{center.description}</p>
+                            <h4 className="card-title">
+                            {
+                              center.name.split('').length > 17 ? center.name.slice(0, 14) + '...' : center.name
+                            }</h4>
+                            <p className="card-text">
+                            {
+                              center.description.split('').length > 25 ? center.description.slice(0, 22) + '...' : center.description
+                            }</p>
                             <div style={{ textAlign: "center" }}>
                               <button className="btn btn-default btn-sm"><Link to={`/centers/${center.id}/edit`}>Edit</Link></button>
                               {/* <button onClick={() => this.handleDelete(event.id)} className=
@@ -95,8 +98,8 @@ class UserCenter extends React.Component {
                       nextLabel="Next"
                       breakLabel={<a href="">...</a>}
                       breakClassName="page-link"
-                      onPageChange={this.onPageDataChange}
-                      pageCount={this.props.pages}
+                      onPageChange={this.centerPaginate}
+                      pageCount={Number(this.props.centerPage)}
                       containerClassName="pagination pagination-lg custom-pagination"
                       pageLinkClassName="page-link"
                       nextLinkClassName="page-link"
@@ -121,7 +124,7 @@ class UserCenter extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     getUserCenters: state.centers.center,
-    pages: state.centers.pages
+    centerPage: state.centers.centerPage
 
   };
 }

@@ -5,8 +5,6 @@ import Navbar from '../common/Navbar';
 import Body from '../common/Body';
 import TrendingCenter from '../Center/TrendingCenters';
 import PopularCenter from '../Event/PopularCenter';
-// import Gallery from './Gallery';
-// import ContactUs from './ContactUs';
 import Footer from '../common/Footer';
 import '../../../public/css/style.scss';
 import * as userActions from '../../actions/actionCreator';
@@ -30,8 +28,12 @@ class LandingPage extends React.Component {
     super(props);
     this.state = {
       user: null,
-      centers: [],
-      events: [],
+      centers: {
+        center: []
+      },
+      events: {
+        event: []
+      },
       centerid: '',
       eventid: '',
       errorMessage: '',
@@ -39,9 +41,7 @@ class LandingPage extends React.Component {
     };
     this.getCenterId = this.getCenterId.bind(this);
     this.getEventId = this.getEventId.bind(this);
-
   }
-
   /**
    * @method componentDidMount
    *
@@ -140,8 +140,6 @@ class LandingPage extends React.Component {
           events = {this.state.events}
           getEventId = {this.getEventId}
           eventid = {this.eventid}/>
-        {/* <Gallery />
-        <ContactUs /> */}
         <Footer />
       </div>
     );
@@ -157,10 +155,10 @@ class LandingPage extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    getCenters: state.centers.foundCenters,
-    getEvents: state.events.foundEvents
+    getCenters: state.centers.centers,
+    getEvents: state.events.events
   };
 }
 
@@ -173,8 +171,8 @@ function mapStateToProps(state, ownProps) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    getTrendingCenters: (centerData) => dispatch(userActions.getTrendingCenters(centerData)),
-    getPopularEvents: (eventData) => dispatch(userActions.getPopularEvents(eventData)),
+    getTrendingCenters: centerData => dispatch(userActions.getTrendingCenters(centerData)),
+    getPopularEvents: eventData => dispatch(userActions.getPopularEvents(eventData)),
     // singleCenter: (centerID) => dispatch(userActions.singleCenter(centerID))
 
   };

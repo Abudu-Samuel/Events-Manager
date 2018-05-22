@@ -28,7 +28,6 @@ class EditEvent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.getSingleEvent);
     if (nextProps.getSingleEvent) {
       this.setState({
         title: nextProps.getSingleEvent.event.title,
@@ -75,7 +74,6 @@ handleSubmit = (event) => {
 }
 
 render() {
-  console.log(this.state);
   return (
     this.state.redirect ?
       <Redirect to="/manage/events" /> :

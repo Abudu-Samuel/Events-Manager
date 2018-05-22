@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
+import { CircleLoader } from 'react-spinners';
 import PopularCenter from '../Event/PopularCenter';
 import TrendingCenters from '../Center/TrendingCenters';
 import LoggedInNavbar from '../common/LoggedInNavbar';
@@ -27,18 +28,30 @@ class Allevents extends React.Component {
     super(props);
     this.state = {
       user: null,
-      centers: [],
-      events: [],
+      centers: {
+        center: []
+      },
+      events: {
+        event: []
+      },
+      loading: false,
       fetchingCenters: false
     };
-    this.onPageDataChange = this.onPageDataChange.bind(this);
+    this.centerPaginate = this.centerPaginate.bind(this);
+    this.eventPaginate = this.eventPaginate.bind(this);
   }
 
-  onPageDataChange(pageData) {
+  centerPaginate(pageData) {
+    console.log(pageData)
     const nextCenterPage = pageData.selected + 1;
     this.props.getAllCenters(nextCenterPage);
-
   }
+
+  eventPaginate(pageData) {
+    const nextCenterPage = pageData.selected + 1;
+    this.props.getAllEvents(nextCenterPage);
+  }
+
   /**
    *@method componentWillMount
    *
@@ -65,16 +78,14 @@ class Allevents extends React.Component {
    * @memberof Allevents
    */
   componentWillReceiveProps(nextProps) {
-    console.log('<<<<<<<<', nextProps.getCenters)
-    console.log('<<<<<<<<', nextProps.getEvents)
-
+    console.log(typeof nextProps.getCenters, 'hi')
     if (nextProps.getCenters) {
-      this.setState({ centers: nextProps.getCenters, fetchingCenters: false });
+      this.setState({ centers: nextProps.getCenters, fetchingCenters: false, loading: true });
     } else {
       this.setState({ fetchingCenters: true });
     }
     if (nextProps.getEvents) {
-      this.setState({ events: nextProps.getEvents, fetchingEvents: false });
+      this.setState({ events: nextProps.getEvents, fetchingEvents: false, loading: true });
     } else {
       this.setState({ fetchingEvents: true });
     }
@@ -82,7 +93,6 @@ class Allevents extends React.Component {
 
   // getCenterId(event) {
   //   event.preventDefault();
-  //   console.log(event.target.dataset.centerid);
   // }
 
   /**
@@ -100,6 +110,10 @@ class Allevents extends React.Component {
         <LoggedInNavbar />
         <div className="container">
           <h2 className="font-weight-bold text-center">Events For You !</h2>
+          <CircleLoader
+            color={'#123abc'}
+            loading={this.state.loading}
+          />
           <div>
             <PopularCenter
               events =
@@ -109,8 +123,8 @@ class Allevents extends React.Component {
               nextLabel="Next"
               breakLabel={<a href="">...</a>}
               breakClassName="page-link"
-              onPageChange={this.onPageDataChange}
-              pageCount={this.props.pages}
+              onPageChange={this.eventPaginate}
+              pageCount={Number(this.props.eventPage)}
               containerClassName="pagination pagination-lg custom-pagination"
               pageLinkClassName="page-link"
               nextLinkClassName="page-link"
@@ -130,15 +144,15 @@ class Allevents extends React.Component {
                 {this.state.centers}
 
             /* getCenterId = {this.getCenterId} */
-            
+
             />
             <ReactPaginate
               previousLabel="Previous"
               nextLabel="Next"
               breakLabel={<a href="">...</a>}
               breakClassName="page-link"
-              onPageChange={this.onPageDataChange}
-              pageCount={this.props.pages}
+              onPageChange={this.centerPaginate}
+              pageCount={Number(this.props.centerPage)}
               containerClassName="pagination pagination-lg custom-pagination"
               pageLinkClassName="page-link"
               nextLinkClassName="page-link"
@@ -151,7 +165,7 @@ class Allevents extends React.Component {
               subContainerClassName="pages pagination"
             />
           </div>
-          
+
         </div>
         <Footer />
       </div>
@@ -168,12 +182,12 @@ class Allevents extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapStateToProps(state, ownProps) {
-  console.log('the state', state.events)
+function mapStateToProps(state) {
   return {
-    getCenters: state.centers.center,
-    getEvents: state.events.event,
-    pages: state.centers.pages
+    getCenters: state.centers.centers,
+    getEvents: state.events.events,
+    centerPage: state.centers.centerPage,
+    eventPage: state.events.eventPage
   };
 }
 

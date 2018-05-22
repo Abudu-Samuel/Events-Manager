@@ -12,6 +12,7 @@ const AdminForm = ({
   price,
   state,
   description,
+  imgPreviewSrc,
   image,
   isAvailable,
   redirect,
@@ -72,16 +73,20 @@ const AdminForm = ({
           <label htmlFor="orangeForm-name">Price</label>
         </div>
       </div>
-      <div className="col-md-12">
+      <div className="col-md-6">
         <div className="md-form">
           <i className="fa fa-camera prefix teal-text" />
           <div className="file-field lab">
-            <div className="btn btn-mycolor mt-5 ml-3  btn-sm">
-              <input type="file" name="image" onChange={handleUpload} />
+            <div className="file-field lab">
+              <div className="card prev file-path-wrapper" style={{ width: 390, marginLeft: 45 }}>
+                {
+                  imgPreviewSrc ? <img className="img-fluid hoverable max" id="img-preview" src={imgPreviewSrc} alt="Card image cap" /> :
+                    <img className="img-fluid hoverable max" id="img-preview" src="http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg" alt="Card image cap" />
+                }
+              </div>
             </div>
-            <div className="file-path-wrapper">
-              <label className="mb-5 ml-5" htmlFor="orangeForm-name">Image</label>
-
+            <div className="btn btn-mycolor mt-5 ml-3  btn-sm len" style={{ width: 390 }}>
+              <input type="file" name="image" onChange={handleUpload} />
             </div>
           </div>
         </div>

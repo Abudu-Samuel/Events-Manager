@@ -9,8 +9,16 @@ const initialState = {
   },
   popularEvent: [],
   allEvents: [],
-  addEvent: ''
-
+  addEvent: '',
+  upcomingEventsData: {
+    message: '',
+    pagination: {},
+    upcomingEvent: []
+  },
+  eventPage: '',
+  events: {
+    event: []
+  },
 };
 
 const eventAccess = (state = initialState, action = {}) => {
@@ -23,12 +31,12 @@ const eventAccess = (state = initialState, action = {}) => {
       userEvents: state.userEvents.filter(event => event.id !== action.eventData.eventFound.id)
     });
   case types.GET_USER_EVENTS:
-    // return {
-    //   ...state, ...action.eventData
-    // };
-    return Object.assign({}, state, {
+    return {
+      ...state,
+      ...action.eventData,
       userEvents: action.eventData
-    });
+    };
+
   case types.GET_SINGLE_EVENT:
     return (Object.assign(
       {},
@@ -39,14 +47,22 @@ const eventAccess = (state = initialState, action = {}) => {
     return {
       ...state, ...action.eventData
     };
+  case types.GET_SLATED_EVENT:
+    return {
+      ...state,
+      upcomingEventsData: action.eventData,
+      eventPage: action.eventData.pagination.pages
+    };
   case types.GET_POPULAR_EVENTS:
     return {
-      ...state, ...action.eventData
+      ...state,
+      events: action.eventData,
     };
   case types.GET_ALL_EVENTS:
     return {
-      ...state, ...action.eventData,
-    // pages: action.eData.pages
+      ...state,
+      events: action.eventData,
+      eventPage: action.eventData.pagination.pages
     };
   case types.ADD_EVENT:
     return {
