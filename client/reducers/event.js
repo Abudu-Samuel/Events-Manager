@@ -28,13 +28,15 @@ const eventAccess = (state = initialState, action = {}) => {
     //   ...state, ...action.eventData
     // };
     return Object.assign({}, state, {
-      userEvents: state.userEvents.filter(event => event.id !== action.eventData.eventFound.id)
+      userEvents: {
+        event: state.userEvents.event.filter(event => event.id !== action.eventData.eventFound.id)
+      }
     });
   case types.GET_USER_EVENTS:
     return {
       ...state,
-      ...action.eventData,
-      userEvents: action.eventData
+      userEvents: action.eventData,
+      eventPage: action.eventData.pagination.pages
     };
 
   case types.GET_SINGLE_EVENT:

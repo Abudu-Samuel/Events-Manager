@@ -18,6 +18,30 @@ $main-color: #00695c;
   background-size: cover;
 }
 
+.navbar-dark .navbar-brand {
+  color: $main-color
+  }
+
+.navbar-toggler {
+  background: $main-color
+  }
+
+  .navbar-dark .navbar-brand:hover {
+    color: $main-color
+    }
+
+  .navbar.navbar-dark .breadcrumb .nav-item .nav-link, .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+    color: $main-color;
+    -webkit-transition: .35s;
+    transition: .35s;
+    }
+
+    .navbar.navbar-dark .breadcrumb .nav-item .nav-link, .navbar.navbar-dark .navbar-nav .nav-item .nav-link:hover {
+      color: $main-color;
+      -webkit-transition: .35s;
+      transition: .35s;
+      }
+
 .map-container {
   height: 350px;
 }
@@ -49,7 +73,7 @@ ul {
     margin-top: 100px;
   }
   .navbar {
-    background: $main-color;
+    background: $primary-color;
   }
 }
 
@@ -57,7 +81,7 @@ ul {
 
 @media (max-width: 768px) and (max-width: 991px) {
   .navbar {
-    background: $main-color;
+    background: $primary-color;
   }
 }
 
@@ -88,6 +112,19 @@ ul {
   .custom-file-input {
     min-width: 25rem;
   }
+  .not-found {
+    border-style: none;
+    justify-content: center;
+    margin-top: 108px;
+  }
+  .bab {
+    height: 23em;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    color: $main-color;
+    justify-content: center 
+  }
 }
 
 .test {
@@ -109,7 +146,7 @@ ul {
 }
 
 .navbar {
-  background: $main-color;
+  background: $primary-color;
 }
 
 .footer-color {
@@ -207,6 +244,12 @@ a {
   width: 100%
 }
 
+.len-center {
+  margin-left: 46px !important;
+  margin-top: 9px !important;
+  width: 100%
+}
+
 .min-image {
   max-height: 220px;
   width: 100%;
@@ -217,6 +260,12 @@ a {
   background: $error-back;
   color: $error-color;
   margin-left: 47px;
+}
+
+.page-404 {
+margin-top: -10px;
+font-size: 90px;
+color: $main-color;
 }
 
 .pagination {
@@ -284,3 +333,8 @@ a {
   background: $primary-color;
   color: $main-color;
 }
+
+.adj {
+  text-align: center
+}
+

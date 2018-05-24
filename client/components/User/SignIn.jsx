@@ -2,6 +2,7 @@ import React from 'react';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import { connect } from 'react-redux';
 import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
@@ -85,7 +86,7 @@ class Signin extends React.Component {
             history.push('/dashboard');
           }
           if (tokenData.isAdmin) {
-            history.push('/addcenter');
+            history.push('/admin/dashboard');
           }
         })
         .catch((error) => {

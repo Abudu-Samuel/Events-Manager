@@ -15,7 +15,9 @@ import UserEvent from './components/Event/UserEvent';
 import EditEvent from './components/Event/EditEvent';
 import UserCenter from './components/Center/UserCenter';
 import EditCenter from './components/Center/EditCenter';
+import Dashboard from './components/Center/Dashboard';
 import RouteProtector from './components/Hoc/RouteProtector';
+import NotFoundPage from './components/common/NotFoundPage';
 
 
 export default () => (
@@ -29,12 +31,14 @@ export default () => (
       <Route exact path="/center/:centerId/addevent" component={AddEvent}/>
       <Route exact path="/addcenter" component={RouteProtector(AddCenter)}/>
       <Route exact path="/events/:eventId" component={EventDetails}/>
+      <Route path="/admin/dashboard" component={Dashboard}/>
       <Route path="/centers/:centerId" component={CenterDetails}/>
       <Route exact path="/allcenters/" component={TrendingCenters}/>
       <Route exact path="/manage/center/" component={RouteProtector(UserCenter)}/>
       <Route exact path="/allevents/" component={PopularCenter}/>
       <Route exact path="/manage/events/" component={UserEvent}/>
       <Route exact path="/events/:eventId/edit" component={EditEvent}/>
+      <Route exact component={NotFoundPage}/>
     </Switch>
   </Router>
 );
