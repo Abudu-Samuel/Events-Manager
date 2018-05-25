@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Event from '../Event/Event';
-
 /**
  * creates Navbar component
  * @returns {funct} Popular Center
@@ -54,21 +52,60 @@ const CenterInfo = ({
                       <div className="col-md-4">
                         <p><img src="img/svg/restaurant-table-and-chairs.svg" alt="" /> Tables & chairs</p>
                       </div>
-                      <div className="col-md-4">
+                      {/* <div className="col-md-4">
                         <p><img src="img/svg/minisplit.svg" alt="" /> Air-conditioner</p>
                       </div>
                       <div className="col-md-4">
                         <p><img src="img/svg/parked-car.svg" alt="" /> Parking space</p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
                 <hr />
-                <div className="row">
-                  <div className="col-md-2">
-                    <h6>Charges</h6>
+                <button className="btn btn-mycolor btn-sm" type="button" data-toggle="collapse"
+                  data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  View Booked Dates
+                </button>
+
+                <div className="mb-4">
+                  <div className="collapse" id="collapseExample">
+                    <div className="">
+                      {
+                        upcomingEventsData.upcomingEvent.length > 0 ?
+                          <table className="table">
+                            <thead className="table-color">
+                              <tr className="text-white">
+                                <th>#</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                              </tr>
+                            </thead>
+                            {
+                              upcomingEventsData.upcomingEvent.map(event => (console.log('length', upcomingEventsData.upcomingEvent.length),
+                              <tbody key={event.id}>
+                                <tr>
+                                  <th scope="row">{event.id}</th>
+                                  <td>Aprroved <span className="badge badge-default"><i className="fa fa-check" style={{ marginTop: 1, marginBottom: 1 }} aria-hidden="true" /></span></td>
+                                  <td>{event.date}</td>
+                                  <td>{event.type}</td>
+                                </tr>
+                              </tbody>
+                              ))
+                            }
+                          </table> : <h5 className="mt-3">No Date has been booked for this Center!</h5>
+                      }
+
+                    </div>
                   </div>
-                  <div className="col-md-10">
+                </div>
+
+
+                {/* <div className="row">
+                  <div className="col-md-12">
+                    <h6>Booked Dates</h6>
+                  </div>
+                  <div className="col-md-8">
                     <div className="row">
                       <div className="col-md-6">
                         <h6><strong>Tax</strong></h6>
@@ -80,7 +117,16 @@ const CenterInfo = ({
                       </div>
                     </div>
                   </div>
-                </div>
+                  <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-target
+                  </button>
+                  <div className="collapse" id="collapseExample">
+                    <div className="mt-3">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
+                  </div>
+                </div> */}
               </div>
             </div>
           </section>
@@ -101,7 +147,6 @@ const CenterInfo = ({
                               event.description.split('').length > 20 ? `${event.description.slice(0, 54)}...` : event.description
                             }
                           </p>
-                          <p className="card-text">Date: {event.date}</p>
                           <button
                             className="btn btn-mycolor btn-sm"
                             data-centerid={event.id}

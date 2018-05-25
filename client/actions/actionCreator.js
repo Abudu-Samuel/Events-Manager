@@ -282,12 +282,7 @@ export const singleCenterAction = centerData => ({
 });
 
 export const singleCenter = centerid => dispatch =>
-  axios.get(`/api/v1/centers/center/${centerid}`, {
-    headers:
-    {
-      'x-access-token': localStorage.getItem('x-access-token')
-    }
-  })
+  axios.get(`/api/v1/centers/center/${centerid}`)
     .then((response) => {
       dispatch(singleCenterAction(response.data));
     })
@@ -301,12 +296,7 @@ export const singleEventAction = eventData => ({
 });
 
 export const singleEvent = eventId => dispatch =>
-  axios.get(`/api/v1/events/event/${eventId}`, {
-    headers:
-    {
-      'x-access-token': localStorage.getItem('x-access-token')
-    }
-  })
+  axios.get(`/api/v1/events/event/${eventId}`)
     .then((response) => {
       dispatch(singleEventAction(response.data));
     })

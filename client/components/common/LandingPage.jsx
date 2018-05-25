@@ -112,7 +112,7 @@ class LandingPage extends React.Component {
   getEventId(event) {
     event.preventDefault();
     this.setState({
-      eventid: parseInt(event.target.dataset.centerid, 10)
+      eventid: parseInt(event.target.data, 10)
     });
   }
 
