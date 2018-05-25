@@ -28,7 +28,8 @@ class UserEvent extends React.Component {
     if (nextProps.getUserEvents && nextProps.getUserEvents.length > 0) {
       this.setState({
         events: nextProps.getUserEvents,
-        fetchingCenter: false
+        fetchingCenter: false,
+        noEvent: false
       });
     } else {
       this.setState({
@@ -47,21 +48,21 @@ class UserEvent extends React.Component {
     this.setState({
       centerid: parseInt(event, 10)
     });
-    this.props.deleteEvent(event);
     swal({
       title: 'Are you sure?',
-      text: 'Once deleted, you will not be able to recover this imaginary file!',
+      text: 'Once deleted, you will not be able to recover this Event!',
       icon: 'warning',
       buttons: true,
       dangerMode: true,
     })
       .then((willDelete) => {
         if (willDelete) {
-          swal('Poof! Your imaginary file has been deleted!', {
-            icon: 'success',
-          });
+          this.props.deleteEvent(event);
         } else {
-          swal('Your imaginary file is safe!');
+          swal({
+            icon: 'success',
+            text: 'Your Event is safe!'
+          });
         }
       });
   }
@@ -104,24 +105,27 @@ class UserEvent extends React.Component {
               </div>
             </div>
         }
-        <ReactPaginate
-              previousLabel="Previous"
-              nextLabel="Next"
-              breakLabel={<a href="">...</a>}
-              breakClassName="page-link"
-              onPageChange={this.eventPaginate}
-              // pageCount={this.props.eventPage}
-              containerClassName="pagination pagination-lg custom-pagination"
-              pageLinkClassName="page-link"
-              nextLinkClassName="page-link"
-              previousLinkClassName="page-link"
-              disabledClassName="disabled"
-              pageClassName="page-item"
-              previousClassName="page-item"
-              nextClassName="page-item"
-              activeClassName="active"
-              subContainerClassName="pages pagination"
-            />
+        {
+          this.state.noEvent ? null :
+          <ReactPaginate
+          previousLabel="Previous"
+          nextLabel="Next"
+          breakLabel={<a href="">...</a>}
+          breakClassName="page-link"
+          onPageChange={this.eventPaginate}
+          pageCount={Number(this.props.eventPage)}
+          containerClassName="pagination pagination-lg custom-pagination"
+          pageLinkClassName="page-link"
+          nextLinkClassName="page-link"
+          previousLinkClassName="page-link"
+          disabledClassName="disabled"
+          pageClassName="page-item"
+          previousClassName="page-item"
+          nextClassName="page-item"
+          activeClassName="active"
+          subContainerClassName="pages pagination"
+        />
+        }
       </div>
     );
   }
@@ -129,8 +133,8 @@ class UserEvent extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    getUserEvents: state.events.userEvents,
-    // eventPage: state.events.eventPage
+    getUserEvents: state.events.userEvents.event,
+    eventPage: state.events.eventPage
   };
 }
 

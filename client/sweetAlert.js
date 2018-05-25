@@ -24,12 +24,15 @@ const addEventSuccess = () => {
   swal('Event Added', '', 'success');
 };
 
+const successPrompter = (message) => {
+  swal(message);
+};
 export {
   logInSuccess,
   signUpSuccess,
   editEventSuccess,
   editCenterSuccess,
   addCenterSuccess,
-  addEventSuccess
-
+  addEventSuccess,
+  successPrompter,
 };

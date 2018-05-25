@@ -11,7 +11,9 @@ class UserCenter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      centers: [],
+      centers: {
+        center: []
+      },
       noCenter: false,
       centerid: '',
       fetchingCenter: false
@@ -29,7 +31,7 @@ class UserCenter extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.getUserCenters && nextProps.getUserCenters.length > 0) {
+    if (nextProps.getUserCenters) {
       this.setState({
         centers: nextProps.getUserCenters,
         fetchingCenter: false
@@ -58,7 +60,7 @@ class UserCenter extends React.Component {
           <div className="container space">
             <div className="row">
               <SideBar />
-              <div className="col-md-8">
+              <div className="col-md-8" style={{ marginTop: 19 }}>
                 <div className="z-depth-1-half">
                   <div className="container adm z-depth-1-half">
                     <div className="adm ">
@@ -69,7 +71,7 @@ class UserCenter extends React.Component {
                   </div>
                   <div className="row mb-4">
                     {
-                      centers.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
+                      centers.center.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
                         <div className="card text-center">
                           <img className="img-fluid hoverable img-view" src={center.image} alt="Card image cap" />
                           <div className="card-body">
@@ -123,7 +125,7 @@ class UserCenter extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    getUserCenters: state.centers.center,
+    getUserCenters: state.centers.centers,
     centerPage: state.centers.centerPage
 
   };

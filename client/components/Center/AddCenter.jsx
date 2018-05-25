@@ -136,13 +136,18 @@ class AddCenter extends React.Component {
           <div>
             <Navbar />
             <div className="space">
-              <div className="container">
+              <div className="container space">
                 <div className="row">
                   <SideBar />
-                  <div className="col-md-8">
-                    <div className="">
+                  <div className="col-md-8" style={{ marginTop: 19 }}>
                       <div className="container z-depth-1-half">
-                        <h5 className="font-weight-bold teal-text text-center">Add Event Center</h5>
+                      <div className="container adm z-depth-1-half">
+                    <div className="adm ">
+                      <br />
+                      <h5 className="font-weight-bold white-text text-center">Add Center</h5>
+                      <hr />
+                    </div>
+                  </div>
                         <AdminForm
                           handleChange={this.handleChange}
                           handleSubmit={this.handleSubmit}
@@ -160,7 +165,6 @@ class AddCenter extends React.Component {
                           isAvailable={this.state.isAvailable}
                         />
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>

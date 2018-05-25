@@ -273,7 +273,7 @@ class Event {
  * @memberof Event
  */
   static getAllEvents(req, res) {
-    const limit = 2;
+    const limit = 6;
     let offset = 0;
     let { page } = req.query;
     page = Number(page);
@@ -329,7 +329,7 @@ class Event {
  * @memberof Event
  */
   static getUserEvent(req, res) {
-    const limit = 1;
+    const limit = 3;
     let offset = 0;
     const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
     let { page } = req.query;

@@ -78,7 +78,6 @@ class Allevents extends React.Component {
    * @memberof Allevents
    */
   componentWillReceiveProps(nextProps) {
-    console.log(typeof nextProps.getCenters, 'hi')
     if (nextProps.getCenters) {
       this.setState({ centers: nextProps.getCenters, fetchingCenters: false, loading: true });
     } else {

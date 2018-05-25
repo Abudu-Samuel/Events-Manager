@@ -7,7 +7,8 @@ import {
   editEventSuccess,
   editCenterSuccess,
   addCenterSuccess,
-  addEventSuccess
+  addEventSuccess,
+  successPrompter,
 } from '../sweetAlert';
 
 /**
@@ -365,7 +366,7 @@ export const userEvents = page => dispatch =>
     }
   })
     .then((response) => {
-      dispatch(userEventsAction(response.data.event));
+      dispatch(userEventsAction(response.data));
     })
     .catch((error) => {
       throw (error);
@@ -377,13 +378,14 @@ export const deleteEventAction = eventData => ({
 });
 
 export const deleteEvent = eventid => dispatch =>
-  axios.delete(`/api/v1/events/${eventid}`, {
+  axios.delete(`/api/v1/events/event/${eventid}`, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
       dispatch(deleteEventAction(response.data));
+      successPrompter('Your event has been deleted successfully');
     })
     .catch((error) => {
       throw (error);
