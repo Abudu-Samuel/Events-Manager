@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
 
@@ -71,14 +71,14 @@ class UserEvent extends React.Component {
     const { events } = this.state;
     return (
       <div className="space">
-        <LoggedInNavbar />
+        <Navbar />
         {
           this.state.noEvent ? <div className="space text-center">
             <i className="fa fa-exclamation-triangle fad" />
-            <h5 className="font-weight-bold grey-text">No Event to display. Add to make your Event go live</h5>
+            <h5 className="font-weight-bold">No Event to display. Add to make your Event go live</h5>
           </div> :
-            <div className="container">
-              <h2 className="mb-3 font-weight-bold grey-text text-center">My Events</h2>
+            <div className="container" style={{ marginTop: 99 }}>
+              <h2 className="mt-3 font-weight-bold text-center">My Events</h2>
               <div className="row">
                 {
                   events.map((event, key) => (
@@ -87,9 +87,9 @@ class UserEvent extends React.Component {
                       <div className="card">
                         <img className="img-fluid hoverable max" src={event.image} alt="Card image cap" />
                         <div className="card-body">
-                          <h6 className="grey-text"><i className="fa fa-clock-o grey-text mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
+                          <h6 className=""><i className="fa fa-clock-o mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
                           <h4 className="card-title pt-1 text-center">{event.title}</h4>
-                          <h6 className="grey-text" style={{ textAlign: 'center' }}>Created: {event.createdAt.slice(0, 10)}</h6>
+                          <h6 className="" style={{ textAlign: 'center' }}>Created: {event.createdAt.slice(0, 10)}</h6>
 
                           <div style={{ textAlign: 'center' }}>
                             <button className="btn btn-default btn-sm"><Link to={`/events/${event.id}/edit`}>Edit</Link></button>

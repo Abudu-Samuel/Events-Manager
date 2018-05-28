@@ -50,9 +50,8 @@ class User {
             isAdmin,
             password: bcrypt.hashSync(password, 10),
           })
-          .then(register => res.status(201).send({
-            responseData: {
-              message: 'Account Created',
+          .then((register) => {
+            const responseData = {
               id: register.id,
               username: register.username,
               email: register.email,
@@ -60,8 +59,14 @@ class User {
               lastname: register.lastname,
               updatedAt: register.updatedAt,
               createdAt: register.createdAt,
-            }
-          }))
+            };
+            const token = Token.generateToken(responseData);
+            res.status(201).send({
+              message: 'Account Created',
+              responseData,
+              token
+            });
+          })
           .catch(error => res.status(500).send({
             message: error.errors[0].message
           }));

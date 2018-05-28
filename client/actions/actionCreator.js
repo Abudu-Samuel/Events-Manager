@@ -1,5 +1,6 @@
 import axios from 'axios';
 // import { Redirect } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 import * as types from '../actionTypes/index';
 import {
   logInSuccess,
@@ -26,14 +27,15 @@ export const signInAction = userData => ({
 });
 
 export const logOutAction = userData => ({
-  types: types.LOG_OUT,
+  type: types.LOG_OUT,
   userData
 });
 
 export const logout = () => (dispatch) => {
-    localStorage.removeItem('x-access-token');
-    dispatch(logOutAction({}));
-  };
+  console.log('===============');
+  localStorage.removeItem('x-access-token');
+  dispatch(logOutAction({}));
+};
 
 /**
  * @export signIn
@@ -47,7 +49,9 @@ export const logout = () => (dispatch) => {
 export const signIn = userData => dispatch =>
   axios.post('/api/v1/users/login', userData)
     .then((response) => {
-      dispatch(signInAction(response.data));
+      console.log('-----------------``````````````dddd');
+      dispatch(signInAction(jwt.decode(response.data.token)));
+      console.log('-----------------````````````````afterxx``');
       window.localStorage.setItem('x-access-token', response.data.token);
       // if(jwt.decode(response.data.token).isAdmin) {
       //   <Redirect to ='' />
@@ -88,6 +92,7 @@ export const signUp = userData => dispatch =>
   axios.post('/api/v1/users/', userData)
     .then((response) => {
       dispatch(signUpAction(response.data));
+      window.localStorage.setItem('x-access-token', response.data.token);
       signUpSuccess();
     })
     .catch((error) => {
@@ -304,14 +309,12 @@ export const singleEvent = eventId => dispatch =>
       throw (error);
     });
 
-    export const slatedEventAction = eventData => {
-        return { 
-      type: types.GET_SLATED_EVENT,
-      eventData
-    }
-  };
+export const slatedEventAction = eventData => ({
+  type: types.GET_SLATED_EVENT,
+  eventData
+});
 
-    export const slatedEvent = (eventId, page) => dispatch =>
+export const slatedEvent = (eventId, page) => dispatch =>
   axios.get(`/api/v1/events/center/${eventId}?page=${page}`, {
     headers:
     {

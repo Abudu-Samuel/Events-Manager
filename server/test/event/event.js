@@ -43,7 +43,6 @@ describe('Events Manager', () => {
       image: 'image.com',
       description: 'lorem'
     };
-
     request(app)
       .post('/api/v1/events')
       .set('x-access-token', userToken)

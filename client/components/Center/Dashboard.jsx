@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 import SideBar from '../common/SideBar';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
 
@@ -72,7 +72,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="space">
-        <LoggedInNavbar />
         <main>
           <div className="container space">
             <div className="row">

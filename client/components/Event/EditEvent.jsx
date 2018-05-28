@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+import Navbar from '../common/Navbar';
 import Form from '../common/forms/Form';
 import * as userActions from '../../actions/actionCreator';
 
@@ -78,7 +78,7 @@ render() {
     this.state.redirect ?
       <Redirect to="/manage/events" /> :
       <div className="space">
-        <LoggedInNavbar />
+        <Navbar />
         <div className="container add">
           <section>
             <h4 className="font-weight-bold text-center">Edit Event</h4>

@@ -7,7 +7,7 @@ const EventDetails = ({
 }) => (
   <div>
     <div className="space">
-      <div className="container">
+      <div className="container" style={{ marginTop: 99 }}>
         <h2 className="mb-5 font-weight-bold  text-center">{event.title}</h2>
         <div className="row">
           <div className="col-xl-6 mb-4">

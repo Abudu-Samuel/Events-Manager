@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+import Navbar from '../common/Navbar';
 
 
 const TrendingCenter = ({
@@ -8,7 +8,7 @@ const TrendingCenter = ({
   getCenterId,
 }) => (
   <div className="container">
-    <LoggedInNavbar />
+    <Navbar />
     <section id="popular centers">
       <h2 className="mb-3 slot font-weight-bold text-center">Latest Centers</h2>
       <div className="row mb-4">

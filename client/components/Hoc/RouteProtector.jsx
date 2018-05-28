@@ -19,7 +19,6 @@ const RouteProtector = WrappedComponent => class RouteProtectorClass extends Rea
    */
   componentWillMount() {
     const decoded = jwt.decode(localStorage.getItem('x-access-token'));
-    console.log('*****', decoded)
     if (decoded) {
       return this.setState({
         redirect: false

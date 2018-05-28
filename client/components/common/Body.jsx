@@ -36,6 +36,10 @@ const Body = () => (
                       <button className="btn btn-lg btn-mycolor">Search</button>
                     </div>
                   </div>
+                  <div style={{ margin: '0px auto' }}>
+                    <img className="img-fluid" style={{ height: 50, bottom: -200 }} src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png" />
+
+                  </div>
                 </div>
               </li>
             </ul>

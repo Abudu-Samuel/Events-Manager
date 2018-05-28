@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+import Navbar from '../common/Navbar';
 import SideBar from '../common/SideBar';
 import * as userActions from '../../actions/actionCreator';
 
@@ -55,7 +55,7 @@ class UserCenter extends React.Component {
     const { centers } = this.state;
     return (
       <div>
-        <LoggedInNavbar />
+        <Navbar />
         <main>
           <div className="container space">
             <div className="row">
