@@ -10,7 +10,7 @@ $error-back: #ffdce0;
 $main-color: #00695c;
 
 #intro {
-  height: 725.9px;
+  min-height: 100vh;
   background: url("https://static.pexels.com/photos/382297/pexels-photo-382297.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -29,6 +29,13 @@ $main-color: #00695c;
   .navbar-dark .navbar-brand:hover {
     color: $main-color
     }
+
+   .navbar .dropdown-menu a {
+      font-size: .9375rem;
+      font-weight: 300;
+      padding: 10px;
+      color: $main-color !important;
+  }
 
   .navbar.navbar-dark .breadcrumb .nav-item .nav-link, .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
     color: $main-color;

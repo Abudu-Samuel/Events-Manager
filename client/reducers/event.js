@@ -12,6 +12,7 @@ const initialState = {
   addEvent: '',
   upcomingEventsData: {
     message: '',
+    centerId: '',
     pagination: {},
     upcomingEvent: []
   },

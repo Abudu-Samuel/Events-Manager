@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import { connect } from 'react-redux';
 import Navbar from '../common/Navbar';
+import decodeToken from '../../decodeToken';
 import * as userActions from '../../actions/actionCreator';
 import history from '../../history';
 import { validateSignin } from '../Utils/Validator';
@@ -47,6 +48,18 @@ class Signin extends React.Component {
       errors: {}
     };
   }
+
+  componentWillMount() {
+    if (this.props.userData.isAuthenticated) {
+      if (decodeToken()) {
+        history.push('/admin/dashboard');
+      }
+      if (!decodeToken()) {
+        history.push('/dashboard');
+      }
+    }
+  }
+
   /**
    * @method handleChange
    *
@@ -83,6 +96,7 @@ class Signin extends React.Component {
           });
           const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
           if (!tokenData.isAdmin) {
+            console.log('hey u', !tokenData.isAdmin);
             history.push('/dashboard');
           }
           if (tokenData.isAdmin) {
@@ -130,12 +144,11 @@ class Signin extends React.Component {
     const { errors } = this.state;
     return (
       <div>
-        <Navbar />
         <div id="intro" className="view hm-black-strong">
           <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
             <form onSubmit={this.handleSubmit} className="signup z-depth-1-half test mb-6">
               <h3 className="text-center mt-5 teal-text font-weight-bold">
-              Sign In
+                Sign In
               </h3>
               <div className="md-form">
                 <i className="fa fa-user prefix teal-text" />
@@ -149,7 +162,7 @@ class Signin extends React.Component {
                 <label className="teal-text" htmlFor="orangeForm-name">Username</label>
                 <p className="text-center error-msg">
                   {
-                    errors.username && <span>{ errors.username }</span>
+                    errors.username && <span>{errors.username}</span>
                   }
                 </p>
               </div>
@@ -165,7 +178,7 @@ class Signin extends React.Component {
                 <label className="teal-text" htmlFor="orangeForm-pass">Password</label>
                 <p className="text-center error-msg">
                   {
-                    errors.password && <span>{ errors.password }</span>
+                    errors.password && <span>{errors.password}</span>
                   }
                 </p>
               </div>
@@ -200,10 +213,14 @@ Signin.propTypes = {
   userSignIn: PropTypes.func
 };
 
+const mapStateToProps = state => ({
+  userData: state.userAccess
+});
+
 const mapDispatchToProps = dispatch => ({
   userSignIn: userData => dispatch(userActions.signIn(userData))
 });
 
-const signReducer = connect(null, mapDispatchToProps)(Signin);
+const signReducer = connect(mapStateToProps, mapDispatchToProps)(Signin);
 
 export default signReducer;

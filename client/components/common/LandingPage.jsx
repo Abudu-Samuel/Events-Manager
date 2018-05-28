@@ -6,6 +6,8 @@ import Body from '../common/Body';
 import TrendingCenter from '../Center/TrendingCenters';
 import PopularCenter from '../Event/PopularCenter';
 import Footer from '../common/Footer';
+import decodeToken from '../../decodeToken';
+import history from '../../history';
 import '../../../public/css/style.scss';
 import * as userActions from '../../actions/actionCreator';
 
@@ -42,6 +44,18 @@ class LandingPage extends React.Component {
     this.getCenterId = this.getCenterId.bind(this);
     this.getEventId = this.getEventId.bind(this);
   }
+
+  componentWillMount() {
+    if (this.props.userData.isAuthenticated) {
+      if (decodeToken()) {
+        history.push('/admin/dashboard');
+      }
+      if (!decodeToken()) {
+        history.push('/dashboard');
+      }
+    }
+  }
+
   /**
    * @method componentDidMount
    *
@@ -158,7 +172,8 @@ class LandingPage extends React.Component {
 function mapStateToProps(state) {
   return {
     getCenters: state.centers.centers,
-    getEvents: state.events.events
+    getEvents: state.events.events,
+    userData: state.userAccess
   };
 }
 

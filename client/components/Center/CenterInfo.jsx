@@ -17,7 +17,7 @@ const CenterInfo = ({
         <h5>No center info to display</h5> :
         <div>
           <section>
-            <div className="row">
+            <div className="row" style={{ marginTop: 99 }}>
               <div className="col-xl-6 mb-4">
                 <img className="img-fluid" src={center.image} alt="Card image cap" />
               </div>

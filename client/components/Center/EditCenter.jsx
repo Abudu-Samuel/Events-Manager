@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+import Navbar from '../common/Navbar';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
 import * as userActions from '../../actions/actionCreator';
@@ -111,9 +111,9 @@ handleSubmit = (event) => {
 render() {
   return (
     this.state.redirect ?
-      <Redirect to="/manage/center" /> :
+      <Redirect to="/manage/centers" /> :
       <div>
-        <LoggedInNavbar />
+        <Navbar />
         <div className="space">
           <div className="container">
             <div className="row">

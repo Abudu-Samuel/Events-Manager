@@ -67,8 +67,9 @@ class CenterDetails extends React.Component {
   }
 
   eventPaginate(pageData) {
+    const { centerId } = this.props.match.params;
     const nextEventPage = pageData.selected + 1;
-    this.props.getSlatedEvents(nextEventPage);
+    this.props.slatedEvent(centerId, nextEventPage);
   }
 
   /**

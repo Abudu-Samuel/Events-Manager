@@ -1,7 +1,8 @@
 import * as types from '../actionTypes/index';
 
 const defaultState = {
-  isAuthenticated: !!localStorage.getItem('x-access-token')
+  isAuthenticated: false,
+  userData: {}
 };
 
 const userAccess = (state = defaultState, action) => {
@@ -10,7 +11,7 @@ const userAccess = (state = defaultState, action) => {
     return {
       ...state,
       isAuthenticated: true,
-      ...action.userData.token
+      userData: action.userData
     };
   case types.LOG_OUT:
     return {

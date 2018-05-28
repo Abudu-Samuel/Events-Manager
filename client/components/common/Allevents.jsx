@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
-import { CircleLoader } from 'react-spinners';
+// import { CircleLoader } from 'react-spinners';
 import PopularCenter from '../Event/PopularCenter';
 import TrendingCenters from '../Center/TrendingCenters';
-import LoggedInNavbar from '../common/LoggedInNavbar';
+// import Navbar from '../common/Navbar';
 import Footer from '../common/Footer';
 import * as userActions from '../../actions/actionCreator';
 
@@ -106,13 +106,12 @@ class Allevents extends React.Component {
   render() {
     return (
       <div className="space">
-        <LoggedInNavbar />
-        <div className="container">
-          <h2 className="font-weight-bold text-center">Events For You !</h2>
-          <CircleLoader
+        <div className="container" style={{ marginTop: 99 }}>
+          <h3 className="font-weight-bold">Welcome to Events Manager</h3>
+          {/* <CircleLoader
             color={'#123abc'}
             loading={this.state.loading}
-          />
+          /> */}
           <div>
             <PopularCenter
               events =

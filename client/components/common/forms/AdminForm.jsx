@@ -85,7 +85,7 @@ const AdminForm = ({
                 }
               </div>
             </div>
-            <div className="btn btn-mycolor mt-5 ml-3  btn-sm len-center" style={{ width: 390}}>
+            <div className="btn btn-mycolor fuvk mt-5 ml-3  btn-sm len-center" style={{ width: 390 }}>
               <input type="file" name="image" onChange={handleUpload} />
             </div>
           </div>
