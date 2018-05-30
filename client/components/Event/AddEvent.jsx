@@ -5,6 +5,7 @@ import axios from 'axios';
 import Navbar from '../common/Navbar';
 import Footer from '../common/Footer';
 import Form from '../common/forms/Form';
+import { validateEvent } from '../Utils/Validator';
 
 import * as userActions from '../../actions/actionCreator';
 
@@ -25,6 +26,7 @@ class AddEvent extends React.Component {
       image: '',
       imgPreviewSrc: '',
       errorStatus: false,
+      errors: {},
       redirect: false,
       editing: false
     };
@@ -68,6 +70,11 @@ class AddEvent extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const validationErrors = validateEvent(this.state).errors;
+    if (Object.keys(validationErrors).length > 0) {
+      this.setState({ errors: validationErrors });
+      return;
+    }
     this.setState({
       errorMessage: '',
       errorStatus: false
@@ -109,6 +116,7 @@ class AddEvent extends React.Component {
                   handleChange={this.handleChange}
                   handleUpload={this.handleUpload}
                   errorStatus={this.state.errorStatus}
+                  errors={this.state.errors}
                   errorMessage={this.state.errorMessage}
                   editing={this.state.editing}
                   title={this.state.title}

@@ -52,7 +52,6 @@
         "axios": "^0.17.1",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
-        "redux-logger": "^3.0.6",
         "babel-eslint": "^8.0.2",
         "babel-loader": "^7.1.2",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -95,6 +94,7 @@
         "react-spinners": "^0.3.2",
         "redux": "^3.7.2",
         "redux-devtools-extension": "^2.13.2",
+        "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "rimraf": "^2.6.2",
         "sass-loader": "^6.0.6",
@@ -104,6 +104,7 @@
         "supertest": "^3.0.0",
         "sweetalert": "^2.1.0",
         "thunk": "0.0.1",
+        "validator": "^10.2.0",
         "webpack": "^3.8.1",
         "webpack-dev-middleware": "^1.12.2",
         "webpack-hot-middleware": "^2.21.0"

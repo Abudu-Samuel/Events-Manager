@@ -23,7 +23,19 @@ const CenterInfo = ({
               </div>
               <div className="col-xl-6 text-center">
                 <h4 className="mb-2 text-center font-weight-bold"><strong>{center.name}</strong></h4>
-                <h5 className="text-center"><i className="fa fa-bolt indigo-text mr-2 fa-1x" /> Available <Link to={`/center/${center.id}/addevent`} className="btn btn-mycolor btn-sm">Book</Link></h5>
+                <h5 className="text-center">
+                  {
+                    center.isAvailable ?
+                      <div> <i className="fa fa-bolt indigo-text mr-2 fa-1x" /> Available</div>
+                      :
+                      <div><i className="fa fa-close mr-2 fa-1x red-text" aria-hidden="true" /> Not Avaiable</div>
+                  }
+                  {
+                    center.isAvailable ?
+                      <Link to={`/center/${center.id}/addevent`} className="btn btn-mycolor btn-sm" >Book</Link> :
+                      <Link to={`/center/${center.id}/addevent`} className="btn disabled btn-mycolor btn-sm">Book</Link>
+                  }
+                </h5>
                 <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" /><strong className="mr-3">{center.location}</strong> <i className="fa ml-3 fa-group grey-text ml-2 mr-2 fa-2x" /><strong>{center.capacity} Guests</strong></h6>
                 <p className="text-justify">{center.description}
                 </p>
@@ -82,15 +94,15 @@ const CenterInfo = ({
                               </tr>
                             </thead>
                             {
-                              upcomingEventsData.upcomingEvent.map(event => (console.log('length', upcomingEventsData.upcomingEvent.length),
-                              <tbody key={event.id}>
-                                <tr>
-                                  <th scope="row">{event.id}</th>
-                                  <td>Aprroved <span className="badge badge-default"><i className="fa fa-check" style={{ marginTop: 1, marginBottom: 1 }} aria-hidden="true" /></span></td>
-                                  <td>{event.date}</td>
-                                  <td>{event.type}</td>
-                                </tr>
-                              </tbody>
+                              upcomingEventsData.upcomingEvent.map(event => (
+                                <tbody key={event.id}>
+                                  <tr>
+                                    <th scope="row">{event.id}</th>
+                                    <td>Aprroved <span className="badge badge-default"><i className="fa fa-check" style={{ marginTop: 1, marginBottom: 1 }} aria-hidden="true" /></span></td>
+                                    <td>{event.date}</td>
+                                    <td>{event.type}</td>
+                                  </tr>
+                                </tbody>
                               ))
                             }
                           </table> : <h5 className="mt-3">No Date has been booked for this Center!</h5>

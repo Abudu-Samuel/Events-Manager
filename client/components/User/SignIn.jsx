@@ -14,7 +14,7 @@ import { validateSignin } from '../Utils/Validator';
  * @description Signin component
  *
  * @class Signin
- *
+//  *
  * @param {object} event
  *
  * @extends {React.Component}
@@ -83,52 +83,39 @@ class Signin extends React.Component {
      */
   handleSubmit(event) {
     event.preventDefault();
-    if (this.validateInput()) {
-      this.setState({ errors: {} });
-      this.props.userSignIn(this.state)
-        .then(() => {
-          this.setState({
-            errorMessage: '',
-            errorStatus: false,
-            redirectMessage: 'Redirecting To Dashboard',
-            loading: true,
-            showRedirectMessage: true,
-          });
-          const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
-          if (!tokenData.isAdmin) {
-            console.log('hey u', !tokenData.isAdmin);
-            history.push('/dashboard');
-          }
-          if (tokenData.isAdmin) {
-            history.push('/admin/dashboard');
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            return this.setState({
-              errorMessage: error.response.data.message,
-              errorStatus: true,
-              showRedirectMessage: false,
-              redirectMessage: ''
-            });
-          }
+    const validationErrors = validateSignin(this.state).errors;
+    if (Object.keys(validationErrors).length > 0) {
+      this.setState({ errors: validationErrors });
+      return;
+    }
+    this.setState({ errors: {} });
+    this.props.userSignIn(this.state)
+      .then(() => {
+        this.setState({
+          errorMessage: '',
+          errorStatus: false,
+          redirectMessage: 'Redirecting To Dashboard',
+          loading: true,
+          showRedirectMessage: true,
         });
-    }
-  }
-
-  /**
- * @method validateInput
- *
- * @returns {object} error state
- *
- * @memberof SignUp
- */
-  validateInput() {
-    const { errors, validInput } = validateSignin(this.state);
-    if (!validInput) {
-      this.setState({ errors });
-    }
-    return validInput;
+        const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
+        if (!tokenData.isAdmin) {
+          history.push('/dashboard');
+        }
+        if (tokenData.isAdmin) {
+          history.push('/admin/dashboard');
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          return this.setState({
+            errorMessage: error.response.data.message,
+            errorStatus: true,
+            showRedirectMessage: false,
+            redirectMessage: ''
+          });
+        }
+      });
   }
 
   /**

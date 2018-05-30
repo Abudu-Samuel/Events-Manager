@@ -14,13 +14,15 @@ const PopularEvents = ({
         {
           events.event.map((event, key) => (
             <div className="col-md-4 mb-4" key={event.id}>
-              <div className="card text-center">
+              <div className="card hoverable text-center">
                 <img className="img-fluid hoverable max" src={event.image} alt="Card image cap" />
                 <div className="card-body">
-                  <h4 className="card-title">{event.title}</h4>
+                  <h4 className="card-title"> {
+                    event.title.split('').length > 17 ? `${event.title.slice(0, 27)}...` : event.title
+                  }</h4>
                   <p className="card-text">
                     {
-                      event.description.split('').length > 40 ? event.description.slice(0, 40) + '...' : event.description
+                      event.description.split('').length > 40 ? `${event.description.slice(0, 40)  }...` : event.description
                     }
                   </p>
                   <p className="card-text">Date: {event.date}</p>

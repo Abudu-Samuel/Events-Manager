@@ -32,7 +32,6 @@ export const logOutAction = userData => ({
 });
 
 export const logout = () => (dispatch) => {
-  console.log('===============');
   localStorage.removeItem('x-access-token');
   dispatch(logOutAction({}));
 };
@@ -49,9 +48,7 @@ export const logout = () => (dispatch) => {
 export const signIn = userData => dispatch =>
   axios.post('/api/v1/users/login', userData)
     .then((response) => {
-      console.log('-----------------``````````````dddd');
       dispatch(signInAction(jwt.decode(response.data.token)));
-      console.log('-----------------````````````````afterxx``');
       window.localStorage.setItem('x-access-token', response.data.token);
       // if(jwt.decode(response.data.token).isAdmin) {
       //   <Redirect to ='' />

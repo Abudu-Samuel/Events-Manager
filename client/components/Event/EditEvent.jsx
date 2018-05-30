@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import Navbar from '../common/Navbar';
 import Form from '../common/forms/Form';
+import { validateEvent } from '../Utils/Validator';
 import * as userActions from '../../actions/actionCreator';
 
 
@@ -18,6 +20,8 @@ class EditEvent extends React.Component {
       errorStatus: false,
       redirect: false,
       editing: false,
+      imgPreviewSrc: '',
+      errors: {},
       errorMessage: '',
       centerId: ''
     };
@@ -36,7 +40,6 @@ class EditEvent extends React.Component {
         description: nextProps.getSingleEvent.event.description,
         type: nextProps.getSingleEvent.event.type,
         image: nextProps.getSingleEvent.event.image,
-
       });
     }
   }
@@ -49,6 +52,11 @@ class EditEvent extends React.Component {
 handleSubmit = (event) => {
   const eventId = this.props.match.params.eventId;
   event.preventDefault();
+  const validationErrors = validateEvent(this.state).errors;
+  if (Object.keys(validationErrors).length > 0) {
+    this.setState({ errors: validationErrors });
+    return;
+  }
   this.setState({
     errorMessage: '',
     errorStatus: false
@@ -73,7 +81,38 @@ handleSubmit = (event) => {
     });
 }
 
+handleUpload = (event) => {
+  event.preventDefault();
+  const file = event.target.files[0];
+  let imgPreview = document.getElementById('img-preview');
+  let imgPreviewSrc = imgPreview.src
+  const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
+  const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+  axios({
+    url: CLOUDINARY_URL,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www- form-urlencoded '
+    },
+    data: formData
+  })
+    .then((res) => {
+      this.setState({
+        image: res.data.secure_url,
+        imgPreviewSrc: res.data.secure_url
+      });
+    })
+    .catch((err) => {
+      throw err
+    });
+}
+
 render() {
+  console.log('........', this.state.image)
   return (
     this.state.redirect ?
       <Redirect to="/manage/events" /> :
@@ -90,10 +129,13 @@ render() {
                 errorStatus={this.state.errorStatus}
                 errorMessage={this.state.errorMessage}
                 title={this.state.title}
+                errors={this.state.errors}
+                handleUpload={this.handleUpload}
                 date={this.state.date}
                 description={this.state.description}
                 type={this.state.type}
                 image={this.state.image}
+                imgPreviewSrc={this.state.imgPreviewSrc}                
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}/>
             </div>

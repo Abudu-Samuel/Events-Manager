@@ -42,7 +42,6 @@ class Allevents extends React.Component {
   }
 
   centerPaginate(pageData) {
-    console.log(pageData)
     const nextCenterPage = pageData.selected + 1;
     this.props.getAllCenters(nextCenterPage);
   }
