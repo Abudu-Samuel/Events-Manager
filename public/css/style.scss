@@ -18,6 +18,17 @@ $main-color: #00695c;
   background-size: cover;
 }
 
+.md-form.form-sm .prefix {
+  font-size: 2rem;
+  top: -0.6rem;
+}
+
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  margin-left: 59px;
+}
+
 .navbar-dark .navbar-brand {
   color: $main-color
   }

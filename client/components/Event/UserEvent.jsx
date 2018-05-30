@@ -84,11 +84,15 @@ class UserEvent extends React.Component {
                   events.map((event, key) => (
 
                     <div className="col-xl-4 mb-4" key={event.id}>
-                      <div className="card">
+                      <div className="card hoverable">
                         <img className="img-fluid hoverable max" src={event.image} alt="Card image cap" />
                         <div className="card-body">
                           <h6 className=""><i className="fa fa-clock-o mr-2" /><strong>Starts {event.date} - Ends {event.date}</strong></h6>
-                          <h4 className="card-title pt-1 text-center">{event.title}</h4>
+                          <h4 className="card-title pt-1 text-center">
+                          {
+                              event.title.split('').length > 17 ? event.title.slice(0, 27) + '...' : event.title
+                            }
+                          </h4>
                           <h6 className="" style={{ textAlign: 'center' }}>Created: {event.createdAt.slice(0, 10)}</h6>
 
                           <div style={{ textAlign: 'center' }}>

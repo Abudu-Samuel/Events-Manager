@@ -78,7 +78,7 @@ class Navbar extends React.Component {
   }
 }
 
-export const mapStateToProps = state => (console.log(state.userAccess.isAuthenticated, 'snnsns'), {
+export const mapStateToProps = state => ({
 
   isAuthenticated: state.userAccess.isAuthenticated,
   userData: state.userAccess.userData,

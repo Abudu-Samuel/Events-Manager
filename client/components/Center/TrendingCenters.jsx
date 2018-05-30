@@ -14,7 +14,7 @@ const TrendingCenter = ({
       <div className="row mb-4">
         {
           centers.center.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
-            <div className="card text-center">
+            <div className="card hoverable text-center">
               <img className="img-fluid hoverable max" src={center.image} alt="Card image cap" />
               <div className="card-body">
                 <h4 className="card-title">{center.name}</h4>

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Navbar from '../common/Navbar';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
+import { validateCenter } from '../Utils/Validator';
 import * as userActions from '../../actions/actionCreator';
 
 class EditCenter extends React.Component {
@@ -18,7 +19,9 @@ class EditCenter extends React.Component {
       state: '',
       description: '',
       image: '',
-      isAvailable: '',
+      errors: {},
+      imgPreviewSrc: '',
+      isAvailable: false,
       errorStatus: false,
       redirect: false,
       redirectMessage: '',
@@ -54,6 +57,20 @@ class EditCenter extends React.Component {
     });
   }
 
+  toggleAvailability = ({ target: { name, value }}) => {
+    if (name === 'available') {
+      this.setState({
+        isAvailable: true
+      })
+      console.log("=====", this.state.isAvailable);
+      return;
+    }
+    this.setState({
+      isAvailable: false
+    })
+    console.log("State", this.state.isAvailable);
+  }
+
   handleUpload = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
@@ -74,7 +91,8 @@ class EditCenter extends React.Component {
     })
       .then((res) => {
         this.setState({
-          image: res.data.secure_url
+          image: res.data.secure_url,
+          imgPreviewSrc: res.data.secure_url
         });
       })
       .catch((err) => {
@@ -85,6 +103,11 @@ class EditCenter extends React.Component {
 handleSubmit = (event) => {
   const centerId = this.props.match.params.centerId;
   event.preventDefault();
+  const validationErrors = validateCenter(this.state).errors;
+  if (Object.keys(validationErrors).length > 0) {
+  this.setState({ errors: validationErrors });
+  return;
+ }
   this.setState({
     errorMessage: '',
     errorStatus: false
@@ -126,12 +149,15 @@ render() {
                       handleChange={this.handleChange}
                       handleSubmit={this.handleSubmit}
                       handleUpload={this.handleUpload}
+                      toggleAvailability={this.toggleAvailability}
                       errorStatus={this.state.errorStatus}
                       errorMessage={this.state.errorMessage}
                       name={this.state.name}
+                      errors={this.state.errors}
                       capacity={this.state.capacity}
                       location={this.state.location}
                       price={this.state.price}
+                      imgPreviewSrc={this.state.imgPreviewSrc}
                       state={this.state.state}
                       description={this.state.description}
                       image={this.state.image}

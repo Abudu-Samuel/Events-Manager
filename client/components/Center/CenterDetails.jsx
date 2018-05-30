@@ -129,7 +129,7 @@ class CenterDetails extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-const mapStateToProps = state => (console.log(state.events.upcomingEvent, 'tetettetteetet'), {
+const mapStateToProps = state => ({
   getSingleCenter: state.centers.center,
   getSlatedEvents: state.events.upcomingEventsData,
   eventPage: state.events.eventPage
