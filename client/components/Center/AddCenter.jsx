@@ -1,13 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
 import Navbar from '../common/Navbar';
 import { validateCenter } from '../Utils/Validator';
-
 import * as userActions from '../../actions/actionCreator';
 
 /**
@@ -55,12 +53,11 @@ class AddCenter extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  toggleAvailability = ({ target: { name, value }}) => {
+  toggleAvailability = ({ target: { name, value } }) => {
     if (name === 'available') {
       this.setState({
         isAvailable: true
       })
-      console.log("=====", this.state.isAvailable);
       return;
     }
     this.setState({
@@ -141,21 +138,6 @@ class AddCenter extends React.Component {
       });
   }
 
-  // /**
-  //  * @method validateInput
-  //  *
-  //  * @returns {object} error state
-  //  *
-  //  * @memberof SignUp
-  //  */
-  //   validateInput() {
-  //     const { errors } = validateAddCenter(this.state);
-  //     if (!validInput) {
-  //       this.setState({ errors });
-  //     }
-  //     return validInput;
-  //   }
-
   /**
    *@method render
    *
@@ -181,7 +163,8 @@ class AddCenter extends React.Component {
                     <div className="container adm z-depth-1-half">
                       <div className="adm ">
                         <br />
-                        <h5 className="font-weight-bold white-text text-center">Add Center</h5>
+                        <h5 className="font-weight-bold white-text text-center">
+                          Add Center</h5>
                         <hr />
                       </div>
                     </div>
@@ -212,10 +195,6 @@ class AddCenter extends React.Component {
     );
   }
 }
-
-AddCenter.propTypes = {
-  addCenter: PropTypes.func
-};
 
 /**
  * @description Redux connect parameter - mapDispatchToProps

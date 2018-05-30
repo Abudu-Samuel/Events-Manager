@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { Redirect } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import * as types from '../actionTypes/index';
 import {
@@ -42,7 +41,7 @@ export const logout = () => (dispatch) => {
  * @description Creates signIn thunk action
  *
  * @param {object} userData
- *
+//  *
  * @return {object} axios response and userData
  */
 export const signIn = userData => dispatch =>
@@ -50,12 +49,6 @@ export const signIn = userData => dispatch =>
     .then((response) => {
       dispatch(signInAction(jwt.decode(response.data.token)));
       window.localStorage.setItem('x-access-token', response.data.token);
-      // if(jwt.decode(response.data.token).isAdmin) {
-      //   <Redirect to ='' />
-      // }
-      // if(!jwt.decode(response.data.token).isAdmin) {
-      //   redirect('/')
-      // }
       logInSuccess();
     })
     .catch((error) => {
@@ -122,9 +115,9 @@ export const addCenterAction = centerData => ({
 export const addCenter = centerData => dispatch =>
   axios.post('/api/v1/centers/', centerData, {
     headers:
-    {
-      'x-access-token': localStorage.getItem('x-access-token')
-    }
+      {
+        'x-access-token': localStorage.getItem('x-access-token')
+      }
   })
     .then((response) => {
       dispatch(addCenterAction(response.data));
@@ -156,12 +149,7 @@ export const getTrendingCentersAction = centerData => ({
  * @return {object} Axios response
  */
 export const getTrendingCenters = () => dispatch =>
-  axios.get('/api/v1/centers/latest', {
-    // headers:
-    //  {
-    //      'x-access-token': localStorage.getItem('x-access-token')
-    //  }
-  })
+  axios.get('/api/v1/centers/latest')
     .then((response) => {
       dispatch(getTrendingCentersAction(response.data));
     })
@@ -195,9 +183,9 @@ export const getAllCentersAction = centerData => ({
 export const getAllCenters = page => dispatch =>
   axios.get(`/api/v1/centers?page=${page}`, {
     headers:
-     {
-       'x-access-token': localStorage.getItem('x-access-token')
-     }
+      {
+        'x-access-token': localStorage.getItem('x-access-token')
+      }
   })
     .then((response) => {
       dispatch(getAllCentersAction(response.data));
@@ -228,12 +216,7 @@ export const getPopularEventsAction = eventData => ({
  * @return {object} Axios response
  */
 export const getPopularEvents = () => dispatch =>
-  axios.get('/api/v1/events/latest', {
-    // headers:
-    // {
-    //     'x-access-token': localStorage.getItem('x-access-token')
-    // }
-  })
+  axios.get('/api/v1/events/latest')
     .then((response) => {
       dispatch(getPopularEventsAction(response.data));
     })
@@ -267,9 +250,9 @@ export const getAllEventsAction = eventData => ({
 export const getAllEvents = page => dispatch =>
   axios.get(`/api/v1/events?page=${page}`, {
     headers:
-    {
-      'x-access-token': localStorage.getItem('x-access-token')
-    }
+      {
+        'x-access-token': localStorage.getItem('x-access-token')
+      }
   })
     .then((response) => {
       dispatch(getAllEventsAction(response.data));
@@ -314,9 +297,9 @@ export const slatedEventAction = eventData => ({
 export const slatedEvent = (eventId, page) => dispatch =>
   axios.get(`/api/v1/events/center/${eventId}?page=${page}`, {
     headers:
-    {
-      'x-access-token': localStorage.getItem('x-access-token')
-    }
+      {
+        'x-access-token': localStorage.getItem('x-access-token')
+      }
   })
     .then((response) => {
       dispatch(slatedEventAction(response.data));
