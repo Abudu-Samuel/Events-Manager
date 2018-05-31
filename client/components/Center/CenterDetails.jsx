@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Navbar from '../common/Navbar';
 import CenterInfo from '../Center/CenterInfo';
 import * as userActions from '../../actions/actionCreator';
 
 /**
- *
- *
  * @class CenterDetails
+ *
+ * @description CenterDetails component
+ *
+ * @param {object} event
+ *
  * @extends {React.Component}
  */
 class CenterDetails extends React.Component {
   /**
    * Creates an instance of CenterDetails.
+   *
    * @param {any} props
+   *
    * @memberof CenterDetails
    */
   constructor(props) {
@@ -33,9 +39,11 @@ class CenterDetails extends React.Component {
     };
     this.eventPaginate = this.eventPaginate.bind(this);
   }
+
   /**
+   *@description react lifecycle
    *
-   *@description kkk
+   * @method componentDidMount
    *
    * @memberof CenterDetails
    *
@@ -48,9 +56,12 @@ class CenterDetails extends React.Component {
   }
 
   /**
+   * @description react lifecycle
    *
+   * @param {object} nextProps
    *
-   * @param {any} nextProps
+   * @return {object} updated stated
+   *
    * @memberof CenterDetails
    */
   componentWillReceiveProps(nextProps) {
@@ -66,6 +77,15 @@ class CenterDetails extends React.Component {
     }
   }
 
+  /**
+ * @description handle pagination for events
+ *
+ * @returns {object}  paginated page
+ *
+ * @param {any} pageData
+ *
+ * @memberof CenterDetails
+ */
   eventPaginate(pageData) {
     const { centerId } = this.props.match.params;
     const nextEventPage = pageData.selected + 1;
@@ -73,9 +93,10 @@ class CenterDetails extends React.Component {
   }
 
   /**
+   *@method render
    *
+   * @returns {jsx} Jsx respresentation of the dom
    *
-   * @returns
    * @memberof CenterDetails
    */
   render() {
@@ -113,21 +134,22 @@ class CenterDetails extends React.Component {
               subContainerClassName="pages pagination"
             />
         }
-
-
       </div>
     );
   }
 }
 
+CenterDetails.PropTypes = {
+  centerId: PropTypes.number,
+
+};
+
 /**
- * @description Redux connect parameter - mapDispatchToProps
+ * @description Redux connect parameter - mapStateToProps
  *
  * @param {function} state
  *
- * @param {function} ownProps
- *
- * @return {object} mapped dispatch
+ * @return {object} mapped state
  */
 const mapStateToProps = state => ({
   getSingleCenter: state.centers.center,
