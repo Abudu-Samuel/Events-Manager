@@ -22,7 +22,7 @@ const userAccess = (state = defaultState, action) => {
     return {
       ...state,
       isAuthenticated: true,
-      ...action.userData.token
+      userData: action.userData
     };
   default:
     return state;

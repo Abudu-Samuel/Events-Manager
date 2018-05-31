@@ -1,10 +1,9 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 import { validateSignup } from '../Utils/Validator';
 import history from '../../history';
@@ -41,6 +40,7 @@ class SignUp extends React.Component {
       password: '',
       firstname: '',
       lastname: '',
+      isAdmin: false,
       errorMessage: '',
       errorStatus: false,
       redirect: false,
@@ -49,7 +49,16 @@ class SignUp extends React.Component {
       errors: {}
     };
   }
- 
+
+  /**
+  * @method componentWillMount
+   *
+   * @description React lifecycle hook
+   *
+   * @return {object} state
+   *
+ * @memberof SignUp
+ */
   componentWillMount() {
     if (this.props.userData.isAuthenticated) {
       if (decodeToken()) {
@@ -84,48 +93,38 @@ class SignUp extends React.Component {
    */
   handleSubmit(event) {
     event.preventDefault();
-    if (this.validateInput()) {
-      this.setState({ errors: {} });
-      this.props.userSignUp(this.state)
-        .then(() => {
-          this.setState({
-            redirectMessage: 'Redirecting To Sign In Page',
-            showRedirectMessage: true
-          });
-          const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
-          if (!tokenData.isAdmin) {
-            history.push('/dashboard');
-          }
-          if (tokenData.isAdmin) {
-            history.push('/admin/dashboard');
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            return this.setState({
-              errorMessage: error.response.data.message,
-              errorStatus: true,
-              showRedirectMessage: false,
-              redirectMessage: ''
-            });
-          }
+    const validationErrors = validateSignup(this.state).errors;
+    if (Object.keys(validationErrors).length > 0) {
+      this.setState({ errors: validationErrors });
+      return;
+    }
+    this.setState({ errors: {} });
+    this.props.userSignUp(this.state)
+      .then(() => {
+        this.setState({
+          redirectMessage: 'Redirecting To Sign In Page',
+          showRedirectMessage: true
         });
-    }
+        const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
+        if (!tokenData.isAdmin) {
+          history.push('/dashboard');
+        }
+        if (tokenData.isAdmin) {
+          history.push('/admin/dashboard');
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          return this.setState({
+            errorMessage: error.response.data.message,
+            errorStatus: true,
+            showRedirectMessage: false,
+            redirectMessage: ''
+          });
+        }
+      });
   }
-  /**
- * @method validateInput
- *
- * @returns {object} error state
- *
- * @memberof SignUp
- */
-  validateInput() {
-    const { errors, validInput } = validateSignup(this.state);
-    if (!validInput) {
-      this.setState({ errors });
-    }
-    return validInput;
-  }
+
   /**
    * @method render
    *
@@ -139,11 +138,13 @@ class SignUp extends React.Component {
     const { errors } = this.state;
     return (
       <div>
-        <Navbar />
         <div id="intro" className="view hm-black-strong">
-          <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
-            <form onSubmit={this.handleSubmit} className="signup z-depth-1-half test mb-6">
-              <h3 className="text-center mt-5 teal-text font-weight-bold">Sign up</h3>
+          <div className="container-fluid full-bg-img d-flex align-items-center
+           justify-content-center">
+            <form onSubmit={this.handleSubmit} className="signup z-depth-1-half
+             test mb-6">
+              <h3 className="text-center mt-5 teal-text font-weight-bold">
+              Sign up</h3>
               <div className="md-form">
                 <i className="fa fa-user prefix teal-text" />
                 <input
@@ -153,7 +154,8 @@ class SignUp extends React.Component {
                   onChange={this.handleChange}
                   className="form-control"
                 />
-                <label htmlFor="orangeForm-name" className="teal-text">First name</label>
+                <label htmlFor="orangeForm-name" className="teal-text">
+                First name</label>
                 <p className="text-center error-msg">
                   {
                     errors.firstname && <span>{errors.firstname}</span>
@@ -169,7 +171,8 @@ class SignUp extends React.Component {
                   onChange={this.handleChange}
                   className="form-control"
                 />
-                <label htmlFor="orangeForm-name" className="teal-text">Last name</label>
+                <label htmlFor="orangeForm-name" className="teal-text">
+                Last name</label>
                 <p className="text-center error-msg">
                   {
                     errors.lastname && <span>{errors.lastname}</span>
@@ -183,9 +186,13 @@ class SignUp extends React.Component {
                   id="username"
                   name="username"
                   onChange={this.handleChange}
-                  className={classNames('form-control', { 'has-errors': errors.username })}
+                  className={classNames(
+                    'form-control',
+                    { 'has-errors': errors.username }
+                  )}
                 />
-                <label htmlFor="orangeForm-name" className="teal-text">Username</label>
+                <label htmlFor="orangeForm-name" className="teal-text">
+                Username</label>
                 <p className="text-center error-msg">
                   {
                     errors.username && <span>{errors.username}</span>
@@ -195,13 +202,14 @@ class SignUp extends React.Component {
               <div className="md-form">
                 <i className="fa fa-envelope prefix teal-text" />
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                   onChange={this.handleChange}
                   className="form-control"
                 />
-                <label htmlFor="orangeForm-email" className="teal-text">Email</label>
+                <label htmlFor="orangeForm-email" className="teal-text">
+                Email</label>
                 <p className="text-center error-msg">
                   {
                     errors.email && <span>{errors.email}</span>
@@ -217,7 +225,8 @@ class SignUp extends React.Component {
                   onChange={this.handleChange}
                   className="form-control"
                 />
-                <label htmlFor="orangeForm-pass" className="teal-text">Password</label>
+                <label htmlFor="orangeForm-pass" className="teal-text">
+                Password</label>
                 <p className="text-center error-msg">
                   {
                     errors.password && <span>{errors.password}</span>
@@ -225,7 +234,8 @@ class SignUp extends React.Component {
                 </p>
               </div>
               <div className="text-center mb-2">
-                <button type="submit" className="btn btn-mycolor">Sign Up</button>
+                <button type="submit" className="btn btn-mycolor">
+                Sign Up</button>
               </div>
               {
                 this.state.errorStatus ?
@@ -237,8 +247,9 @@ class SignUp extends React.Component {
                   null
               }
               <div className="white-text text-center">
-                <h6 className="teal-text font-weight-bold">Already have an account ?
-                    <Link to="/signin" className="teal-text"> <u>Sign In</u>
+                <h6 className="teal-text font-weight-bold">
+                Already have an account ?
+                  <Link to="/signin" className="teal-text"> <u>Sign In</u>
                     <i className="fa fa-sign-in ml-1" />
                   </Link>
                 </h6>
@@ -252,7 +263,8 @@ class SignUp extends React.Component {
 }
 
 SignUp.propTypes = {
-  userSignUp: PropTypes.func
+  userSignUp: PropTypes.func,
+  userData: PropTypes.object
 };
 
 const mapStateToProps = state => ({

@@ -81,7 +81,7 @@ export const signUpAction = userData => ({
 export const signUp = userData => dispatch =>
   axios.post('/api/v1/users/', userData)
     .then((response) => {
-      dispatch(signUpAction(response.data));
+      dispatch(signUpAction(jwt.decode(response.data.token)));
       window.localStorage.setItem('x-access-token', response.data.token);
       signUpSuccess();
     })

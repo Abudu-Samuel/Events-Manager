@@ -52,9 +52,10 @@ class User {
           })
           .then((register) => {
             const responseData = {
-              id: register.id,
+              userId: register.id,
               username: register.username,
               email: register.email,
+              isAdmin: register.isAdmin,
               firstname: register.firstname,
               lastname: register.lastname,
               updatedAt: register.updatedAt,
@@ -63,7 +64,6 @@ class User {
             const token = Token.generateToken(responseData);
             res.status(201).send({
               message: 'Account Created',
-              responseData,
               token
             });
           })

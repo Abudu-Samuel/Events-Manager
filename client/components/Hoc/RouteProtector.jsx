@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 const RouteProtector = WrappedComponent => class RouteProtectorClass extends React.Component {
   /**
    * Creates an instance of RouteProtectorClass.
-   * @param {any} props
+   * @param {props} props
    */
   constructor(props) {
     super(props);
@@ -29,7 +29,6 @@ const RouteProtector = WrappedComponent => class RouteProtectorClass extends Rea
     });
   }
   /**
-   *
    * @returns {object} updated state
    */
   render() {

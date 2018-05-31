@@ -85,7 +85,8 @@ const validateCenter = (centerData) => {
   if (centerData.state === undefined || centerData.state.trim() === '') {
     errors.state = 'State is Required';
   }
-  if (centerData.description === undefined || centerData.description.trim() === '') {
+  if (centerData.description === undefined || centerData.description.trim()
+   === '') {
     errors.description = 'Description is Required';
   }
   if (centerData.image === undefined || centerData.image.trim() === '') {

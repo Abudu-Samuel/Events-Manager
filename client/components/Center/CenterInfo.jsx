@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /**
@@ -19,24 +20,34 @@ const CenterInfo = ({
           <section>
             <div className="row" style={{ marginTop: 99 }}>
               <div className="col-xl-6 mb-4">
-                <img className="img-fluid" src={center.image} alt="Card image cap" />
+                <img className="img-fluid" src={center.image}
+                  alt="Card image cap" />
               </div>
               <div className="col-xl-6 text-center">
-                <h4 className="mb-2 text-center font-weight-bold"><strong>{center.name}</strong></h4>
+                <h4 className="mb-2 text-center font-weight-bold"><strong>
+                  {center.name}</strong></h4>
                 <h5 className="text-center">
                   {
                     center.isAvailable ?
-                      <div> <i className="fa fa-bolt indigo-text mr-2 fa-1x" /> Available</div>
+                      <div> <i className="fa fa-bolt indigo-text mr-2 fa-1x" />
+                       Available
+                      </div>
                       :
-                      <div><i className="fa fa-close mr-2 fa-1x red-text" aria-hidden="true" /> Not Avaiable</div>
+                      <div><i className="fa fa-close mr-2 fa-1x red-text"
+                        aria-hidden="true" /> Not Avaiable</div>
                   }
                   {
                     center.isAvailable ?
-                      <Link to={`/center/${center.id}/addevent`} className="btn btn-mycolor btn-sm" >Book</Link> :
-                      <Link to={`/center/${center.id}/addevent`} className="btn disabled btn-mycolor btn-sm">Book</Link>
+                      <Link to={`/center/${center.id}/addevent`}
+                        className="btn btn-mycolor btn-sm" >Book</Link> :
+                      <Link to={`/center/${center.id}/addevent`}
+                        className="btn disabled btn-mycolor btn-sm">Book</Link>
                   }
                 </h5>
-                <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" /><strong className="mr-3">{center.location}</strong> <i className="fa ml-3 fa-group grey-text ml-2 mr-2 fa-2x" /><strong>{center.capacity} Guests</strong></h6>
+                <h6><i className="fa fa-map-marker grey-text mr-2 fa-2x" />
+                  <strong className="mr-3">{center.location}</strong>
+                  <i className="fa ml-3 fa-group grey-text ml-2 mr-2 fa-2x" />
+                  <strong>{center.capacity} Guests</strong></h6>
                 <p className="text-justify">{center.description}
                 </p>
                 <hr />
@@ -47,38 +58,42 @@ const CenterInfo = ({
                   <div className="col-md-10">
                     <div className="row">
                       <div className="col-md-4">
-                        <p><img src="img/svg/policeman.svg" alt="" /> Security</p>
+                        <p>
+                          <img src="img/svg/policeman.svg" alt="" /> Security
+                        </p>
                       </div>
                       <div className="col-md-4">
-                        <p><img src="img/svg/towel-on-hanger.svg" alt="" /> changing-room</p>
+                        <p>
+                          <img src="img/svg/towel-on-hanger.svg" alt="" />
+                           changing-room</p>
                       </div>
                       <div className="col-md-4">
                         <p><img src="img/svg/light-bulb.svg" alt="" /> Lights</p>
                       </div>
                       <div className="col-md-4">
-                        <p><img src="img/svg/man-sitting-in-the-bathroom.svg" alt="" /> Rest-room</p>
+                        <p>
+                          <img src="img/svg/man-sitting-in-the-bathroom.svg"
+                            alt="" /> Rest-room</p>
                       </div>
                       <div className="col-md-4">
-                        <p><img src="img/svg/power-cord.svg" alt="" /> Power-supply</p>
+                        <p>
+                          <img src="img/svg/power-cord.svg" alt="" />
+                          Power-supply</p>
                       </div>
                       <div className="col-md-4">
-                        <p><img src="img/svg/restaurant-table-and-chairs.svg" alt="" /> Tables & chairs</p>
+                        <p><img src="img/svg/restaurant-table-and-chairs.svg"
+                          alt="" /> Tables & chairs</p>
                       </div>
-                      {/* <div className="col-md-4">
-                        <p><img src="img/svg/minisplit.svg" alt="" /> Air-conditioner</p>
-                      </div>
-                      <div className="col-md-4">
-                        <p><img src="img/svg/parked-car.svg" alt="" /> Parking space</p>
-                      </div> */}
                     </div>
                   </div>
                 </div>
                 <hr />
-                <button className="btn btn-mycolor btn-sm" type="button" data-toggle="collapse"
-                  data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <button className="btn btn-mycolor btn-sm" type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseExample" aria-expanded="false"
+                  aria-controls="collapseExample">
                   View Booked Dates
                 </button>
-
                 <div className="mb-4">
                   <div className="collapse" id="collapseExample">
                     <div className="">
@@ -98,47 +113,24 @@ const CenterInfo = ({
                                 <tbody key={event.id}>
                                   <tr>
                                     <th scope="row">{event.id}</th>
-                                    <td>Aprroved <span className="badge badge-default"><i className="fa fa-check" style={{ marginTop: 1, marginBottom: 1 }} aria-hidden="true" /></span></td>
+                                    <td>Aprroved <span className="badge
+                                     badge-default"><i className="fa fa-check"
+                                        style={{ marginTop: 1, marginBottom: 1 }}
+                                        aria-hidden="true" /></span></td>
                                     <td>{event.date}</td>
                                     <td>{event.type}</td>
                                   </tr>
                                 </tbody>
                               ))
                             }
-                          </table> : <h5 className="mt-3">No Date has been booked for this Center!</h5>
+                          </table> :
+                          <h5 className="mt-3">
+                          No Date has been booked for this Center!
+                          </h5>
                       }
-
                     </div>
                   </div>
                 </div>
-
-
-                {/* <div className="row">
-                  <div className="col-md-12">
-                    <h6>Booked Dates</h6>
-                  </div>
-                  <div className="col-md-8">
-                    <div className="row">
-                      <div className="col-md-6">
-                        <h6><strong>Tax</strong></h6>
-                        <p>5% VAT and 5% consumption TAX</p>
-                      </div>
-                      <div className="col-md-6">
-                        <h6><strong>Cleaning Fee</strong></h6>
-                        <p>inclusive</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Button with data-target
-                  </button>
-                  <div className="collapse" id="collapseExample">
-                    <div className="mt-3">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </section>
@@ -151,12 +143,15 @@ const CenterInfo = ({
                   upcomingEventsData.upcomingEvent.map(event => (
                     <div className="col-md-6 mb-4" key={event.id}>
                       <div className="card text-center">
-                        <img className="img-fluid hoverable max" src={event.image} alt="Card image cap" />
+                        <img className="img-fluid hoverable max"
+                          src={event.image} alt="Card image cap" />
                         <div className="card-body">
                           <h4 className="card-title">{event.title}</h4>
                           <p className="card-text">
                             {
-                              event.description.split('').length > 20 ? `${event.description.slice(0, 54)}...` : event.description
+                              event.description.split('').length > 20 ?
+                                `${event.description.slice(0, 54)}...` :
+                                event.description
                             }
                           </p>
                           <button
@@ -178,5 +173,12 @@ const CenterInfo = ({
     }
   </div>
 );
+
+CenterInfo.propTypes = {
+  center: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  upcomingEventsData: PropTypes.object,
+  getEventId: PropTypes.object,
+  noCenter: PropTypes.object
+};
 
 export default CenterInfo;

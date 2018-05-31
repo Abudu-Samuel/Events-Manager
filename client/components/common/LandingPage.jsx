@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Proptypes from 'prop-types';
-import Navbar from '../common/Navbar';
 import Body from '../common/Body';
 import TrendingCenter from '../Center/TrendingCenters';
 import PopularCenter from '../Event/PopularCenter';
 import Footer from '../common/Footer';
 import decodeToken from '../../decodeToken';
 import history from '../../history';
+import Navbar from '../common/Navbar';
 import '../../../public/css/style.scss';
 import * as userActions from '../../actions/actionCreator';
 
@@ -45,6 +45,15 @@ class LandingPage extends React.Component {
     this.getEventId = this.getEventId.bind(this);
   }
 
+  /**
+   * @method componentWillMount
+   *
+   * @description React lifecycle hook
+   *
+   * @return {object} updated state
+   *
+   * @memberof LandingPage
+   */
   componentWillMount() {
     if (this.props.userData.isAuthenticated) {
       if (decodeToken()) {
@@ -139,12 +148,10 @@ class LandingPage extends React.Component {
    *
    * @memberof LandingPage
    */
-
-
   render() {
     return (
       <div>
-        <Navbar/>
+        <Navbar />
         <Body />
         <TrendingCenter
           centers = {this.state.centers}
@@ -160,22 +167,26 @@ class LandingPage extends React.Component {
   }
 }
 
+LandingPage.propTypes = {
+  userData: Proptypes.object,
+  getTrendingCenters: Proptypes.func,
+  getPopularEvents: Proptypes.func,
+  getCenters: Proptypes.object,
+  getEvents: Proptypes.object
+};
+
 /**
  * @description Redux connect parameter - mapDispatchToProps
  *
  * @param {function} state
  *
- * @param {function} ownProps
- *
  * @return {object} mapped dispatch
  */
-function mapStateToProps(state) {
-  return {
-    getCenters: state.centers.centers,
-    getEvents: state.events.events,
-    userData: state.userAccess
-  };
-}
+const mapStateToProps = state => ({
+  getCenters: state.centers.centers,
+  getEvents: state.events.events,
+  userData: state.userAccess
+});
 
 /**
  *@description Redux connect parameter - mapDispatchToProps
@@ -184,13 +195,9 @@ function mapStateToProps(state) {
  *
  * @return {object} mapped dispatch
  */
-function mapDispatchToProps(dispatch) {
-  return {
-    getTrendingCenters: centerData => dispatch(userActions.getTrendingCenters(centerData)),
-    getPopularEvents: eventData => dispatch(userActions.getPopularEvents(eventData)),
-    // singleCenter: (centerID) => dispatch(userActions.singleCenter(centerID))
-
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  getTrendingCenters: centerData => dispatch(userActions.getTrendingCenters(centerData)),
+  getPopularEvents: eventData => dispatch(userActions.getPopularEvents(eventData)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

@@ -1,13 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import SideBar from '../common/SideBar';
-import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
-
+/**
+ * @class Dashboard
+ *
+ * @description Dashboard component
+ *
+ * @extends {React.Component}
+ */
 class Dashboard extends React.Component {
+  /**
+   * Creates an instance of Dashboard.
+   *
+   * @param {props} props
+   *
+   * @memberof Dashboard
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -25,24 +38,103 @@ class Dashboard extends React.Component {
     this.eventPaginate = this.eventPaginate.bind(this);
     this.getEventId = this.getEventId.bind(this);
     this.getCenterId = this.getCenterId.bind(this);
-}
+  }
 
+  /**
+   * @description React lifecycle hook
+   *
+   * @returns {object} state
+   *
+   * @memberof Dashboard
+   */
+  componentWillMount() {
+    this.props.getAllCenters(1);
+    this.props.getAllEvents(1);
+  }
+
+  /**
+   * @description React lifecycle hook
+   *
+   * @returns {object} updated state
+   *
+   * @param {nextProps} nextProps
+   *
+   * @memberof Dashboard
+   */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.getCenters) {
+      this.setState({
+        centers: nextProps.getCenters,
+        fetchingCenters: false,
+        loading: true
+      });
+    } else {
+      this.setState({ fetchingCenters: true });
+    }
+    if (nextProps.getEvents) {
+      this.setState({
+        events: nextProps.getEvents,
+        fetchingEvents: false,
+        loading: true
+      });
+    } else {
+      this.setState({ fetchingEvents: true });
+    }
+  }
+
+  /**
+   * @description center pagination page
+   *
+   * @returns {number} paginated page
+   *
+   * @param {pageData} pageData
+   *
+   * @memberof Dashboard
+   */
   centerPaginate(pageData) {
     const nextCenterPage = pageData.selected + 1;
     this.props.getAllCenters(nextCenterPage);
   }
 
+  /**
+   * @description event pagination page
+   *
+   * @returns {number} paginated page
+   *
+   * @param {pageData} pageData
+   *
+   * @memberof Dashboard
+   */
   eventPaginate(pageData) {
     const nextCenterPage = pageData.selected + 1;
     this.props.getAllEvents(nextCenterPage);
   }
 
+  /**
+   * @description retrieve event Id
+   *
+   * @returns {number} event Id
+   *
+   * @param {event} event
+   *
+   * @memberof Dashboard
+   */
   getEventId(event) {
     event.preventDefault();
     this.setState({
       eventid: parseInt(event.target.dataset.centerid, 10)
     });
   }
+
+  /**
+   * @description retrieve center Id
+   *
+   * @returns {number} center Id
+   *
+   * @param {event} event
+   *
+   * @memberof Dashboard
+   */
   getCenterId(event) {
     event.preventDefault();
     this.setState({
@@ -50,24 +142,15 @@ class Dashboard extends React.Component {
     });
   }
 
-  componentWillMount() {
-    this.props.getAllCenters(1);
-    this.props.getAllEvents(1);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.getCenters) {
-      this.setState({ centers: nextProps.getCenters, fetchingCenters: false, loading: true });
-    } else {
-      this.setState({ fetchingCenters: true });
-    }
-    if (nextProps.getEvents) {
-      this.setState({ events: nextProps.getEvents, fetchingEvents: false, loading: true });
-    } else {
-      this.setState({ fetchingEvents: true });
-    }
-  }
-
+  /**
+   * @description React method
+   *
+   * @method render
+   *
+   * @returns  {jsx} Jsx representation of the dom
+   *
+   * @memberof Dashboard
+   */
   render() {
     return (
       <div className="space">
@@ -80,7 +163,8 @@ class Dashboard extends React.Component {
                   <div className="container adm z-depth-1-half">
                     <div className="adm ">
                       <br />
-                      <h5 className="font-weight-bold white-text text-center">Dashboard</h5>
+                      <h5 className="font-weight-bold white-text text-center">
+                      Dashboard</h5>
                       <hr />
                     </div>
                   </div>
@@ -88,24 +172,26 @@ class Dashboard extends React.Component {
                     <div className="container">
                       <h5 className="font-weight-bold text-center">Events</h5>
                       <div>
-                        {/* <PopularCenter
-                  events =
-                    {this.state.events}/> */}
                         <section id="events">
                           <div className="row mb-4">
                             {
-                              this.state.events.event.map((event, key) => (
+                              this.state.events.event.map(event => (
                                 <div className="col-md-4 mb-4" key={event.id}>
                                   <div className="card hoverable text-center">
-                                    <img className="img-fluid hoverable img-view" src={event.image} alt="Card image cap" />
+                                    <img className="img-fluid hoverable img-view"
+                                      src={event.image} alt="Card image cap" />
                                     <div className="card-body">
                                       <h4 className="card-title">
                                         {
-                                          event.title.split('').length > 17 ? `${event.title.slice(0, 14)  }...` : event.title
+                                          event.title.split('').length > 17 ?
+                                            `${event.title.slice(0, 14)}...` :
+                                            event.title
                                         }</h4>
                                       <p className="card-text">
                                         {
-                                          event.description.split('').length > 25 ? `${event.description.slice(0, 22)  }...` : event.description
+                                          event.description.split('').length > 25 ?
+                                            `${event.description.slice(0, 22)}...`
+                                            : event.description
                                         }
                                       </p>
                                       <button
@@ -127,6 +213,7 @@ class Dashboard extends React.Component {
                           breakLabel={<a href="">...</a>}
                           breakClassName="page-link"
                           onPageChange={this.eventPaginate}
+                          /* eslint-disable */
                           pageCount={Number(this.props.eventPage)}
                           containerClassName="pagination pagination-lg custom-pagination"
                           pageLinkClassName="page-link"
@@ -142,37 +229,42 @@ class Dashboard extends React.Component {
                       </div>
                       <hr className="my-2" />
                       <div>
-     
                         <h5 className="font-weight-bold text-center">Centers</h5>
                         <section id="popular centers">
-      <div className="row mb-4">
-        {
-          this.state.centers.center.map((center, key) => (<div className="col-md-4 mb-4" key={center.id}>
-            <div className="card hoverable text-center">
-              <img className="img-fluid hoverable img-view" src={center.image} alt="Card image cap" />
-              <div className="card-body">
-                <h4 className="card-title">
-                {
-                              center.name.split('').length > 17 ? center.name.slice(0, 14) + '...' : center.name
+                          <div className="row mb-4">
+                            {
+                              this.state.centers.center.map(center =>
+                                (<div className="col-md-4 mb-4" key={center.id}>
+                                  <div className="card hoverable text-center">
+                                    <img className="img-fluid hoverable img-view"
+                                      src={center.image} alt="Card image cap" />
+                                    <div className="card-body">
+                                      <h4 className="card-title">
+                                        {
+                                          center.name.split('').length > 17 ?
+                                            `${center.name.slice(0, 14)}...` :
+                                            center.name
+                                        }
+                                      </h4>
+                                      <p className="card-text">
+                                        {
+                                          center.description.split('').length > 25 ?
+                                            `${center.description.slice(0, 22)}...` :
+                                            center.description
+                                        }
+                                      </p>
+                                      <button
+                                        className="btn btn-mycolor btn-sm"
+                                        data-centerid={center.id}
+                                        onClick={this.getCenterId}>
+                                        <Link to={`/centers/${center.id}`}>Details</Link>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>))
                             }
-                </h4>
-                <p className="card-text">
-                {
-                              center.description.split('').length > 25 ? center.description.slice(0, 22) + '...' : center.description
-                            }
-                </p>
-                <button
-                  className="btn btn-mycolor btn-sm"
-                  data-centerid={center.id}
-                  onClick={this.getCenterId}>
-                  <Link to={`/centers/${center.id}`}>Details</Link>
-                </button>
-              </div>
-            </div>
-          </div>))
-        }
-      </div>
-    </section>
+                          </div>
+                        </section>
                         <ReactPaginate
                           previousLabel="Previous"
                           nextLabel="Next"
@@ -199,27 +291,43 @@ class Dashboard extends React.Component {
             </div>
           </div>
         </main>
-
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    getCenters: state.centers.centers,
-    getEvents: state.events.events,
-    centerPage: state.centers.centerPage,
-    eventPage: state.events.eventPage
-  };
-}
+Dashboard.propTypes = {
+  getAllCenters: PropTypes.func,
+  getAllEvents: PropTypes.func,
+  getCenters: PropTypes.object,
+  getEvents: PropTypes.object
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getAllCenters: centerData => dispatch(userActions.getAllCenters(centerData)),
-    getAllEvents: eventData => dispatch(userActions.getAllEvents(eventData))
-  };
-}
+/**
+ * @description Redux connect parameter - mapStateToProps
+ *
+ * @param {function} state
+ *
+ * @return {object} mapped state
+ */
+const mapStateToProps = state => ({
+  getCenters: state.centers.centers,
+  getEvents: state.events.events,
+  centerPage: state.centers.centerPage,
+  eventPage: state.events.eventPage
+});
+
+/**
+ * @description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} dispatch
+ *
+ * @return {object} mapped dispatch
+ */
+const mapDispatchToProps = dispatch => ({
+  getAllCenters: centerData => dispatch(userActions.getAllCenters(centerData)),
+  getAllEvents: eventData => dispatch(userActions.getAllEvents(eventData))
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

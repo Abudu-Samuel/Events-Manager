@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../common/Navbar';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
 import { validateCenter } from '../Utils/Validator';
@@ -45,8 +44,6 @@ class EditCenter extends React.Component {
         description: nextProps.getSingleCenter.description,
         image: nextProps.getSingleCenter.image,
         isAvailable: nextProps.getSingleCenter.isAvailable,
-
-
       });
     }
   }
@@ -79,7 +76,6 @@ class EditCenter extends React.Component {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
 
     axios({
       url: CLOUDINARY_URL,
@@ -131,20 +127,21 @@ handleSubmit = (event) => {
       });
     });
 }
+
 render() {
   return (
     this.state.redirect ?
       <Redirect to="/manage/centers" /> :
       <div>
-        <Navbar />
         <div className="space">
           <div className="container">
             <div className="row">
               <SideBar />
-              <div className="col-md-8">
+              <div className="col-md-8" style={{ marginTop: 19 }}>
                 <div className="">
                   <div className="container z-depth-1-half">
-                    <h5 className="font-weight-bold teal-text text-center">Add Event Center</h5>
+                    <h5 className="font-weight-bold teal-text text-center">
+                    Add Event Center</h5>
                     <AdminForm
                       handleChange={this.handleChange}
                       handleSubmit={this.handleSubmit}
@@ -174,14 +171,13 @@ render() {
 }
 }
 
-
-function mapStateToProps(state, ownProps) {
+const  mapStateToProps = (state) => {
   return {
     getSingleCenter: state.centers.center
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     singleCenter: centerData => dispatch(userActions.singleCenter(centerData)),
     editCenter: centerData => dispatch(userActions.editCenter(centerData))
