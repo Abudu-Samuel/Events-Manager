@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 const AdminRouteProtector = WrappedComponent => class AdminRouteProtectorClass extends React.Component {
   /**
    * Creates an instance of RouteProtectorClass.
-   * @param {any} props
+   * @param {props} props
    */
   constructor(props) {
     super(props);
@@ -14,7 +14,6 @@ const AdminRouteProtector = WrappedComponent => class AdminRouteProtectorClass e
     };
   }
   /**
-   *
    * @returns {object} admin role
    */
   componentWillMount() {
@@ -29,7 +28,6 @@ const AdminRouteProtector = WrappedComponent => class AdminRouteProtectorClass e
     });
   }
   /**
-   *
    * @returns {object} updated state
    */
   render() {

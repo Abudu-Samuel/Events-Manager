@@ -1,19 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Navbar from '../common/Navbar';
+import PropTypes from 'prop-types';
 import EventInfo from './EventInfo';
 import * as userActions from '../../actions/actionCreator';
 
 /**
- *
- *
  * @class EventDetails
+ *
  * @extends {React.Component}
  */
 class EventDetails extends React.Component {
   /**
    * Creates an instance of EventDetails.
+   *
    * @param {any} props
+   *
    * @memberof EventDetails
    */
   constructor(props) {
@@ -28,7 +29,11 @@ class EventDetails extends React.Component {
   }
 
   /**
+   * @method componentDidMount
    *
+   * @description React life cycle
+   *
+   * @returns {object} state
    *
    * @memberof EventDetails
    */
@@ -37,9 +42,12 @@ class EventDetails extends React.Component {
   }
 
   /**
+   * @description React life cycle
    *
+   * @returns {object} updated state
    *
-   * @param {any} nextProps
+   * @param {nextProps} nextProps
+   *
    * @memberof EventDetails
    */
   componentWillReceiveProps(nextProps) {
@@ -49,16 +57,19 @@ class EventDetails extends React.Component {
       this.setState({ fetchingEvent: true });
     }
   }
+
   /**
+   * @method render
    *
+   * @description React method render
    *
-   * @returns
+   * @returns {jsx} Jsx representation of the dom
+   *
    * @memberof EventDetails
    */
   render() {
     return (
       <div>
-        <Navbar />
         <EventInfo
           event={this.state.event}
           noEvent={this.state.noEvent}
@@ -67,6 +78,12 @@ class EventDetails extends React.Component {
     );
   }
 }
+
+EventDetails.propTypes = {
+  singleEvent: PropTypes.func,
+  event: PropTypes.object,
+  match: PropTypes.object
+};
 
 /**
  * @description Redux connect parameter - mapDispatchToProps
@@ -77,12 +94,10 @@ class EventDetails extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapStateToProps(state) {
-  return {
-    event: state.events.event,
-    getSingleCenter: state.centers.center
-  };
-}
+const mapStateToProps = state => ({
+  event: state.events.event,
+  getSingleCenter: state.centers.center
+});
 
 /**
  * @description Redux connect parameter - mapDispatchToProps
@@ -91,10 +106,8 @@ function mapStateToProps(state) {
  *
  * @return {object} mapped dispatch
  */
-function mapDispatchToProps(dispatch) {
-  return {
-    singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventDetails);

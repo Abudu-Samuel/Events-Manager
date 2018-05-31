@@ -379,7 +379,7 @@ class Event {
         message: error.errors[0].message
       }));
   }
-  
+
   /**
  * @static
  *

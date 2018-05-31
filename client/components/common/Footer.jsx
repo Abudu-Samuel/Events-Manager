@@ -5,7 +5,8 @@ const Footer = () => (
     <footer className="page-footer center-on-small-only default-color pt-0">
       <div className="footer-copyright">
         <div className="container-fluid">
-                © 2017 Copyright: <a href="#"><strong> Events Manager.com</strong></a>
+                © 2017 Copyright: <a href="#"><strong> Events Manager.com
+          </strong></a>
         </div>
       </div>
     </footer>

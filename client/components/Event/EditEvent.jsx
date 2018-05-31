@@ -2,11 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../common/Navbar';
 import Form from '../common/forms/Form';
 import { validateEvent } from '../Utils/Validator';
 import * as userActions from '../../actions/actionCreator';
-
 
 class EditEvent extends React.Component {
   constructor(props) {
@@ -112,12 +110,10 @@ handleUpload = (event) => {
 }
 
 render() {
-  console.log('........', this.state.image)
   return (
     this.state.redirect ?
       <Redirect to="/manage/events" /> :
       <div className="space">
-        <Navbar />
         <div className="container add">
           <section>
             <h4 className="font-weight-bold text-center">Edit Event</h4>
@@ -146,13 +142,13 @@ render() {
 }
 }
 
-function mapStateToProps(state, ownProps) {
+const mapStateToProps = state => {
   return {
     getSingleEvent: state.events.event
   };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
   return {
     singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
     editEvent: eventData => dispatch(userActions.editEvent(eventData))

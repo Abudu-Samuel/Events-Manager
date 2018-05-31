@@ -2,20 +2,15 @@ import React from 'react';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import swal from 'sweetalert';
 import { connect } from 'react-redux';
-import Navbar from '../common/Navbar';
 import decodeToken from '../../decodeToken';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 import history from '../../history';
 import { validateSignin } from '../Utils/Validator';
 
 /**
- * @description Signin component
- *
  * @class Signin
-//  *
- * @param {object} event
  *
  * @extends {React.Component}
  */
@@ -49,6 +44,15 @@ class Signin extends React.Component {
     };
   }
 
+  /**
+   * @method componentWillMount
+   *
+   * @description React lifecycle hook
+   *
+   * @return {object} state
+   *
+   * @memberof Signin
+   */
   componentWillMount() {
     if (this.props.userData.isAuthenticated) {
       if (decodeToken()) {
@@ -72,6 +76,7 @@ class Signin extends React.Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+
   /**
      * @method handleSubmit
      *
@@ -131,9 +136,12 @@ class Signin extends React.Component {
     const { errors } = this.state;
     return (
       <div>
+        <Navbar />
         <div id="intro" className="view hm-black-strong">
-          <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
-            <form onSubmit={this.handleSubmit} className="signup z-depth-1-half test mb-6">
+          <div className="container-fluid full-bg-img d-flex
+           align-items-center justify-content-center">
+            <form onSubmit={this.handleSubmit} className="signup z-depth-1-half
+             test mb-6">
               <h3 className="text-center mt-5 teal-text font-weight-bold">
                 Sign In
               </h3>
@@ -146,7 +154,8 @@ class Signin extends React.Component {
                   onChange={this.handleChange}
                   className="form-control"
                 />
-                <label className="teal-text" htmlFor="orangeForm-name">Username</label>
+                <label className="teal-text" htmlFor="orangeForm-name">
+                Username</label>
                 <p className="text-center error-msg">
                   {
                     errors.username && <span>{errors.username}</span>
@@ -162,7 +171,8 @@ class Signin extends React.Component {
                   onChange={this.handleChange}
                   className="form-control"
                 />
-                <label className="teal-text" htmlFor="orangeForm-pass">Password</label>
+                <label className="teal-text" htmlFor="orangeForm-pass">
+                Password</label>
                 <p className="text-center error-msg">
                   {
                     errors.password && <span>{errors.password}</span>
@@ -179,10 +189,12 @@ class Signin extends React.Component {
                   null
               }
               <div className="text-center mb-2">
-                <button type="submit" className="btn btn-mycolor">Sign In</button>
+                <button type="submit" className="btn btn-mycolor">
+                Sign In</button>
               </div>
               <div className="white-text text-center">
-                <h6 className="teal-text font-weight-bold">Don't have an account ?
+                <h6 className="teal-text font-weight-bold">
+                Don't have an account ?
                   <Link to="/signup" className="teal-text"> <u>Sign Up</u>
                     <i className="fa fa-sign-in ml-1" />
                   </Link>
@@ -197,13 +209,28 @@ class Signin extends React.Component {
 }
 
 Signin.propTypes = {
-  userSignIn: PropTypes.func
+  userSignIn: PropTypes.func,
+  userData: PropTypes.object,
 };
 
+/**
+ * @description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} state
+ *
+ * @return {object} mapped dispatch
+ */
 const mapStateToProps = state => ({
   userData: state.userAccess
 });
 
+/**
+ * @description Redux connect parameter - mapDispatchToProps
+ *
+ * @param {function} dispatch
+ *
+ * @return {object} mapped dispatch
+ */
 const mapDispatchToProps = dispatch => ({
   userSignIn: userData => dispatch(userActions.signIn(userData))
 });

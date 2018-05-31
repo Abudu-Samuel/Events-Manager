@@ -5,7 +5,6 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../webpack.config';
 import app from '../app';
-// import { stat } from 'fs';
 
 const compiler = webpack(webpackConfig);
 const port = parseInt(process.env.PORT, 10) || 8000;

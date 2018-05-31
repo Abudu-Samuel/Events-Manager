@@ -25,9 +25,6 @@ const initialState = {
 const eventAccess = (state = initialState, action = {}) => {
   switch (action.type) {
   case types.DELETE_EVENT:
-    // return {
-    //   ...state, ...action.eventData
-    // };
     return Object.assign({}, state, {
       userEvents: {
         event: state.userEvents.event.filter(event => event.id !== action.eventData.eventFound.id)

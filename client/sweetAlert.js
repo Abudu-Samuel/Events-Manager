@@ -5,7 +5,7 @@ const logInSuccess = () => {
 };
 
 const signUpSuccess = () => {
-  swal('SignUp Successful', '', 'success');
+  swal('Sign up Successful', '', 'success');
 };
 
 const editEventSuccess = () => {

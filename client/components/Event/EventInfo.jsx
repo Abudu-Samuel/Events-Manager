@@ -1,9 +1,8 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 const EventDetails = ({
   event,
-  noEvent
 }) => (
   <div>
     <div className="space">
@@ -12,7 +11,8 @@ const EventDetails = ({
         <div className="row">
           <div className="col-xl-6 mb-4">
             <div className="card prev">
-              <img className="img-fluid equal" src={event.image} alt="Card image cap" />
+              <img className="img-fluid equal" src={event.image}
+                alt="Card image cap" />
             </div>
           </div>
           <div className="col-xl-6 text-justify">
@@ -35,5 +35,9 @@ const EventDetails = ({
     </div>
   </div>
 );
+
+EventDetails.propTypes = {
+  event: PropTypes.object
+};
 
 export default EventDetails;

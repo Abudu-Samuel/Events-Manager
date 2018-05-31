@@ -3,42 +3,24 @@ import React from 'react';
 const Body = () => (
   <div>
     <div id="intro" className="view hm-black-strong">
-      <div className="container-fluid full-bg-img d-flex align-items-center justify-content-center">
+      <div className="container-fluid full-bg-img d-flex
+       align-items-center justify-content-center">
         <div className="row d-flex land justify-content-center">
           <div className="text-center">
             <ul className="mb-5">
               <li>
-                <h1 className="h2-responsive animated wow fadeInUp font-weight-bold title white-text mr-5 mb-3">Hey, wanna book an event center ?</h1>
-                <h3 className="h3-responsive wow font-weight-bold animated fadeInUp white-text mr-5 mb-4">Find your next experience</h3>
+                <h1 className="h2-responsive animated wow fadeInUp
+                 font-weight-bold title white-text mr-5 mb-3">
+                 Hey, wanna book an event center ?</h1>
+                <h3 className="h3-responsive wow font-weight-bold animated
+                 fadeInUp white-text mr-5 mb-4">Find your next experience</h3>
               </li>
               <li>
                 <div className="row wow fadeIn mr-2" data-wow-delay="0.4s">
-                  {/* <div className="col-md-3">
-                    <div className="md-form">
-                      <input type="text" id="form1" className="form-control validate white-text" />
-                      <label htmlFor="form1">Location</label>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="md-form">
-                      <input type="text" id="form2" className="form-control validate white-text" />
-                      <label htmlFor="form2">Guests</label>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="md-form">
-                      <input type="text" id="form3" className="form-control validate white-text" />
-                      <label htmlFor="form3">Type of Event</label>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="md-form">
-                      <button className="btn btn-lg btn-mycolor">Search</button>
-                    </div>
-                  </div> */}
                   <div style={{ margin: '0px auto' }}>
-                    <a href="#latest"><img className="img-fluid animated bounce infinite" style={{ height: 50, bottom: -200 }} src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png" /></a>
-
+                    <a href="#latest"><img className="img-fluid animated
+                     bounce infinite" style={{ height: 50, bottom: -200 }} src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png" />
+                    </a>
                   </div>
                 </div>
               </li>

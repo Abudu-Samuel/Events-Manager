@@ -2,17 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../common/Navbar';
 import Footer from '../common/Footer';
 import Form from '../common/forms/Form';
 import { validateEvent } from '../Utils/Validator';
-
 import * as userActions from '../../actions/actionCreator';
 
 /**
- *
- *
  * @class AddEvent
+ * 
  * @extends {React.Component}
  */
 class AddEvent extends React.Component {
@@ -79,7 +76,8 @@ class AddEvent extends React.Component {
       errorMessage: '',
       errorStatus: false
     });
-    this.props.addEvent({ ...this.state, centerId: this.props.match.params.centerId })
+    this.props.addEvent({ ...this.state,
+       centerId: this.props.match.params.centerId })
       .then(() => {
         this.setState({
           errorStatus: false,
@@ -104,7 +102,6 @@ class AddEvent extends React.Component {
       this.state.redirect ?
         <Redirect to={`/centers/${this.props.match.params.centerId}`} /> :
         <div className="space">
-          <Navbar />
           <div className="container add">
             <section>
               <h4 className="font-weight-bold text-center">Create An Event</h4>
@@ -142,7 +139,7 @@ class AddEvent extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
   return {
     addEvent: (eventData) => dispatch(userActions.addEvent(eventData))
   };
