@@ -14,7 +14,7 @@ import { validateSignin } from '../Utils/Validator';
  *
  * @extends {React.Component}
  */
-class Signin extends React.Component {
+export class Signin extends React.Component {
   /**
      * Creates an instance of Signin.
      *
@@ -152,7 +152,7 @@ class Signin extends React.Component {
                   id="username"
                   name="username"
                   onChange={this.handleChange}
-                  className="form-control"
+                  className="form-control username"
                 />
                 <label className="teal-text" htmlFor="orangeForm-name">
                 Username</label>
@@ -169,7 +169,7 @@ class Signin extends React.Component {
                   id="password"
                   name="password"
                   onChange={this.handleChange}
-                  className="form-control"
+                  className="form-control password"
                 />
                 <label className="teal-text" htmlFor="orangeForm-pass">
                 Password</label>

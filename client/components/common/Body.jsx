@@ -51,6 +51,7 @@ const Body = () => (
         <hr className="my-1" />
       </div>
     </main>
+    
   </div>
 );
 

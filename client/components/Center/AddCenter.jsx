@@ -17,7 +17,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class AddCenter extends React.Component {
+export class AddCenter extends React.Component {
   /**
    * Creates an instance of AddCenter.
    *

@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import SideBar from '../common/SideBar';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
 /**
@@ -13,7 +14,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class UserCenter extends React.Component {
+export class UserCenter extends React.Component {
   /**
    * Creates an instance of UserCenter.
    *
@@ -97,6 +98,7 @@ class UserCenter extends React.Component {
     const { centers } = this.state;
     return (
       <div>
+        <Navbar />
         <main>
           <div className="container space">
             <div className="row">

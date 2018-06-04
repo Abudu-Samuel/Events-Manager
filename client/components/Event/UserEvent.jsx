@@ -4,6 +4,7 @@ import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
 /**
@@ -11,7 +12,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class UserEvent extends React.Component {
+export class UserEvent extends React.Component {
   /**
    * Creates an instance of UserEvent.
    *
@@ -129,6 +130,7 @@ class UserEvent extends React.Component {
     const { events } = this.state;
     return (
       <div className="space">
+        <Navbar />
         {
           this.state.noEvent ? <div className="space text-center">
             <i className="fa fa-exclamation-triangle fad" />
@@ -157,11 +159,11 @@ class UserEvent extends React.Component {
                           <h6 className="" style={{ textAlign: 'center' }}>
                           Created: {event.createdAt.slice(0, 10)}</h6>
                           <div style={{ textAlign: 'center' }}>
-                            <button className="btn btn-default btn-sm">
+                            <button className="btn edit-event btn-default btn-sm">
                               <Link to={`/events/${event.id}/edit`}>Edit</Link></button>
                             <button onClick={() => swal.setActionValue(this.handleDelete(event.id))}
                               className=
-                                "btn btn-danger btn-sm">Delete</button>
+                                "btn delete-event btn-danger btn-sm">Delete</button>
                           </div>
                         </div>
                       </div>

@@ -4,9 +4,10 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Form from '../common/forms/Form';
 import { validateEvent } from '../Utils/Validator';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
-class EditEvent extends React.Component {
+export class EditEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,6 +115,7 @@ render() {
     this.state.redirect ?
       <Redirect to="/manage/events" /> :
       <div className="space">
+      <Navbar /> 
         <div className="container add">
           <section>
             <h4 className="font-weight-bold text-center">Edit Event</h4>

@@ -1,5 +1,5 @@
-import axios from 'axios';
 import jwt from 'jsonwebtoken';
+import instance from '../components/Utils/axios';
 import * as types from '../actionTypes/index';
 import {
   logInSuccess,
@@ -45,14 +45,11 @@ export const logout = () => (dispatch) => {
  * @return {object} axios response and userData
  */
 export const signIn = userData => dispatch =>
-  axios.post('/api/v1/users/login', userData)
+  instance.post('/api/v1/users/login', userData)
     .then((response) => {
       dispatch(signInAction(jwt.decode(response.data.token)));
       window.localStorage.setItem('x-access-token', response.data.token);
       logInSuccess();
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 /**
@@ -79,14 +76,11 @@ export const signUpAction = userData => ({
  * @return {object} Axios response and action type
  */
 export const signUp = userData => dispatch =>
-  axios.post('/api/v1/users/', userData)
+  instance.post('/api/v1/users/', userData)
     .then((response) => {
       dispatch(signUpAction(jwt.decode(response.data.token)));
       window.localStorage.setItem('x-access-token', response.data.token);
       signUpSuccess();
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 /**
@@ -113,7 +107,7 @@ export const addCenterAction = centerData => ({
  * @return {object} Axios response and action type
  */
 export const addCenter = centerData => dispatch =>
-  axios.post('/api/v1/centers/', centerData, {
+  instance.post('/api/v1/centers/', centerData, {
     headers:
       {
         'x-access-token': localStorage.getItem('x-access-token')
@@ -122,9 +116,6 @@ export const addCenter = centerData => dispatch =>
     .then((response) => {
       dispatch(addCenterAction(response.data));
       addCenterSuccess();
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 /**
@@ -149,12 +140,9 @@ export const getTrendingCentersAction = centerData => ({
  * @return {object} Axios response
  */
 export const getTrendingCenters = () => dispatch =>
-  axios.get('/api/v1/centers/latest')
+  instance.get('/api/v1/centers/latest')
     .then((response) => {
       dispatch(getTrendingCentersAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 /**
@@ -181,7 +169,7 @@ export const getAllCentersAction = centerData => ({
  * @return {object} Axios response
  */
 export const getAllCenters = page => dispatch =>
-  axios.get(`/api/v1/centers?page=${page}`, {
+  instance.get(`/api/v1/centers?page=${page}`, {
     headers:
       {
         'x-access-token': localStorage.getItem('x-access-token')
@@ -189,9 +177,6 @@ export const getAllCenters = page => dispatch =>
   })
     .then((response) => {
       dispatch(getAllCentersAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 /**
@@ -216,12 +201,9 @@ export const getPopularEventsAction = eventData => ({
  * @return {object} Axios response
  */
 export const getPopularEvents = () => dispatch =>
-  axios.get('/api/v1/events/latest')
+  instance.get('/api/v1/events/latest')
     .then((response) => {
       dispatch(getPopularEventsAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 /**
@@ -248,7 +230,7 @@ export const getAllEventsAction = eventData => ({
  * @return {object} Axios response
  */
 export const getAllEvents = page => dispatch =>
-  axios.get(`/api/v1/events?page=${page}`, {
+  instance.get(`/api/v1/events?page=${page}`, {
     headers:
       {
         'x-access-token': localStorage.getItem('x-access-token')
@@ -256,9 +238,6 @@ export const getAllEvents = page => dispatch =>
   })
     .then((response) => {
       dispatch(getAllEventsAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const singleCenterAction = centerData => ({
@@ -267,12 +246,9 @@ export const singleCenterAction = centerData => ({
 });
 
 export const singleCenter = centerid => dispatch =>
-  axios.get(`/api/v1/centers/center/${centerid}`)
+  instance.get(`/api/v1/centers/center/${centerid}`)
     .then((response) => {
       dispatch(singleCenterAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const singleEventAction = eventData => ({
@@ -281,12 +257,9 @@ export const singleEventAction = eventData => ({
 });
 
 export const singleEvent = eventId => dispatch =>
-  axios.get(`/api/v1/events/event/${eventId}`)
+  instance.get(`/api/v1/events/event/${eventId}`)
     .then((response) => {
       dispatch(singleEventAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const slatedEventAction = eventData => ({
@@ -295,7 +268,7 @@ export const slatedEventAction = eventData => ({
 });
 
 export const slatedEvent = (eventId, page) => dispatch =>
-  axios.get(`/api/v1/events/center/${eventId}?page=${page}`, {
+  instance.get(`/api/v1/events/center/${eventId}?page=${page}`, {
     headers:
       {
         'x-access-token': localStorage.getItem('x-access-token')
@@ -303,9 +276,6 @@ export const slatedEvent = (eventId, page) => dispatch =>
   })
     .then((response) => {
       dispatch(slatedEventAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const addEventAction = eventData => ({
@@ -314,7 +284,7 @@ export const addEventAction = eventData => ({
 });
 
 export const addEvent = eventData => dispatch =>
-  axios.post('/api/v1/events', eventData, {
+  instance.post('/api/v1/events', eventData, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
@@ -322,9 +292,6 @@ export const addEvent = eventData => dispatch =>
     .then((response) => {
       dispatch(addEventAction(response.data));
       addEventSuccess();
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const userEventsAction = eventData => ({
@@ -333,16 +300,13 @@ export const userEventsAction = eventData => ({
 });
 
 export const userEvents = page => dispatch =>
-  axios.get(`/api/v1/events/user/events?page=${page}`, {
+  instance.get(`/api/v1/events/user/events?page=${page}`, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
       dispatch(userEventsAction(response.data));
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const deleteEventAction = eventData => ({
@@ -351,7 +315,7 @@ export const deleteEventAction = eventData => ({
 });
 
 export const deleteEvent = eventid => dispatch =>
-  axios.delete(`/api/v1/events/event/${eventid}`, {
+  instance.delete(`/api/v1/events/event/${eventid}`, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
@@ -359,9 +323,6 @@ export const deleteEvent = eventid => dispatch =>
     .then((response) => {
       dispatch(deleteEventAction(response.data));
       successPrompter('Your event has been deleted successfully');
-    })
-    .catch((error) => {
-      throw (error);
     });
 
 export const editEventAction = eventData => ({
@@ -371,7 +332,7 @@ export const editEventAction = eventData => ({
 
 export const editEvent = eventData => (dispatch) => {
   const eventId = parseInt(eventData.eventId, 10);
-  return axios.put(`/api/v1/events/event/${eventId}`, eventData.data, {
+  return instance.put(`/api/v1/events/event/${eventId}`, eventData.data, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
@@ -379,9 +340,6 @@ export const editEvent = eventData => (dispatch) => {
     .then((response) => {
       dispatch(editEventAction(response.data));
       editEventSuccess();
-    })
-    .catch((error) => {
-      throw (error);
     });
 };
 
@@ -392,16 +350,13 @@ export const editCenterAction = centerData => ({
 
 export const editCenter = centerData => (dispatch) => {
   const centerId = parseInt(centerData.centerId, 10);
-  return axios.put(`/api/v1/centers/center/${centerId}`, centerData.data, {
+  return instance.put(`/api/v1/centers/center/${centerId}`, centerData.data, {
     headers: {
       'x-access-token': localStorage.getItem('x-access-token')
     }
   })
     .then((response) => {
-      dispatch(editEventAction(response.data));
+      dispatch(editCenterAction(response.data));
       editCenterSuccess();
-    })
-    .catch((error) => {
-      throw (error);
     });
 };

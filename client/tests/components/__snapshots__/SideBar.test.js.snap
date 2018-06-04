@@ -1,0 +1,855 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideBar /> should render SideBar correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SideBar />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="col-xl-5 col-md-4 mb-3 try text-center"
+        >
+          <img
+            alt="Responsive image"
+            className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
+            src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
+          />
+          <h5
+            className="font-weight-bold white-text"
+          >
+            Admin
+          </h5>
+        </div>,
+        <hr
+          className="font-weight-bold"
+        />,
+        <div
+          className=""
+        >
+          <ul
+            className="mr-6"
+            include="hello"
+          >
+            <li
+              className="white-text mb-3"
+            >
+              <Link
+                className="btn btn-mycolor btn-block mr-2"
+                replace={false}
+                to="/admin/dashboard"
+              >
+                <i
+                  className="fa fa-dashboard mr-2 white-text"
+                />
+                Dashboard
+              </Link>
+            </li>
+            <li
+              className="white-text mb-3"
+            >
+              <Link
+                className="btn btn-mycolor btn-block mr-4"
+                replace={false}
+                to="/addcenter"
+              >
+                <i
+                  className="fa fa-plus mr-2 white-text"
+                />
+                Add Center
+              </Link>
+            </li>
+            <li
+              className="white-text mb-3"
+            >
+              <Link
+                className="btn btn-mycolor btn-block mr-4"
+                replace={false}
+                to="/manage/centers"
+              >
+                <i
+                  className="fa fa-street-view mr-2 white-text"
+                />
+                View Centers
+              </Link>
+            </li>
+          </ul>
+        </div>,
+      ],
+      "className": "col-md-4 adm mb-4",
+      "style": Object {
+        "marginTop": 19,
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <img
+              alt="Responsive image"
+              className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
+              src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
+            />,
+            <h5
+              className="font-weight-bold white-text"
+            >
+              Admin
+            </h5>,
+          ],
+          "className": "col-xl-5 col-md-4 mb-3 try text-center",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Responsive image",
+              "className": "img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro",
+              "src": "http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Admin",
+              "className": "font-weight-bold white-text",
+            },
+            "ref": null,
+            "rendered": "Admin",
+            "type": "h5",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "font-weight-bold",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "hr",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <ul
+            className="mr-6"
+            include="hello"
+          >
+            <li
+              className="white-text mb-3"
+            >
+              <Link
+                className="btn btn-mycolor btn-block mr-2"
+                replace={false}
+                to="/admin/dashboard"
+              >
+                <i
+                  className="fa fa-dashboard mr-2 white-text"
+                />
+                Dashboard
+              </Link>
+            </li>
+            <li
+              className="white-text mb-3"
+            >
+              <Link
+                className="btn btn-mycolor btn-block mr-4"
+                replace={false}
+                to="/addcenter"
+              >
+                <i
+                  className="fa fa-plus mr-2 white-text"
+                />
+                Add Center
+              </Link>
+            </li>
+            <li
+              className="white-text mb-3"
+            >
+              <Link
+                className="btn btn-mycolor btn-block mr-4"
+                replace={false}
+                to="/manage/centers"
+              >
+                <i
+                  className="fa fa-street-view mr-2 white-text"
+                />
+                View Centers
+              </Link>
+            </li>
+          </ul>,
+          "className": "",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-2"
+                  replace={false}
+                  to="/admin/dashboard"
+                >
+                  <i
+                    className="fa fa-dashboard mr-2 white-text"
+                  />
+                  Dashboard
+                </Link>
+              </li>,
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/addcenter"
+                >
+                  <i
+                    className="fa fa-plus mr-2 white-text"
+                  />
+                  Add Center
+                </Link>
+              </li>,
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/manage/centers"
+                >
+                  <i
+                    className="fa fa-street-view mr-2 white-text"
+                  />
+                  View Centers
+                </Link>
+              </li>,
+            ],
+            "className": "mr-6",
+            "include": "hello",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="btn btn-mycolor btn-block mr-2"
+                  replace={false}
+                  to="/admin/dashboard"
+                >
+                  <i
+                    className="fa fa-dashboard mr-2 white-text"
+                  />
+                  Dashboard
+                </Link>,
+                "className": "white-text mb-3",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="fa fa-dashboard mr-2 white-text"
+                    />,
+                    "Dashboard",
+                  ],
+                  "className": "btn btn-mycolor btn-block mr-2",
+                  "replace": false,
+                  "to": "/admin/dashboard",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fa fa-dashboard mr-2 white-text",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "Dashboard",
+                ],
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/addcenter"
+                >
+                  <i
+                    className="fa fa-plus mr-2 white-text"
+                  />
+                  Add Center
+                </Link>,
+                "className": "white-text mb-3",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="fa fa-plus mr-2 white-text"
+                    />,
+                    "Add Center",
+                  ],
+                  "className": "btn btn-mycolor btn-block mr-4",
+                  "replace": false,
+                  "to": "/addcenter",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fa fa-plus mr-2 white-text",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "Add Center",
+                ],
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/manage/centers"
+                >
+                  <i
+                    className="fa fa-street-view mr-2 white-text"
+                  />
+                  View Centers
+                </Link>,
+                "className": "white-text mb-3",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="fa fa-street-view mr-2 white-text"
+                    />,
+                    "View Centers",
+                  ],
+                  "className": "btn btn-mycolor btn-block mr-4",
+                  "replace": false,
+                  "to": "/manage/centers",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fa fa-street-view mr-2 white-text",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  "View Centers",
+                ],
+                "type": [Function],
+              },
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="col-xl-5 col-md-4 mb-3 try text-center"
+          >
+            <img
+              alt="Responsive image"
+              className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
+              src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
+            />
+            <h5
+              className="font-weight-bold white-text"
+            >
+              Admin
+            </h5>
+          </div>,
+          <hr
+            className="font-weight-bold"
+          />,
+          <div
+            className=""
+          >
+            <ul
+              className="mr-6"
+              include="hello"
+            >
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-2"
+                  replace={false}
+                  to="/admin/dashboard"
+                >
+                  <i
+                    className="fa fa-dashboard mr-2 white-text"
+                  />
+                  Dashboard
+                </Link>
+              </li>
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/addcenter"
+                >
+                  <i
+                    className="fa fa-plus mr-2 white-text"
+                  />
+                  Add Center
+                </Link>
+              </li>
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/manage/centers"
+                >
+                  <i
+                    className="fa fa-street-view mr-2 white-text"
+                  />
+                  View Centers
+                </Link>
+              </li>
+            </ul>
+          </div>,
+        ],
+        "className": "col-md-4 adm mb-4",
+        "style": Object {
+          "marginTop": 19,
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <img
+                alt="Responsive image"
+                className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
+                src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
+              />,
+              <h5
+                className="font-weight-bold white-text"
+              >
+                Admin
+              </h5>,
+            ],
+            "className": "col-xl-5 col-md-4 mb-3 try text-center",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Responsive image",
+                "className": "img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro",
+                "src": "http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Admin",
+                "className": "font-weight-bold white-text",
+              },
+              "ref": null,
+              "rendered": "Admin",
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "font-weight-bold",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <ul
+              className="mr-6"
+              include="hello"
+            >
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-2"
+                  replace={false}
+                  to="/admin/dashboard"
+                >
+                  <i
+                    className="fa fa-dashboard mr-2 white-text"
+                  />
+                  Dashboard
+                </Link>
+              </li>
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/addcenter"
+                >
+                  <i
+                    className="fa fa-plus mr-2 white-text"
+                  />
+                  Add Center
+                </Link>
+              </li>
+              <li
+                className="white-text mb-3"
+              >
+                <Link
+                  className="btn btn-mycolor btn-block mr-4"
+                  replace={false}
+                  to="/manage/centers"
+                >
+                  <i
+                    className="fa fa-street-view mr-2 white-text"
+                  />
+                  View Centers
+                </Link>
+              </li>
+            </ul>,
+            "className": "",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <li
+                  className="white-text mb-3"
+                >
+                  <Link
+                    className="btn btn-mycolor btn-block mr-2"
+                    replace={false}
+                    to="/admin/dashboard"
+                  >
+                    <i
+                      className="fa fa-dashboard mr-2 white-text"
+                    />
+                    Dashboard
+                  </Link>
+                </li>,
+                <li
+                  className="white-text mb-3"
+                >
+                  <Link
+                    className="btn btn-mycolor btn-block mr-4"
+                    replace={false}
+                    to="/addcenter"
+                  >
+                    <i
+                      className="fa fa-plus mr-2 white-text"
+                    />
+                    Add Center
+                  </Link>
+                </li>,
+                <li
+                  className="white-text mb-3"
+                >
+                  <Link
+                    className="btn btn-mycolor btn-block mr-4"
+                    replace={false}
+                    to="/manage/centers"
+                  >
+                    <i
+                      className="fa fa-street-view mr-2 white-text"
+                    />
+                    View Centers
+                  </Link>
+                </li>,
+              ],
+              "className": "mr-6",
+              "include": "hello",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="btn btn-mycolor btn-block mr-2"
+                    replace={false}
+                    to="/admin/dashboard"
+                  >
+                    <i
+                      className="fa fa-dashboard mr-2 white-text"
+                    />
+                    Dashboard
+                  </Link>,
+                  "className": "white-text mb-3",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <i
+                        className="fa fa-dashboard mr-2 white-text"
+                      />,
+                      "Dashboard",
+                    ],
+                    "className": "btn btn-mycolor btn-block mr-2",
+                    "replace": false,
+                    "to": "/admin/dashboard",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "fa fa-dashboard mr-2 white-text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "i",
+                    },
+                    "Dashboard",
+                  ],
+                  "type": [Function],
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="btn btn-mycolor btn-block mr-4"
+                    replace={false}
+                    to="/addcenter"
+                  >
+                    <i
+                      className="fa fa-plus mr-2 white-text"
+                    />
+                    Add Center
+                  </Link>,
+                  "className": "white-text mb-3",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <i
+                        className="fa fa-plus mr-2 white-text"
+                      />,
+                      "Add Center",
+                    ],
+                    "className": "btn btn-mycolor btn-block mr-4",
+                    "replace": false,
+                    "to": "/addcenter",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "fa fa-plus mr-2 white-text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "i",
+                    },
+                    "Add Center",
+                  ],
+                  "type": [Function],
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="btn btn-mycolor btn-block mr-4"
+                    replace={false}
+                    to="/manage/centers"
+                  >
+                    <i
+                      className="fa fa-street-view mr-2 white-text"
+                    />
+                    View Centers
+                  </Link>,
+                  "className": "white-text mb-3",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <i
+                        className="fa fa-street-view mr-2 white-text"
+                      />,
+                      "View Centers",
+                    ],
+                    "className": "btn btn-mycolor btn-block mr-4",
+                    "replace": false,
+                    "to": "/manage/centers",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "fa fa-street-view mr-2 white-text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "i",
+                    },
+                    "View Centers",
+                  ],
+                  "type": [Function],
+                },
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

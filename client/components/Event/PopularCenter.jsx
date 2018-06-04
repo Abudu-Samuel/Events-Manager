@@ -30,6 +30,7 @@ const PopularEvents = ({
                   </p>
                   <p className="card-text">Date: {event.date}</p>
                   <button
+                    id="viewEvent"
                     className="btn btn-mycolor btn-sm"
                     data-centerid={event.id}
                     onClick={getEventId}>

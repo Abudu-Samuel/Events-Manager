@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import * as userActions from '../../actions/actionCreator';
 import { validateSignup } from '../Utils/Validator';
 import history from '../../history';
+import Navbar from '../common/Navbar';
 import decodeToken from '../../decodeToken';
 
 
@@ -19,7 +20,7 @@ import decodeToken from '../../decodeToken';
  *
  * @extends {React.Component}
  */
-class SignUp extends React.Component {
+export class SignUp extends React.Component {
   /**
    * Creates an instance of SignUp.
    *
@@ -138,6 +139,7 @@ class SignUp extends React.Component {
     const { errors } = this.state;
     return (
       <div>
+        <Navbar />
         <div id="intro" className="view hm-black-strong">
           <div className="container-fluid full-bg-img d-flex align-items-center
            justify-content-center">
@@ -152,7 +154,7 @@ class SignUp extends React.Component {
                   id="firstname"
                   name="firstname"
                   onChange={this.handleChange}
-                  className="form-control"
+                  className="form-control firstname"
                 />
                 <label htmlFor="orangeForm-name" className="teal-text">
                 First name</label>
@@ -169,7 +171,7 @@ class SignUp extends React.Component {
                   id="lastname"
                   name="lastname"
                   onChange={this.handleChange}
-                  className="form-control"
+                  className="form-control lastname"
                 />
                 <label htmlFor="orangeForm-name" className="teal-text">
                 Last name</label>
@@ -187,7 +189,7 @@ class SignUp extends React.Component {
                   name="username"
                   onChange={this.handleChange}
                   className={classNames(
-                    'form-control',
+                    'form-control username',
                     { 'has-errors': errors.username }
                   )}
                 />
@@ -206,7 +208,7 @@ class SignUp extends React.Component {
                   id="email"
                   name="email"
                   onChange={this.handleChange}
-                  className="form-control"
+                  className="form-control email"
                 />
                 <label htmlFor="orangeForm-email" className="teal-text">
                 Email</label>
@@ -223,7 +225,7 @@ class SignUp extends React.Component {
                   id="password"
                   name="password"
                   onChange={this.handleChange}
-                  className="form-control"
+                  className="form-control password"
                 />
                 <label htmlFor="orangeForm-pass" className="teal-text">
                 Password</label>
