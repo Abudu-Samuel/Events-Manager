@@ -1,0 +1,2173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render Footer correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Footer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <footer
+        className="page-footer center-on-small-only default-color pt-0"
+      >
+        <div
+          className="footer-copyright"
+        >
+          <div
+            className="container-fluid"
+          >
+            © 2017 Copyright: 
+            <a
+              href="#"
+            >
+              <strong>
+                 Events Manager.com
+              </strong>
+            </a>
+          </div>
+        </div>
+      </footer>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="footer-copyright"
+        >
+          <div
+            className="container-fluid"
+          >
+            © 2017 Copyright: 
+            <a
+              href="#"
+            >
+              <strong>
+                 Events Manager.com
+              </strong>
+            </a>
+          </div>
+        </div>,
+        "className": "page-footer center-on-small-only default-color pt-0",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="container-fluid"
+          >
+            © 2017 Copyright: 
+            <a
+              href="#"
+            >
+              <strong>
+                 Events Manager.com
+              </strong>
+            </a>
+          </div>,
+          "className": "footer-copyright",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "© 2017 Copyright: ",
+              <a
+                href="#"
+              >
+                <strong>
+                   Events Manager.com
+                </strong>
+              </a>,
+            ],
+            "className": "container-fluid",
+          },
+          "ref": null,
+          "rendered": Array [
+            "© 2017 Copyright: ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <strong>
+                   Events Manager.com
+                </strong>,
+                "href": "#",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Events Manager.com",
+                },
+                "ref": null,
+                "rendered": " Events Manager.com",
+                "type": "strong",
+              },
+              "type": "a",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "footer",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <footer
+          className="page-footer center-on-small-only default-color pt-0"
+        >
+          <div
+            className="footer-copyright"
+          >
+            <div
+              className="container-fluid"
+            >
+              © 2017 Copyright: 
+              <a
+                href="#"
+              >
+                <strong>
+                   Events Manager.com
+                </strong>
+              </a>
+            </div>
+          </div>
+        </footer>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="footer-copyright"
+          >
+            <div
+              className="container-fluid"
+            >
+              © 2017 Copyright: 
+              <a
+                href="#"
+              >
+                <strong>
+                   Events Manager.com
+                </strong>
+              </a>
+            </div>
+          </div>,
+          "className": "page-footer center-on-small-only default-color pt-0",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="container-fluid"
+            >
+              © 2017 Copyright: 
+              <a
+                href="#"
+              >
+                <strong>
+                   Events Manager.com
+                </strong>
+              </a>
+            </div>,
+            "className": "footer-copyright",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "© 2017 Copyright: ",
+                <a
+                  href="#"
+                >
+                  <strong>
+                     Events Manager.com
+                  </strong>
+                </a>,
+              ],
+              "className": "container-fluid",
+            },
+            "ref": null,
+            "rendered": Array [
+              "© 2017 Copyright: ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <strong>
+                     Events Manager.com
+                  </strong>,
+                  "href": "#",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Events Manager.com",
+                  },
+                  "ref": null,
+                  "rendered": " Events Manager.com",
+                  "type": "strong",
+                },
+                "type": "a",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "footer",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<NotFoundPage /> should render NotFoundPage correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NotFoundPage />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          <header
+            className="header"
+          >
+            <nav
+              className="navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top"
+              style={
+                Object {
+                  "background": "white",
+                }
+              }
+            >
+              <div
+                className="container"
+              >
+                <a
+                  className="font-weight-bold navbar-brand"
+                  href="#"
+                  style={
+                    Object {
+                      "color": "#00695c",
+                    }
+                  }
+                >
+                  Events Manager
+                </a>
+                <button
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  className="navbar-toggler"
+                  data-target="#navbarSupportedContent"
+                  data-toggle="collapse"
+                  type="button"
+                >
+                  <span
+                    className="navbar-toggler-icon"
+                  />
+                </button>
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul
+                    className="navbar-nav ml-auto nav-flex-icons"
+                  >
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Centers
+                      </a>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link  font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Events
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </header>
+        </div>,
+        <div
+          className="container"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xl-4"
+            >
+              <h1
+                className="adj font-weight-bold bab"
+              >
+                Awww...Don’t Cry.
+                <br />
+                What you’re looking for may have been misplaced in Long Term Memory 
+              </h1>
+            </div>
+            <div
+              className="col-xl-4"
+            >
+              <img
+                alt=""
+                className="img-fluid not-found"
+                src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+              />
+            </div>
+            <div
+              className="col-xl-4"
+            >
+              <h1
+                className="text-center font-weight-bold bab"
+              >
+                Click the button to return to the Home page
+                <Link
+                  className="btn btn-mycolor btn-sm"
+                  replace={false}
+                  to="/"
+                >
+                  Home
+                </Link>
+              </h1>
+            </div>
+          </div>
+          <h1
+            className="font-weight-bold text-center page-404"
+          >
+            404 Page!
+          </h1>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <header
+            className="header"
+          >
+            <nav
+              className="navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top"
+              style={
+                Object {
+                  "background": "white",
+                }
+              }
+            >
+              <div
+                className="container"
+              >
+                <a
+                  className="font-weight-bold navbar-brand"
+                  href="#"
+                  style={
+                    Object {
+                      "color": "#00695c",
+                    }
+                  }
+                >
+                  Events Manager
+                </a>
+                <button
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  className="navbar-toggler"
+                  data-target="#navbarSupportedContent"
+                  data-toggle="collapse"
+                  type="button"
+                >
+                  <span
+                    className="navbar-toggler-icon"
+                  />
+                </button>
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul
+                    className="navbar-nav ml-auto nav-flex-icons"
+                  >
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Centers
+                      </a>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link  font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Events
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </header>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <nav
+              className="navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top"
+              style={
+                Object {
+                  "background": "white",
+                }
+              }
+            >
+              <div
+                className="container"
+              >
+                <a
+                  className="font-weight-bold navbar-brand"
+                  href="#"
+                  style={
+                    Object {
+                      "color": "#00695c",
+                    }
+                  }
+                >
+                  Events Manager
+                </a>
+                <button
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  className="navbar-toggler"
+                  data-target="#navbarSupportedContent"
+                  data-toggle="collapse"
+                  type="button"
+                >
+                  <span
+                    className="navbar-toggler-icon"
+                  />
+                </button>
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul
+                    className="navbar-nav ml-auto nav-flex-icons"
+                  >
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Centers
+                      </a>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link  font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Events
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>,
+            "className": "header",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="container"
+              >
+                <a
+                  className="font-weight-bold navbar-brand"
+                  href="#"
+                  style={
+                    Object {
+                      "color": "#00695c",
+                    }
+                  }
+                >
+                  Events Manager
+                </a>
+                <button
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  className="navbar-toggler"
+                  data-target="#navbarSupportedContent"
+                  data-toggle="collapse"
+                  type="button"
+                >
+                  <span
+                    className="navbar-toggler-icon"
+                  />
+                </button>
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul
+                    className="navbar-nav ml-auto nav-flex-icons"
+                  >
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Centers
+                      </a>
+                    </li>
+                    <li
+                      className="nav-item"
+                    >
+                      <a
+                        className="nav-link  font-weight-bold waves-effect waves-light"
+                        href="#"
+                        style={
+                          Object {
+                            "color": "#00695c",
+                          }
+                        }
+                      >
+                        Events
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>,
+              "className": "navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top",
+              "style": Object {
+                "background": "white",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <a
+                    className="font-weight-bold navbar-brand"
+                    href="#"
+                    style={
+                      Object {
+                        "color": "#00695c",
+                      }
+                    }
+                  >
+                    Events Manager
+                  </a>,
+                  <button
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbarSupportedContent"
+                    data-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      className="navbar-toggler-icon"
+                    />
+                  </button>,
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                  >
+                    <ul
+                      className="navbar-nav ml-auto nav-flex-icons"
+                    >
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Centers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link  font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Events
+                        </a>
+                      </li>
+                    </ul>
+                  </div>,
+                ],
+                "className": "container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Events Manager",
+                    "className": "font-weight-bold navbar-brand",
+                    "href": "#",
+                    "style": Object {
+                      "color": "#00695c",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Events Manager",
+                  "type": "a",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "aria-controls": "navbarSupportedContent",
+                    "aria-expanded": "false",
+                    "aria-label": "Toggle navigation",
+                    "children": <span
+                      className="navbar-toggler-icon"
+                    />,
+                    "className": "navbar-toggler",
+                    "data-target": "#navbarSupportedContent",
+                    "data-toggle": "collapse",
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "navbar-toggler-icon",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <ul
+                      className="navbar-nav ml-auto nav-flex-icons"
+                    >
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Centers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link  font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Events
+                        </a>
+                      </li>
+                    </ul>,
+                    "className": "collapse navbar-collapse",
+                    "id": "navbarSupportedContent",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <li
+                          className="nav-item"
+                        >
+                          <a
+                            className="nav-link font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Centers
+                          </a>
+                        </li>,
+                        <li
+                          className="nav-item"
+                        >
+                          <a
+                            className="nav-link  font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Events
+                          </a>
+                        </li>,
+                      ],
+                      "className": "navbar-nav ml-auto nav-flex-icons",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <a
+                            className="nav-link font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Centers
+                          </a>,
+                          "className": "nav-item",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Centers",
+                            "className": "nav-link font-weight-bold waves-effect waves-light",
+                            "href": "#",
+                            "style": Object {
+                              "color": "#00695c",
+                            },
+                          },
+                          "ref": null,
+                          "rendered": "Centers",
+                          "type": "a",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <a
+                            className="nav-link  font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Events
+                          </a>,
+                          "className": "nav-item",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Events",
+                            "className": "nav-link  font-weight-bold waves-effect waves-light",
+                            "href": "#",
+                            "style": Object {
+                              "color": "#00695c",
+                            },
+                          },
+                          "ref": null,
+                          "rendered": "Events",
+                          "type": "a",
+                        },
+                        "type": "li",
+                      },
+                    ],
+                    "type": "ul",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "nav",
+          },
+          "type": "header",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="row"
+            >
+              <div
+                className="col-xl-4"
+              >
+                <h1
+                  className="adj font-weight-bold bab"
+                >
+                  Awww...Don’t Cry.
+                  <br />
+                  What you’re looking for may have been misplaced in Long Term Memory 
+                </h1>
+              </div>
+              <div
+                className="col-xl-4"
+              >
+                <img
+                  alt=""
+                  className="img-fluid not-found"
+                  src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                />
+              </div>
+              <div
+                className="col-xl-4"
+              >
+                <h1
+                  className="text-center font-weight-bold bab"
+                >
+                  Click the button to return to the Home page
+                  <Link
+                    className="btn btn-mycolor btn-sm"
+                    replace={false}
+                    to="/"
+                  >
+                    Home
+                  </Link>
+                </h1>
+              </div>
+            </div>,
+            <h1
+              className="font-weight-bold text-center page-404"
+            >
+              404 Page!
+            </h1>,
+          ],
+          "className": "container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="col-xl-4"
+                >
+                  <h1
+                    className="adj font-weight-bold bab"
+                  >
+                    Awww...Don’t Cry.
+                    <br />
+                    What you’re looking for may have been misplaced in Long Term Memory 
+                  </h1>
+                </div>,
+                <div
+                  className="col-xl-4"
+                >
+                  <img
+                    alt=""
+                    className="img-fluid not-found"
+                    src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                  />
+                </div>,
+                <div
+                  className="col-xl-4"
+                >
+                  <h1
+                    className="text-center font-weight-bold bab"
+                  >
+                    Click the button to return to the Home page
+                    <Link
+                      className="btn btn-mycolor btn-sm"
+                      replace={false}
+                      to="/"
+                    >
+                      Home
+                    </Link>
+                  </h1>
+                </div>,
+              ],
+              "className": "row",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <h1
+                    className="adj font-weight-bold bab"
+                  >
+                    Awww...Don’t Cry.
+                    <br />
+                    What you’re looking for may have been misplaced in Long Term Memory 
+                  </h1>,
+                  "className": "col-xl-4",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Awww...Don’t Cry.",
+                      <br />,
+                      "What you’re looking for may have been misplaced in Long Term Memory ",
+                    ],
+                    "className": "adj font-weight-bold bab",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Awww...Don’t Cry.",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {},
+                      "ref": null,
+                      "rendered": null,
+                      "type": "br",
+                    },
+                    "What you’re looking for may have been misplaced in Long Term Memory ",
+                  ],
+                  "type": "h1",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt=""
+                    className="img-fluid not-found"
+                    src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                  />,
+                  "className": "col-xl-4",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "",
+                    "className": "img-fluid not-found",
+                    "src": "https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <h1
+                    className="text-center font-weight-bold bab"
+                  >
+                    Click the button to return to the Home page
+                    <Link
+                      className="btn btn-mycolor btn-sm"
+                      replace={false}
+                      to="/"
+                    >
+                      Home
+                    </Link>
+                  </h1>,
+                  "className": "col-xl-4",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Click the button to return to the Home page",
+                      <Link
+                        className="btn btn-mycolor btn-sm"
+                        replace={false}
+                        to="/"
+                      >
+                        Home
+                      </Link>,
+                    ],
+                    "className": "text-center font-weight-bold bab",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Click the button to return to the Home page",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Home",
+                        "className": "btn btn-mycolor btn-sm",
+                        "replace": false,
+                        "to": "/",
+                      },
+                      "ref": null,
+                      "rendered": "Home",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "h1",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "404 Page!",
+              "className": "font-weight-bold text-center page-404",
+            },
+            "ref": null,
+            "rendered": "404 Page!",
+            "type": "h1",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <header
+              className="header"
+            >
+              <nav
+                className="navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top"
+                style={
+                  Object {
+                    "background": "white",
+                  }
+                }
+              >
+                <div
+                  className="container"
+                >
+                  <a
+                    className="font-weight-bold navbar-brand"
+                    href="#"
+                    style={
+                      Object {
+                        "color": "#00695c",
+                      }
+                    }
+                  >
+                    Events Manager
+                  </a>
+                  <button
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbarSupportedContent"
+                    data-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      className="navbar-toggler-icon"
+                    />
+                  </button>
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                  >
+                    <ul
+                      className="navbar-nav ml-auto nav-flex-icons"
+                    >
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Centers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link  font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Events
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </header>
+          </div>,
+          <div
+            className="container"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xl-4"
+              >
+                <h1
+                  className="adj font-weight-bold bab"
+                >
+                  Awww...Don’t Cry.
+                  <br />
+                  What you’re looking for may have been misplaced in Long Term Memory 
+                </h1>
+              </div>
+              <div
+                className="col-xl-4"
+              >
+                <img
+                  alt=""
+                  className="img-fluid not-found"
+                  src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                />
+              </div>
+              <div
+                className="col-xl-4"
+              >
+                <h1
+                  className="text-center font-weight-bold bab"
+                >
+                  Click the button to return to the Home page
+                  <Link
+                    className="btn btn-mycolor btn-sm"
+                    replace={false}
+                    to="/"
+                  >
+                    Home
+                  </Link>
+                </h1>
+              </div>
+            </div>
+            <h1
+              className="font-weight-bold text-center page-404"
+            >
+              404 Page!
+            </h1>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <header
+              className="header"
+            >
+              <nav
+                className="navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top"
+                style={
+                  Object {
+                    "background": "white",
+                  }
+                }
+              >
+                <div
+                  className="container"
+                >
+                  <a
+                    className="font-weight-bold navbar-brand"
+                    href="#"
+                    style={
+                      Object {
+                        "color": "#00695c",
+                      }
+                    }
+                  >
+                    Events Manager
+                  </a>
+                  <button
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbarSupportedContent"
+                    data-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      className="navbar-toggler-icon"
+                    />
+                  </button>
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                  >
+                    <ul
+                      className="navbar-nav ml-auto nav-flex-icons"
+                    >
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Centers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link  font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Events
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </header>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <nav
+                className="navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top"
+                style={
+                  Object {
+                    "background": "white",
+                  }
+                }
+              >
+                <div
+                  className="container"
+                >
+                  <a
+                    className="font-weight-bold navbar-brand"
+                    href="#"
+                    style={
+                      Object {
+                        "color": "#00695c",
+                      }
+                    }
+                  >
+                    Events Manager
+                  </a>
+                  <button
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbarSupportedContent"
+                    data-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      className="navbar-toggler-icon"
+                    />
+                  </button>
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                  >
+                    <ul
+                      className="navbar-nav ml-auto nav-flex-icons"
+                    >
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Centers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link  font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Events
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>,
+              "className": "header",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="container"
+                >
+                  <a
+                    className="font-weight-bold navbar-brand"
+                    href="#"
+                    style={
+                      Object {
+                        "color": "#00695c",
+                      }
+                    }
+                  >
+                    Events Manager
+                  </a>
+                  <button
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbarSupportedContent"
+                    data-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      className="navbar-toggler-icon"
+                    />
+                  </button>
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                  >
+                    <ul
+                      className="navbar-nav ml-auto nav-flex-icons"
+                    >
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Centers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link  font-weight-bold waves-effect waves-light"
+                          href="#"
+                          style={
+                            Object {
+                              "color": "#00695c",
+                            }
+                          }
+                        >
+                          Events
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>,
+                "className": "navbar z-depth-2 navbar-expand-lg navbar-dark fixed-top",
+                "style": Object {
+                  "background": "white",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <a
+                      className="font-weight-bold navbar-brand"
+                      href="#"
+                      style={
+                        Object {
+                          "color": "#00695c",
+                        }
+                      }
+                    >
+                      Events Manager
+                    </a>,
+                    <button
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                      className="navbar-toggler"
+                      data-target="#navbarSupportedContent"
+                      data-toggle="collapse"
+                      type="button"
+                    >
+                      <span
+                        className="navbar-toggler-icon"
+                      />
+                    </button>,
+                    <div
+                      className="collapse navbar-collapse"
+                      id="navbarSupportedContent"
+                    >
+                      <ul
+                        className="navbar-nav ml-auto nav-flex-icons"
+                      >
+                        <li
+                          className="nav-item"
+                        >
+                          <a
+                            className="nav-link font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Centers
+                          </a>
+                        </li>
+                        <li
+                          className="nav-item"
+                        >
+                          <a
+                            className="nav-link  font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Events
+                          </a>
+                        </li>
+                      </ul>
+                    </div>,
+                  ],
+                  "className": "container",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Events Manager",
+                      "className": "font-weight-bold navbar-brand",
+                      "href": "#",
+                      "style": Object {
+                        "color": "#00695c",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": "Events Manager",
+                    "type": "a",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "aria-controls": "navbarSupportedContent",
+                      "aria-expanded": "false",
+                      "aria-label": "Toggle navigation",
+                      "children": <span
+                        className="navbar-toggler-icon"
+                      />,
+                      "className": "navbar-toggler",
+                      "data-target": "#navbarSupportedContent",
+                      "data-toggle": "collapse",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "navbar-toggler-icon",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "span",
+                    },
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <ul
+                        className="navbar-nav ml-auto nav-flex-icons"
+                      >
+                        <li
+                          className="nav-item"
+                        >
+                          <a
+                            className="nav-link font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Centers
+                          </a>
+                        </li>
+                        <li
+                          className="nav-item"
+                        >
+                          <a
+                            className="nav-link  font-weight-bold waves-effect waves-light"
+                            href="#"
+                            style={
+                              Object {
+                                "color": "#00695c",
+                              }
+                            }
+                          >
+                            Events
+                          </a>
+                        </li>
+                      </ul>,
+                      "className": "collapse navbar-collapse",
+                      "id": "navbarSupportedContent",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <li
+                            className="nav-item"
+                          >
+                            <a
+                              className="nav-link font-weight-bold waves-effect waves-light"
+                              href="#"
+                              style={
+                                Object {
+                                  "color": "#00695c",
+                                }
+                              }
+                            >
+                              Centers
+                            </a>
+                          </li>,
+                          <li
+                            className="nav-item"
+                          >
+                            <a
+                              className="nav-link  font-weight-bold waves-effect waves-light"
+                              href="#"
+                              style={
+                                Object {
+                                  "color": "#00695c",
+                                }
+                              }
+                            >
+                              Events
+                            </a>
+                          </li>,
+                        ],
+                        "className": "navbar-nav ml-auto nav-flex-icons",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <a
+                              className="nav-link font-weight-bold waves-effect waves-light"
+                              href="#"
+                              style={
+                                Object {
+                                  "color": "#00695c",
+                                }
+                              }
+                            >
+                              Centers
+                            </a>,
+                            "className": "nav-item",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Centers",
+                              "className": "nav-link font-weight-bold waves-effect waves-light",
+                              "href": "#",
+                              "style": Object {
+                                "color": "#00695c",
+                              },
+                            },
+                            "ref": null,
+                            "rendered": "Centers",
+                            "type": "a",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <a
+                              className="nav-link  font-weight-bold waves-effect waves-light"
+                              href="#"
+                              style={
+                                Object {
+                                  "color": "#00695c",
+                                }
+                              }
+                            >
+                              Events
+                            </a>,
+                            "className": "nav-item",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Events",
+                              "className": "nav-link  font-weight-bold waves-effect waves-light",
+                              "href": "#",
+                              "style": Object {
+                                "color": "#00695c",
+                              },
+                            },
+                            "ref": null,
+                            "rendered": "Events",
+                            "type": "a",
+                          },
+                          "type": "li",
+                        },
+                      ],
+                      "type": "ul",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "nav",
+            },
+            "type": "header",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="row"
+              >
+                <div
+                  className="col-xl-4"
+                >
+                  <h1
+                    className="adj font-weight-bold bab"
+                  >
+                    Awww...Don’t Cry.
+                    <br />
+                    What you’re looking for may have been misplaced in Long Term Memory 
+                  </h1>
+                </div>
+                <div
+                  className="col-xl-4"
+                >
+                  <img
+                    alt=""
+                    className="img-fluid not-found"
+                    src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                  />
+                </div>
+                <div
+                  className="col-xl-4"
+                >
+                  <h1
+                    className="text-center font-weight-bold bab"
+                  >
+                    Click the button to return to the Home page
+                    <Link
+                      className="btn btn-mycolor btn-sm"
+                      replace={false}
+                      to="/"
+                    >
+                      Home
+                    </Link>
+                  </h1>
+                </div>
+              </div>,
+              <h1
+                className="font-weight-bold text-center page-404"
+              >
+                404 Page!
+              </h1>,
+            ],
+            "className": "container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="col-xl-4"
+                  >
+                    <h1
+                      className="adj font-weight-bold bab"
+                    >
+                      Awww...Don’t Cry.
+                      <br />
+                      What you’re looking for may have been misplaced in Long Term Memory 
+                    </h1>
+                  </div>,
+                  <div
+                    className="col-xl-4"
+                  >
+                    <img
+                      alt=""
+                      className="img-fluid not-found"
+                      src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                    />
+                  </div>,
+                  <div
+                    className="col-xl-4"
+                  >
+                    <h1
+                      className="text-center font-weight-bold bab"
+                    >
+                      Click the button to return to the Home page
+                      <Link
+                        className="btn btn-mycolor btn-sm"
+                        replace={false}
+                        to="/"
+                      >
+                        Home
+                      </Link>
+                    </h1>
+                  </div>,
+                ],
+                "className": "row",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <h1
+                      className="adj font-weight-bold bab"
+                    >
+                      Awww...Don’t Cry.
+                      <br />
+                      What you’re looking for may have been misplaced in Long Term Memory 
+                    </h1>,
+                    "className": "col-xl-4",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Awww...Don’t Cry.",
+                        <br />,
+                        "What you’re looking for may have been misplaced in Long Term Memory ",
+                      ],
+                      "className": "adj font-weight-bold bab",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Awww...Don’t Cry.",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {},
+                        "ref": null,
+                        "rendered": null,
+                        "type": "br",
+                      },
+                      "What you’re looking for may have been misplaced in Long Term Memory ",
+                    ],
+                    "type": "h1",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <img
+                      alt=""
+                      className="img-fluid not-found"
+                      src="https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/"
+                    />,
+                    "className": "col-xl-4",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "",
+                      "className": "img-fluid not-found",
+                      "src": "https://static1.squarespace.com/static/51cdafc4e4b09eb676a64e68/t/57a119e3f5e23161e8daf73d/1470175723578/",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <h1
+                      className="text-center font-weight-bold bab"
+                    >
+                      Click the button to return to the Home page
+                      <Link
+                        className="btn btn-mycolor btn-sm"
+                        replace={false}
+                        to="/"
+                      >
+                        Home
+                      </Link>
+                    </h1>,
+                    "className": "col-xl-4",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Click the button to return to the Home page",
+                        <Link
+                          className="btn btn-mycolor btn-sm"
+                          replace={false}
+                          to="/"
+                        >
+                          Home
+                        </Link>,
+                      ],
+                      "className": "text-center font-weight-bold bab",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Click the button to return to the Home page",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "Home",
+                          "className": "btn btn-mycolor btn-sm",
+                          "replace": false,
+                          "to": "/",
+                        },
+                        "ref": null,
+                        "rendered": "Home",
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "h1",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "404 Page!",
+                "className": "font-weight-bold text-center page-404",
+              },
+              "ref": null,
+              "rendered": "404 Page!",
+              "type": "h1",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

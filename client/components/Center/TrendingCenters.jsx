@@ -26,6 +26,7 @@ const TrendingCenter = ({
                   }
                 </p>
                 <button
+                  id="viewCenter"
                   className="btn btn-mycolor btn-sm"
                   data-centerid={center.id}
                   onClick={getCenterId}>

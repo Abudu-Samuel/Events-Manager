@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import SideBar from '../common/SideBar';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
 /**
@@ -13,7 +14,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class Dashboard extends React.Component {
+export class Dashboard extends React.Component {
   /**
    * Creates an instance of Dashboard.
    *
@@ -153,67 +154,69 @@ class Dashboard extends React.Component {
    */
   render() {
     return (
-      <div className="space">
-        <main>
-          <div className="container space">
-            <div className="row">
-              <SideBar />
-              <div className="col-md-8" style={{ marginTop: 19 }}>
-                <div className="z-depth-1-half">
-                  <div className="container adm z-depth-1-half">
-                    <div className="adm ">
-                      <br />
-                      <h5 className="font-weight-bold white-text text-center">
+      <div>
+        <Navbar />
+        <div className="space">
+          <main>
+            <div className="container space">
+              <div className="row">
+                <SideBar />
+                <div className="col-md-8" style={{ marginTop: 19 }}>
+                  <div className="z-depth-1-half">
+                    <div className="container adm z-depth-1-half">
+                      <div className="adm ">
+                        <br />
+                        <h5 className="font-weight-bold white-text text-center">
                       Dashboard</h5>
-                      <hr />
+                        <hr />
+                      </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="container">
-                      <h5 className="font-weight-bold text-center">Events</h5>
-                      <div>
-                        <section id="events">
-                          <div className="row mb-4">
-                            {
-                              this.state.events.event.map(event => (
-                                <div className="col-md-4 mb-4" key={event.id}>
-                                  <div className="card hoverable text-center">
-                                    <img className="img-fluid hoverable img-view"
-                                      src={event.image} alt="Card image cap" />
-                                    <div className="card-body">
-                                      <h4 className="card-title">
-                                        {
-                                          event.title.split('').length > 17 ?
-                                            `${event.title.slice(0, 14)}...` :
-                                            event.title
-                                        }</h4>
-                                      <p className="card-text">
-                                        {
-                                          event.description.split('').length > 25 ?
-                                            `${event.description.slice(0, 22)}...`
-                                            : event.description
-                                        }
-                                      </p>
-                                      <button
-                                        className="btn btn-mycolor btn-sm"
-                                        data-centerid={event.id}
-                                        onClick={this.getEventId}>
-                                        <Link to={`/events/${event.id}`}>Details</Link>
-                                      </button>
+                    <div className="row">
+                      <div className="container">
+                        <h5 className="font-weight-bold text-center">Events</h5>
+                        <div>
+                          <section id="events">
+                            <div className="row mb-4">
+                              {
+                                this.state.events.event.map(event => (
+                                  <div className="col-md-4 mb-4" key={event.id}>
+                                    <div className="card hoverable text-center">
+                                      <img className="img-fluid hoverable img-view"
+                                        src={event.image} alt="Card image cap" />
+                                      <div className="card-body">
+                                        <h4 className="card-title">
+                                          {
+                                            event.title.split('').length > 17 ?
+                                              `${event.title.slice(0, 14)}...` :
+                                              event.title
+                                          }</h4>
+                                        <p className="card-text">
+                                          {
+                                            event.description.split('').length > 25 ?
+                                              `${event.description.slice(0, 22)}...`
+                                              : event.description
+                                          }
+                                        </p>
+                                        <button
+                                          className="btn btn-mycolor btn-sm"
+                                          data-centerid={event.id}
+                                          onClick={this.getEventId}>
+                                          <Link to={`/events/${event.id}`}>Details</Link>
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              ))
-                            }
-                          </div>
-                        </section>
-                        <ReactPaginate
-                          previousLabel="Previous"
-                          nextLabel="Next"
-                          breakLabel={<a href="">...</a>}
-                          breakClassName="page-link"
-                          onPageChange={this.eventPaginate}
-                          /* eslint-disable */
+                                ))
+                              }
+                            </div>
+                          </section>
+                          <ReactPaginate
+                            previousLabel="Previous"
+                            nextLabel="Next"
+                            breakLabel={<a href="">...</a>}
+                            breakClassName="page-link"
+                            onPageChange={this.eventPaginate}
+                            /* eslint-disable */
                           pageCount={Number(this.props.eventPage)}
                           containerClassName="pagination pagination-lg custom-pagination"
                           pageLinkClassName="page-link"
@@ -291,6 +294,7 @@ class Dashboard extends React.Component {
             </div>
           </div>
         </main>
+      </div>
       </div>
     );
   }

@@ -63,7 +63,7 @@ class User {
             };
             const token = Token.generateToken(responseData);
             res.status(201).send({
-              message: 'Account Created',
+              message: 'Sign in Successful!',
               token
             });
           })

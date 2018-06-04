@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Navbar from '../common/Navbar';
 import EventInfo from './EventInfo';
 import * as userActions from '../../actions/actionCreator';
 
@@ -9,7 +10,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class EventDetails extends React.Component {
+export class EventDetails extends React.Component {
   /**
    * Creates an instance of EventDetails.
    *
@@ -70,6 +71,7 @@ class EventDetails extends React.Component {
   render() {
     return (
       <div>
+        <Navbar />
         <EventInfo
           event={this.state.event}
           noEvent={this.state.noEvent}

@@ -7,7 +7,7 @@ import AdminForm from '../common/forms/AdminForm';
 import { validateCenter } from '../Utils/Validator';
 import * as userActions from '../../actions/actionCreator';
 
-class EditCenter extends React.Component {
+export class EditCenter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -16,7 +16,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class CenterDetails extends React.Component {
+export class CenterDetails extends React.Component {
   /**
    * Creates an instance of CenterDetails.
    *

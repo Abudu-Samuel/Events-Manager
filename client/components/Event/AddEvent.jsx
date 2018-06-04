@@ -12,7 +12,7 @@ import * as userActions from '../../actions/actionCreator';
  * 
  * @extends {React.Component}
  */
-class AddEvent extends React.Component {
+export class AddEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

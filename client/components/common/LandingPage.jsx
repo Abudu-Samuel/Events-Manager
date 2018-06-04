@@ -18,7 +18,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class LandingPage extends React.Component {
+export class LandingPage extends React.Component {
   /**
      * Creates an instance of LandingPage.
      *

@@ -15,7 +15,7 @@ import * as userActions from '../../actions/actionCreator';
  *
  * @extends {React.Component}
  */
-class Allevents extends React.Component {
+export class Allevents extends React.Component {
   /**
    * Creates an instance of Allevents.
    *
@@ -137,8 +137,8 @@ class Allevents extends React.Component {
               pageCount={Number(this.props.eventPage)}
               containerClassName="pagination pagination-lg custom-pagination"
               pageLinkClassName="page-link"
-              nextLinkClassName="page-link"
-              previousLinkClassName="page-link"
+              nextLinkClassName="page-link next"
+              previousLinkClassName="page-link previous"
               disabledClassName="disabled"
               pageClassName="page-item"
               previousClassName="page-item"

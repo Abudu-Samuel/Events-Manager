@@ -19,7 +19,7 @@ const Form = ({
     <div className="md-form">
       <i className="fa fa-ticket prefix teal-text" />
       <input type="text" name="title" onChange={handleChange} id="first-name"
-        className="form-control" value={title} />
+        className="form-control title" value={title} />
       <label htmlFor="orangeForm-name">Event Title</label>
       <p className="text-center error-msg">
         {
@@ -30,7 +30,7 @@ const Form = ({
     <div className="md-form">
       <i className="fa fa-clock-o prefix teal-text" />
       <input type="date" name="date" onChange={handleChange} id="username-name"
-        className="form-control" value={date}/>
+        className="form-control date" value={date}/>
       <label htmlFor="orangeForm-name">Event Date</label>
       <p className="text-center error-msg">
         {
@@ -41,7 +41,7 @@ const Form = ({
     <div className="md-form">
       <i className="fa fa-clock-o prefix teal-text" />
       <input type="text" name="type" onChange={handleChange} id="ends-name"
-        className="form-control" value={type}/>
+        className="form-control type" value={type}/>
       <label htmlFor="orangeForm-name">Event Type</label>
       <p className="text-center error-msg">
         {
@@ -64,7 +64,7 @@ const Form = ({
           </div>
         </div>
         <div className="btn btn-mycolor mt-5 ml-3  btn-sm len">
-          <input type="file" name="image" onChange={handleUpload} />
+          <input type="file" className="image" name="image" onChange={handleUpload} />
         </div>
         <p className="text-center error-msg">
           {
@@ -76,7 +76,7 @@ const Form = ({
     <div className="md-form form-sm">
       <i className="fa fa-pencil prefix teal-text" />
       <textarea type="text" name="description" onChange={handleChange}
-        className="md-textarea" id="input-4" value={description}/>
+        className="md-textarea description" id="input-4" value={description}/>
       <label htmlFor="input-4">Event Description</label>
       <p className="text-center error-msg">
         {
@@ -91,7 +91,7 @@ const Form = ({
         null
     }
     <div className="text-center">
-      <button className="btn btn-mycolor mb-3">Make your event live
+      <button className="btn btn-mycolor edit-event mb-3">Make your event live
         <i className="fa fa-sign-in ml-1" /></button>
     </div>
   </form>

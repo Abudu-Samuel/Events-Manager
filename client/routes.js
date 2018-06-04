@@ -19,13 +19,13 @@ import Dashboard from './components/Center/Dashboard';
 import AdminRouteProtector from './components/Hoc/AdminRouteProtector';
 import RouteProtector from './components/Hoc/RouteProtector';
 import NotFoundPage from './components/common/NotFoundPage';
-import NavBar from './components/common/Navbar';
+// import NavBar from './components/common/Navbar';
 
 
 export default () => (
   <Router history={history}>
     <div>
-      <NavBar/>
+      {/* <NavBar/> */}
       <Switch>
         <Route exact path="/" component={App}/>
         <Route path="/signup" component={Signup}/>

@@ -10,7 +10,7 @@ import history from '../../history';
  *
  * @extends {React.Component}
  */
-class Navbar extends React.Component {
+export class Navbar extends React.Component {
   /**
    * Creates an instance of Navbar.
    *
@@ -78,7 +78,7 @@ class Navbar extends React.Component {
                     <li className="nav-item dropdown">
                       <Link className="font-weight-bold nav-link dropdown-toggle
                        waves-effect waves-light"
-                      id="navbarDropdownMenuLink" data-toggle="dropdown"
+                      id="navbarDropdownMenuLink" name="dash-drop" data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false" to='/addcenter'>
                         <i className="fa fa-user mr-2" /><span>Hi </span>
@@ -108,7 +108,7 @@ class Navbar extends React.Component {
                                waves-effect btn btn-size waves-light ml-1
                                text-center" to="/dashboard">Dashboard</Link>
                               <Link className="font-weight-bold dropdown-item
-                              waves-effect btn btn-size waves-light ml-1
+                              waves-effect manage-event btn btn-size waves-light ml-1
                                text-center" to="/manage/events">Manage Event</Link>
                             </div>
                         }
@@ -121,11 +121,11 @@ class Navbar extends React.Component {
                   </ul> : <ul className="navbar-nav ml-auto nav-flex-icons">
                     <li className="nav-item">
                       <Link to="/signup" className="font-weight-bold nav-link
-                       waves-effect waves-light">Sign Up</Link>
+                       waves-effect waves-light-signup">Sign Up</Link>
                     </li>
                     <li className="nav-item">
                       <Link to="/signin" className="font-weight-bold nav-link
-                       waves-effect waves-light">Sign In</Link>
+                       waves-effect waves-light-signin">Sign In</Link>
                     </li>
                   </ul>
                 }
