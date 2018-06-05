@@ -24,7 +24,7 @@ const AdminForm = ({
         <div className="md-form">
           <i className="fa fa-home prefix teal-text" />
           <input type="text" id="name" name="name" onChange={handleChange}
-            className="form-control" value={name} />
+            className="form-control name" value={name} />
           <label htmlFor="orangeForm-name">Name</label>
           <p className="text-center error-msg">
             {
@@ -37,7 +37,7 @@ const AdminForm = ({
         <div className="md-form">
           <i className="fa fa-map-marker   prefix teal-text" />
           <input type="text" id="state" name="state" onChange={handleChange}
-            className="form-control" value={state} />
+            className="form-control state" value={state} />
           <label htmlFor="orangeForm-name">State</label>
           <p className="text-center error-msg">
             {
@@ -51,14 +51,14 @@ const AdminForm = ({
           <p className="grey-text" style={{ marginLeft: 62, marginTop: -14 }}>
           Available</p>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="available"
+            <input className="form-check-input available" type="radio" name="available"
               checked={isAvailable}
               onChange={toggleAvailability} />
             <label style={{ marginRight: 40 }} className="form-check-label"
               htmlFor="inlineRadio1">Yes</label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" name="notAvailable"
+            <input className="form-check-input notAvailable" name="notAvailable"
               type="radio"
               checked={!isAvailable}
               onChange={toggleAvailability} />
@@ -70,7 +70,7 @@ const AdminForm = ({
         <div className="md-form">
           <i className="fa fa-map-marker prefix teal-text" />
           <input type="text" id="location" name="location"
-            onChange={handleChange} className="form-control" value={location} />
+            onChange={handleChange} className="form-control location" value={location} />
           <label htmlFor="orangeForm-name">Address</label>
           <p className="text-center error-msg">
             {
@@ -82,7 +82,7 @@ const AdminForm = ({
       <div className="col-md-12">
         <div className="md-form form-sm">
           <i className="fa fa-pencil prefix teal-text" />
-          <textarea type="text" className="md-textarea" id="description"
+          <textarea type="text" className="md-textarea description" id="description"
             name="description" onChange={handleChange} value={description} />
           <label htmlFor="input-4">Description</label>
           <p className="text-center error-msg">
@@ -95,7 +95,7 @@ const AdminForm = ({
       <div className="col-md-6">
         <div className="md-form">
           <i className="fa fa-group prefix teal-text" />
-          <input type="text" id="capacity" className="form-control"
+          <input type="text" id="capacity" className="form-control capacity"
             name="capacity" onChange={handleChange} value={capacity} />
           <label htmlFor="orangeForm-name">Capacity</label>
           <p className="text-center error-msg">
@@ -109,7 +109,7 @@ const AdminForm = ({
       <div className="col-md-6">
         <div className="md-form">
           <i className="fa fa-money prefix teal-text" />
-          <input type="text" id="price" name="price" className="form-control"
+          <input type="text" id="price" name="price" className="form-control price"
             onChange={handleChange} value={price} />
           <label htmlFor="orangeForm-name">Price</label>
           <p className="text-center error-msg">
@@ -136,7 +136,7 @@ const AdminForm = ({
             </div>
             <div className="btn btn-mycolor fuvk mt-5 ml-3  btn-sm len-center"
               style={{ width: 390 }}>
-              <input type="file" name="image" onChange={handleUpload} />
+              <input type="file" className="image" name="image" onChange={handleUpload} />
             </div>
             <p className="text-center fuvk error-msg"
               style={{ width: 392, marginTop: -16 }}>
@@ -154,7 +154,7 @@ const AdminForm = ({
         null
     }
     <div className="text-center">
-      <button className="btn btn-mycolor mb-3">Add Center<i className="fa fa-sign-in ml-1" /></button>
+      <button className="btn btn-mycolor added mb-3">Add Center<i className="fa fa-sign-in ml-1" /></button>
     </div>
   </form>
 );

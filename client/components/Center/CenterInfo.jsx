@@ -39,7 +39,7 @@ const CenterInfo = ({
                   {
                     center.isAvailable ?
                       <Link to={`/center/${center.id}/addevent`}
-                        className="btn btn-mycolor btn-sm" >Book</Link> :
+                        className="btn btn-mycolor btn-sm add" >Book</Link> :
                       <Link to={`/center/${center.id}/addevent`}
                         className="btn disabled btn-mycolor btn-sm">Book</Link>
                   }

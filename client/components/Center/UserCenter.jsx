@@ -133,7 +133,7 @@ export class UserCenter extends React.Component {
                                   center.description
                               }</p>
                             <div style={{ textAlign: 'center' }}>
-                              <button className="btn btn-default btn-sm">
+                              <button className="btn ec btn-default btn-sm">
                                 <Link to={`/centers/${center.id}/edit`}>Edit</Link>
                               </button>
                             </div>

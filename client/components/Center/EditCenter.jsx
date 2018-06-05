@@ -5,6 +5,7 @@ import axios from 'axios';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
 import { validateCenter } from '../Utils/Validator';
+import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
 
 export class EditCenter extends React.Component {
@@ -133,6 +134,7 @@ render() {
     this.state.redirect ?
       <Redirect to="/manage/centers" /> :
       <div>
+        <Navbar />
         <div className="space">
           <div className="container">
             <div className="row">
