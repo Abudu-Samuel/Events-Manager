@@ -7,7 +7,7 @@ const SideBar = () => (
       <img src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
         className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
         alt="Responsive image" />
-      <h5 className="font-weight-bold white-text">Admin</h5>
+      <h5 className="font-weight-bold min white-text">Admin</h5>
     </div>
     <hr className="font-weight-bold" />
     <div className="">
@@ -17,11 +17,11 @@ const SideBar = () => (
             <i className="fa fa-dashboard mr-2 white-text" />Dashboard</Link>
         </li>
         <li className="white-text mb-3">
-          <Link className="btn btn-mycolor btn-block mr-4" to="/addcenter">
+          <Link className="btn btn-mycolor ad btn-block mr-4" to="/addcenter">
             <i className="fa fa-plus mr-2 white-text" />Add Center</Link>
         </li>
         <li className="white-text mb-3">
-          <Link to="/manage/centers" className="btn btn-mycolor btn-block mr-4">
+          <Link to="/manage/centers" className="btn vc btn-mycolor btn-block mr-4">
             <i className="fa fa-street-view mr-2 white-text" />View Centers</Link>
         </li>
       </ul>

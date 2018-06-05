@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Footer from '../common/Footer';
 import Form from '../common/forms/Form';
+import Navbar from '../common/Navbar';
 import { validateEvent } from '../Utils/Validator';
 import * as userActions from '../../actions/actionCreator';
 
@@ -102,6 +103,7 @@ export class AddEvent extends React.Component {
       this.state.redirect ?
         <Redirect to={`/centers/${this.props.match.params.centerId}`} /> :
         <div className="space">
+        <Navbar />
           <div className="container add">
             <section>
               <h4 className="font-weight-bold text-center">Create An Event</h4>
