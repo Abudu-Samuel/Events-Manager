@@ -3,10 +3,6 @@ const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 const path = require('path');
 
-const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production')
-};
-
 module.exports = {
   entry: [
     path.resolve(__dirname, 'client/index.js')
@@ -27,20 +23,26 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
-  devtool: 'cheap-eval-source-map',
+  devtool: 'source-map',
   plugins: [
-    new webpack.DefinePlugin(GLOBALS),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      }
+    }),
     new Dotenv({
       systemvars: true
     }),
     new htmlWebpackPlugin({
       template: path.resolve(__dirname, './client/index.html')
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      sourceMap: true
+    })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'client-dist'),
     historyApiFallback: true
   }
 };
-

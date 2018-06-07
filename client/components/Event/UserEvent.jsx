@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
@@ -214,7 +215,7 @@ UserEvent.propTypes = {
  *
  * @return {object} mapped dispatch
  */
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   getUserEvents: state.events.userEvents.event,
   eventPage: state.events.eventPage
 });
@@ -226,9 +227,9 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  userEvents: eventData => dispatch(userActions.userEvents(eventData)),
-  deleteEvent: eventData => dispatch(userActions.deleteEvent(eventData))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  userEvents: eventData => userActions.userEvents(eventData),
+  deleteEvent: eventData => userActions.deleteEvent(eventData)
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserEvent);

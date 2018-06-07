@@ -2,7 +2,7 @@ import React from 'react';
 import jwt from 'jsonwebtoken';
 import { Redirect } from 'react-router-dom';
 
-const RouteProtector = WrappedComponent => class RouteProtectorClass extends React.Component {
+export const RouteProtector = WrappedComponent => class RouteProtectorClass extends React.Component {
   /**
    * Creates an instance of RouteProtectorClass.
    * @param {props} props

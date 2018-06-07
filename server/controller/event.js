@@ -156,7 +156,7 @@ class Event {
           }
         } else {
           return res
-            .status(422)
+            .status(401)
             .json({ message: 'You are not Authorized to edit this event!' });
         }
       })
@@ -437,7 +437,7 @@ class Event {
               .json({ message: 'Event Deleted!', eventFound }));
         }
         return res
-          .status(422)
+          .status(401)
           .json({ message: 'You are not Authorized to delete this event!' });
       });
   }

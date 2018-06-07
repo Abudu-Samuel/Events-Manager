@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import ReactPaginate from 'react-paginate';
 import Navbar from '../common/Navbar';
 import PopularCenter from '../Event/PopularCenter';
@@ -208,9 +209,9 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  getAllCenters: centerData => dispatch(userActions.getAllCenters(centerData)),
-  getAllEvents: eventData => dispatch(userActions.getAllEvents(eventData))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  getAllCenters: centerData => userActions.getAllCenters(centerData),
+  getAllEvents: eventData => userActions.getAllEvents(eventData)
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Allevents);
