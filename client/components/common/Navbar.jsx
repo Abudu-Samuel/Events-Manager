@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as userActions from '../../actions/actionCreator';
@@ -163,8 +164,9 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(userActions.logout())
-});
+
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  logOut: () => userActions.logout()
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

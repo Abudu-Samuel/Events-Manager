@@ -8,7 +8,7 @@ import { signInAction } from './actions/actionCreator';
 
 const store = configStore();
 
-const token = localStorage.getItem('x-access-token')
+const token = localStorage.getItem('x-access-token');
 if (token) {
   store.dispatch(signInAction(jwt.decode(token)));
 }

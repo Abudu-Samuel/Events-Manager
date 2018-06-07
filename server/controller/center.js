@@ -33,35 +33,28 @@ class Center {
       image,
       isAvailable
     } = req.body;
-    if (req.decoded.isAdmin) {
-      return centers.create({
-        name,
-        capacity,
-        location,
-        price,
-        state,
-        description,
-        image,
-        isAvailable
-      })
-        .then(created =>
-          res
-            .status(201)
-            .json({
-              message: 'Center created Successfully',
-              created
-            }))
-        .catch(error => res
-          .status(400)
+    return centers.create({
+      name,
+      capacity,
+      location,
+      price,
+      state,
+      description,
+      image,
+      isAvailable
+    })
+      .then(created =>
+        res
+          .status(201)
           .json({
-            message: error.message
-          }));
-    }
-    return res
-      .status(401)
-      .json({
-        message: 'You are not authorized to add a center'
-      });
+            message: 'Center created Successfully',
+            created
+          }))
+      .catch(error => res
+        .status(400)
+        .json({
+          message: error.message
+        }));
   }
   /**
  * @static
@@ -135,9 +128,7 @@ class Center {
  */
   static latestCenters(req, res) {
     return centers
-      .findAll({ limit: 3, order: [['createdAt', 'DESC']] }, {
-        include: [{ model: events }]
-      })
+      .findAll({ limit: 3, order: [['createdAt', 'DESC']] })
       .then(center => res
         .status(200)
         .json({
@@ -208,31 +199,26 @@ class Center {
               message: 'Center Not Found!'
             });
         }
-        if (req.decoded.isAdmin) {
-          return centerFound
-            .update({
-              name,
-              capacity,
-              location,
-              price,
-              state,
-              description,
-              image,
-              isAvailable
-            })
-            .then(updatedCenter => res
-              .status(200)
-              .json({
-                message: 'Center modification is successful',
-                updatedCenter
-              }))
-            .catch(error => res.status(400).json({
-              message: error.errors[0].message
-            }));
-        }
-        return res.status(401).json({
-          message: 'You are not Authorized to edit this center!'
-        });
+        return centerFound
+          .update({
+            name,
+            capacity,
+            location,
+            price,
+            state,
+            description,
+            image,
+            isAvailable
+          })
+          .then(updatedCenter => res
+            .status(200)
+            .json({
+              message: 'Center modification is successful',
+              updatedCenter
+            }))
+          .catch(error => res.status(400).json({
+            message: error.errors[0].message
+          }));
       })
       .catch(() => res.status(500).json({
         message: 'some error occured'

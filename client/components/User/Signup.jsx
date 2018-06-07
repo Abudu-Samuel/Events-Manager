@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -273,9 +274,9 @@ const mapStateToProps = state => ({
   userData: state.userAccess
 });
 
-const mapDispatchToProps = dispatch => ({
-  userSignUp: userData => dispatch(userActions.signUp(userData))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  userSignUp: userData => userActions.signUp(userData)
+}, dispatch);
 
 const signReducer = connect(mapStateToProps, mapDispatchToProps)(SignUp);
 

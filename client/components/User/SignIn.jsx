@@ -1,5 +1,6 @@
 import React from 'react';
 import jwt from 'jsonwebtoken';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -231,9 +232,9 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  userSignIn: userData => dispatch(userActions.signIn(userData))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  userSignIn: userData => userActions.signIn(userData)
+}, dispatch);
 
 const signReducer = connect(mapStateToProps, mapDispatchToProps)(Signin);
 

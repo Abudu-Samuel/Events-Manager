@@ -240,7 +240,7 @@ describe('Events Manager', () => {
         description: 'lorem is the best'
       })
       .end((err, res) => {
-        expect(res.status).to.equal(422);
+        expect(res.status).to.equal(401);
         expect(res.body.message).to.equal('You are not Authorized to edit this event!');
 
         done();
@@ -297,7 +297,7 @@ describe('Events Manager', () => {
       .delete('/api/v1/events/event/1')
       .set('x-access-token', userToken2)
       .end((err, res) => {
-        expect(res.status).to.equal(422);
+        expect(res.status).to.equal(401);
         expect(res.body.message).to.equal('You are not Authorized to delete this event!');
         done();
       });

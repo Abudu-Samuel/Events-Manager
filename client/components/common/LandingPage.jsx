@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Proptypes from 'prop-types';
 import Body from '../common/Body';
 import TrendingCenter from '../Center/TrendingCenters';
@@ -58,8 +59,7 @@ export class LandingPage extends React.Component {
     if (this.props.userData.isAuthenticated) {
       if (decodeToken()) {
         history.push('/admin/dashboard');
-      }
-      if (!decodeToken()) {
+      } else {
         history.push('/dashboard');
       }
     }
@@ -154,13 +154,13 @@ export class LandingPage extends React.Component {
         <Navbar />
         <Body />
         <TrendingCenter
-          centers = {this.state.centers}
-          getCenterId = {this.getCenterId}
-          centerid = {this.state.centerid}/>
+          centers={this.state.centers}
+          getCenterId={this.getCenterId}
+          centerid={this.state.centerid} />
         <PopularCenter
-          events = {this.state.events}
-          getEventId = {this.getEventId}
-          eventid = {this.eventid}/>
+          events={this.state.events}
+          getEventId={this.getEventId}
+          eventid={this.eventid} />
         <Footer />
       </div>
     );
@@ -195,9 +195,9 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  getTrendingCenters: centerData => dispatch(userActions.getTrendingCenters(centerData)),
-  getPopularEvents: eventData => dispatch(userActions.getPopularEvents(eventData)),
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  getTrendingCenters: centerData => userActions.getTrendingCenters(centerData),
+  getPopularEvents: eventData => userActions.getPopularEvents(eventData)
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

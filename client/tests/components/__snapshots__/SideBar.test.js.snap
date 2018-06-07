@@ -27,7 +27,7 @@ ShallowWrapper {
             src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
           />
           <h5
-            className="font-weight-bold white-text"
+            className="font-weight-bold min white-text"
           >
             Admin
           </h5>
@@ -60,7 +60,7 @@ ShallowWrapper {
               className="white-text mb-3"
             >
               <Link
-                className="btn btn-mycolor btn-block mr-4"
+                className="btn btn-mycolor ad btn-block mr-4"
                 replace={false}
                 to="/addcenter"
               >
@@ -74,7 +74,7 @@ ShallowWrapper {
               className="white-text mb-3"
             >
               <Link
-                className="btn btn-mycolor btn-block mr-4"
+                className="btn vc btn-mycolor btn-block mr-4"
                 replace={false}
                 to="/manage/centers"
               >
@@ -106,7 +106,7 @@ ShallowWrapper {
               src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
             />,
             <h5
-              className="font-weight-bold white-text"
+              className="font-weight-bold min white-text"
             >
               Admin
             </h5>,
@@ -134,7 +134,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Admin",
-              "className": "font-weight-bold white-text",
+              "className": "font-weight-bold min white-text",
             },
             "ref": null,
             "rendered": "Admin",
@@ -181,7 +181,7 @@ ShallowWrapper {
               className="white-text mb-3"
             >
               <Link
-                className="btn btn-mycolor btn-block mr-4"
+                className="btn btn-mycolor ad btn-block mr-4"
                 replace={false}
                 to="/addcenter"
               >
@@ -195,7 +195,7 @@ ShallowWrapper {
               className="white-text mb-3"
             >
               <Link
-                className="btn btn-mycolor btn-block mr-4"
+                className="btn vc btn-mycolor btn-block mr-4"
                 replace={false}
                 to="/manage/centers"
               >
@@ -233,7 +233,7 @@ ShallowWrapper {
                 className="white-text mb-3"
               >
                 <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn btn-mycolor ad btn-block mr-4"
                   replace={false}
                   to="/addcenter"
                 >
@@ -247,7 +247,7 @@ ShallowWrapper {
                 className="white-text mb-3"
               >
                 <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn vc btn-mycolor btn-block mr-4"
                   replace={false}
                   to="/manage/centers"
                 >
@@ -321,7 +321,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn btn-mycolor ad btn-block mr-4"
                   replace={false}
                   to="/addcenter"
                 >
@@ -344,7 +344,7 @@ ShallowWrapper {
                     />,
                     "Add Center",
                   ],
-                  "className": "btn btn-mycolor btn-block mr-4",
+                  "className": "btn btn-mycolor ad btn-block mr-4",
                   "replace": false,
                   "to": "/addcenter",
                 },
@@ -373,7 +373,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn vc btn-mycolor btn-block mr-4"
                   replace={false}
                   to="/manage/centers"
                 >
@@ -396,7 +396,7 @@ ShallowWrapper {
                     />,
                     "View Centers",
                   ],
-                  "className": "btn btn-mycolor btn-block mr-4",
+                  "className": "btn vc btn-mycolor btn-block mr-4",
                   "replace": false,
                   "to": "/manage/centers",
                 },
@@ -443,7 +443,7 @@ ShallowWrapper {
               src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
             />
             <h5
-              className="font-weight-bold white-text"
+              className="font-weight-bold min white-text"
             >
               Admin
             </h5>
@@ -476,7 +476,7 @@ ShallowWrapper {
                 className="white-text mb-3"
               >
                 <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn btn-mycolor ad btn-block mr-4"
                   replace={false}
                   to="/addcenter"
                 >
@@ -490,7 +490,7 @@ ShallowWrapper {
                 className="white-text mb-3"
               >
                 <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn vc btn-mycolor btn-block mr-4"
                   replace={false}
                   to="/manage/centers"
                 >
@@ -522,7 +522,7 @@ ShallowWrapper {
                 src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
               />,
               <h5
-                className="font-weight-bold white-text"
+                className="font-weight-bold min white-text"
               >
                 Admin
               </h5>,
@@ -550,7 +550,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "Admin",
-                "className": "font-weight-bold white-text",
+                "className": "font-weight-bold min white-text",
               },
               "ref": null,
               "rendered": "Admin",
@@ -597,7 +597,7 @@ ShallowWrapper {
                 className="white-text mb-3"
               >
                 <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn btn-mycolor ad btn-block mr-4"
                   replace={false}
                   to="/addcenter"
                 >
@@ -611,7 +611,7 @@ ShallowWrapper {
                 className="white-text mb-3"
               >
                 <Link
-                  className="btn btn-mycolor btn-block mr-4"
+                  className="btn vc btn-mycolor btn-block mr-4"
                   replace={false}
                   to="/manage/centers"
                 >
@@ -649,7 +649,7 @@ ShallowWrapper {
                   className="white-text mb-3"
                 >
                   <Link
-                    className="btn btn-mycolor btn-block mr-4"
+                    className="btn btn-mycolor ad btn-block mr-4"
                     replace={false}
                     to="/addcenter"
                   >
@@ -663,7 +663,7 @@ ShallowWrapper {
                   className="white-text mb-3"
                 >
                   <Link
-                    className="btn btn-mycolor btn-block mr-4"
+                    className="btn vc btn-mycolor btn-block mr-4"
                     replace={false}
                     to="/manage/centers"
                   >
@@ -737,7 +737,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Link
-                    className="btn btn-mycolor btn-block mr-4"
+                    className="btn btn-mycolor ad btn-block mr-4"
                     replace={false}
                     to="/addcenter"
                   >
@@ -760,7 +760,7 @@ ShallowWrapper {
                       />,
                       "Add Center",
                     ],
-                    "className": "btn btn-mycolor btn-block mr-4",
+                    "className": "btn btn-mycolor ad btn-block mr-4",
                     "replace": false,
                     "to": "/addcenter",
                   },
@@ -789,7 +789,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Link
-                    className="btn btn-mycolor btn-block mr-4"
+                    className="btn vc btn-mycolor btn-block mr-4"
                     replace={false}
                     to="/manage/centers"
                   >
@@ -812,7 +812,7 @@ ShallowWrapper {
                       />,
                       "View Centers",
                     ],
-                    "className": "btn btn-mycolor btn-block mr-4",
+                    "className": "btn vc btn-mycolor btn-block mr-4",
                     "replace": false,
                     "to": "/manage/centers",
                   },
