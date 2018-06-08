@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Footer from '../common/Footer';
@@ -141,10 +142,8 @@ export class AddEvent extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => {
-  return {
-    addEvent: (eventData) => dispatch(userActions.addEvent(eventData))
-  };
-}
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  addEvent: eventData => userActions.addEvent(eventData)
+}, dispatch);
 
 export default connect(null, mapDispatchToProps)(AddEvent);

@@ -1,0 +1,798 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrendingCenters /> should render Footer correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TrendingCenter
+    centers={
+      Object {
+        "center": Array [
+          Object {
+            "capacity": 123,
+            "description": "Awesome center",
+            "image": "testing.img",
+            "isAvailable": true,
+            "location": "yaba",
+            "name": "test center",
+            "price": 123456,
+            "state": "lagos",
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <section
+        id="popular centers"
+      >
+        <h2
+          className="mb-3 slot font-weight-bold text-center"
+        >
+          Latest Centers
+        </h2>
+        <div
+          className="row mb-4"
+        >
+          <div
+            className="col-md-4 mb-4"
+          >
+            <div
+              className="card hoverable text-center"
+            >
+              <img
+                alt="Card image cap"
+                className="img-fluid hoverable max"
+                src="testing.img"
+              />
+              <div
+                className="card-body"
+              >
+                <h4
+                  className="card-title"
+                >
+                  test center
+                </h4>
+                <p
+                  className="card-text"
+                >
+                  Awesome center
+                </p>
+                <button
+                  className="btn btn-mycolor btn-sm"
+                  id="viewCenter"
+                >
+                  <Link
+                    replace={false}
+                    to="/centers/undefined"
+                  >
+                    Details
+                  </Link>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>,
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2
+            className="mb-3 slot font-weight-bold text-center"
+          >
+            Latest Centers
+          </h2>,
+          <div
+            className="row mb-4"
+          >
+            <div
+              className="col-md-4 mb-4"
+            >
+              <div
+                className="card hoverable text-center"
+              >
+                <img
+                  alt="Card image cap"
+                  className="img-fluid hoverable max"
+                  src="testing.img"
+                />
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    test center
+                  </h4>
+                  <p
+                    className="card-text"
+                  >
+                    Awesome center
+                  </p>
+                  <button
+                    className="btn btn-mycolor btn-sm"
+                    id="viewCenter"
+                  >
+                    <Link
+                      replace={false}
+                      to="/centers/undefined"
+                    >
+                      Details
+                    </Link>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>,
+        ],
+        "id": "popular centers",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Latest Centers",
+            "className": "mb-3 slot font-weight-bold text-center",
+          },
+          "ref": null,
+          "rendered": "Latest Centers",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="col-md-4 mb-4"
+              >
+                <div
+                  className="card hoverable text-center"
+                >
+                  <img
+                    alt="Card image cap"
+                    className="img-fluid hoverable max"
+                    src="testing.img"
+                  />
+                  <div
+                    className="card-body"
+                  >
+                    <h4
+                      className="card-title"
+                    >
+                      test center
+                    </h4>
+                    <p
+                      className="card-text"
+                    >
+                      Awesome center
+                    </p>
+                    <button
+                      className="btn btn-mycolor btn-sm"
+                      id="viewCenter"
+                    >
+                      <Link
+                        replace={false}
+                        to="/centers/undefined"
+                      >
+                        Details
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </div>,
+            ],
+            "className": "row mb-4",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="card hoverable text-center"
+                >
+                  <img
+                    alt="Card image cap"
+                    className="img-fluid hoverable max"
+                    src="testing.img"
+                  />
+                  <div
+                    className="card-body"
+                  >
+                    <h4
+                      className="card-title"
+                    >
+                      test center
+                    </h4>
+                    <p
+                      className="card-text"
+                    >
+                      Awesome center
+                    </p>
+                    <button
+                      className="btn btn-mycolor btn-sm"
+                      id="viewCenter"
+                    >
+                      <Link
+                        replace={false}
+                        to="/centers/undefined"
+                      >
+                        Details
+                      </Link>
+                    </button>
+                  </div>
+                </div>,
+                "className": "col-md-4 mb-4",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <img
+                      alt="Card image cap"
+                      className="img-fluid hoverable max"
+                      src="testing.img"
+                    />,
+                    <div
+                      className="card-body"
+                    >
+                      <h4
+                        className="card-title"
+                      >
+                        test center
+                      </h4>
+                      <p
+                        className="card-text"
+                      >
+                        Awesome center
+                      </p>
+                      <button
+                        className="btn btn-mycolor btn-sm"
+                        id="viewCenter"
+                      >
+                        <Link
+                          replace={false}
+                          to="/centers/undefined"
+                        >
+                          Details
+                        </Link>
+                      </button>
+                    </div>,
+                  ],
+                  "className": "card hoverable text-center",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "Card image cap",
+                      "className": "img-fluid hoverable max",
+                      "src": "testing.img",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <h4
+                          className="card-title"
+                        >
+                          test center
+                        </h4>,
+                        <p
+                          className="card-text"
+                        >
+                          Awesome center
+                        </p>,
+                        <button
+                          className="btn btn-mycolor btn-sm"
+                          id="viewCenter"
+                        >
+                          <Link
+                            replace={false}
+                            to="/centers/undefined"
+                          >
+                            Details
+                          </Link>
+                        </button>,
+                      ],
+                      "className": "card-body",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "test center",
+                          "className": "card-title",
+                        },
+                        "ref": null,
+                        "rendered": "test center",
+                        "type": "h4",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Awesome center",
+                          "className": "card-text",
+                        },
+                        "ref": null,
+                        "rendered": "Awesome center",
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Link
+                            replace={false}
+                            to="/centers/undefined"
+                          >
+                            Details
+                          </Link>,
+                          "className": "btn btn-mycolor btn-sm",
+                          "data-centerid": undefined,
+                          "id": "viewCenter",
+                          "onClick": undefined,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "Details",
+                            "replace": false,
+                            "to": "/centers/undefined",
+                          },
+                          "ref": null,
+                          "rendered": "Details",
+                          "type": [Function],
+                        },
+                        "type": "button",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <section
+          id="popular centers"
+        >
+          <h2
+            className="mb-3 slot font-weight-bold text-center"
+          >
+            Latest Centers
+          </h2>
+          <div
+            className="row mb-4"
+          >
+            <div
+              className="col-md-4 mb-4"
+            >
+              <div
+                className="card hoverable text-center"
+              >
+                <img
+                  alt="Card image cap"
+                  className="img-fluid hoverable max"
+                  src="testing.img"
+                />
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    test center
+                  </h4>
+                  <p
+                    className="card-text"
+                  >
+                    Awesome center
+                  </p>
+                  <button
+                    className="btn btn-mycolor btn-sm"
+                    id="viewCenter"
+                  >
+                    <Link
+                      replace={false}
+                      to="/centers/undefined"
+                    >
+                      Details
+                    </Link>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>,
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2
+              className="mb-3 slot font-weight-bold text-center"
+            >
+              Latest Centers
+            </h2>,
+            <div
+              className="row mb-4"
+            >
+              <div
+                className="col-md-4 mb-4"
+              >
+                <div
+                  className="card hoverable text-center"
+                >
+                  <img
+                    alt="Card image cap"
+                    className="img-fluid hoverable max"
+                    src="testing.img"
+                  />
+                  <div
+                    className="card-body"
+                  >
+                    <h4
+                      className="card-title"
+                    >
+                      test center
+                    </h4>
+                    <p
+                      className="card-text"
+                    >
+                      Awesome center
+                    </p>
+                    <button
+                      className="btn btn-mycolor btn-sm"
+                      id="viewCenter"
+                    >
+                      <Link
+                        replace={false}
+                        to="/centers/undefined"
+                      >
+                        Details
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>,
+          ],
+          "id": "popular centers",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Latest Centers",
+              "className": "mb-3 slot font-weight-bold text-center",
+            },
+            "ref": null,
+            "rendered": "Latest Centers",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="col-md-4 mb-4"
+                >
+                  <div
+                    className="card hoverable text-center"
+                  >
+                    <img
+                      alt="Card image cap"
+                      className="img-fluid hoverable max"
+                      src="testing.img"
+                    />
+                    <div
+                      className="card-body"
+                    >
+                      <h4
+                        className="card-title"
+                      >
+                        test center
+                      </h4>
+                      <p
+                        className="card-text"
+                      >
+                        Awesome center
+                      </p>
+                      <button
+                        className="btn btn-mycolor btn-sm"
+                        id="viewCenter"
+                      >
+                        <Link
+                          replace={false}
+                          to="/centers/undefined"
+                        >
+                          Details
+                        </Link>
+                      </button>
+                    </div>
+                  </div>
+                </div>,
+              ],
+              "className": "row mb-4",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="card hoverable text-center"
+                  >
+                    <img
+                      alt="Card image cap"
+                      className="img-fluid hoverable max"
+                      src="testing.img"
+                    />
+                    <div
+                      className="card-body"
+                    >
+                      <h4
+                        className="card-title"
+                      >
+                        test center
+                      </h4>
+                      <p
+                        className="card-text"
+                      >
+                        Awesome center
+                      </p>
+                      <button
+                        className="btn btn-mycolor btn-sm"
+                        id="viewCenter"
+                      >
+                        <Link
+                          replace={false}
+                          to="/centers/undefined"
+                        >
+                          Details
+                        </Link>
+                      </button>
+                    </div>
+                  </div>,
+                  "className": "col-md-4 mb-4",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <img
+                        alt="Card image cap"
+                        className="img-fluid hoverable max"
+                        src="testing.img"
+                      />,
+                      <div
+                        className="card-body"
+                      >
+                        <h4
+                          className="card-title"
+                        >
+                          test center
+                        </h4>
+                        <p
+                          className="card-text"
+                        >
+                          Awesome center
+                        </p>
+                        <button
+                          className="btn btn-mycolor btn-sm"
+                          id="viewCenter"
+                        >
+                          <Link
+                            replace={false}
+                            to="/centers/undefined"
+                          >
+                            Details
+                          </Link>
+                        </button>
+                      </div>,
+                    ],
+                    "className": "card hoverable text-center",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "alt": "Card image cap",
+                        "className": "img-fluid hoverable max",
+                        "src": "testing.img",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <h4
+                            className="card-title"
+                          >
+                            test center
+                          </h4>,
+                          <p
+                            className="card-text"
+                          >
+                            Awesome center
+                          </p>,
+                          <button
+                            className="btn btn-mycolor btn-sm"
+                            id="viewCenter"
+                          >
+                            <Link
+                              replace={false}
+                              to="/centers/undefined"
+                            >
+                              Details
+                            </Link>
+                          </button>,
+                        ],
+                        "className": "card-body",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "test center",
+                            "className": "card-title",
+                          },
+                          "ref": null,
+                          "rendered": "test center",
+                          "type": "h4",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Awesome center",
+                            "className": "card-text",
+                          },
+                          "ref": null,
+                          "rendered": "Awesome center",
+                          "type": "p",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <Link
+                              replace={false}
+                              to="/centers/undefined"
+                            >
+                              Details
+                            </Link>,
+                            "className": "btn btn-mycolor btn-sm",
+                            "data-centerid": undefined,
+                            "id": "viewCenter",
+                            "onClick": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "children": "Details",
+                              "replace": false,
+                              "to": "/centers/undefined",
+                            },
+                            "ref": null,
+                            "rendered": "Details",
+                            "type": [Function],
+                          },
+                          "type": "button",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "section",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

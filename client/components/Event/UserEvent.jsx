@@ -58,6 +58,7 @@ export class UserEvent extends React.Component {
    * @memberof UserEvent
    */
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
     if (nextProps.getUserEvents && nextProps.getUserEvents.length > 0) {
       this.setState({
         events: nextProps.getUserEvents,

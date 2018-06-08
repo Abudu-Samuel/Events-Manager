@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import decodeToken from '../../decodeToken';
 import Navbar from '../common/Navbar';
 import * as userActions from '../../actions/actionCreator';
-import history from '../../history';
 import { validateSignin } from '../Utils/Validator';
 
 /**
@@ -57,10 +56,10 @@ export class Signin extends React.Component {
   componentWillMount() {
     if (this.props.userData.isAuthenticated) {
       if (decodeToken()) {
-        history.push('/admin/dashboard');
+        this.props.history.push('/admin/dashboard');
       }
       if (!decodeToken()) {
-        history.push('/dashboard');
+        this.props.history.push('/dashboard');
       }
     }
   }
@@ -106,10 +105,10 @@ export class Signin extends React.Component {
         });
         const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
         if (!tokenData.isAdmin) {
-          history.push('/dashboard');
+          this.props.history.push('/dashboard');
         }
         if (tokenData.isAdmin) {
-          history.push('/admin/dashboard');
+          this.props.history.push('/admin/dashboard');
         }
       })
       .catch((error) => {

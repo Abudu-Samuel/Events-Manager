@@ -1,6 +1,5 @@
 import db from '../models';
 
-const events = db.event;
 const centers = db.center;
 
 /**

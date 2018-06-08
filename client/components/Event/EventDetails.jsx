@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Navbar from '../common/Navbar';
 import EventInfo from './EventInfo';
@@ -108,8 +109,8 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  singleEvent: eventData => userActions.singleEvent(eventData),
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventDetails);

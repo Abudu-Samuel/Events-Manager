@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -182,9 +183,9 @@ const mapStateToProps = state => ({
 
 });
 
-const mapDispatchToProps = dispatch => ({
-  getAllCenters: centerData => dispatch(userActions.getAllCenters(centerData)),
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  getAllCenters: centerData => userActions.getAllCenters(centerData),
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserCenter);
 

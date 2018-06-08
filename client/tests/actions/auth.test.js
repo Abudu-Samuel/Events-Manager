@@ -26,7 +26,7 @@ describe('User tests', () => {
       const returnedActions = [
         {
           type: types.SIGN_IN,
-          userData: userMockedData.userData
+          userData: userMockedData.userInfo
         },
       ];
       const userDetails = {
@@ -67,7 +67,7 @@ describe('User tests', () => {
       const returnedActions = [
         {
           type: types.SIGN_UP,
-          userData: userMockedData.userData
+          userData: userMockedData.userInfo
         }
       ];
       const userDetails = {
