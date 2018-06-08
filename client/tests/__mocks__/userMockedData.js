@@ -10,6 +10,16 @@ const userMockedData = {
     lastname: 'Abudu',
     username: 'leumas',
     isAdmin: false,
+    password: 'password',
+    iat: 1527845222
+  },
+  userInfo: {
+    userId: 8,
+    email: 'samuel@gmail.com',
+    firstname: 'samuel',
+    lastname: 'Abudu',
+    username: 'leumas',
+    isAdmin: false,
     iat: 1527845222
   }
 };

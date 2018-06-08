@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 
 const PopularEvents = ({
   events,
+  isAuthenticated,
   getEventId
 }) => (
   <div className="container space">
     <section id="events">
-      <h2 className="mb-3 slot text-center font-weight-bold">Latest Events</h2>
+      <h2 className="mb-3 slot text-center font-weight-bold">{
+        isAuthenticated ? 'Events' : 'Latest Events'
+      }</h2>
       <div className="row mb-4">
         {
           events.event.map(event => (
@@ -48,6 +51,7 @@ const PopularEvents = ({
 
 PopularEvents.propTypes = {
   events: PropTypes.object,
+  isAuthenticated: PropTypes.bool,
   getEventId: PropTypes.func
 };
 

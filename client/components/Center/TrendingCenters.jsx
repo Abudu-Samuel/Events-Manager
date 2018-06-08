@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 
 const TrendingCenter = ({
   centers,
+  isAuthenticated,
   getCenterId,
 }) => (
   <div className="container">
     <section id="popular centers">
-      <h2 className="mb-3 slot font-weight-bold text-center">Latest Centers</h2>
+      <h2 className="mb-3 slot font-weight-bold text-center">{
+        isAuthenticated ? 'Centers' : 'Latest Centers'
+      }</h2>
       <div className="row mb-4">
         {
           centers.center.map(center => (<div className="col-md-4 mb-4"
@@ -43,6 +46,7 @@ const TrendingCenter = ({
 
 TrendingCenter.propTypes = {
   centers: PropTypes.object,
+  isAuthenticated: PropTypes.bool,
   getCenterId: PropTypes.func
 };
 

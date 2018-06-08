@@ -118,6 +118,7 @@ export class Allevents extends React.Component {
    * @memberof Allevents
    */
   render() {
+    const { isAuthenticated } = this.props;
     return (
       <div>
         <Navbar />
@@ -127,7 +128,8 @@ export class Allevents extends React.Component {
             <div>
               <PopularCenter
                 events=
-                  {this.state.events} />
+                  {this.state.events}
+                isAuthenticated={isAuthenticated} />
               <ReactPaginate
                 previousLabel="Previous"
                 nextLabel="Next"
@@ -153,6 +155,7 @@ export class Allevents extends React.Component {
             <TrendingCenters
               centers=
               {this.state.centers}
+              isAuthenticated={isAuthenticated}
             />
             <ReactPaginate
               previousLabel="Previous"
@@ -184,6 +187,7 @@ export class Allevents extends React.Component {
 Allevents.propTypes = {
   getAllCenters: PropTypes.func,
   getAllEvents: PropTypes.func,
+  isAuthenticated: PropTypes.bool,
   getCenters: PropTypes.object,
   getEvents: PropTypes.object,
 };
@@ -198,6 +202,7 @@ Allevents.propTypes = {
 const mapStateToProps = state => ({
   getCenters: state.centers.centers,
   getEvents: state.events.events,
+  isAuthenticated: state.userAccess.isAuthenticated,
   centerPage: state.centers.centerPage,
   eventPage: state.events.eventPage
 });

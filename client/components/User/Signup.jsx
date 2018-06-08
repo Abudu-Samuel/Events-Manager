@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/actionCreator';
 import { validateSignup } from '../Utils/Validator';
-import history from '../../history';
 import Navbar from '../common/Navbar';
 import decodeToken from '../../decodeToken';
 
@@ -64,10 +63,10 @@ export class SignUp extends React.Component {
   componentWillMount() {
     if (this.props.userData.isAuthenticated) {
       if (decodeToken()) {
-        history.push('/admin/dashboard');
+        this.props.history.push('/admin/dashboard');
       }
       if (!decodeToken()) {
-        history.push('/dashboard');
+        this.props.history.push('/dashboard');
       }
     }
   }
@@ -108,15 +107,17 @@ export class SignUp extends React.Component {
           showRedirectMessage: true
         });
         const tokenData = jwt.decode(localStorage.getItem('x-access-token'));
+
         if (!tokenData.isAdmin) {
-          history.push('/dashboard');
+          this.props.history.push('/dashboard');
         }
         if (tokenData.isAdmin) {
-          history.push('/admin/dashboard');
+          this.props.history.push('/admin/dashboard');
         }
       })
       .catch((error) => {
         if (error.response) {
+          console.log(error)
           return this.setState({
             errorMessage: error.response.data.message,
             errorStatus: true,
