@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SideBar = () => (
   <div className="col-md-4 adm mb-4" style={{ marginTop: 19 }}>
     <div className="col-xl-5 col-md-4 mb-3 try text-center">
-      <img src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
+      <img src="https://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
         className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro" />
       <h5 className="font-weight-bold min white-text">Admin</h5>
     </div>

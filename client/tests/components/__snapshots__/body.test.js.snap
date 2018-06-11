@@ -63,7 +63,7 @@ ShallowWrapper {
                         >
                           <img
                             className="img-fluid animated bounce infinite"
-                            src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                            src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                             style={
                               Object {
                                 "bottom": -200,
@@ -191,7 +191,7 @@ ShallowWrapper {
                         >
                           <img
                             className="img-fluid animated bounce infinite"
-                            src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                            src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                             style={
                               Object {
                                 "bottom": -200,
@@ -254,7 +254,7 @@ ShallowWrapper {
                         >
                           <img
                             className="img-fluid animated bounce infinite"
-                            src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                            src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                             style={
                               Object {
                                 "bottom": -200,
@@ -312,7 +312,7 @@ ShallowWrapper {
                         >
                           <img
                             className="img-fluid animated bounce infinite"
-                            src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                            src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                             style={
                               Object {
                                 "bottom": -200,
@@ -366,7 +366,7 @@ ShallowWrapper {
                         >
                           <img
                             className="img-fluid animated bounce infinite"
-                            src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                            src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                             style={
                               Object {
                                 "bottom": -200,
@@ -417,7 +417,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -502,7 +502,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -532,7 +532,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -556,7 +556,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -577,7 +577,7 @@ ShallowWrapper {
                           "props": Object {
                             "children": <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -594,7 +594,7 @@ ShallowWrapper {
                             "nodeType": "host",
                             "props": Object {
                               "className": "img-fluid animated bounce infinite",
-                              "src": "http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png",
+                              "src": "https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png",
                               "style": Object {
                                 "bottom": -200,
                                 "height": 50,
@@ -1080,7 +1080,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -1208,7 +1208,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -1271,7 +1271,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -1329,7 +1329,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -1383,7 +1383,7 @@ ShallowWrapper {
                           >
                             <img
                               className="img-fluid animated bounce infinite"
-                              src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                              src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                               style={
                                 Object {
                                   "bottom": -200,
@@ -1434,7 +1434,7 @@ ShallowWrapper {
                             >
                               <img
                                 className="img-fluid animated bounce infinite"
-                                src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                                src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                                 style={
                                   Object {
                                     "bottom": -200,
@@ -1519,7 +1519,7 @@ ShallowWrapper {
                             >
                               <img
                                 className="img-fluid animated bounce infinite"
-                                src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                                src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                                 style={
                                   Object {
                                     "bottom": -200,
@@ -1549,7 +1549,7 @@ ShallowWrapper {
                             >
                               <img
                                 className="img-fluid animated bounce infinite"
-                                src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                                src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                                 style={
                                   Object {
                                     "bottom": -200,
@@ -1573,7 +1573,7 @@ ShallowWrapper {
                             >
                               <img
                                 className="img-fluid animated bounce infinite"
-                                src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                                src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                                 style={
                                   Object {
                                     "bottom": -200,
@@ -1594,7 +1594,7 @@ ShallowWrapper {
                             "props": Object {
                               "children": <img
                                 className="img-fluid animated bounce infinite"
-                                src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
+                                src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png"
                                 style={
                                   Object {
                                     "bottom": -200,
@@ -1611,7 +1611,7 @@ ShallowWrapper {
                               "nodeType": "host",
                               "props": Object {
                                 "className": "img-fluid animated bounce infinite",
-                                "src": "http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png",
+                                "src": "https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png",
                                 "style": Object {
                                   "bottom": -200,
                                   "height": 50,

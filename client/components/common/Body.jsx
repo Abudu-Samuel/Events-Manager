@@ -19,7 +19,7 @@ const Body = () => (
                 <div className="row wow fadeIn mr-2" data-wow-delay="0.4s">
                   <div style={{ margin: '0px auto' }}>
                     <a href="#latest"><img className="img-fluid animated
-                     bounce infinite" style={{ height: 50, bottom: -200 }} src="http://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png" />
+                     bounce infinite" style={{ height: 50, bottom: -200 }} src="https://res.cloudinary.com/leumas/image/upload/v1527453763/zf9bspuveypekkdlhuzt.png" />
                     </a>
                   </div>
                 </div>
