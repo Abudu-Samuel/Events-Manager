@@ -120,7 +120,7 @@ export class UserCenter extends React.Component {
                         key={center.id}>
                         <div className="card hoverable text-center">
                           <img className="img-fluid hoverable img-view"
-                            src={center.image} alt="Card image cap" />
+                            src={center.image} />
                           <div className="card-body">
                             <h4 className="card-title">
                               {

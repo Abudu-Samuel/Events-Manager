@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import SideBar from '../common/SideBar';
 import AdminForm from '../common/forms/AdminForm';
@@ -20,6 +21,7 @@ export class EditCenter extends React.Component {
       description: '',
       image: '',
       errors: {},
+      loading: false,
       imgPreviewSrc: '',
       isAvailable: false,
       errorStatus: false,
@@ -60,13 +62,11 @@ export class EditCenter extends React.Component {
       this.setState({
         isAvailable: true
       })
-      console.log("=====", this.state.isAvailable);
       return;
     }
     this.setState({
       isAvailable: false
     })
-    console.log("State", this.state.isAvailable);
   }
 
   handleUpload = (event) => {
@@ -77,6 +77,9 @@ export class EditCenter extends React.Component {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    this.setState({
+      loading: true
+    })
 
     axios({
       url: CLOUDINARY_URL,
@@ -89,7 +92,8 @@ export class EditCenter extends React.Component {
       .then((res) => {
         this.setState({
           image: res.data.secure_url,
-          imgPreviewSrc: res.data.secure_url
+          imgPreviewSrc: res.data.secure_url,
+          loading: false
         });
       })
       .catch((err) => {
@@ -113,13 +117,9 @@ handleSubmit = (event) => {
     .then(() => {
       this.setState({
         errorStatus: false,
-        errorMessage: ''
+        errorMessage: '',
+        redirect: true
       });
-      setTimeout(() => {
-        this.setState({
-          redirect: true
-        });
-      }, 100);
     })
     .catch((error) => {
       this.setState({
@@ -155,6 +155,7 @@ render() {
                       errors={this.state.errors}
                       capacity={this.state.capacity}
                       location={this.state.location}
+                      loading={this.state.loading}
                       price={this.state.price}
                       imgPreviewSrc={this.state.imgPreviewSrc}
                       state={this.state.state}
@@ -179,11 +180,9 @@ const  mapStateToProps = (state) => {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    singleCenter: centerData => dispatch(userActions.singleCenter(centerData)),
-    editCenter: centerData => dispatch(userActions.editCenter(centerData))
-  };
-}
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  singleCenter: centerData => userActions.singleCenter(centerData),
+  editCenter: centerData => userActions.editCenter(centerData)
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditCenter);

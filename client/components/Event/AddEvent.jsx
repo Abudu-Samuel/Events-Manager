@@ -24,6 +24,7 @@ export class AddEvent extends React.Component {
       type: '',
       image: '',
       imgPreviewSrc: '',
+      loading: false,
       errorStatus: false,
       errors: {},
       redirect: false,
@@ -40,14 +41,16 @@ export class AddEvent extends React.Component {
   handleUpload = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
-    let imgPreview = document.getElementById('img-preview');
+    let imgPreview = document.getElementById('img-preview') || { src: '' };
     let imgPreviewSrc = imgPreview.src
     const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
     const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
+    this.setState({
+      loading: true
+    })
     axios({
       url: CLOUDINARY_URL,
       method: 'POST',
@@ -59,7 +62,8 @@ export class AddEvent extends React.Component {
       .then((res) => {
         this.setState({
           image: res.data.secure_url,
-          imgPreviewSrc: res.data.secure_url
+          imgPreviewSrc: res.data.secure_url,
+          loading: false
         });
       })
       .catch((err) => {
@@ -83,13 +87,9 @@ export class AddEvent extends React.Component {
       .then(() => {
         this.setState({
           errorStatus: false,
-          errorMessage: ''
+          errorMessage: '',
+          redirect: true
         });
-        setTimeout(() => {
-          this.setState({
-            redirect: true
-          });
-        }, 1000);
       })
       .catch((error) => {
         this.setState({
@@ -120,6 +120,7 @@ export class AddEvent extends React.Component {
                   errorMessage={this.state.errorMessage}
                   editing={this.state.editing}
                   title={this.state.title}
+                  loading={this.state.loading}
                   date={this.state.date}
                   description={this.state.description}
                   type={this.state.type}

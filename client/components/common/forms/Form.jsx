@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BarLoader } from 'react-spinners';
 
 const Form = ({
   handleChange,
@@ -7,12 +8,14 @@ const Form = ({
   errorStatus,
   errorMessage,
   errors,
+  loading,
   handleUpload,
   title,
   imgPreviewSrc,
   type,
   date,
   description,
+  image,
 }) => (
 
   <form onSubmit={handleSubmit} className="signup add">
@@ -57,11 +60,17 @@ const Form = ({
           <div className="card prev file-path-wrapper">
             {
               imgPreviewSrc ? <img className="img-fluid hoverable max-event"
-                id="img-preview" src={imgPreviewSrc} alt="Card image cap" /> :
-                <img className="img-fluid hoverable max-event" id="img-preview" src="http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg"
-                  alt="Card image cap" />
+                id="img-preview" src={imgPreviewSrc} /> :
+                <img className="img-fluid hoverable max-event" id="img-preview"
+                  src={image ||
+                     'http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg'}/>
             }
           </div>
+          <BarLoader
+            style={{ width: 390, marginLeft: 45 }}
+            color={'#00695c'}
+            loading={loading}
+          />
         </div>
         <div className="btn btn-mycolor mt-5 ml-3  btn-sm len">
           <input type="file" className="image" name="image" onChange={handleUpload} />

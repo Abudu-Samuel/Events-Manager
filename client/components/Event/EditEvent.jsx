@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import Form from '../common/forms/Form';
 import { validateEvent } from '../Utils/Validator';
@@ -19,6 +20,7 @@ export class EditEvent extends React.Component {
       errorStatus: false,
       redirect: false,
       editing: false,
+      loading: false,
       imgPreviewSrc: '',
       errors: {},
       errorMessage: '',
@@ -58,19 +60,15 @@ handleSubmit = (event) => {
   }
   this.setState({
     errorMessage: '',
-    errorStatus: false
+    errorStatus: false,
   });
   this.props.editEvent({ data: this.state, eventId: eventId })
     .then(() => {
       this.setState({
         errorStatus: false,
-        errorMessage: ''
+        errorMessage: '',
+        redirect: true
       });
-      setTimeout(() => {
-        this.setState({
-          redirect: true
-        });
-      }, 100);
     })
     .catch((error) => {
       this.setState({
@@ -83,13 +81,16 @@ handleSubmit = (event) => {
 handleUpload = (event) => {
   event.preventDefault();
   const file = event.target.files[0];
-  let imgPreview = document.getElementById('img-preview');
+  let imgPreview = document.getElementById('img-preview') || { src: '' };
   let imgPreviewSrc = imgPreview.src
   const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
   const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
   const formData = new FormData();
   formData.append('file', file);
   formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  this.setState({
+    loading: true
+  })
 
   axios({
     url: CLOUDINARY_URL,
@@ -102,7 +103,8 @@ handleUpload = (event) => {
     .then((res) => {
       this.setState({
         image: res.data.secure_url,
-        imgPreviewSrc: res.data.secure_url
+        imgPreviewSrc: res.data.secure_url,
+        loading: false
       });
     })
     .catch((err) => {
@@ -130,6 +132,7 @@ render() {
                 errors={this.state.errors}
                 handleUpload={this.handleUpload}
                 date={this.state.date}
+                loading={this.state.loading}
                 description={this.state.description}
                 type={this.state.type}
                 image={this.state.image}
@@ -150,11 +153,9 @@ const mapStateToProps = state => {
   };
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    singleEvent: eventData => dispatch(userActions.singleEvent(eventData)),
-    editEvent: eventData => dispatch(userActions.editEvent(eventData))
-  };
-}
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  singleEvent: eventData => userActions.singleEvent(eventData),
+  editEvent: eventData => userActions.editEvent(eventData)
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditEvent);

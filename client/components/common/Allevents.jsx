@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+import { BounceLoader } from 'react-spinners';
 import ReactPaginate from 'react-paginate';
 import Navbar from '../common/Navbar';
 import PopularCenter from '../Event/PopularCenter';
@@ -34,7 +35,7 @@ export class Allevents extends React.Component {
       events: {
         event: []
       },
-      loading: false,
+      loading: true,
       fetchingCenters: false
     };
     this.centerPaginate = this.centerPaginate.bind(this);
@@ -68,12 +69,12 @@ export class Allevents extends React.Component {
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.getCenters) {
-      this.setState({ centers: nextProps.getCenters, fetchingCenters: false, loading: true });
+      this.setState({ centers: nextProps.getCenters, fetchingCenters: false, loading: false });
     } else {
       this.setState({ fetchingCenters: true });
     }
     if (nextProps.getEvents) {
-      this.setState({ events: nextProps.getEvents, fetchingEvents: false, loading: true });
+      this.setState({ events: nextProps.getEvents, fetchingEvents: false, loading: false });
     } else {
       this.setState({ fetchingEvents: true });
     }
@@ -122,6 +123,10 @@ export class Allevents extends React.Component {
     return (
       <div>
         <Navbar />
+        <BounceLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
         <div className="space">
           <div className="container" style={{ marginTop: 99 }}>
             <h3 className="font-weight-bold">Welcome to Events Manager</h3>

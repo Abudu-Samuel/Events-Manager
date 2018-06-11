@@ -46,6 +46,7 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/client/tests/__mocks__/",
+      "<rootDir>/client/client",
       "<rootDir>/public/css/style.scss"
     ],
     "globals": {
@@ -74,7 +75,9 @@
     "nodemon": "^1.12.1",
     "nyc": "^11.3.0",
     "react-addons-test-utils": "^15.6.2",
+    "redux-mock-store": "^1.5.1",
     "selenium-standalone": "^6.15.0",
+    "sinon": "^5.1.1",
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
@@ -132,7 +135,6 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
-    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",

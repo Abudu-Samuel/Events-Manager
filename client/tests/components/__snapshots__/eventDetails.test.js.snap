@@ -37,6 +37,12 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Connect(Navbar) />,
+        <onlyUpdateForKeys(Loader)
+          color="#123abc"
+          loading={false}
+          size={60}
+          sizeUnit="px"
+        />,
         <EventDetails
           noEvent={false}
         />,
@@ -49,6 +55,20 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color": "#123abc",
+          "loading": false,
+          "size": 60,
+          "sizeUnit": "px",
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -76,6 +96,12 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Connect(Navbar) />,
+          <onlyUpdateForKeys(Loader)
+            color="#123abc"
+            loading={false}
+            size={60}
+            sizeUnit="px"
+          />,
           <EventDetails
             noEvent={false}
           />,
@@ -88,6 +114,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "color": "#123abc",
+            "loading": false,
+            "size": 60,
+            "sizeUnit": "px",
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -147,6 +187,12 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Connect(Navbar) />,
+        <onlyUpdateForKeys(Loader)
+          color="#123abc"
+          loading={true}
+          size={60}
+          sizeUnit="px"
+        />,
         <EventDetails
           event={Object {}}
           noEvent={false}
@@ -160,6 +206,20 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color": "#123abc",
+          "loading": true,
+          "size": 60,
+          "sizeUnit": "px",
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -187,6 +247,12 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Connect(Navbar) />,
+          <onlyUpdateForKeys(Loader)
+            color="#123abc"
+            loading={true}
+            size={60}
+            sizeUnit="px"
+          />,
           <EventDetails
             event={Object {}}
             noEvent={false}
@@ -200,6 +266,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "color": "#123abc",
+            "loading": true,
+            "size": 60,
+            "sizeUnit": "px",
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],

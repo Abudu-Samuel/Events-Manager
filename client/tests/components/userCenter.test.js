@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import expect from 'expect';
 import { UserCenter, mapDispatchToProps } from '../../components/Center/UserCenter';
+import centerMockedData from '../__mocks__/centerMockedData';
 
 const props = {
   getAllCenters: () => Promise.resolve(),
@@ -18,7 +19,15 @@ const centerPage = {
 describe('create component', () => {
   it('should render component', () => {
     const wrapper = shallow(<UserCenter {...props}/>);
+    wrapper.setProps({
+      centers: {
+        centers: {
+          center: [centerMockedData.centerData, centerMockedData.centerData]
+        }
+      }
+    });
     expect(wrapper.exists()).toBe(true);
+    expect(wrapper.state().fetchingCenter).toEqual(true)
   });
 
   it('should render component', () => {

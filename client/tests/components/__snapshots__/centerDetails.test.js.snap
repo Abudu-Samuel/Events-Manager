@@ -1,0 +1,1263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CenterDetails /> should render CenterDetails component correctly correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CenterDetails
+    center={null}
+    match={
+      Object {
+        "params": Object {
+          "eventId": 1,
+        },
+      }
+    }
+    singleCenter={[Function]}
+    slatedEvent={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Navbar) />,
+        <onlyUpdateForKeys(Loader)
+          color="#123abc"
+          loading={true}
+          size={60}
+          sizeUnit="px"
+        />,
+        <CenterInfo
+          center={Array []}
+          noEvent={true}
+          upcomingEventsData={
+            Object {
+              "message": "",
+              "pagination": Object {},
+              "upcomingEvent": Array [],
+            }
+          }
+        />,
+        <div
+          className="space text-center"
+        >
+          <i
+            className="fa fa-exclamation-triangle no-event"
+          />
+          <h5
+            className="font-weight-bold mb-5"
+          >
+            No event allocated to this center, Click 
+            <strong>
+              <Link
+                className="add-event"
+                replace={false}
+                to="/center/undefined/addevent"
+              >
+                Here
+              </Link>
+            </strong>
+             to book a center
+          </h5>
+        </div>,
+      ],
+      "className": "space",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color": "#123abc",
+          "loading": true,
+          "size": 60,
+          "sizeUnit": "px",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "center": Array [],
+          "noEvent": true,
+          "upcomingEventsData": Object {
+            "message": "",
+            "pagination": Object {},
+            "upcomingEvent": Array [],
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <i
+              className="fa fa-exclamation-triangle no-event"
+            />,
+            <h5
+              className="font-weight-bold mb-5"
+            >
+              No event allocated to this center, Click 
+              <strong>
+                <Link
+                  className="add-event"
+                  replace={false}
+                  to="/center/undefined/addevent"
+                >
+                  Here
+                </Link>
+              </strong>
+               to book a center
+            </h5>,
+          ],
+          "className": "space text-center",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fa fa-exclamation-triangle no-event",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "No event allocated to this center, Click ",
+                <strong>
+                  <Link
+                    className="add-event"
+                    replace={false}
+                    to="/center/undefined/addevent"
+                  >
+                    Here
+                  </Link>
+                </strong>,
+                " to book a center",
+              ],
+              "className": "font-weight-bold mb-5",
+            },
+            "ref": null,
+            "rendered": Array [
+              "No event allocated to this center, Click ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="add-event"
+                    replace={false}
+                    to="/center/undefined/addevent"
+                  >
+                    Here
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Here",
+                    "className": "add-event",
+                    "replace": false,
+                    "to": "/center/undefined/addevent",
+                  },
+                  "ref": null,
+                  "rendered": "Here",
+                  "type": [Function],
+                },
+                "type": "strong",
+              },
+              " to book a center",
+            ],
+            "type": "h5",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Navbar) />,
+          <onlyUpdateForKeys(Loader)
+            color="#123abc"
+            loading={true}
+            size={60}
+            sizeUnit="px"
+          />,
+          <CenterInfo
+            center={Array []}
+            noEvent={true}
+            upcomingEventsData={
+              Object {
+                "message": "",
+                "pagination": Object {},
+                "upcomingEvent": Array [],
+              }
+            }
+          />,
+          <div
+            className="space text-center"
+          >
+            <i
+              className="fa fa-exclamation-triangle no-event"
+            />
+            <h5
+              className="font-weight-bold mb-5"
+            >
+              No event allocated to this center, Click 
+              <strong>
+                <Link
+                  className="add-event"
+                  replace={false}
+                  to="/center/undefined/addevent"
+                >
+                  Here
+                </Link>
+              </strong>
+               to book a center
+            </h5>
+          </div>,
+        ],
+        "className": "space",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "color": "#123abc",
+            "loading": true,
+            "size": 60,
+            "sizeUnit": "px",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "center": Array [],
+            "noEvent": true,
+            "upcomingEventsData": Object {
+              "message": "",
+              "pagination": Object {},
+              "upcomingEvent": Array [],
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <i
+                className="fa fa-exclamation-triangle no-event"
+              />,
+              <h5
+                className="font-weight-bold mb-5"
+              >
+                No event allocated to this center, Click 
+                <strong>
+                  <Link
+                    className="add-event"
+                    replace={false}
+                    to="/center/undefined/addevent"
+                  >
+                    Here
+                  </Link>
+                </strong>
+                 to book a center
+              </h5>,
+            ],
+            "className": "space text-center",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-exclamation-triangle no-event",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "No event allocated to this center, Click ",
+                  <strong>
+                    <Link
+                      className="add-event"
+                      replace={false}
+                      to="/center/undefined/addevent"
+                    >
+                      Here
+                    </Link>
+                  </strong>,
+                  " to book a center",
+                ],
+                "className": "font-weight-bold mb-5",
+              },
+              "ref": null,
+              "rendered": Array [
+                "No event allocated to this center, Click ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Link
+                      className="add-event"
+                      replace={false}
+                      to="/center/undefined/addevent"
+                    >
+                      Here
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Here",
+                      "className": "add-event",
+                      "replace": false,
+                      "to": "/center/undefined/addevent",
+                    },
+                    "ref": null,
+                    "rendered": "Here",
+                    "type": [Function],
+                  },
+                  "type": "strong",
+                },
+                " to book a center",
+              ],
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<CenterDetails /> should render EventDetails component correctly correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CenterDetails
+    getSlatedEvents={
+      Object {
+        "center": Object {
+          "capacity": 123,
+          "description": "Awesome center",
+          "image": "testing.img",
+          "isAvailable": true,
+          "location": "yaba",
+          "name": "test center",
+          "price": 123456,
+          "state": "lagos",
+        },
+        "upcomingEvent": Object {
+          "length": 1,
+        },
+      }
+    }
+    match={
+      Object {
+        "params": Object {
+          "eventId": 1,
+        },
+      }
+    }
+    singleCenter={[Function]}
+    slatedEvent={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Navbar) />,
+        <onlyUpdateForKeys(Loader)
+          color="#123abc"
+          loading={true}
+          size={60}
+          sizeUnit="px"
+        />,
+        <CenterInfo
+          center={Array []}
+          noEvent={false}
+          upcomingEventsData={
+            Object {
+              "center": Object {
+                "capacity": 123,
+                "description": "Awesome center",
+                "image": "testing.img",
+                "isAvailable": true,
+                "location": "yaba",
+                "name": "test center",
+                "price": 123456,
+                "state": "lagos",
+              },
+              "upcomingEvent": Object {
+                "length": 1,
+              },
+            }
+          }
+        />,
+        <PaginationBoxView
+          activeClassName="active"
+          breakClassName="page-link"
+          breakLabel={
+            <a
+              href=""
+            >
+              ...
+            </a>
+          }
+          containerClassName="pagination pagination-lg custom-pagination"
+          disableInitialCallback={false}
+          disabledClassName="disabled"
+          marginPagesDisplayed={3}
+          nextClassName="page-item"
+          nextLabel="Next"
+          nextLinkClassName="page-link"
+          onPageChange={[Function]}
+          pageClassName="page-item"
+          pageCount={NaN}
+          pageLinkClassName="page-link"
+          pageRangeDisplayed={2}
+          previousClassName="page-item"
+          previousLabel="Previous"
+          previousLinkClassName="page-link"
+          subContainerClassName="pages pagination"
+        />,
+      ],
+      "className": "space",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color": "#123abc",
+          "loading": true,
+          "size": 60,
+          "sizeUnit": "px",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "center": Array [],
+          "noEvent": false,
+          "upcomingEventsData": Object {
+            "center": Object {
+              "capacity": 123,
+              "description": "Awesome center",
+              "image": "testing.img",
+              "isAvailable": true,
+              "location": "yaba",
+              "name": "test center",
+              "price": 123456,
+              "state": "lagos",
+            },
+            "upcomingEvent": Object {
+              "length": 1,
+            },
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "activeClassName": "active",
+          "breakClassName": "page-link",
+          "breakLabel": <a
+            href=""
+          >
+            ...
+          </a>,
+          "containerClassName": "pagination pagination-lg custom-pagination",
+          "disableInitialCallback": false,
+          "disabledClassName": "disabled",
+          "marginPagesDisplayed": 3,
+          "nextClassName": "page-item",
+          "nextLabel": "Next",
+          "nextLinkClassName": "page-link",
+          "onPageChange": [Function],
+          "pageClassName": "page-item",
+          "pageCount": NaN,
+          "pageLinkClassName": "page-link",
+          "pageRangeDisplayed": 2,
+          "previousClassName": "page-item",
+          "previousLabel": "Previous",
+          "previousLinkClassName": "page-link",
+          "subContainerClassName": "pages pagination",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Navbar) />,
+          <onlyUpdateForKeys(Loader)
+            color="#123abc"
+            loading={true}
+            size={60}
+            sizeUnit="px"
+          />,
+          <CenterInfo
+            center={Array []}
+            noEvent={false}
+            upcomingEventsData={
+              Object {
+                "center": Object {
+                  "capacity": 123,
+                  "description": "Awesome center",
+                  "image": "testing.img",
+                  "isAvailable": true,
+                  "location": "yaba",
+                  "name": "test center",
+                  "price": 123456,
+                  "state": "lagos",
+                },
+                "upcomingEvent": Object {
+                  "length": 1,
+                },
+              }
+            }
+          />,
+          <PaginationBoxView
+            activeClassName="active"
+            breakClassName="page-link"
+            breakLabel={
+              <a
+                href=""
+              >
+                ...
+              </a>
+            }
+            containerClassName="pagination pagination-lg custom-pagination"
+            disableInitialCallback={false}
+            disabledClassName="disabled"
+            marginPagesDisplayed={3}
+            nextClassName="page-item"
+            nextLabel="Next"
+            nextLinkClassName="page-link"
+            onPageChange={[Function]}
+            pageClassName="page-item"
+            pageCount={NaN}
+            pageLinkClassName="page-link"
+            pageRangeDisplayed={2}
+            previousClassName="page-item"
+            previousLabel="Previous"
+            previousLinkClassName="page-link"
+            subContainerClassName="pages pagination"
+          />,
+        ],
+        "className": "space",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "color": "#123abc",
+            "loading": true,
+            "size": 60,
+            "sizeUnit": "px",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "center": Array [],
+            "noEvent": false,
+            "upcomingEventsData": Object {
+              "center": Object {
+                "capacity": 123,
+                "description": "Awesome center",
+                "image": "testing.img",
+                "isAvailable": true,
+                "location": "yaba",
+                "name": "test center",
+                "price": 123456,
+                "state": "lagos",
+              },
+              "upcomingEvent": Object {
+                "length": 1,
+              },
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "activeClassName": "active",
+            "breakClassName": "page-link",
+            "breakLabel": <a
+              href=""
+            >
+              ...
+            </a>,
+            "containerClassName": "pagination pagination-lg custom-pagination",
+            "disableInitialCallback": false,
+            "disabledClassName": "disabled",
+            "marginPagesDisplayed": 3,
+            "nextClassName": "page-item",
+            "nextLabel": "Next",
+            "nextLinkClassName": "page-link",
+            "onPageChange": [Function],
+            "pageClassName": "page-item",
+            "pageCount": NaN,
+            "pageLinkClassName": "page-link",
+            "pageRangeDisplayed": 2,
+            "previousClassName": "page-item",
+            "previousLabel": "Previous",
+            "previousLinkClassName": "page-link",
+            "subContainerClassName": "pages pagination",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<CenterDetails /> should render EventDetails component correctly correctly 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CenterDetails
+    getSingleCenter={
+      Object {
+        "center": Object {
+          "capacity": 123,
+          "description": "Awesome center",
+          "image": "testing.img",
+          "isAvailable": true,
+          "location": "yaba",
+          "name": "test center",
+          "price": 123456,
+          "state": "lagos",
+        },
+      }
+    }
+    match={
+      Object {
+        "params": Object {
+          "eventId": 1,
+        },
+      }
+    }
+    singleCenter={[Function]}
+    slatedEvent={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Navbar) />,
+        <onlyUpdateForKeys(Loader)
+          color="#123abc"
+          loading={false}
+          size={60}
+          sizeUnit="px"
+        />,
+        <CenterInfo
+          center={
+            Object {
+              "center": Object {
+                "capacity": 123,
+                "description": "Awesome center",
+                "image": "testing.img",
+                "isAvailable": true,
+                "location": "yaba",
+                "name": "test center",
+                "price": 123456,
+                "state": "lagos",
+              },
+            }
+          }
+          noEvent={true}
+          upcomingEventsData={
+            Object {
+              "message": "",
+              "pagination": Object {},
+              "upcomingEvent": Array [],
+            }
+          }
+        />,
+        <div
+          className="space text-center"
+        >
+          <i
+            className="fa fa-exclamation-triangle no-event"
+          />
+          <h5
+            className="font-weight-bold mb-5"
+          >
+            No event allocated to this center, Click 
+            <strong>
+              <Link
+                className="add-event"
+                replace={false}
+                to="/center/undefined/addevent"
+              >
+                Here
+              </Link>
+            </strong>
+             to book a center
+          </h5>
+        </div>,
+      ],
+      "className": "space",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color": "#123abc",
+          "loading": false,
+          "size": 60,
+          "sizeUnit": "px",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "center": Object {
+            "center": Object {
+              "capacity": 123,
+              "description": "Awesome center",
+              "image": "testing.img",
+              "isAvailable": true,
+              "location": "yaba",
+              "name": "test center",
+              "price": 123456,
+              "state": "lagos",
+            },
+          },
+          "noEvent": true,
+          "upcomingEventsData": Object {
+            "message": "",
+            "pagination": Object {},
+            "upcomingEvent": Array [],
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <i
+              className="fa fa-exclamation-triangle no-event"
+            />,
+            <h5
+              className="font-weight-bold mb-5"
+            >
+              No event allocated to this center, Click 
+              <strong>
+                <Link
+                  className="add-event"
+                  replace={false}
+                  to="/center/undefined/addevent"
+                >
+                  Here
+                </Link>
+              </strong>
+               to book a center
+            </h5>,
+          ],
+          "className": "space text-center",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fa fa-exclamation-triangle no-event",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "No event allocated to this center, Click ",
+                <strong>
+                  <Link
+                    className="add-event"
+                    replace={false}
+                    to="/center/undefined/addevent"
+                  >
+                    Here
+                  </Link>
+                </strong>,
+                " to book a center",
+              ],
+              "className": "font-weight-bold mb-5",
+            },
+            "ref": null,
+            "rendered": Array [
+              "No event allocated to this center, Click ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="add-event"
+                    replace={false}
+                    to="/center/undefined/addevent"
+                  >
+                    Here
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Here",
+                    "className": "add-event",
+                    "replace": false,
+                    "to": "/center/undefined/addevent",
+                  },
+                  "ref": null,
+                  "rendered": "Here",
+                  "type": [Function],
+                },
+                "type": "strong",
+              },
+              " to book a center",
+            ],
+            "type": "h5",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Navbar) />,
+          <onlyUpdateForKeys(Loader)
+            color="#123abc"
+            loading={false}
+            size={60}
+            sizeUnit="px"
+          />,
+          <CenterInfo
+            center={
+              Object {
+                "center": Object {
+                  "capacity": 123,
+                  "description": "Awesome center",
+                  "image": "testing.img",
+                  "isAvailable": true,
+                  "location": "yaba",
+                  "name": "test center",
+                  "price": 123456,
+                  "state": "lagos",
+                },
+              }
+            }
+            noEvent={true}
+            upcomingEventsData={
+              Object {
+                "message": "",
+                "pagination": Object {},
+                "upcomingEvent": Array [],
+              }
+            }
+          />,
+          <div
+            className="space text-center"
+          >
+            <i
+              className="fa fa-exclamation-triangle no-event"
+            />
+            <h5
+              className="font-weight-bold mb-5"
+            >
+              No event allocated to this center, Click 
+              <strong>
+                <Link
+                  className="add-event"
+                  replace={false}
+                  to="/center/undefined/addevent"
+                >
+                  Here
+                </Link>
+              </strong>
+               to book a center
+            </h5>
+          </div>,
+        ],
+        "className": "space",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "color": "#123abc",
+            "loading": false,
+            "size": 60,
+            "sizeUnit": "px",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "center": Object {
+              "center": Object {
+                "capacity": 123,
+                "description": "Awesome center",
+                "image": "testing.img",
+                "isAvailable": true,
+                "location": "yaba",
+                "name": "test center",
+                "price": 123456,
+                "state": "lagos",
+              },
+            },
+            "noEvent": true,
+            "upcomingEventsData": Object {
+              "message": "",
+              "pagination": Object {},
+              "upcomingEvent": Array [],
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <i
+                className="fa fa-exclamation-triangle no-event"
+              />,
+              <h5
+                className="font-weight-bold mb-5"
+              >
+                No event allocated to this center, Click 
+                <strong>
+                  <Link
+                    className="add-event"
+                    replace={false}
+                    to="/center/undefined/addevent"
+                  >
+                    Here
+                  </Link>
+                </strong>
+                 to book a center
+              </h5>,
+            ],
+            "className": "space text-center",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-exclamation-triangle no-event",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "No event allocated to this center, Click ",
+                  <strong>
+                    <Link
+                      className="add-event"
+                      replace={false}
+                      to="/center/undefined/addevent"
+                    >
+                      Here
+                    </Link>
+                  </strong>,
+                  " to book a center",
+                ],
+                "className": "font-weight-bold mb-5",
+              },
+              "ref": null,
+              "rendered": Array [
+                "No event allocated to this center, Click ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Link
+                      className="add-event"
+                      replace={false}
+                      to="/center/undefined/addevent"
+                    >
+                      Here
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Here",
+                      "className": "add-event",
+                      "replace": false,
+                      "to": "/center/undefined/addevent",
+                    },
+                    "ref": null,
+                    "rendered": "Here",
+                    "type": [Function],
+                  },
+                  "type": "strong",
+                },
+                " to book a center",
+              ],
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -60,8 +60,6 @@ describe('create Component', () => {
         userId: 3
       }]
     });
-    // console.log(wrapper.find('.delete-event'));
-
     wrapper.find('button.delete-event').simulate('click');
   });
 });

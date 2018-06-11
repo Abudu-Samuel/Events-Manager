@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { BounceLoader } from 'react-spinners';
 import Navbar from '../common/Navbar';
 import EventInfo from './EventInfo';
 import * as userActions from '../../actions/actionCreator';
@@ -26,6 +27,7 @@ export class EventDetails extends React.Component {
       event: {},
       noEvent: false,
       fetchingEvent: false,
+      loading: true,
       fetchingCenter: false
     };
   }
@@ -54,7 +56,7 @@ export class EventDetails extends React.Component {
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.event) {
-      this.setState({ event: nextProps.event.event, fetchingEvent: false });
+      this.setState({ event: nextProps.event.event, fetchingEvent: false, loading: false });
     } else {
       this.setState({ fetchingEvent: true });
     }
@@ -73,6 +75,10 @@ export class EventDetails extends React.Component {
     return (
       <div>
         <Navbar />
+        <BounceLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
         <EventInfo
           event={this.state.event}
           noEvent={this.state.noEvent}

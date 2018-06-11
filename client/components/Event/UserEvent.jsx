@@ -58,7 +58,6 @@ export class UserEvent extends React.Component {
    * @memberof UserEvent
    */
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
     if (nextProps.getUserEvents && nextProps.getUserEvents.length > 0) {
       this.setState({
         events: nextProps.getUserEvents,
@@ -147,7 +146,7 @@ export class UserEvent extends React.Component {
                     <div className="col-xl-4 mb-4" key={event.id}>
                       <div className="card hoverable">
                         <img className="img-fluid hoverable max"
-                          src={event.image} alt="Card image cap" />
+                          src={event.image} />
                         <div className="card-body">
                           <h6 className=""><i className="fa fa-clock-o mr-2" />
                             <strong>Starts {event.date} - Ends {event.date}
