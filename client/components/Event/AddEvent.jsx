@@ -1,71 +1,43 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import SideBar from '../common/SideBar';
-import AdminForm from '../common/forms/AdminForm';
+import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
+import Footer from '../common/Footer';
+import Form from '../common/forms/Form';
 import Navbar from '../common/Navbar';
-import { validateCenter } from '../Utils/Validator';
+import { validateEvent } from '../Utils/Validator';
 import * as userActions from '../../actions/actionCreator';
 
 /**
- * @class AddCenter
- *
- * @description AddCenter component
- *
- * @param {object} event
- *
+ * @class AddEvent
+ * 
  * @extends {React.Component}
  */
-export class AddCenter extends React.Component {
-  /**
-   * Creates an instance of AddCenter.
-   *
-   * @param {object} props
-   *
-   * @memberof AddCenter
-   */
+export class AddEvent extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
-    //setting the initial state of the component
     this.state = {
-      name: '',
-      capacity: '',
-      location: '',
-      price: '',
-      state: '',
+      title: '',
+      date: '',
       description: '',
+      type: '',
       image: '',
       imgPreviewSrc: '',
-      isAvailable: false,
-      errorStatus: false,
-      redirect: false,
       loading: false,
-      redirectMessage: '',
+      errorStatus: false,
       errors: {},
-      showRedirectMessage: false
+      redirect: false,
+      editing: false
     };
   }
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
-  toggleAvailability = ({ target: { name, value } }) => {
-    if (name === 'available') {
-      this.setState({
-        isAvailable: true
-      })
-      return;
-    }
-    this.setState({
-      isAvailable: false
-    })
-  }
   handleUpload = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
@@ -96,101 +68,69 @@ export class AddCenter extends React.Component {
       })
       .catch((err) => {
         throw err
-      }
-      );
+      });
   }
 
-  /**
-   *@method handleSubmit
-   *
-   * @description handleSubmit
-   *
-   * @param {object} event
-   *
-   * @return {object} updated state
-   *
-   * @memberof AddCenter
-   */
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-    const validationErrors = validateCenter(this.state).errors;
+    const validationErrors = validateEvent(this.state).errors;
     if (Object.keys(validationErrors).length > 0) {
       this.setState({ errors: validationErrors });
       return;
     }
-    this.props.addCenter(this.state)
+    this.setState({
+      errorMessage: '',
+      errorStatus: false
+    });
+    this.props.addEvent({ ...this.state,
+       centerId: this.props.match.params.centerId })
       .then(() => {
         this.setState({
-          errorMessage: '',
           errorStatus: false,
-          redirectMessage: 'Redirecting To Dashboard',
-          showRedirectMessage: true,
+          errorMessage: '',
           redirect: true
         });
       })
       .catch((error) => {
         this.setState({
           errorMessage: error.response.data.message,
-          errorStatus: true,
-          showRedirectMessage: false,
-          redirectMessage: ''
+          errorStatus: true
         });
       });
   }
 
-  /**
-   *@method render
-   *
-   * @description React method render
-   *
-   * @return {jsx} Jsx representation of the dom
-   *
-   * @memberof AddCenter
-   */
   render() {
     return (
       this.state.redirect ?
-        <Redirect to="/manage/centers" /> :
-        <div>
-          <Navbar />
-          <div className="space">
-            <div className="container space">
-              <div className="row">
-                <SideBar />
-                <div className="col-md-8" style={{ marginTop: 19 }}>
-                  <div className="container z-depth-1-half">
-                    <div className="container adm z-depth-1-half">
-                      <div className="adm ">
-                        <br />
-                        <h5 className="font-weight-bold white-text text-center">
-                          Add Center</h5>
-                        <hr />
-                      </div>
-                    </div>
-                    <AdminForm
-                      handleChange={this.handleChange}
-                      handleSubmit={this.handleSubmit}
-                      handleUpload={this.handleUpload}
-                      toggleAvailability={this.toggleAvailability}
-                      errorStatus={this.state.errorStatus}
-                      errorMessage={this.state.errorMessage}
-                      errors={this.state.errors}
-                      name={this.state.name}
-                      capacity={this.state.capacity}
-                      location={this.state.location}
-                      loading={this.state.loading}
-                      price={this.state.price}
-                      state={this.state.state}
-                      imgPreviewSrc={this.state.imgPreviewSrc}
-                      description={this.state.description}
-                      image={this.state.image}
-                      isAvailable={this.state.isAvailable}
-                    />
-                  </div>
-                </div>
+        <Redirect to={`/centers/${this.props.match.params.centerId}`} /> :
+        <div className="space">
+        <Navbar />
+          <div className="container add">
+            <section>
+              <h4 className="font-weight-bold text-center">Create An Event</h4>
+            </section>
+            <section>
+              <div className="container">
+                <Form
+                  handleSubmit={this.handleSubmit}
+                  handleChange={this.handleChange}
+                  handleUpload={this.handleUpload}
+                  errorStatus={this.state.errorStatus}
+                  errors={this.state.errors}
+                  errorMessage={this.state.errorMessage}
+                  editing={this.state.editing}
+                  title={this.state.title}
+                  loading={this.state.loading}
+                  date={this.state.date}
+                  description={this.state.description}
+                  type={this.state.type}
+                  image={this.state.image}
+                  imgPreviewSrc={this.state.imgPreviewSrc}
+                />
               </div>
-            </div>
+            </section>
           </div>
+          <Footer />
         </div>
     );
   }
@@ -204,9 +144,7 @@ export class AddCenter extends React.Component {
  * @return {object} mapped dispatch
  */
 export const mapDispatchToProps = dispatch => bindActionCreators({
-  addCenter: centerData => userActions.addCenter(centerData)
+  addEvent: eventData => userActions.addEvent(eventData)
 }, dispatch);
 
-const signReducer = connect(null, mapDispatchToProps)(AddCenter);
-
-export default signReducer;
+export default connect(null, mapDispatchToProps)(AddEvent);
