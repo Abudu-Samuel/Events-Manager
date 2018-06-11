@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BarLoader } from 'react-spinners';
 
 const AdminForm = ({
   handleChange,
@@ -10,6 +11,8 @@ const AdminForm = ({
   name,
   capacity,
   location,
+  loading,
+  image,
   errors,
   toggleAvailability,
   price,
@@ -128,16 +131,23 @@ const AdminForm = ({
                 style={{ width: 390, marginLeft: 45 }}>
                 {
                   imgPreviewSrc ? <img className="img-fluid hoverable max"
-                    id="img-preview" src={imgPreviewSrc} alt="Card image cap" /> :
-                    <img className="img-fluid hoverable max" id="img-preview" src="http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg"
-                      alt="Card image cap" />
+                    id="img-preview" src={imgPreviewSrc} /> :
+                    <img className="img-fluid hoverable max" id="img-preview"
+                      src={image ||
+                       'http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg'} />
                 }
               </div>
+              <BarLoader
+                style={{ width: 390, marginLeft: 45 }}
+                color={'#00695c'}
+                loading={loading}
+              />
             </div>
             <div className="btn btn-mycolor fuvk mt-5 ml-3  btn-sm len-center"
               style={{ width: 390 }}>
               <input type="file" className="image" name="image" onChange={handleUpload} />
             </div>
+
             <p className="text-center fuvk error-msg"
               style={{ width: 392, marginTop: -16 }}>
               {
@@ -166,11 +176,11 @@ AdminForm.propTypes = {
   handleUpload: PropTypes.func,
   errorMessage: PropTypes.string,
   name: PropTypes.string,
-  capacity: PropTypes.string,
+  capacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   location: PropTypes.string,
   errors: PropTypes.object,
   toggleAvailability: PropTypes.func,
-  price: PropTypes.string,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   state: PropTypes.string,
   description: PropTypes.string,
   imgPreviewSrc: PropTypes.string,

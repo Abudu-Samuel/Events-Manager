@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import Navbar from '../common/Navbar';
 import CenterInfo from '../Center/CenterInfo';
@@ -35,6 +37,7 @@ export class CenterDetails extends React.Component {
         upcomingEvent: []
       },
       noEvent: false,
+      loading: true,
       fetchingCenter: false
     };
     this.eventPaginate = this.eventPaginate.bind(this);
@@ -66,7 +69,7 @@ export class CenterDetails extends React.Component {
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.getSingleCenter) {
-      this.setState({ center: nextProps.getSingleCenter, fetchingCenter: false });
+      this.setState({ center: nextProps.getSingleCenter, isAvailable: true, loading: false });
     } else {
       this.setState({ fetchingCenter: true });
     }
@@ -104,6 +107,10 @@ export class CenterDetails extends React.Component {
     return (
       <div className="space">
         <Navbar />
+        <BounceLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
         <CenterInfo
           center={center}
           upcomingEventsData={upcomingEventsData}
@@ -164,10 +171,11 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  singleCenter: centerData => dispatch(userActions.singleCenter(centerData)),
-  slatedEvent: (eventId, page) => dispatch(userActions.slatedEvent(eventId, page))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  singleCenter: centerData => userActions.singleCenter(centerData),
+  slatedEvent: (eventId, page) => userActions.slatedEvent(eventId, page)
+}, dispatch);
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(CenterDetails);
 

@@ -17,8 +17,7 @@ const PopularEvents = ({
           events.event.map(event => (
             <div className="col-md-4 mb-4" key={event.id}>
               <div className="card hoverable text-center">
-                <img className="img-fluid hoverable max" src={event.image}
-                  alt="Card image cap" />
+                <img className="img-fluid hoverable max" src={event.image} />
                 <div className="card-body">
                   <h4 className="card-title"> {
                     event.title.split('').length > 17 ?

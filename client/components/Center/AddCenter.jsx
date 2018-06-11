@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import SideBar from '../common/SideBar';
@@ -44,6 +45,7 @@ export class AddCenter extends React.Component {
       isAvailable: false,
       errorStatus: false,
       redirect: false,
+      loading: false,
       redirectMessage: '',
       errors: {},
       showRedirectMessage: false
@@ -63,19 +65,20 @@ export class AddCenter extends React.Component {
     this.setState({
       isAvailable: false
     })
-    console.log("State", this.state.isAvailable);
   }
   handleUpload = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
-    let imgPreview = document.getElementById('img-preview');
+    let imgPreview = document.getElementById('img-preview') || { src: '' };
     let imgPreviewSrc = imgPreview.src
     const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/leumas/upload';
     const CLOUDINARY_UPLOAD_PRESET = 'cf3etily';
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
+    this.setState({
+      loading: true
+    })
     axios({
       url: CLOUDINARY_URL,
       method: 'POST',
@@ -87,7 +90,8 @@ export class AddCenter extends React.Component {
       .then((res) => {
         this.setState({
           image: res.data.secure_url,
-          imgPreviewSrc: res.data.secure_url
+          imgPreviewSrc: res.data.secure_url,
+          loading: false
         });
       })
       .catch((err) => {
@@ -120,13 +124,9 @@ export class AddCenter extends React.Component {
           errorMessage: '',
           errorStatus: false,
           redirectMessage: 'Redirecting To Dashboard',
-          showRedirectMessage: true
+          showRedirectMessage: true,
+          redirect: true
         });
-        setTimeout(() => {
-          this.setState({
-            redirect: true
-          });
-        }, 2000);
       })
       .catch((error) => {
         this.setState({
@@ -148,7 +148,6 @@ export class AddCenter extends React.Component {
    * @memberof AddCenter
    */
   render() {
-    console.log("State", this.state.isAvailable);
     return (
       this.state.redirect ?
         <Redirect to="/manage/centers" /> :
@@ -179,6 +178,7 @@ export class AddCenter extends React.Component {
                       name={this.state.name}
                       capacity={this.state.capacity}
                       location={this.state.location}
+                      loading={this.state.loading}
                       price={this.state.price}
                       state={this.state.state}
                       imgPreviewSrc={this.state.imgPreviewSrc}
@@ -203,9 +203,9 @@ export class AddCenter extends React.Component {
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = (dispatch) => ({
-  addCenter: (centerData) => dispatch(userActions.addCenter(centerData))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  addCenter: centerData => userActions.addCenter(centerData)
+}, dispatch);
 
 const signReducer = connect(null, mapDispatchToProps)(AddCenter);
 

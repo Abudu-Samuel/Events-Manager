@@ -4,7 +4,10 @@ exports[`<AddEvent /> should render Footer correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <AddEvent />,
+  Symbol(enzyme.__unrendered__): <AddEvent
+    image="img"
+    imgPreviewSrc="mg"
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -38,12 +41,21 @@ ShallowWrapper {
                 description=""
                 editing={false}
                 errorStatus={false}
-                errors={Object {}}
+                errors={
+                  Object {
+                    "date": "Date is required",
+                    "description": "Description should contain alphabet/number",
+                    "image": "Image is Required",
+                    "title": "Event title should contain alphabet/number",
+                    "type": "Type should contain only alphabets",
+                  }
+                }
                 handleChange={[Function]}
                 handleSubmit={[Function]}
                 handleUpload={[Function]}
                 image=""
                 imgPreviewSrc=""
+                loading={true}
                 title=""
                 type=""
               />
@@ -87,12 +99,21 @@ ShallowWrapper {
                   description=""
                   editing={false}
                   errorStatus={false}
-                  errors={Object {}}
+                  errors={
+                    Object {
+                      "date": "Date is required",
+                      "description": "Description should contain alphabet/number",
+                      "image": "Image is Required",
+                      "title": "Event title should contain alphabet/number",
+                      "type": "Type should contain only alphabets",
+                    }
+                  }
                   handleChange={[Function]}
                   handleSubmit={[Function]}
                   handleUpload={[Function]}
                   image=""
                   imgPreviewSrc=""
+                  loading={true}
                   title=""
                   type=""
                 />
@@ -142,12 +163,21 @@ ShallowWrapper {
                   description=""
                   editing={false}
                   errorStatus={false}
-                  errors={Object {}}
+                  errors={
+                    Object {
+                      "date": "Date is required",
+                      "description": "Description should contain alphabet/number",
+                      "image": "Image is Required",
+                      "title": "Event title should contain alphabet/number",
+                      "type": "Type should contain only alphabets",
+                    }
+                  }
                   handleChange={[Function]}
                   handleSubmit={[Function]}
                   handleUpload={[Function]}
                   image=""
                   imgPreviewSrc=""
+                  loading={true}
                   title=""
                   type=""
                 />
@@ -164,12 +194,21 @@ ShallowWrapper {
                   description=""
                   editing={false}
                   errorStatus={false}
-                  errors={Object {}}
+                  errors={
+                    Object {
+                      "date": "Date is required",
+                      "description": "Description should contain alphabet/number",
+                      "image": "Image is Required",
+                      "title": "Event title should contain alphabet/number",
+                      "type": "Type should contain only alphabets",
+                    }
+                  }
                   handleChange={[Function]}
                   handleSubmit={[Function]}
                   handleUpload={[Function]}
                   image=""
                   imgPreviewSrc=""
+                  loading={true}
                   title=""
                   type=""
                 />,
@@ -186,12 +225,19 @@ ShallowWrapper {
                   "editing": false,
                   "errorMessage": undefined,
                   "errorStatus": false,
-                  "errors": Object {},
+                  "errors": Object {
+                    "date": "Date is required",
+                    "description": "Description should contain alphabet/number",
+                    "image": "Image is Required",
+                    "title": "Event title should contain alphabet/number",
+                    "type": "Type should contain only alphabets",
+                  },
                   "handleChange": [Function],
                   "handleSubmit": [Function],
                   "handleUpload": [Function],
                   "image": "",
                   "imgPreviewSrc": "",
+                  "loading": true,
                   "title": "",
                   "type": "",
                 },
@@ -245,12 +291,21 @@ ShallowWrapper {
                   description=""
                   editing={false}
                   errorStatus={false}
-                  errors={Object {}}
+                  errors={
+                    Object {
+                      "date": "Date is required",
+                      "description": "Description should contain alphabet/number",
+                      "image": "Image is Required",
+                      "title": "Event title should contain alphabet/number",
+                      "type": "Type should contain only alphabets",
+                    }
+                  }
                   handleChange={[Function]}
                   handleSubmit={[Function]}
                   handleUpload={[Function]}
                   image=""
                   imgPreviewSrc=""
+                  loading={true}
                   title=""
                   type=""
                 />
@@ -294,12 +349,21 @@ ShallowWrapper {
                     description=""
                     editing={false}
                     errorStatus={false}
-                    errors={Object {}}
+                    errors={
+                      Object {
+                        "date": "Date is required",
+                        "description": "Description should contain alphabet/number",
+                        "image": "Image is Required",
+                        "title": "Event title should contain alphabet/number",
+                        "type": "Type should contain only alphabets",
+                      }
+                    }
                     handleChange={[Function]}
                     handleSubmit={[Function]}
                     handleUpload={[Function]}
                     image=""
                     imgPreviewSrc=""
+                    loading={true}
                     title=""
                     type=""
                   />
@@ -349,12 +413,21 @@ ShallowWrapper {
                     description=""
                     editing={false}
                     errorStatus={false}
-                    errors={Object {}}
+                    errors={
+                      Object {
+                        "date": "Date is required",
+                        "description": "Description should contain alphabet/number",
+                        "image": "Image is Required",
+                        "title": "Event title should contain alphabet/number",
+                        "type": "Type should contain only alphabets",
+                      }
+                    }
                     handleChange={[Function]}
                     handleSubmit={[Function]}
                     handleUpload={[Function]}
                     image=""
                     imgPreviewSrc=""
+                    loading={true}
                     title=""
                     type=""
                   />
@@ -371,12 +444,21 @@ ShallowWrapper {
                     description=""
                     editing={false}
                     errorStatus={false}
-                    errors={Object {}}
+                    errors={
+                      Object {
+                        "date": "Date is required",
+                        "description": "Description should contain alphabet/number",
+                        "image": "Image is Required",
+                        "title": "Event title should contain alphabet/number",
+                        "type": "Type should contain only alphabets",
+                      }
+                    }
                     handleChange={[Function]}
                     handleSubmit={[Function]}
                     handleUpload={[Function]}
                     image=""
                     imgPreviewSrc=""
+                    loading={true}
                     title=""
                     type=""
                   />,
@@ -393,12 +475,19 @@ ShallowWrapper {
                     "editing": false,
                     "errorMessage": undefined,
                     "errorStatus": false,
-                    "errors": Object {},
+                    "errors": Object {
+                      "date": "Date is required",
+                      "description": "Description should contain alphabet/number",
+                      "image": "Image is Required",
+                      "title": "Event title should contain alphabet/number",
+                      "type": "Type should contain only alphabets",
+                    },
                     "handleChange": [Function],
                     "handleSubmit": [Function],
                     "handleUpload": [Function],
                     "image": "",
                     "imgPreviewSrc": "",
+                    "loading": true,
                     "title": "",
                     "type": "",
                   },

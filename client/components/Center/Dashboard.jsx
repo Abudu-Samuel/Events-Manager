@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -182,7 +183,7 @@ export class Dashboard extends React.Component {
                                   <div className="col-md-4 mb-4" key={event.id}>
                                     <div className="card hoverable text-center">
                                       <img className="img-fluid hoverable img-view"
-                                        src={event.image} alt="Card image cap" />
+                                        src={event.image} />
                                       <div className="card-body">
                                         <h4 className="card-title">
                                           {
@@ -240,7 +241,7 @@ export class Dashboard extends React.Component {
                                 (<div className="col-md-4 mb-4" key={center.id}>
                                   <div className="card hoverable text-center">
                                     <img className="img-fluid hoverable img-view"
-                                      src={center.image} alt="Card image cap" />
+                                      src={center.image} />
                                     <div className="card-body">
                                       <h4 className="card-title">
                                         {
@@ -328,10 +329,10 @@ const mapStateToProps = state => ({
  *
  * @return {object} mapped dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  getAllCenters: centerData => dispatch(userActions.getAllCenters(centerData)),
-  getAllEvents: eventData => dispatch(userActions.getAllEvents(eventData))
-});
+export const mapDispatchToProps = dispatch => bindActionCreators({
+  getAllCenters: centerData => userActions.getAllCenters(centerData),
+  getAllEvents: eventData => userActions.getAllEvents(eventData)
+}, dispatch);
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -6,8 +6,10 @@ import { AddEvent, mapDispatchToProps } from '../../components/Event/AddEvent';
 
 const event = {
   preventDefault: jest.fn(),
+  handleUpload: () => Promise.resolve(),
   target: {
-    name: 'test'
+    name: 'test',
+    files: [{ data: 'samuel', type: 'image/jpg' }]
   }
 };
 
@@ -16,8 +18,16 @@ describe('<AddEvent />', () => {
     const wrapper = shallow(<AddEvent />);
     wrapper.instance().handleChange(event);
     wrapper.instance().handleSubmit(event);
-    expect(event.preventDefault).toHaveBeenCalled();
-    expect(wrapper).toMatchSnapshot();
+    wrapper.instance().handleUpload(event);
+    return Promise.resolve().then(() => {
+      wrapper.setProps({
+        image: 'img',
+        imgPreviewSrc: 'mg'
+      });
+      expect(event.preventDefault).toHaveBeenCalled();
+      expect(wrapper).toMatchSnapshot();
+      expect();
+    });
   });
 });
 

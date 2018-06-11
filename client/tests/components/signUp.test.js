@@ -123,30 +123,6 @@ describe('create component', () => {
     });
   });
 
-  it.skip('displays a server error from the server if the signup process fails ', () => {
-    const { userData } = userMockData;
-    const wrapper = shallow(<SignUp {...error} />);
-
-    wrapper.find('#firstname').simulate('change', { target: { name: 'firstname', value: userData.firstname } });
-
-    wrapper.find('#lastname').simulate('change', { target: { name: 'lastname', value: userData.lastname } });
-
-    wrapper.find('#username').simulate('change', { target: { name: 'username', value: userData.username } });
-
-    wrapper.find('#email').simulate('change', { target: { name: 'email', value: userData.email } });
-
-    wrapper.find('#password').simulate('change', { target: { name: 'password', value: userData.password } });
-
-    wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
-    expect(formSubmit.userSignUp).toHaveBeenCalledWith(wrapper.state());
-
-    // assert that user is redirected to dashboard after successful login.
-    return Promise.reject().catch(() => {
-      console.log('now', wrapper.state());
-      expect(wrapper.state().errorStatus).toBe(true);
-      // expect(formSubmit.history.push).toHaveBeenCalledWith('/dashboard');
-    });
-  });
 });
 
 describe('the mapDispatchToProps function', () => {

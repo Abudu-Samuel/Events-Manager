@@ -22,7 +22,6 @@ ShallowWrapper {
           className="col-xl-5 col-md-4 mb-3 try text-center"
         >
           <img
-            alt="Responsive image"
             className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
             src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
           />
@@ -101,7 +100,6 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <img
-              alt="Responsive image"
               className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
               src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
             />,
@@ -120,7 +118,6 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "alt": "Responsive image",
               "className": "img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro",
               "src": "http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png",
             },
@@ -438,7 +435,6 @@ ShallowWrapper {
             className="col-xl-5 col-md-4 mb-3 try text-center"
           >
             <img
-              alt="Responsive image"
               className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
               src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
             />
@@ -517,7 +513,6 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <img
-                alt="Responsive image"
                 className="img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro"
                 src="http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png"
               />,
@@ -536,7 +531,6 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "alt": "Responsive image",
                 "className": "img-fluid mb-3 teal-text z-depth-1 rounded-circle admpro",
                 "src": "http://res.cloudinary.com/leumas/image/upload/v1527177652/wnmjpssnmvcewty3huqf.png",
               },

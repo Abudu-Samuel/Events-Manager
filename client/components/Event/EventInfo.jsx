@@ -11,8 +11,7 @@ const EventDetails = ({
         <div className="row">
           <div className="col-xl-6 mb-4">
             <div className="card prev">
-              <img className="img-fluid equal" src={event.image}
-                alt="Card image cap" />
+              <img className="img-fluid equal" src={event.image} />
             </div>
           </div>
           <div className="col-xl-6 text-justify">
