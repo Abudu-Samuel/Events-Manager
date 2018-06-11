@@ -124,8 +124,8 @@ export class UserCenter extends React.Component {
                           <div className="card-body">
                             <h4 className="card-title">
                               {
-                                center.name.split('').length > 17 ?
-                                  `${center.name.slice(0, 14)}...` : center.name
+                                center.name.split('').length > 15 ?
+                                  `${center.name.slice(0, 13)}...` : center.name
                               }</h4>
                             <p className="card-text">
                               {
