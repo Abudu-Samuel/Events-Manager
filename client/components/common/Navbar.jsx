@@ -63,7 +63,7 @@ export class Navbar extends React.Component {
                 <img className="img-fluid" style={{
                   width: 31,
                   marginTop: -3
-                }} src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png" />
+                }} src="https://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png" />
               Events Manager</Link>
               <button className="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarSupportedContent"

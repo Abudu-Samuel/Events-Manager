@@ -134,7 +134,7 @@ const AdminForm = ({
                     id="img-preview" src={imgPreviewSrc} /> :
                     <img className="img-fluid hoverable max" id="img-preview"
                       src={image ||
-                       'http://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg'} />
+                       'https://res.cloudinary.com/leumas/image/upload/v1526641850/hovg22cucu1lghofxipa.jpg'} />
                 }
               </div>
               <BarLoader
