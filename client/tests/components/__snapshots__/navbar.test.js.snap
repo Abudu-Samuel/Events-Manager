@@ -31,6 +31,16 @@ ShallowWrapper {
               replace={false}
               to="/"
             >
+              <img
+                className="img-fluid"
+                src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                style={
+                  Object {
+                    "marginTop": -3,
+                    "width": 31,
+                  }
+                }
+              />
               Events Manager
             </Link>
             <button
@@ -113,6 +123,16 @@ ShallowWrapper {
               replace={false}
               to="/"
             >
+              <img
+                className="img-fluid"
+                src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                style={
+                  Object {
+                    "marginTop": -3,
+                    "width": 31,
+                  }
+                }
+              />
               Events Manager
             </Link>
             <button
@@ -192,6 +212,16 @@ ShallowWrapper {
               replace={false}
               to="/"
             >
+              <img
+                className="img-fluid"
+                src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                style={
+                  Object {
+                    "marginTop": -3,
+                    "width": 31,
+                  }
+                }
+              />
               Events Manager
             </Link>
             <button
@@ -268,6 +298,16 @@ ShallowWrapper {
                 replace={false}
                 to="/"
               >
+                <img
+                  className="img-fluid"
+                  src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                  style={
+                    Object {
+                      "marginTop": -3,
+                      "width": 31,
+                    }
+                  }
+                />
                 Events Manager
               </Link>,
               <button
@@ -339,13 +379,43 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Events Manager",
+                "children": Array [
+                  <img
+                    className="img-fluid"
+                    src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                    style={
+                      Object {
+                        "marginTop": -3,
+                        "width": 31,
+                      }
+                    }
+                  />,
+                  "Events Manager",
+                ],
                 "className": "font-weight-bold navbar-brand",
                 "replace": false,
                 "to": "/",
               },
               "ref": null,
-              "rendered": "Events Manager",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "img-fluid",
+                    "src": "http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png",
+                    "style": Object {
+                      "marginTop": -3,
+                      "width": 31,
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                "Events Manager",
+              ],
               "type": [Function],
             },
             Object {
@@ -613,6 +683,16 @@ ShallowWrapper {
                 replace={false}
                 to="/"
               >
+                <img
+                  className="img-fluid"
+                  src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                  style={
+                    Object {
+                      "marginTop": -3,
+                      "width": 31,
+                    }
+                  }
+                />
                 Events Manager
               </Link>
               <button
@@ -695,6 +775,16 @@ ShallowWrapper {
                 replace={false}
                 to="/"
               >
+                <img
+                  className="img-fluid"
+                  src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                  style={
+                    Object {
+                      "marginTop": -3,
+                      "width": 31,
+                    }
+                  }
+                />
                 Events Manager
               </Link>
               <button
@@ -774,6 +864,16 @@ ShallowWrapper {
                 replace={false}
                 to="/"
               >
+                <img
+                  className="img-fluid"
+                  src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                  style={
+                    Object {
+                      "marginTop": -3,
+                      "width": 31,
+                    }
+                  }
+                />
                 Events Manager
               </Link>
               <button
@@ -850,6 +950,16 @@ ShallowWrapper {
                   replace={false}
                   to="/"
                 >
+                  <img
+                    className="img-fluid"
+                    src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                    style={
+                      Object {
+                        "marginTop": -3,
+                        "width": 31,
+                      }
+                    }
+                  />
                   Events Manager
                 </Link>,
                 <button
@@ -921,13 +1031,43 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": "Events Manager",
+                  "children": Array [
+                    <img
+                      className="img-fluid"
+                      src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png"
+                      style={
+                        Object {
+                          "marginTop": -3,
+                          "width": 31,
+                        }
+                      }
+                    />,
+                    "Events Manager",
+                  ],
                   "className": "font-weight-bold navbar-brand",
                   "replace": false,
                   "to": "/",
                 },
                 "ref": null,
-                "rendered": "Events Manager",
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "img-fluid",
+                      "src": "http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png",
+                      "style": Object {
+                        "marginTop": -3,
+                        "width": 31,
+                      },
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  "Events Manager",
+                ],
                 "type": [Function],
               },
               Object {

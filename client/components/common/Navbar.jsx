@@ -60,6 +60,10 @@ export class Navbar extends React.Component {
            navbar-dark fixed-top">
             <div className="container">
               <Link to="/" className="font-weight-bold navbar-brand">
+                <img className="img-fluid" style={{
+                  width: 31,
+                  marginTop: -3
+                }} src="http://res.cloudinary.com/leumas/image/upload/v1528717065/e5pwimgb3imeobu34ual.png" />
               Events Manager</Link>
               <button className="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarSupportedContent"
